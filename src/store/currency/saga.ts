@@ -9,17 +9,20 @@ export function* getCurrenciesAsync() {
     const query = {
       query: gql`
         {
-          currencies {
-            name
+          prices {
+            currency
+            price
           }
         }
       `
     }
 
     const response = yield call(graphService, 'query', query);
-    const { currencies } = response.data;
     
-    yield put(actionObject(GET_CURRENCIES_ASYNC, { currencies }))
+    // const { currencies } = response.data;
+    const { prices } = response.data;
+    
+    yield put(actionObject(GET_CURRENCIES_ASYNC, { currencies: prices }))
   } catch(error) {
     console.log(error);
   }
