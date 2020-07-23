@@ -18,8 +18,7 @@ const Main = (props: any) => {
         {
           currencies.map((currency: any, index: number) => (
             <View key={index}>
-              <Text>{currency.currency}</Text>
-              <Text>{currency.price}</Text>
+              <Text>{currency.symbol}</Text>
             </View>
           ))
         }
