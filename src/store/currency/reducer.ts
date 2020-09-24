@@ -1,5 +1,5 @@
 import { GET_CURRENCIES_ASYNC } from './action-types'
-import { DispatchProps } from '../../interfaces';
+import { DispatchProps } from '../../types';
 
 const initialState = {
   currencies: []
