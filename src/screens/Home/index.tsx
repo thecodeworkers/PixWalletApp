@@ -1,27 +1,21 @@
-import React, { FC } from 'react';
-import { StyleSheet, View, Text, StatusBar } from 'react-native';
-import { connect } from 'react-redux';
-import { DefaultProps } from '../../types';
+import React from 'react';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import Portfolio from '../Portfolio';
+import Activity from '../Activity';
+import Exchange from '../Exchange';
+import Profile from '../Profile';
 
-const Home: FC<DefaultProps> = ({ theming: { theme } }) => {
+const Tab = createBottomTabNavigator();
+
+const Home = () => {
   return (
-    <>
-      <StatusBar barStyle={theme.statusBar} />
-      <View style={[styles.container, { backgroundColor: theme.background }]}>
-        <Text style={{ color: theme.screenText }}>Pix App</Text>
-      </View>
-    </>  
+    <Tab.Navigator>
+      <Tab.Screen name="portfolio" component={Portfolio} />
+      <Tab.Screen name="activity" component={Activity} />
+      <Tab.Screen name="exchange" component={Exchange} />
+      <Tab.Screen name="profile" component={Profile} />
+    </Tab.Navigator>      
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center'
-  }
-});;
-
-const mapStateToProps = ({ theming }: DefaultProps): DefaultProps => ({ theming })
-
-export default connect(mapStateToProps)(Home);
+export default Home;
