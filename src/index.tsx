@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { StyleSheet, View, Text, StatusBar } from 'react-native';
+import { connect } from 'react-redux';
+import { DefaultProps } from './types';
 
-const Main = () => {
+const Main: FC<DefaultProps> = ({ theming: { theme } }) => {
   return (
     <>
-      <StatusBar barStyle="dark-content" />
-      <View style={styles.container}>
-        <Text>Pix App</Text>
+      <StatusBar barStyle={theme.statusBar} />
+      <View style={[styles.container, { backgroundColor: theme.background }]}>
+        <Text style={{ color: theme.screenText }}>Pix App</Text>
       </View>
     </>  
   );
@@ -20,4 +22,6 @@ const styles = StyleSheet.create({
   }
 });;
 
-export default Main;
+const mapStateToProps = ({ theming }: DefaultProps): DefaultProps => ({ theming })
+
+export default connect(mapStateToProps)(Main);

@@ -7,7 +7,10 @@ import rootSaga from './sagas';
 
 const persistConfig = {
   key: 'root',
-  storage: AsyncStorage
+  storage: AsyncStorage,
+  blacklist: [
+    'theming'
+  ]
 }
 
 const persistedReducer = persistReducer(persistConfig, reducers);
