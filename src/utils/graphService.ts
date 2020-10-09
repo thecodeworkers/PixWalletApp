@@ -1,11 +1,10 @@
-import { InMemoryCache } from 'apollo-cache-inmemory';
-import { call } from 'redux-saga/effects';
 import ApolloClient from 'apollo-boost';
+import { InMemoryCache } from 'apollo-cache-inmemory';
+import { HOST_URI } from './path';
+import { call } from 'redux-saga/effects';
 
-// El host 10.0.0.2 es cuando se trabaja con un emulador
-// Si se desea trabajar con el celular se debe levantar el server de python en la red wifi
 const client = new ApolloClient({
-  uri: 'http://10.0.2.2:5000/graphql/',
+  uri: `${HOST_URI}graphql/`,
   cache: new InMemoryCache({
     addTypename: false
   })
