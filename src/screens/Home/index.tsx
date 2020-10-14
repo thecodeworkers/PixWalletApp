@@ -14,13 +14,13 @@ import { connect } from 'react-redux';
 const Home = ({ theming: { theme }}: any) => {
 
   const Tab = createBottomTabNavigator(); 
-  const { whiteSmoke, summerSky, veryLightGrey } = General;
+  const { summerSky } = General;
 
   return (
     <Tab.Navigator
       tabBarOptions={
         {
-          activeTintColor: summerSky,
+          activeTintColor: theme.defaultActiveIcon,
           tabStyle: { backgroundColor: theme.background, ...styles.tabStyles},
           style: { ...styles.main },
           showLabel: false,

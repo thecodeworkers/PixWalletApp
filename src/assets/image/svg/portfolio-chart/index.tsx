@@ -2,12 +2,9 @@ import React, { FC } from 'react';
 import { View } from 'react-native';
 import { SvgXml } from 'react-native-svg';
 
-// interface Props {
-//   colors: any
-// }
 
 const PortfolioChart = (children: any) => {
-  const figure = `<svg width="206" height="206" viewBox="0 0 206 206">
+  const figure = `<svg width="100%" height="100%" viewBox="0 0 206 206">
   <defs>
     <linearGradient id="linear-gradient" x1="1" y1="0.5" x2="0.079" y2="0.5" gradientUnits="objectBoundingBox">
       <stop offset="0" stop-color="#304352"/>

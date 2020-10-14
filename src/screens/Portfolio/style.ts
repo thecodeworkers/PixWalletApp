@@ -1,30 +1,121 @@
 import { StyleSheet } from 'react-native';
 
+const shadowOptions = (width: number, height: number, opacity: number, radius: number, color: string, elevation: number)=> {
+  const options = {
+    shadowColor: color,
+    shadowOffset: {
+      width,
+      height,
+    },
+    shadowOpacity: opacity,
+    shadowRadius: radius,
+    elevation
+  }
+
+  return options;
+}
+
 const styles = StyleSheet.create({
 
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center'
+    // justifyContent: 'center',
+    // alignItems: 'center'
+    backgroundColor: 'blue',
   },
+
   portfolioCard: {
     width: '65%', 
     position: 'absolute', 
     justifyContent: 'center', 
     alignItems: 'center', 
     height: '65%', 
-        shadowColor: "#000",
+    ...shadowOptions(0, 4, 0.30, 4.65, '#000', 12),
+    borderRadius: 10,
+    zIndex: 999
+  },
+
+  chartParent: {
+    width: 230, 
+    height: 230, 
+    justifyContent: 'center', 
+    alignItems: 'center', 
+    alignSelf: 'center'
+  },
+
+  linearGradient: {
+    width: '22%',
+    paddingVertical: '3%',
+    borderRadius: 10,
+    backgroundColor:'blue',
+    justifyContent: 'center',
+    alignItems: 'center',
+    ...shadowOptions(0, 4, 0.30, 2.65, '#000', 8),
+  },
+
+  estimatedText: {
+    fontSize: 11,
+    fontWeight: 'bold'
+  },
+
+  fundsText: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    marginTop: '2%'
+  },
+
+  //ACTION BUTTONS 
+
+  actionButtons: {
+    marginVertical: '8%',
+    width: '90%',
+    alignSelf: 'center',
+    flexDirection: 'row',
+    justifyContent: 'space-between'
+  },
+
+  contentParent: {
+    marginRight: '5%',
+    marginLeft: '5%',
+  },
+
+  leftArrow: {
+    transform:[
+      {rotate: '25deg'}
+    ]
+  },
+
+  rightArrow: {
+    transform:[
+      {rotate: '-25deg'}
+    ]
+  },
+
+  //CURRENCY CARDS
+
+  currencyCard: {
+    flexDirection: 'row', 
+    paddingVertical: '5%', 
+    borderRadius: 10, 
+    paddingHorizontal: '5%',
+    shadowColor: "#000",
     shadowOffset: {
       width: 0,
       height: 4,
     },
     shadowOpacity: 0.30,
-    shadowRadius: 4.65,
+    shadowRadius: 2.65,
+    elevation: 4,
+    marginBottom: '3%'
+  },
 
-    elevation: 8,
-    borderRadius: 10
-
+  cardGrayText: {
+    backgroundColor: 'red'
   }
+
+
+
+
 });;
 
 export default styles;
