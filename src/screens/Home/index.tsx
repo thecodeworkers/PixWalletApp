@@ -4,6 +4,7 @@ import Portfolio from '../Portfolio';
 import Activity from '../Activity';
 import Exchange from '../Exchange';
 import Profile from '../Profile';
+import Receive from '../Receive';
 
 const Tab = createBottomTabNavigator();
 
@@ -13,7 +14,7 @@ const Home = () => {
       <Tab.Screen name="portfolio" component={Portfolio} />
       <Tab.Screen name="activity" component={Activity} />
       <Tab.Screen name="exchange" component={Exchange} />
-      <Tab.Screen name="profile" component={Profile} />
+      <Tab.Screen name="receive" component={Receive} />
     </Tab.Navigator>      
   );
 }

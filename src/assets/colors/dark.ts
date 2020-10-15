@@ -8,7 +8,8 @@ const dark: any = {
   screenText: '#F5F5F5',
   defaultActiveIcon: '#E5E5E5',
   defaultInactiveIcon: '#313131',
-  statusBar: 'light-content'
+  statusBar: 'light-content',
+  announcement:'#7A7A7A'
 }
 
 export default dark;
