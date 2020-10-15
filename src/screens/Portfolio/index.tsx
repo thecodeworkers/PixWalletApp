@@ -1,21 +1,23 @@
 import React, { FC, useState } from 'react';
-import { StyleSheet, View, Text, StatusBar, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, Text, StatusBar, TouchableOpacity, requireNativeComponent } from 'react-native';
 import { connect } from 'react-redux';
-import dark from '../../assets/colors/dark';
-import light from '../../assets/colors/light';
 import { DefaultProps } from '../../types';
 import { i18n } from '../../utils';
 import { bindActionCreators } from 'redux';
 import { setTheme } from '../../store/actions';
-import { PortfolioChart, UsdCard, UsdLine } from '../../assets/image/svg';
+import { PortfolioChart, UsdCard, UsdLine, Arrows } from '../../assets/image/svg';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import LinearGradient from 'react-native-linear-gradient';
+import ActionButtons from './components/action-buttons';
+import CardsRedirect from './components/cards-redirect';
 import styles from './style';
+import { ScrollView } from 'react-native-gesture-handler';
 
 const Portfolio: FC<DefaultProps> = ({ theming: { theme }, action }: any) => {
 
-  const [ selectedCard, setSelectedCard ] = useState(null);
-  const [ backgroundCard, setbackgroundCard ] = useState(theme.background);
+  const [selectedCard, setSelectedCard] = useState(null);
+  const [backgroundCard, setbackgroundCard] = useState([]);
+  const [data, setData] = useState(null);
 
   const lightTheme = () => {
     action.setTheme('light');
@@ -25,19 +27,35 @@ const Portfolio: FC<DefaultProps> = ({ theming: { theme }, action }: any) => {
     action.setTheme('dark');
   }
 
-  const cardSelected = (values: any) => {
-    console.log(values)
-    setbackgroundCard(values.background);
+  const cardSelected = (values: any, index: any) => {
+
+    if(index != selectedCard) {
+      setSelectedCard(index);
+      setbackgroundCard(values.gradient);
+      setData(values);
+      return;
+    }
+
+    resetStates();
+  }
+
+  const resetStates = () => {
+    setSelectedCard(null);
+    setbackgroundCard([]);
+    setData(null);
   }
 
   const currencies = [
-    { name: 'USD', funds: '200', percent: '0.00%', price: '$9,533.75', background: 'green' },
-    { name: 'BTC', funds: '300', percent: '0.00%', price: '$9,533.75', background: 'orange' }
+    { name: 'USD', funds: '200', percent: '0.00%', price: '$9,533.75', gradient: ['#45B649', '#45B649', '#DCE35B'], color: '#45B649'},
+    { name: 'BTC', funds: '300', percent: '0.00%', price: '$9,533.75', gradient: ['#FF8008', '#FF8008', '#FFC837'], color: '#F7931A'},
+    { name: 'ETH', funds: '300', percent: '0.00%', price: '$9,533.75', gradient: ['#304352', '#304352', '#AEAEE6'], color: '#444457' },
+    { name: 'DASH', funds: '300', percent: '0.00%', price: '$9,533.75', gradient: ['#03629B', '#03629B', '#008DE4'], color: '#008DE4'}
   ]
-
+ 
   return (
     <>
-      {/* <StatusBar barStyle={theme.statusBar} /> */}
+      <StatusBar barStyle={theme.statusBar} />
+      <ScrollView>
       <View style={[styles.container, { backgroundColor: theme.background }]}>
 
         <View style={{ marginTop: '5%', marginBottom: '10%', alignItems: 'center' }}>
@@ -45,7 +63,7 @@ const Portfolio: FC<DefaultProps> = ({ theming: { theme }, action }: any) => {
         </View>
         <View style={styles.chartParent}>
 
-          <TouchableOpacity style={[styles.portfolioCard, { backgroundColor: theme.background }]}>
+          <TouchableOpacity style={[styles.portfolioCard, { backgroundColor: theme.bigCard }]} activeOpacity={0.7}>
             <Text style={[styles.estimatedText, { color: theme.veryLightGrey }]}>Estimated value</Text>
             <Text style={[styles.fundsText, { color: theme.screenText }]}>1.123,32$</Text>
           </TouchableOpacity>
@@ -53,84 +71,75 @@ const Portfolio: FC<DefaultProps> = ({ theming: { theme }, action }: any) => {
         </View>
 
         <View style={styles.contentParent}>
-          <View style={styles.actionButtons}>
-            <LinearGradient
-              start={{ x: 0, y: 0 }}
-              end={{ x: 1, y: 0 }}
-              colors={['#F5F5F5', '#F5F5F5', '#FFFFFF']}
-              style={styles.linearGradient}>
-
-              <Icon name="trending-flat" color={theme.defaultActiveIcon} size={32} style={styles.leftArrow} />
-            </LinearGradient>
-
-            <LinearGradient
-              start={{ x: 0, y: 0 }}
-              end={{ x: 1, y: 0 }}
-              colors={['#F5F5F5', '#F5F5F5', '#FFFFFF']}
-              style={styles.linearGradient}>
-              <Icon name="compare-arrows" color={theme.defaultActiveIcon} size={32} />
-            </LinearGradient>
-
-            <LinearGradient
-              start={{ x: 0, y: 0 }}
-              end={{ x: 1, y: 0 }}
-              colors={['#F5F5F5', '#F5F5F5', '#FFFFFF']}
-              style={styles.linearGradient}>
-              <Icon name="trending-flat" color={theme.defaultActiveIcon} size={32} style={styles.rightArrow} />
-            </LinearGradient>
-          </View>
+          <ActionButtons />
 
           {
-            currencies.map((res, index)=> {
+            currencies.map((res, index) => {
               return (
-                <TouchableOpacity 
-                  style={[styles.currencyCard, { backgroundColor: backgroundCard}]} 
-                  onPress={() => cardSelected(res)} 
-                  key={index}>
+                <TouchableOpacity
+                  onPress={() => cardSelected(res, index)}
+                  key={index}
+                  activeOpacity={0.5}>
+                  <LinearGradient
+                    start={{ x: 0, y: 3}}
+                    end={{ x: 1, y: 0 }}
+                    colors={index == selectedCard ? backgroundCard : [theme.defaultCard, theme.defaultCard, theme.defaultCard]}
+                    style={styles.cardGradient}>
 
-                  <View style={{ flex: 0.33, justifyContent: 'center', alignItems: 'flex-start' }}>
-                    <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }}>
-                      <View style={{ width: 50, height: 50 }}>
-                        <UsdCard />
-                      </View>
-                      <View style={{ flexDirection: 'column', marginLeft: '5%' }}>
-                        <Text style={{ color: theme.screenText }}>{res.name}</Text>
-                        <Text style={{ color: theme.veryLightGrey }}>{res.funds}</Text>
+                    <View style={{ flex: 0.33, justifyContent: 'center', alignItems: 'flex-start' }}>
+                      <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }}>
+                        <View style={{ width: 50, height: 50 }}>
+                          <UsdCard />
+                        </View>
+                        <View style={{ flexDirection: 'column', marginLeft: '5%' }}>
+                          <Text style={index != selectedCard ? { color: theme.screenText } : { color: '#fff' }}>{res.name}</Text>
+                          <Text style={index != selectedCard ? { color: theme.veryLightGrey } : { color: '#fff' }}>{res.funds}</Text>
+                        </View>
                       </View>
                     </View>
-                  </View>
 
-                  <View style={{ flex: 0.33, alignItems: 'flex-end' }}>
-                    <View style={{ width: '90%', height: 50 }}>
-                      <UsdLine />
+                    {
+                      index != selectedCard
+                        ?
+                        <>
+                          <View style={{ flex: 0.33, alignItems: 'flex-end' }}>
+                            <View style={{ width: '90%', height: 50 }}>
+                              <UsdLine />
+                            </View>
+                          </View>
+
+                          <View style={{ flex: 0.33, justifyContent: 'center', alignItems: 'flex-end' }}>
+                            <Text style={{ color: theme.veryLightGrey }}>{res.percent}</Text>
+                            <Text style={{ color: res.color }}>{res.price}</Text>
+                          </View>
+                        </>
+                        :
+                       <>
+                       <CardsRedirect backgroundCard={backgroundCard} data={data}/>
+                       </>
+                    }
+
+                    <View>
                     </View>
-                  </View>
-
-                  <View style={{ flex: 0.33, justifyContent: 'center', alignItems: 'flex-end' }}>
-                    <Text style={{ color: theme.veryLightGrey }}>{res.percent}</Text>
-                    <Text style={{ color: theme.screenText }}>{res.price}</Text>
-                  </View>
-
-                  <View>
-                  </View>
+                  </LinearGradient>
                 </TouchableOpacity>
               );
             })
           }
 
-          <TouchableOpacity onPress={lightTheme}>
+          {/* <TouchableOpacity onPress={lightTheme}>
             <Text>light</Text>
           </TouchableOpacity>
 
           <TouchableOpacity onPress={darkTheme}>
             <Text>dark</Text>
-          </TouchableOpacity>
+          </TouchableOpacity> */}
         </View>
       </View>
+      </ScrollView>
     </>
   );
 }
-
 
 const mapStateToProps = ({ theming }: DefaultProps): DefaultProps => ({ theming })
 

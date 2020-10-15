@@ -14,7 +14,6 @@ import { connect } from 'react-redux';
 const Home = ({ theming: { theme }}: any) => {
 
   const Tab = createBottomTabNavigator(); 
-  const { summerSky } = General;
 
   return (
     <Tab.Navigator
