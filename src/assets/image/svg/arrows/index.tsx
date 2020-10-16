@@ -1,5 +1,4 @@
 import React, { FC } from 'react';
-import { View } from 'react-native';
 import { SvgXml } from 'react-native-svg';
 
 const Arrows = () => {
