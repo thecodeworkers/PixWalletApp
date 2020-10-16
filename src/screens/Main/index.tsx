@@ -1,6 +1,7 @@
 import React from 'react';
 import Home from '../Home';
 import Onboarding from '../Onboarding';
+import MainNavigation from '../../navigations';
 
 const Main = () => {
   const isAuth = true;
@@ -8,7 +9,7 @@ const Main = () => {
   return (
     <>
       {
-        isAuth ? <Home/> : <Onboarding/>
+        isAuth ? <MainNavigation/> : <Onboarding/>
       }
     </>
   );
