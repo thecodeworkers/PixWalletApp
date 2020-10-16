@@ -21,14 +21,6 @@ let Main: FC<DefaultProps> = ({ theming: { theme }, action, navigation }: any) =
   const [backgroundCard, setbackgroundCard] = useState([]);
   const [data, setData] = useState(null);
 
-  const Stack = createStackNavigator();
-
-  const Portfolio = () => (
-    <Stack.Navigator headerMode="none">
-      <Stack.Screen name="main" component={Main} />
-      <Stack.Screen name="summary" component={Summary} />
-    </Stack.Navigator>
-  )
 
 
   const lightTheme = () => {
@@ -166,6 +158,15 @@ const mapDispatchToProps = (dispatch: any) => {
 }
 
 Main = connect(mapStateToProps, mapDispatchToProps)(Main);
+
+const Stack = createStackNavigator();
+
+const Portfolio = () => (
+  <Stack.Navigator headerMode="none">
+    <Stack.Screen name="main" component={Main} />
+    <Stack.Screen name="summary" component={Summary} />
+  </Stack.Navigator>
+)
 
 export default Portfolio;
 
