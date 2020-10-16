@@ -56,7 +56,10 @@ const Receive: FC<DefaultProps> = ({ theming: { theme }, action }: any) => {
         <Header route={'portfolio'} title='receive' colorRight={theme.screenText} colorLeft={theme.defaultActiveIcon} />
 
         <View style={styles.diamondConatiner}>
+          <View style={{width:200, height:200 }}>
           <BtcDiamond />
+          </View>
+         
         </View>
 
         <View style={styles.qrContainer}>

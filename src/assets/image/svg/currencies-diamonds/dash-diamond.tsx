@@ -66,7 +66,7 @@ const DashDiamond = () => {
   
   `
  		return (
-				<SvgXml xml={logo}/>
+				<SvgXml xml={logo} width={'100%'} height={'100%'}/>
 		);
 }
 
