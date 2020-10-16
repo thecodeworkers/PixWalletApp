@@ -19,9 +19,6 @@ const styles = StyleSheet.create({
 
   container: {
     flex: 1,
-    // justifyContent: 'center',
-    // alignItems: 'center'
-    backgroundColor: 'blue',
   },
 
   portfolioCard: {
@@ -66,39 +63,26 @@ const styles = StyleSheet.create({
 
   //ACTION BUTTONS 
 
-  actionButtons: {
-    marginVertical: '8%',
-    width: '90%',
-    alignSelf: 'center',
-    flexDirection: 'row',
-    justifyContent: 'space-between'
-  },
-
   contentParent: {
     marginRight: '5%',
     marginLeft: '5%',
-  },
-
-  leftArrow: {
-    transform:[
-      {rotate: '25deg'}
-    ]
-  },
-
-  rightArrow: {
-    transform:[
-      {rotate: '-25deg'}
-    ]
+    marginBottom: '5%'
   },
 
   //CURRENCY CARDS
 
-  currencyCard: {
-    flexDirection: 'row', 
+  cardGrayText: {
+    backgroundColor: 'red'
+  },
+
+  cardGradient: {
+    width: '100%',
     paddingVertical: '5%', 
-    borderRadius: 10, 
     paddingHorizontal: '5%',
+    flexDirection: 'row', 
+    borderRadius: 10, 
     shadowColor: "#000",
+    marginBottom: '4%',
     shadowOffset: {
       width: 0,
       height: 4,
@@ -106,16 +90,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.30,
     shadowRadius: 2.65,
     elevation: 4,
-    marginBottom: '3%'
   },
-
-  cardGrayText: {
-    backgroundColor: 'red'
-  }
-
-
-
-
 });;
 
 export default styles;

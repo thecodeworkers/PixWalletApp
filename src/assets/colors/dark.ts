@@ -8,7 +8,9 @@ const dark: any = {
   screenText: '#F5F5F5',
   defaultActiveIcon: '#E5E5E5',
   defaultInactiveIcon: '#313131',
-  statusBar: 'light-content'
+  statusBar: 'light-content',
+  cardGradient: ['#313131', '#313131', '#313131'],
+  bigCard: '#161617'
 }
 
 export default dark;
