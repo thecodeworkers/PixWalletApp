@@ -5,7 +5,7 @@ import { SafeAreaView } from 'react-native';
 
 const Root = () => (
   <NavigationContainer>
-    <SafeAreaView style={{flex :1}}>
+    <SafeAreaView style={{ flex: 1 }}>
       <Main/>
     </SafeAreaView>
   </NavigationContainer>

@@ -22,21 +22,21 @@ const styles = StyleSheet.create({
   },
 
   portfolioCard: {
-    width: '65%', 
-    position: 'absolute', 
-    justifyContent: 'center', 
-    alignItems: 'center', 
-    height: '65%', 
+    width: '65%',
+    position: 'absolute',
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: '65%',
     ...shadowOptions(0, 4, 0.30, 4.65, '#000', 12),
     borderRadius: 10,
     zIndex: 999
   },
 
   chartParent: {
-    width: 230, 
-    height: 230, 
-    justifyContent: 'center', 
-    alignItems: 'center', 
+    width: 230,
+    height: 230,
+    justifyContent: 'center',
+    alignItems: 'center',
     alignSelf: 'center'
   },
 
@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
     marginTop: '2%'
   },
 
-  //ACTION BUTTONS 
+  //ACTION BUTTONS
 
   contentParent: {
     marginRight: '5%',
@@ -77,10 +77,10 @@ const styles = StyleSheet.create({
 
   cardGradient: {
     width: '100%',
-    paddingVertical: '5%', 
+    paddingVertical: '5%',
     paddingHorizontal: '5%',
-    flexDirection: 'row', 
-    borderRadius: 10, 
+    flexDirection: 'row',
+    borderRadius: 10,
     shadowColor: "#000",
     marginBottom: '4%',
     shadowOffset: {
