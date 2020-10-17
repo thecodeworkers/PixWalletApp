@@ -1,8 +1,7 @@
-import Header from './Header';
 import Announcement from './Announcement';
 
 export {
-  Header,
   Announcement,
 };
 
+export { default as Header } from './Header';

@@ -9,7 +9,9 @@ const light: any = {
   defaultActiveIcon: '#35A7D6',
   defaultInactiveIcon: '#C9C9C9',
   statusBar: 'dark-content',
-  announcement:'#EEEEEE'
+  announcement:'#EEEEEE',
+  cardGradient: ['#F5F5F5', '#F5F5F5', '#FFFFFF'],
+  bigCard: '#FFFFFF'
 }
 
 export default light;
