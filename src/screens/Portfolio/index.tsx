@@ -13,7 +13,7 @@ import CardsRedirect from './components/cards-redirect';
 import styles from './style';
 import { ScrollView } from 'react-native-gesture-handler';
 import { createStackNavigator } from '@react-navigation/stack';
-import { Summary } from '../index';
+import Summary from '../Summary';
 
 let Main: FC<DefaultProps> = ({ theming: { theme }, action, navigation }: any) => {
 
