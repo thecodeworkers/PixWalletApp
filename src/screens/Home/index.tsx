@@ -4,6 +4,7 @@ import Portfolio from '../Portfolio';
 import Activity from '../Activity';
 import Exchange from '../Exchange';
 import Profile from '../Profile';
+import Receive from '../Receive';
 import General from '../../assets/colors/general';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import IonicIcon from 'react-native-vector-icons/Ionicons';
