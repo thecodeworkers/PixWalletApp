@@ -1,6 +1,5 @@
 import { StyleSheet, PixelRatio, Dimensions, Platform } from "react-native";
 
-// const font = PixelRatio.getFontScale();
 const dimension = Dimensions.get('window').width;
 const scale = dimension / 320;
 
@@ -76,25 +75,19 @@ const styles = StyleSheet.create({
     position: 'absolute',
     width: '83%',
     height: 74,
-    shadowColor: '#000',
     borderRadius: 10,
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-    elevation: 3,
+    ...shadowOptions(0, 2, 0.25, 3.84, '#000', 3),
 
     flexDirection: 'row',
     justifyContent: 'space-between',
-    padding: '5%'
+    padding: '5%',
+    zIndex: 999
   },
 
   smallCard: {
     flex: 0.25,
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
 
   cardGradient: {
@@ -102,7 +95,7 @@ const styles = StyleSheet.create({
     height: 8,
     borderRadius: 3,
     alignSelf: 'center',
-    marginBottom: '3%'
+    marginBottom: '3%',
   },
 
   percent: {

@@ -6,9 +6,23 @@ import { DefaultProps } from '../../../../types';
 import styles from './styles';
 import LinearGradient from 'react-native-linear-gradient';
 import { Header } from '../../../../components';
-
 import { PixLogo, SummaryChart } from '../../../../assets/image/svg';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+
+import {
+  SlideAreaChart,
+  SlideBarChart,
+  SlideBarChartProps,
+  SlideAreaChartProps,
+  YAxisProps,
+  XAxisProps,
+  XAxisLabelAlignment,
+  YAxisLabelAlignment,
+  CursorProps,
+  ToolTipProps,
+  ToolTipTextRenderersInput,
+  GradientProps,
+} from 'react-native-slide-charts'
 
 const Summary = ({ theming: { theme }, action, navigation }: any) => {
 
@@ -27,7 +41,7 @@ const Summary = ({ theming: { theme }, action, navigation }: any) => {
 
       <View style={styles.summaryContent}>
         <View>
-          <Text style={[styles.balanceText, {color: theme.veryLightGrey}]}>My balance</Text>
+          <Text style={[styles.balanceText, { color: theme.veryLightGrey }]}>My balance</Text>
         </View>
 
         <View style={styles.userContainer}>
@@ -45,10 +59,9 @@ const Summary = ({ theming: { theme }, action, navigation }: any) => {
           <View style={[styles.chartCards, { backgroundColor: theme.background }]}>
 
             {
-              currencies.map(res => {
-
+              currencies.map((res, index) => {
                 return (
-                  <View style={styles.smallCard}>
+                  <TouchableOpacity style={{ justifyContent: 'center', alignItems: 'center', zIndex: 999 }} onPress={() => console.log('enter')} key={index}>
                     <LinearGradient
                       start={{ x: 0, y: 3 }}
                       end={{ x: 1, y: 0 }}
@@ -60,40 +73,31 @@ const Summary = ({ theming: { theme }, action, navigation }: any) => {
 
                     <Text>{res.name}</Text>
                     <Text style={[styles.percent, { color: theme.veryLightGrey }]}>{res.percent}</Text>
-                  </View>
-
+                  </TouchableOpacity>
                 )
-
               })
-
             }
 
-            {/* <View style={styles.smallCard}>
-              <LinearGradient
-                start={{ x: 0, y: 3 }}
-                end={{ x: 1, y: 0 }}
-                locations={[0, 0.8, 0]}
-                colors={['#45B649', '#45B649', '#DCE35B'].reverse()}
-                style={styles.cardGradient}
-                useAngle={true}
-              />
-
-              <Text>USD</Text>
-              <Text style={[styles.percent, { color: theme.veryLightGrey }]}>0,00%</Text>
-            </View> */}
-            {/* <View>
-              <Text>BTC</Text>
-            </View>
-            <View>
-              <Text>ETH</Text>
-            </View>
-            <View>
-              <Text>DASH</Text>
-            </View> */}
           </View>
+
           <SummaryChart />
         </View>
+
+
       </View>
+
+         <View>
+          <SlideBarChart
+            data={[
+              { x: 0, y: 0 },
+              { x: 1, y: 1 },
+              { x: 2, y: 2 },
+              { x: 3, y: 3 },
+              { x: 4, y: 4 },
+            ]}
+          />
+        </View>
+
     </View>
   )
 };
