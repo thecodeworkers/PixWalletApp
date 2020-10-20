@@ -24,15 +24,14 @@ const shadowOptions = (width: number, height: number, opacity: number, radius: n
   return options;
 }
 
-
 const styles = StyleSheet.create({
   main: {
-    flex: 1
+    height: '100%'
   },
 
   summaryContent: {
     marginRight: '5%',
-    marginLeft: '5%'
+    marginLeft: '5%',
   },
 
   balanceText: {
@@ -63,7 +62,7 @@ const styles = StyleSheet.create({
   },
 
   chartContent: {
-    height: '30%',
+    // height: '30%',
     width: '100%',
     marginTop: '4%',
     justifyContent: 'center',
@@ -100,6 +99,39 @@ const styles = StyleSheet.create({
 
   percent: {
     fontSize: normalize(12)
+  },
+
+  filterParent: {
+    marginLeft: '5%',
+    marginRight: '5%',
+    marginTop: '5%',
+    flexDirection: 'row',
+    justifyContent: 'space-evenly',
+  },
+
+  filterCard: {
+    backgroundColor: '#fff',
+    paddingVertical: 6,
+    paddingHorizontal: 16,
+    borderRadius: 10
+  },
+
+  bigCard: {
+    ...shadowOptions(0, 2, 0.25, 2.84, '#000', 3),
+    width: '70%',
+    borderRadius: 5,
+    alignSelf: 'center',
+    padding: '5%',
+    marginVertical: '5%'
+  },
+
+  row: {
+    flexDirection: 'row',
+    justifyContent:'space-between'
+  },
+
+  textBold: {
+    fontWeight: 'bold'
   }
 
 });

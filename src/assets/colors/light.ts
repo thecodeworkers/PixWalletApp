@@ -4,6 +4,7 @@ const light: any = {
   ...general,
   background: '#FCFCFC',
   defaultCard: '#FFFFFF',
+  selectedCard: '#35A7D6',
   screenTitle: '#444457',
   screenText: '#21212A',
   defaultActiveIcon: '#35A7D6',
