@@ -83,9 +83,7 @@ const Summary = ({ theming: { theme }, action, navigation }: any) => {
           <SummaryChart />
         </View>
 
-
       </View>
-
          <View>
           <SlideBarChart
             data={[
