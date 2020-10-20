@@ -10,6 +10,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import styles from './styles';
 import { ScrollView } from 'react-native-gesture-handler';
 import { ActionButtons, CardsRedirect } from './components';
+import { Header } from '../../../../components';
 
 const Main: FC<DefaultProps> = ({ theming: { theme }, action, navigation }: any) => {
 
@@ -56,11 +57,11 @@ const Main: FC<DefaultProps> = ({ theming: { theme }, action, navigation }: any)
       <ScrollView>
         <View style={[styles.container, { backgroundColor: theme.background }]}>
 
-          <View style={{ marginTop: '5%', marginBottom: '10%', alignItems: 'center' }}>
-            <Text style={{ color: theme.screenText, fontWeight: 'bold' }}>{i18n.t('portfolio')}</Text>
-          </View>
-          <View style={styles.chartParent}>
+        <View style={{marginBottom: '6%'}}>
+         <Header colorRight={null} colorLeft={null} title='portfolio' route='home' />
+        </View>
 
+          <View style={styles.chartParent}>
             <TouchableOpacity style={[styles.portfolioCard, { backgroundColor: theme.bigCard }]} activeOpacity={0.7} onPress={() => navigation.navigate('summary')}>
               <Text style={[styles.estimatedText, { color: theme.veryLightGrey }]}>Estimated value</Text>
               <Text style={[styles.fundsText, { color: theme.screenText }]}>1.123,32$</Text>
@@ -125,13 +126,13 @@ const Main: FC<DefaultProps> = ({ theming: { theme }, action, navigation }: any)
               })
             }
 
-            {/* <TouchableOpacity onPress={lightTheme}>
+            <TouchableOpacity onPress={lightTheme}>
             <Text>light</Text>
           </TouchableOpacity>
 
           <TouchableOpacity onPress={darkTheme}>
             <Text>dark</Text>
-          </TouchableOpacity> */}
+          </TouchableOpacity>
           </View>
         </View>
       </ScrollView>
@@ -152,3 +153,8 @@ const mapDispatchToProps = (dispatch: any) => {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Main);
+
+
+ {/* <View style={{ marginTop: '5%', marginBottom: '10%', alignItems: 'center' }}>
+            <Text style={{ color: theme.screenText, fontWeight: 'bold' }}>{i18n.t('portfolio')}</Text>
+          </View> */}

@@ -18,7 +18,7 @@ const Header: FC<DefaultProps & HeaderProps> = ({ theming: { theme }, colorRight
             {
                  colorLeft
                     ? <Icon name="arrow-back-outline" style={platform == 'ios' ? styles.ios : null } onPress={() => navigation.navigate(route)} color={colorLeft} size={30}></Icon>
-                    : <Icon name="arrow-back-outline" color={theme.defaultCard} size={30}></Icon>
+                    : <Icon name="arrow-back-outline" color={theme.background} size={30}></Icon>
             }
 
             <Text style={[styles.title, { color: theme.screenText }]}>{i18n.t(title)}</Text>
@@ -26,12 +26,12 @@ const Header: FC<DefaultProps & HeaderProps> = ({ theming: { theme }, colorRight
             {
                 colorRight
                     ? <Icon name="help-circle" size={32} color={colorRight} onPress={() => navigation.navigate(route)} ></Icon>
-                    : <Icon name="help-circle" size={32} color={theme.defaultCard} ></Icon>
+                    : <Icon name="help-circle" size={32} color={theme.background} ></Icon>
             }
         </View>
 
     )
-} 
+}
 
 const mapStateToProps = ({ theming }: DefaultProps): DefaultProps => ({ theming })
 
