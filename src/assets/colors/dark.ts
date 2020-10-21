@@ -4,6 +4,7 @@ const dark: any = {
   ...general,
   background: '#1B1B1B',
   defaultCard: '#313131',
+  selectedCard: '#35A7D6',
   screenTitle: '#FCFCFC',
   screenText: '#F5F5F5',
   defaultActiveIcon: '#E5E5E5',
