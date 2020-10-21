@@ -17,8 +17,8 @@ const Header: FC<DefaultProps & HeaderProps> = ({ theming: { theme }, colorRight
             <View style={colorRight || colorLeft ? styles.header : styles.noIcons}>
             {
                  colorLeft
-                    ? <Icon name="arrow-back-outline" style={platform == 'ios' ? styles.ios : null } onPress={() => navigation.navigate(route)} color={colorLeft} size={30}></Icon>
-                    : <Icon name="arrow-back-outline" color={theme.background} size={30}></Icon>
+                    ? <Icon name="arrow-back-outline" style={platform == 'ios' ? styles.ios : null } onPress={() => navigation.goBack()} color={colorLeft} size={30}></Icon>
+                    : <Icon name="arrow-back-outline" color={theme.defaultCard} size={30}></Icon>
             }
 
             <Text style={[styles.title, { color: theme.screenText }]}>{i18n.t(title)}</Text>
