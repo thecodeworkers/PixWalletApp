@@ -21,7 +21,7 @@ const Announcement: FC<DefaultProps & AnnouncementProps> = ({ theming: { theme }
 
         <View style={{flex:0.75}}>
 
-            <Text style={[styles.infoText, { borderColor: theme.screenText }]}>{i18n.t(text)}</Text> 
+            <Text style={[styles.infoText, { color: theme.screenText }]}>{i18n.t(text)}</Text> 
         </View>
 
       </View>
