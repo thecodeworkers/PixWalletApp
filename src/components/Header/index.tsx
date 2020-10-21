@@ -26,12 +26,12 @@ const Header: FC<DefaultProps & HeaderProps> = ({ theming: { theme }, colorRight
             {
                 colorRight
                     ? <Icon name="help-circle" size={32} color={colorRight} onPress={() => navigation.navigate(route)} ></Icon>
-                    : <Icon name="help-circle" size={32} color={theme.defaultCard} ></Icon>
+                    : <Icon name="help-circle" size={32} color={theme.background} ></Icon>
             }
         </View>
 
     )
-} 
+}
 
 const mapStateToProps = ({ theming }: DefaultProps): DefaultProps => ({ theming })
 

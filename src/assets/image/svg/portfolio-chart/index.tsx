@@ -1,7 +1,5 @@
 import React, { FC } from 'react';
-import { View } from 'react-native';
 import { SvgXml } from 'react-native-svg';
-
 
 const PortfolioChart = (children: any) => {
   const figure = `<svg width="100%" height="100%" viewBox="0 0 206 206">
@@ -36,10 +34,10 @@ const PortfolioChart = (children: any) => {
   return (
     // <View>
         <SvgXml xml={figure} width="100%" height="100%">{children}</SvgXml>
-  
+
     // </View>
 
-  
+
   );
 }
 

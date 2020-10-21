@@ -23,8 +23,10 @@ const en = {
   routing_number: 'Routing number',
   bank_name: 'Bank name',
   bank_reference: 'Bank reference',
-  commission: 'Commission'
+  commission: 'Commission',
 
+  //SUMMARY
+  summary: 'Summary'
 }
 
 export default en;

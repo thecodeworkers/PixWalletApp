@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     paddingVertical: 1,
     alignItems: 'center',
-    margin: '5%',
+    marginTop: '5%',
   },
 
   noIcons: {
@@ -29,10 +29,10 @@ const styles = StyleSheet.create({
   },
 
   ios: {
-    position: 'relative', 
+    position: 'relative',
     top: -3
   },
- 
+
 
 });
 

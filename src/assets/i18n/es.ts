@@ -1,3 +1,5 @@
+import { Summary } from "src/screens/Portfolio/components";
+
 const es = {
   portfolio: 'Portafolio',
 
@@ -23,7 +25,10 @@ const es = {
   routing_number: 'Número de ruta',
   bank_name: 'Nombre del banco',
   bank_reference: 'Referencia bancaria',
-  commission: 'Comisión'
+  commission: 'Comisión',
+
+    //SUMMARY
+    summary: 'Resumen'
 }
 
 export default es;
