@@ -1,22 +1,26 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useState, useEffect } from 'react';
 import { View, Text, StatusBar, TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
-import { DefaultProps } from '../../../../types';
 import { i18n } from '../../../../utils';
 import { bindActionCreators } from 'redux';
-import { setTheme } from '../../../../store/actions';
+import { setTheme, getCurrencies } from '../../../../store/actions';
 import { PortfolioChart, UsdCard, UsdLine } from '../../../../assets/image/svg';
 import LinearGradient from 'react-native-linear-gradient';
 import styles from './styles';
 import { ScrollView } from 'react-native-gesture-handler';
 import { ActionButtons, CardsRedirect } from './components';
 import { Header } from '../../../../components';
+import { CurrencyProps, GeneralProps } from './types';
+import { stripIgnoredCharacters } from 'graphql';
 
-const Main: FC<DefaultProps> = ({ theming: { theme }, action, navigation }: any) => {
+
+const Main: FC<GeneralProps> = ({ theming: { theme }, action, navigation, currency }) => {
 
   const [selectedCard, setSelectedCard] = useState(null);
   const [backgroundCard, setbackgroundCard] = useState([]);
   const [data, setData] = useState(null);
+
+  const { currencies } = currency;
 
   const lightTheme = () => {
     action.setTheme('light');
@@ -27,14 +31,15 @@ const Main: FC<DefaultProps> = ({ theming: { theme }, action, navigation }: any)
   }
 
   const cardSelected = (values: any, index: any) => {
+    let newArray: any = [];
+    values.gradients[0] != values.gradients[1] ? newArray = values.gradients.reverse() : newArray = values.gradients;
 
     if (index != selectedCard) {
       setSelectedCard(index);
-      setbackgroundCard(values.gradient);
+      setbackgroundCard(newArray);
       setData(values);
       return;
     }
-
     resetStates();
   }
 
@@ -44,12 +49,9 @@ const Main: FC<DefaultProps> = ({ theming: { theme }, action, navigation }: any)
     setData(null);
   }
 
-  const currencies = [
-    { name: 'USD', funds: '200', percent: '0.00%', price: '$9,533.75', gradient: ['#45B649', '#45B649', '#DCE35B'], color: '#45B649' },
-    { name: 'BTC', funds: '300', percent: '0.00%', price: '$9,533.75', gradient: ['#FF8008', '#FF8008', '#FFC837'], color: '#F7931A' },
-    { name: 'ETH', funds: '300', percent: '0.00%', price: '$9,533.75', gradient: ['#304352', '#304352', '#AEAEE6'], color: '#444457' },
-    { name: 'DASH', funds: '300', percent: '0.00%', price: '$9,533.75', gradient: ['#03629B', '#03629B', '#008DE4'], color: '#008DE4' }
-  ];
+  useEffect(() => {
+    action.getCurrencies();
+  }, [])
 
   return (
     <>
@@ -73,7 +75,8 @@ const Main: FC<DefaultProps> = ({ theming: { theme }, action, navigation }: any)
             <ActionButtons />
 
             {
-              currencies.map((res, index) => {
+              currencies.length ?
+              currencies.map((res: any, index: number) => {
                 return (
                   <TouchableOpacity
                     onPress={() => cardSelected(res, index)}
@@ -91,8 +94,8 @@ const Main: FC<DefaultProps> = ({ theming: { theme }, action, navigation }: any)
                             <UsdCard />
                           </View>
                           <View style={{ flexDirection: 'column', marginLeft: '5%' }}>
-                            <Text style={index != selectedCard ? { color: theme.screenText } : { color: '#fff' }}>{res.name}</Text>
-                            <Text style={index != selectedCard ? { color: theme.veryLightGrey } : { color: '#fff' }}>{res.funds}</Text>
+                            <Text style={index != selectedCard ? { color: theme.screenText } : { color: '#fff' }}>{res.symbol}</Text>
+                            <Text style={index != selectedCard ? { color: theme.veryLightGrey } : { color: '#fff' }}>1000</Text>
                           </View>
                         </View>
                       </View>
@@ -108,7 +111,7 @@ const Main: FC<DefaultProps> = ({ theming: { theme }, action, navigation }: any)
                             </View>
 
                             <View style={{ flex: 0.33, justifyContent: 'center', alignItems: 'flex-end' }}>
-                              <Text style={{ color: theme.veryLightGrey }}>{res.percent}</Text>
+                              <Text style={{ color: theme.veryLightGrey }}>0.00%</Text>
                               <Text style={{ color: res.color }}>{res.price}</Text>
                             </View>
                           </>
@@ -123,7 +126,7 @@ const Main: FC<DefaultProps> = ({ theming: { theme }, action, navigation }: any)
                     </LinearGradient>
                   </TouchableOpacity>
                 );
-              })
+              }) : null
             }
 
             <TouchableOpacity onPress={lightTheme}>
@@ -140,11 +143,12 @@ const Main: FC<DefaultProps> = ({ theming: { theme }, action, navigation }: any)
   );
 }
 
-const mapStateToProps = ({ theming }: DefaultProps): DefaultProps => ({ theming })
+const mapStateToProps = ({ theming, currency}: CurrencyProps): CurrencyProps => ({ theming, currency})
 
 const mapDispatchToProps = (dispatch: any) => {
   const actions = {
-    setTheme
+    setTheme,
+    getCurrencies
   }
 
   return {

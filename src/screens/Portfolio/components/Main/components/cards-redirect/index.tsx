@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { View, TouchableOpacity} from 'react-native';
+import { View, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import LinearGradient from 'react-native-linear-gradient';
 import { Arrows } from '../../../../../../assets/image/svg';
@@ -8,7 +8,7 @@ import { RedirectProps } from './types';
 import { connect } from 'react-redux';
 import styles from './styles';
 
-const CardsRedirect: FC<RedirectProps> = ({ theming: { theme }, backgroundCard = [], data}) => {
+const CardsRedirect: FC<RedirectProps> = ({ theming: { theme }, data }) => {
 
   return (
     <View style={styles.main}>
@@ -19,7 +19,7 @@ const CardsRedirect: FC<RedirectProps> = ({ theming: { theme }, backgroundCard =
             start={{ x: 0, y: 0 }}
             end={{ x: 1, y: 0 }}
             locations={[0, 0.7, 0.7]}
-            colors={backgroundCard.reverse()}
+            colors={data.gradients.reverse()}
             style={styles.cardActions}
             useAngle={true}>
             <Icon name="call-made" color={theme.defaultActiveIcon} size={20} style={{ color: 'white' }} />
@@ -31,7 +31,7 @@ const CardsRedirect: FC<RedirectProps> = ({ theming: { theme }, backgroundCard =
             start={{ x: 0, y: 0 }}
             end={{ x: 1, y: 0 }}
             locations={[0, 0.7, 0.7]}
-            colors={backgroundCard.reverse()}
+            colors={data.gradients.reverse()}
             style={styles.cardActions}
             useAngle={true}
           >
@@ -44,7 +44,7 @@ const CardsRedirect: FC<RedirectProps> = ({ theming: { theme }, backgroundCard =
             start={{ x: 0, y: 0 }}
             end={{ x: 1, y: 0 }}
             locations={[0, 0.7, 0.7]}
-            colors={backgroundCard.reverse()}
+            colors={data.gradients.reverse()}
             style={styles.cardActions}
             useAngle={true}>
 

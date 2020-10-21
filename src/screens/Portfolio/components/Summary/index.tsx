@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, FC } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { View, Text, PixelRatio, Dimensions, ScrollView } from 'react-native';
@@ -8,24 +8,18 @@ import LinearGradient from 'react-native-linear-gradient';
 import { Header } from '../../../../components';
 import { PixLogo, SummaryChart } from '../../../../assets/image/svg';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import { SlideAreaChart } from 'react-native-slide-charts'
+import { SlideAreaChart } from 'react-native-slide-charts';
+import { GeneralProps } from './types';
 
-const Summary = ({ theming: { theme }, action, navigation }: any) => {
+const Summary: FC<GeneralProps> = ({ theming: { theme }, currency }) => {
 
+  const { currencies } = currency;
   const screenWidth = Dimensions.get("window").width;
   const [filter, setFilter] = useState(0);
 
   const selectFilter = (index: any) => {
-    console.log('enter');
-    index != filter ? setFilter(index) : setFilter(0);
+    index != filter ? setFilter(index) : null;
   }
-
-  const currencies = [
-    { name: 'USD', funds: '200', percent: '0.00%', price: '$9,533.75', gradient: ['#45B649', '#45B649', '#DCE35B'], color: '#45B649' },
-    { name: 'BTC', funds: '300', percent: '0.00%', price: '$9,533.75', gradient: ['#FF8008', '#FF8008', '#FFC837'], color: '#F7931A' },
-    { name: 'ETH', funds: '300', percent: '0.00%', price: '$9,533.75', gradient: ['#304352', '#304352', '#AEAEE6'], color: '#444457' },
-    { name: 'DASH', funds: '300', percent: '0.00%', price: '$9,533.75', gradient: ['#03629B', '#03629B', '#008DE4'], color: '#008DE4' }
-  ];
 
   const filters = [
     { text: '1D' },
@@ -56,14 +50,14 @@ const Summary = ({ theming: { theme }, action, navigation }: any) => {
           </View>
 
           <View style={styles.userContainer}>
-            <Text style={styles.userText}>Arianna Perez</Text>
+            <Text style={[styles.userText, {color: theme.screenText}]}>Arianna Perez</Text>
             <View style={{ width: 30, height: 30 }}>
               <PixLogo />
             </View>
           </View>
 
           <View style={styles.balanceContainer}>
-            <Text style={styles.balance}>$ 3,245.04</Text>
+            <Text style={[styles.balance, {color: theme.screenText}]}>$ 3,245.04</Text>
           </View>
 
           <View style={styles.chartContent}>
@@ -71,22 +65,23 @@ const Summary = ({ theming: { theme }, action, navigation }: any) => {
               <View style={[styles.chartCards, { backgroundColor: theme.background }]}>
 
                 {
-                  currencies.map((res, index) => {
+                currencies.length ?
+                  currencies.map((res: any, index: number) => {
                     return (
                       <TouchableOpacity style={{ justifyContent: 'center', alignItems: 'center', zIndex: 999 }} onPress={() => console.log('enter')} key={index}>
                         <LinearGradient
                           start={{ x: 0, y: 3 }}
                           end={{ x: 1, y: 0 }}
                           locations={[0, 0.8, 0]}
-                          colors={res.gradient.reverse()}
+                          colors={res.gradients.reverse()}
                           style={styles.cardGradient}
                           useAngle={true}
                         />
-                        <Text>{res.name}</Text>
-                        <Text style={[styles.percent, { color: theme.veryLightGrey }]}>{res.percent}</Text>
+                        <Text style={{color: theme.screenText}}>{res.symbol}</Text>
+                        <Text style={[styles.percent, { color: theme.veryLightGrey }]}>0,00%</Text>
                       </TouchableOpacity>
                     )
-                  })
+                  }) : null
                 }
               </View>
               <SummaryChart />
@@ -127,7 +122,8 @@ const Summary = ({ theming: { theme }, action, navigation }: any) => {
               return (
                 <TouchableOpacity
                   style={[styles.filterCard, index != filter ? { backgroundColor: theme.defaultCard } : { backgroundColor: theme.selectedCard }]}
-                  onPress={() => console.log(index)} >
+                  onPress={() => selectFilter(index)}
+                  key={index} >
                   <Text style={index != filter ? { color: theme.screenText } : { color: 'white' }}>{res.text}</Text>
                 </TouchableOpacity>
               )
@@ -147,12 +143,11 @@ const Summary = ({ theming: { theme }, action, navigation }: any) => {
           </View>
         </View>
       </View>
-
     </ScrollView>
   )
 };
 
-const mapStateToProps = ({ theming }: DefaultProps): DefaultProps => ({ theming })
+const mapStateToProps = ({ theming, currency }: GeneralProps): GeneralProps => ({ theming, currency})
 
 const mapDispatchToProps = (dispatch: any) => {
   const actions = {

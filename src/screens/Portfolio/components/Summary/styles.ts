@@ -91,7 +91,7 @@ const styles = StyleSheet.create({
 
   cardGradient: {
     width: 9,
-    height: 8,
+    height: 9,
     borderRadius: 3,
     alignSelf: 'center',
     marginBottom: '3%',

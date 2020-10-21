@@ -10,17 +10,23 @@ export function* getCurrenciesAsync() {
       query: gql`
         {
           currencies {
+            id
             name
+            gradients
+            color
             symbol
+            type
+            price
+            active
           }
         }
       `
     }
 
     const response = yield call(graphService, 'query', query);
-    
+
     const { currencies } = response.data;
-    
+
     yield put(actionObject(GET_CURRENCIES_ASYNC, { currencies }))
   } catch(error) {
     console.log(error);
