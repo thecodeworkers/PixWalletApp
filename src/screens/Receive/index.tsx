@@ -18,7 +18,7 @@ const Receive: FC<DefaultProps> = ({ theming: { theme }, action }: any) => {
   const wallet = '35xnAT9CbcURiWTMN7AS9cbVdHN4JrrCBT'
   const user = 'Gerard Miot'
   const [copied, setCopied] = useState(false);
-  
+
   const copyClipboard = async () => {
     Clipboard.setString(wallet);
     setCopied(true)
@@ -59,7 +59,7 @@ const Receive: FC<DefaultProps> = ({ theming: { theme }, action }: any) => {
           <View style={{width:200, height:200 }}>
           <BtcDiamond />
           </View>
-         
+
         </View>
 
         <View style={styles.qrContainer}>
@@ -80,7 +80,7 @@ const Receive: FC<DefaultProps> = ({ theming: { theme }, action }: any) => {
           <MaterialIcon name="reply" style={styles.shareIcon} color={theme.background} size={30} />
         </TouchableOpacity>
         </View>
-       
+
 
         <View style={{marginTop: 30}}>
 
@@ -90,7 +90,7 @@ const Receive: FC<DefaultProps> = ({ theming: { theme }, action }: any) => {
           ?  <Text style={[styles.copyText, { borderColor: theme.screenText }]} >{i18n.t('copied')}</Text>
           : <Text style={[styles.copyText, { borderColor: theme.screenText }]} >{i18n.t('tap_copy')}</Text>
         }
-    
+
           <TouchableOpacity style={[styles.clipBoardContainer, { borderColor: theme.defaultActiveIcon }]} onPress={copyClipboard}>
             <TextInput
               style={styles.clipBoardInput}
@@ -106,8 +106,8 @@ const Receive: FC<DefaultProps> = ({ theming: { theme }, action }: any) => {
           <View  style={{marginTop: 10}}>
           <Announcement icon={<InfoIcon/>} text={'info_receive'} />
           </View>
-          
-        
+
+
 
       </View>
     </>
