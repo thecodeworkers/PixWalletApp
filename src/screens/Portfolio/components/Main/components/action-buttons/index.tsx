@@ -10,7 +10,7 @@ import { useNavigation } from '@react-navigation/native';
 const ActionButtons: FC<DefaultProps> = ({ theming: { theme }}) => {
   const navigation = useNavigation();
 
-  const redirect = () => navigation.navigate('activity');
+  const redirect = () => navigation.navigate('receive');
 
   return (
     <View style={styles.actionButtons}>
