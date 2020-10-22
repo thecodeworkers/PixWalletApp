@@ -69,7 +69,7 @@ const Main: FC<GeneralProps> = ({ theming: { theme }, action, navigation, curren
         <View style={[styles.container, { backgroundColor: theme.background }]}>
 
         <View style={{marginBottom: '6%'}}>
-         <Header colorRight={null} colorLeft={null} title='portfolio' route='home' />
+         {/* <Header colorRight={null} colorLeft={null} title='portfolio' route='home' /> */}
         </View>
 
           <View style={styles.chartParent}>

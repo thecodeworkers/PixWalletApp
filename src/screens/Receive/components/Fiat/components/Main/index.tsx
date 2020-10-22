@@ -41,7 +41,7 @@ const Main: FC<DefaultProps> = ({ theming: { theme }, action }: any) => {
     <>
       <StatusBar barStyle={theme.statusBar} />
       <View style={[styles.container, { backgroundColor: theme.background }]}>
-        <Header route={''} title='main' colorRight={theme.screenText} colorLeft={theme.defaultActiveIcon} />
+        {/* <Header route={''} title='main' colorRight={theme.screenText} colorLeft={theme.defaultActiveIcon} /> */}
 
         <View style={styles.cardContainer}>
 

@@ -10,7 +10,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginTop: '5%',
   },
-
   noIcons: {
     justifyContent: 'space-between',
     flexDirection: 'row',
@@ -18,22 +17,21 @@ const styles = StyleSheet.create({
     marginTop: '5%',
     paddingVertical: 1
   },
-
   title: {
-    fontWeight:'bold',
-    fontSize:16
+    fontWeight: 'bold',
+    fontSize: 16
   },
-
   arrow: {
-    paddingTop: -20
+    paddingBottom: 20
   },
-
   ios: {
     position: 'relative',
-    top: -3
+    bottom: 3
   },
-
-
+  emptyBlock: {
+    height: 32,
+    width: 32
+  }
 });
 
 export default styles;

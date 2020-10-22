@@ -41,7 +41,7 @@ const Summary: FC<GeneralProps> = ({ theming: { theme }, currency }) => {
     <ScrollView>
       <View style={[styles.main, { backgroundColor: theme.background }]}>
         <View style={{ marginBottom: '10%' }}>
-          <Header colorRight={null} colorLeft={theme.defaultActiveIcon} title='summary' route='main' />
+          {/* <Header colorRight={null} colorLeft={theme.defaultActiveIcon} title='summary' route='main' /> */}
         </View>
 
         <View style={styles.summaryContent}>
