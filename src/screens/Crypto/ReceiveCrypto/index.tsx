@@ -51,9 +51,8 @@ const ReceiveCrypto: FC<DefaultProps> = ({ theming: { theme } }) => {
   return (
     <>
        <View style={[styles.container, { backgroundColor: theme.background }]}>
-        {/* <Header route={''} title='receive' colorRight={theme.screenText} colorLeft={theme.defaultActiveIcon} /> */}
 
-          <DiamondCurrencies currency='USD' />
+          <DiamondCurrencies currency='USD'/>
 
         <View style={styles.qrContainer}>
           <QRCode

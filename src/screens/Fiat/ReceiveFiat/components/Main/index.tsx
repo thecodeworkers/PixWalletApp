@@ -3,10 +3,10 @@ import { connect } from 'react-redux';
 import { DefaultProps } from '../../../../../types';
 import {FiatTransactionType} from '../../../../../components'
 
-const ReceiveFiat: FC<DefaultProps> = ({ theming: { theme } }) => {
+const Main: FC<DefaultProps> = ({ theming: { theme } }) => {
   return (
     <>
-    <FiatTransactionType />
+    <FiatTransactionType routeOne={'internalTransaction'} routeTwo={'bank'} routeThree={''}  />
     </>
   );
 }
@@ -14,4 +14,4 @@ const ReceiveFiat: FC<DefaultProps> = ({ theming: { theme } }) => {
 
 const mapStateToProps = ({ theming }: DefaultProps): DefaultProps => ({ theming })
 
-export default connect(mapStateToProps)(ReceiveFiat);
+export default connect(mapStateToProps)(Main);

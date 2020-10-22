@@ -1,12 +1,9 @@
-import React, { FC } from 'react';
-import { View, Text} from 'react-native';
-import { DefaultProps } from '../../types';
+import React from 'react';
+import { View} from 'react-native';
 import styles from './styles'
-import { connect } from 'react-redux';
 import { BtcDiamond, EthDiamond, DashDiamond, UsdDiamond } from '../../assets/image/svg/currencies-diamonds'
-import {CurrencyProps} from './types'
 
-const DiamondCurrencies: FC<CurrencyProps> = ({ theming: { theme }, currency }:any) => {
+const DiamondCurrencies = ({ currency }:any) => {
 
   const currentCurrency = currency
 
@@ -39,6 +36,5 @@ const DiamondCurrencies: FC<CurrencyProps> = ({ theming: { theme }, currency }:a
   );
 }
 
-const mapStateToProps = ({ theming }: DefaultProps): DefaultProps => ({ theming })
 
-export default connect(mapStateToProps)(DiamondCurrencies);
+export default DiamondCurrencies;

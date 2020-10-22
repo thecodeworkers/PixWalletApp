@@ -10,7 +10,7 @@ import { useNavigation } from '@react-navigation/native';
 const ActionButtons: FC<DefaultProps> = ({ theming: { theme }}) => {
   const navigation = useNavigation();
 
-  const redirect = () => navigation.navigate('receiveFiat');
+  const redirect = () => navigation.navigate('internalTransaction');
 
   return (
     <View style={styles.actionButtons}>

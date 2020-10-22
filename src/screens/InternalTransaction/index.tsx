@@ -1,27 +1,22 @@
-import React, { FC } from 'react';
-import { StyleSheet, View, Text, StatusBar } from 'react-native';
-import { connect } from 'react-redux';
-import { DefaultProps } from '../../types';
 
-const InternalTransaction: FC<DefaultProps> = ({ theming: { theme } }) => {
-  return (
-    <>
-      <StatusBar barStyle={theme.statusBar} />
-      <View style={[styles.container, { backgroundColor: theme.background }]}>
-        <Text style={{ color: theme.screenText }}>Profile</Text>
-      </View>
-    </>
-  );
-}
+import React from 'react';
+import { createStackNavigator } from '@react-navigation/stack';
+import {Complete, Main, Summary} from './components';
+import { HeaderNavigation } from '../../components';
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center'
-  }
-});;
+const Stack = createStackNavigator();
 
-const mapStateToProps = ({ theming }: DefaultProps): DefaultProps => ({ theming })
+const ReceiveFiat= () => (
+  <Stack.Navigator
+    initialRouteName="main"
+    screenOptions={{
+      header: props => <HeaderNavigation {...props} />
+    }}
+  >
+    <Stack.Screen name="complete" component={Complete} />
+    <Stack.Screen name="main" component={Main} />
+    <Stack.Screen name="main" component={Summary} />
+  </Stack.Navigator>
+)
 
-export default connect(mapStateToProps)(InternalTransaction);
+export default ReceiveFiat;

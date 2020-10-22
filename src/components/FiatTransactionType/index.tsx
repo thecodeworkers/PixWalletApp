@@ -8,28 +8,29 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { BankIcon, CardIcon, PixLogo } from '../../assets/image/svg/icons';
 import { useNavigation } from '@react-navigation/native';
+import {TrasactionTypeProps} from './types'
 
-const FiatTransactionType: FC<DefaultProps> = ({ theming: { theme }, action }: any) => {
+const FiatTransactionType: FC<TrasactionTypeProps> = ({ theming: { theme }, routeOne, routeTwo, routeThree }: any) => {
 
   const navigation = useNavigation();
 
   const options =
     [{
-      route: 'users',
+      route: routeOne,
       icon: <PixLogo />,
       iconTitle: 'between_users',
       text: 'funds_free',
       footer: 'daily_limit'
     },
     {
-      route: 'bank',
+      route: routeTwo,
       icon: <BankIcon />,
       iconTitle: 'bank_account',
       text: 'funds_bank',
       footer: 'daily_limit'
     },
     {
-      route: '',
+      route: routeThree,
       icon: <CardIcon />,
       iconTitle: 'bank_transfer',
       text: 'funds_transfer',

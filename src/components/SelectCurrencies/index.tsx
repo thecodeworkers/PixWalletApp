@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 import { View, Text, TouchableOpacity, } from 'react-native';
 import { DefaultProps } from '../../types';
 import { i18n } from '../../utils';
@@ -8,11 +8,11 @@ import { connect } from 'react-redux';
 import { UsdCard } from '../../assets/image/svg';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import LinearGradient from 'react-native-linear-gradient';
-
-
-
+import { SelectCurrencyModal } from '../../components'
 
 const SelectCurrencies: FC<DefaultProps> = ({ theming: { theme }, action }: any) => {
+
+  const [modalVisible, setModalVisible] = useState(false);
 
   return (
     <>
@@ -25,19 +25,21 @@ const SelectCurrencies: FC<DefaultProps> = ({ theming: { theme }, action }: any)
             <Text style={[styles.text, { color: theme.screenText }]}>Default Porfolio</Text>
             <Text style={[styles.amount, { color: theme.screenText }]}>1.234 USD</Text>
           </View>
-          <TouchableOpacity style={styles.selectContainer} activeOpacity={1}>
+          <TouchableOpacity onPress={ () => setModalVisible(true)}  style={styles.selectContainer} activeOpacity={1}>
             <LinearGradient
               start={{ x: 0, y: 0 }}
               end={{ x: 1, y: 0 }}
               colors={theme.cardGradient}
               style={styles.selectButton}
             >
-              <Ionicons name="chevron-down-outline" color={theme.defaultInactiveIcon} size={32} />
+              <Ionicons name="chevron-down-outline" color={theme.screenText} size={32} />
             </LinearGradient>
           </TouchableOpacity>
         </View>
-
+    <SelectCurrencyModal show={modalVisible} />
+        
       </View>
+
     </>
   );
 }

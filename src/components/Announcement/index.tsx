@@ -5,7 +5,7 @@ import { i18n } from '../../utils';
 import styles from './styles'
 import { connect } from 'react-redux';
 
-import { AnnouncementProps } from './interface'
+import { AnnouncementProps } from './types'
 
 const Announcement: FC<DefaultProps & AnnouncementProps> = ({ theming: { theme }, text, icon }) => {
   return (
