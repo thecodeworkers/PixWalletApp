@@ -31,7 +31,6 @@ const Portfolio = () => {
       <Stack.Screen
         name="receive"
         component={Receive}
-        options={{ headerShown: false }}
       />
     </Stack.Navigator>
   )
