@@ -1,11 +1,17 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { Main, Bank } from './components';
+import { HeaderNavigation } from '../../../../components';
 
 const Stack = createStackNavigator();
 
-const ReceiveFiat= () => (
-  <Stack.Navigator headerMode="none" initialRouteName='main'>
+const ReceiveFiat= ({ theme }: any) => (
+  <Stack.Navigator
+    initialRouteName="main"
+    screenOptions={{
+      header: props => <HeaderNavigation {...props} theme={theme} />
+    }}
+  >
     <Stack.Screen name="main" component={Main} />
     <Stack.Screen name="bank" component={Bank} />
   </Stack.Navigator>

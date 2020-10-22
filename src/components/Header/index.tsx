@@ -13,14 +13,12 @@ const Header: FC<HeaderProps> = ({ theme, navigation, hasRightIcon, hasLeftIcon,
       {
         hasLeftIcon
           ? <Icon name="arrow-back-outline" style={platform == 'ios' ? styles.ios : null } onPress={() => navigation.goBack()} color={theme.defaultActiveIcon} size={30}></Icon>
-          // : <Icon name="arrow-back-outline" color={theme.defaultCard} size={30}></Icon>
           : <View style={styles.emptyBlock} />
       }
       <Text style={[styles.title, { color: theme.screenText }]}>{i18n.t(title)}</Text>
       {
         hasRightIcon
           ? <Icon name="help-circle" size={32} color={hasRightIcon}></Icon>
-          // : <Icon name="help-circle" size={32} color={theme.background}></Icon>
           : <View style={styles.emptyBlock} />
       }
     </View>

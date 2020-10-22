@@ -1,15 +1,36 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { Main, Summary } from './components';
+import { HeaderNavigation } from '../../components';
 import Receive from '../Receive';
 
 const Stack = createStackNavigator();
 
-const Portfolio = () => (
-  <Stack.Navigator headerMode="none">
-    <Stack.Screen name="main" component={Main} />
-    <Stack.Screen name="summary" component={Summary} />
-    <Stack.Screen name="receive" component={Receive} />
+const Portfolio = ({ theme }: any) => (
+  <Stack.Navigator
+    initialRouteName="main"
+    screenOptions={{
+      header: props => <HeaderNavigation {...props} theme={theme} />
+    }}
+  >
+    <Stack.Screen
+      name="main"
+      component={Main}
+      options={{
+        title: 'portfolio'
+      }}
+    />
+    <Stack.Screen
+      name="summary"
+      component={Summary}
+      options={{
+        title: 'summary'
+      }}
+    />
+    <Stack.Screen
+      name="receive"
+      component={Receive}
+    />
   </Stack.Navigator>
 )
 
