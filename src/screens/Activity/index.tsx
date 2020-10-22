@@ -1,27 +1,20 @@
-import React, { FC } from 'react';
-import { StyleSheet, View, Text, StatusBar } from 'react-native';
-import { connect } from 'react-redux';
-import { DefaultProps } from '../../types';
+import React from 'react';
+import { createStackNavigator } from '@react-navigation/stack';
+import { Main } from './components';
+import { i18n } from '../../utils';
 
-const Activity: FC<DefaultProps> = ({ theming: { theme } }) => {
-  return (
-    <>
-      <StatusBar barStyle={theme.statusBar} />
-      <View style={[styles.container, { backgroundColor: theme.background }]}>
-        <Text style={{ color: theme.screenText }}>Activity</Text>
-      </View>
-    </>  
-  );
-}
+const Stack = createStackNavigator();
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center'
-  }
-});;
+const Portfolio = () => (
+  <Stack.Navigator initialRouteName="main">
+    <Stack.Screen
+      name="main"
+      component={Main}
+      options={{
+        title: i18n.t('activity')
+      }}
+    />
+  </Stack.Navigator>
+)
 
-const mapStateToProps = ({ theming }: DefaultProps): DefaultProps => ({ theming })
-
-export default connect(mapStateToProps)(Activity);
+export default Portfolio;

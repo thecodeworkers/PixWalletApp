@@ -26,7 +26,10 @@ const en = {
   commission: 'Commission',
 
   //SUMMARY
-  summary: 'Summary'
+  summary: 'Summary',
+
+  //ACTIVITY
+  activity: 'Activity'
 }
 
 export default en;
