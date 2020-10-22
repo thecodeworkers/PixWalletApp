@@ -1,22 +1,19 @@
 import React, { FC } from 'react';
 import { View, StatusBar, TouchableOpacity, Text } from 'react-native';
-import { DefaultProps } from '../../../../../../types';
-import { i18n } from '../../../../../../utils';
-import { Header, Announcement } from '../../../../../../components'
+import { DefaultProps } from '../../../../../types';
+import { i18n } from '../../../../../utils';
+import {Announcement } from '../../../../../components'
 import styles from './styles'
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { ClockIcon, DiamondIcon, MoneyIcon } from '../../../../../../assets/image/svg/icons';
+import { ClockIcon, DiamondIcon, MoneyIcon } from '../../../../../assets/image/svg/icons';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 const Bank: FC<DefaultProps> = ({ theming: { theme }, action }: any) => {
 
   return (
     <>
-      <StatusBar barStyle={theme.statusBar} />
       <View style={[styles.container, { backgroundColor: theme.background }]}>
-        {/* <Header route={''} title='receive' colorRight={theme.screenText} colorLeft={theme.defaultActiveIcon} /> */}
-
         <View style={[styles.card, { backgroundColor: theme.defaultCard }]}>
           <View style={styles.cardBody}>
             <View style={styles.textLeftContainer}>

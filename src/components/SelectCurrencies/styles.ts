@@ -1,5 +1,20 @@
 import { StyleSheet } from 'react-native';
 
+const shadowOptions = (width: number, height: number, opacity: number, radius: number, color: string, elevation: number)=> {
+  const options = {
+    shadowColor: color,
+    shadowOffset: {
+      width,
+      height,
+    },
+    shadowOpacity: opacity,
+    shadowRadius: radius,
+    elevation
+  }
+
+  return options;
+}
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -40,7 +55,19 @@ const styles = StyleSheet.create({
   amount:{
     fontSize:24,
     fontWeight:'bold'
-  }
+  },
+  selectContainer:{
+    position:"absolute",
+    right:30,
+    top:-20
+  },
+  selectButton:{
+    padding:8,
+    borderRadius:10,
+    justifyContent: 'center',
+    alignItems: 'center',
+    ...shadowOptions(0, 4, 0.30, 2.65, '#000', 8),
+  },
 
 });
 

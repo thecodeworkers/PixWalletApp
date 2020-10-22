@@ -1,7 +1,8 @@
+
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-import { Main, Bank, Users } from './components';
-import { HeaderNavigation } from '../../../../components';
+import {Bank, Main } from './components';
+import { HeaderNavigation } from '../../../components';
 
 const Stack = createStackNavigator();
 
@@ -12,9 +13,8 @@ const ReceiveFiat= () => (
       header: props => <HeaderNavigation {...props} />
     }}
   >
-    <Stack.Screen name="main" component={Main} />
     <Stack.Screen name="bank" component={Bank} />
-    <Stack.Screen name="users" component={Users} />
+    <Stack.Screen name="main" component={Main} />
   </Stack.Navigator>
 )
 

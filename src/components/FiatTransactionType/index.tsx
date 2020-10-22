@@ -1,15 +1,15 @@
 import React, { FC } from 'react';
 import { View, StatusBar, TouchableOpacity, Text } from 'react-native';
-import { DefaultProps } from '../../../../../../types';
-import { i18n } from '../../../../../../utils';
-import { Header } from '../../../../../../components'
+import { DefaultProps } from '../../types';
+import { i18n } from '../../utils';
+import { Header } from '..'
 import styles from './styles'
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { BankIcon, CardIcon, PixLogo } from '../../../../../../assets/image/svg/icons';
+import { BankIcon, CardIcon, PixLogo } from '../../assets/image/svg/icons';
 import { useNavigation } from '@react-navigation/native';
 
-const Main: FC<DefaultProps> = ({ theming: { theme }, action }: any) => {
+const FiatTransactionType: FC<DefaultProps> = ({ theming: { theme }, action }: any) => {
 
   const navigation = useNavigation();
 
@@ -41,8 +41,6 @@ const Main: FC<DefaultProps> = ({ theming: { theme }, action }: any) => {
     <>
       <StatusBar barStyle={theme.statusBar} />
       <View style={[styles.container, { backgroundColor: theme.background }]}>
-        {/* <Header route={''} title='main' colorRight={theme.screenText} colorLeft={theme.defaultActiveIcon} /> */}
-
         <View style={styles.cardContainer}>
 
           {
@@ -87,4 +85,4 @@ const mapDispatchToProps = (dispatch: any) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Main);
+export default connect(mapStateToProps, mapDispatchToProps)(FiatTransactionType);

@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { StyleSheet, View, Text, StatusBar } from 'react-native';
 import { connect } from 'react-redux';
-import { DefaultProps } from '../../types';
+import { DefaultProps } from '../../../types';
 
 const SendCrypto: FC<DefaultProps> = ({ theming: { theme } }) => {
   return (
