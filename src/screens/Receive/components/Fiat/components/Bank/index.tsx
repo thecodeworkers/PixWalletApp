@@ -15,7 +15,7 @@ const Bank: FC<DefaultProps> = ({ theming: { theme }, action }: any) => {
     <>
       <StatusBar barStyle={theme.statusBar} />
       <View style={[styles.container, { backgroundColor: theme.background }]}>
-        <Header route={''} title='receive' colorRight={theme.screenText} colorLeft={theme.defaultActiveIcon} />
+        {/* <Header route={''} title='receive' colorRight={theme.screenText} colorLeft={theme.defaultActiveIcon} /> */}
 
         <View style={[styles.card, { backgroundColor: theme.background }]}>
           <View style={styles.cardBody}>
@@ -41,7 +41,7 @@ const Bank: FC<DefaultProps> = ({ theming: { theme }, action }: any) => {
           <View style={[styles.commisionContainer, { borderTopColor: theme.defaultInactiveIcon }]}>
             <View style={styles.commisionTextContainer}>
 
-              <Text style={[styles.textLeft, { color: theme.screenText }]}>{i18n.t('commission')} 
+              <Text style={[styles.textLeft, { color: theme.screenText }]}>{i18n.t('commission')}
                <Icon name="help-circle" size={24} color={theme.defaultActiveIcon} ></Icon>
                </Text>
               <Text style={[styles.textRight, { color: theme.defaultInactiveIcon }]}>{i18n.t('commission')}</Text>
@@ -59,7 +59,7 @@ const Bank: FC<DefaultProps> = ({ theming: { theme }, action }: any) => {
       <View style={{marginTop:5, marginBottom:5}}>
        <Announcement icon={<MoneyIcon />} text={'limit_manage'} />
        </View>
-      
+
       </View>
     </>
   );

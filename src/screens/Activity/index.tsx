@@ -1,30 +1,53 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { Main, Detail } from './components';
-import { i18n } from '../../utils';
 import { Header } from '../../components';
+import { View } from 'react-native';
 
 const Stack = createStackNavigator();
 
-const Portfolio = () => (
-  <Stack.Navigator initialRouteName="main">
+const Activity: FC<any> = ({ theme }) => (
+  <Stack.Navigator
+    initialRouteName="main"
+    screenOptions={{
+      header: ({ scene, previous, navigation }) => {
+        const { options } = scene.descriptor;
+        const title: any =
+          options.headerTitle !== undefined
+            ? options.headerTitle
+            : options.title !== undefined
+            ? options.title
+            : scene.route.name;
+
+        return (
+          <View style={{ backgroundColor: theme.background }}>
+            <Header
+              navigation={navigation}
+              theme={theme}
+              hasRightIcon={false}
+              hasLeftIcon={previous ? true : false}
+              title={title}
+            />
+          </View>
+        )
+      }
+    }}
+  >
     <Stack.Screen
       name="main"
       component={Main}
       options={{
-        title: i18n.t('activity'),
-        // header: () => <Header colorRight={null} colorLeft={null} title='summary' route='main' />
+        title: 'activity'
       }}
     />
     <Stack.Screen
       name="detail"
       component={Detail}
       options={{
-        title: i18n.t('transaction_details'),
-        // header: () => <Header colorRight={null} colorLeft={null} title='summary' route='main' />
+        title: 'transaction_details'
       }}
     />
   </Stack.Navigator>
 )
 
-export default Portfolio;
+export default Activity;
