@@ -1,8 +1,10 @@
 import React, { FC } from 'react';
 import { View } from 'react-native';
+import { connect } from 'react-redux';
+import { DefaultProps } from 'src/types';
 import Header from '../Header';
 
-const HeaderNavigation: FC<any> = ({ scene, previous, navigation, theme }) => {
+const HeaderNavigation: FC<any> = ({ scene, previous, navigation, theming: { theme } }) => {
   const { options } = scene.descriptor;
   const title: any =
     options.headerTitle !== undefined
@@ -24,4 +26,6 @@ const HeaderNavigation: FC<any> = ({ scene, previous, navigation, theme }) => {
   )
 }
 
-export default HeaderNavigation;
+const mapStateToProps = ({ theming }: DefaultProps): DefaultProps => ({ theming })
+
+export default connect(mapStateToProps)(HeaderNavigation);

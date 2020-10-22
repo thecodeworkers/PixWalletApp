@@ -5,11 +5,11 @@ import { HeaderNavigation } from '../../components';
 
 const Stack = createStackNavigator();
 
-const Receive = ({ theme }: any) => (
+const Receive = () => (
   <Stack.Navigator
     initialRouteName="receive-fiat"
     screenOptions={{
-      header: props => <HeaderNavigation {...props} theme={theme} />
+      header: props => <HeaderNavigation {...props} />
     }}
   >
     <Stack.Screen name="receive-crypto" component={ReceiveCrypto} />
