@@ -7,12 +7,10 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import IonicIcon from 'react-native-vector-icons/Ionicons';
 import styles from './style';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { DefaultProps } from '../../types';
-import { connect } from 'react-redux';
 
 const Tab = createBottomTabNavigator();
 
-const Home = ({ theming: { theme }}: any) => {
+const Home = ({ theme }: any) => {
 
   const setColor = (focused: boolean): string => {
     const { defaultActiveIcon, defaultInactiveIcon } = theme;
@@ -67,13 +65,11 @@ const Home = ({ theming: { theme }}: any) => {
           {
             tabBarIcon: ({ focused }) => (
               <Icon name="person" color={setColor(focused)} size={32} />
-            ),
+            )
           }}
       />
     </Tab.Navigator>
   );
 }
 
-const mapStateToProps = ({ theming }: DefaultProps): DefaultProps => ({ theming })
-
-export default connect(mapStateToProps)(Home);
+export default Home;

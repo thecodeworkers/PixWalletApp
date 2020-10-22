@@ -9,7 +9,7 @@ const Root: FC<DefaultProps> = ({ theming: { theme } }) => (
   <NavigationContainer>
     <StatusBar barStyle={theme.statusBar} />
     <SafeAreaView style={{ flex: 1, backgroundColor: theme.background }}>
-      <Main/>
+      <Main theme={theme}/>
     </SafeAreaView>
   </NavigationContainer>
 );
