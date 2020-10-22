@@ -15,7 +15,7 @@ const Main: FC<DefaultProps> = ({ theming: { theme }, action }: any) => {
 
   const options =
     [{
-      route: '',
+      route: 'users',
       icon: <PixLogo />,
       iconTitle: 'between_users',
       text: 'funds_free',
@@ -48,7 +48,7 @@ const Main: FC<DefaultProps> = ({ theming: { theme }, action }: any) => {
           {
             options.map((res, index) => {
               return (
-                <TouchableOpacity onPress={() => navigation.navigate(res.route)} style={[styles.card, { backgroundColor: theme.background }]} key={index}>
+                <TouchableOpacity onPress={() => navigation.navigate(res.route)} style={[styles.card, { backgroundColor: theme.defaultCard }]} key={index}>
                   <View style={styles.cardHeader}>
                     <View style={styles.cardHeaderIconContainer}>
                       <View style={{ width: 30, height: 30 }}>

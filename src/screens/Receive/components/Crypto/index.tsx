@@ -1,15 +1,15 @@
-import React, { FC, useState, useEffect } from 'react';
+import React, { FC, useState } from 'react';
 import { View, StatusBar, TextInput, Share, TouchableOpacity, Text } from 'react-native';
 import { DefaultProps } from '../../../../types';
 import { i18n } from '../../../../utils';
-import { Header, Announcement } from '../../../../components'
+import { Header, Announcement, DiamondCurrencies} from '../../../../components'
 import styles from './styles'
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import QRCode from 'react-native-qrcode-svg';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 import FaIcons from 'react-native-vector-icons/FontAwesome5';
-import { BtcDiamond, EthDiamond, DashDiamond } from '../../../../assets/image/svg/currencies-diamonds'
+
 import Clipboard from '@react-native-community/clipboard';
 import { InfoIcon } from '../../../../assets/image/svg/icons';
 
@@ -55,12 +55,7 @@ const ReceiveCrypto: FC<DefaultProps> = ({ theming: { theme }, action }: any) =>
       <View style={[styles.container, { backgroundColor: theme.background }]}>
         <Header route={''} title='receive' colorRight={theme.screenText} colorLeft={theme.defaultActiveIcon} />
 
-        <View style={styles.diamondConatiner}>
-          <View style={{width:200, height:200 }}>
-          <BtcDiamond />
-          </View>
-         
-        </View>
+          <DiamondCurrencies currency='USD' />
 
         <View style={styles.qrContainer}>
           <QRCode
@@ -87,8 +82,8 @@ const ReceiveCrypto: FC<DefaultProps> = ({ theming: { theme }, action }: any) =>
 
         {
           copied
-          ?  <Text style={[styles.copyText, { borderColor: theme.screenText }]} >{i18n.t('copied')}</Text>
-          : <Text style={[styles.copyText, { borderColor: theme.screenText }]} >{i18n.t('tap_copy')}</Text>
+          ?  <Text style={[styles.copyText, { color: theme.screenText }]} >{i18n.t('copied')}</Text>
+          : <Text style={[styles.copyText, { color: theme.screenText }]} >{i18n.t('tap_copy')}</Text>
         }
     
           <TouchableOpacity style={[styles.clipBoardContainer, { borderColor: theme.defaultActiveIcon }]} onPress={copyClipboard}>
