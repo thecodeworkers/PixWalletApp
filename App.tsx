@@ -3,14 +3,14 @@ import React from 'react';
 import Root from './src/screens';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
-import { store, persistor } from './src/store';
+import { store } from './src/store';
 
 const App = () => {
   return (
     <Provider store={store}>
-      <PersistGate persistor={persistor}>
+      {/* <PersistGate persistor={persistor}> */}
         <Root/>
-      </PersistGate>
+      {/* </PersistGate> */}
     </Provider>
   );
 };

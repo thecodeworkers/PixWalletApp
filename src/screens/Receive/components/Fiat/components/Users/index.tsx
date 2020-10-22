@@ -14,7 +14,7 @@ const Users: FC<DefaultProps> = ({ theming: { theme }, action }: any) => {
     <>
       <StatusBar barStyle={theme.statusBar} />
       <View style={[styles.container, { backgroundColor: theme.background }]}>
-        <Header route={''} title='send' colorRight={theme.screenText} colorLeft={theme.defaultActiveIcon} />
+      {/*   <Header route={''} title='send' colorRight={theme.screenText} colorLeft={theme.defaultActiveIcon} /> */}
 
         <DiamondCurrencies currency={'BTC'} />
 

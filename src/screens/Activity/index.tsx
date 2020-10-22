@@ -1,27 +1,53 @@
 import React, { FC } from 'react';
-import { StyleSheet, View, Text, StatusBar } from 'react-native';
-import { connect } from 'react-redux';
-import { DefaultProps } from '../../types';
+import { createStackNavigator } from '@react-navigation/stack';
+import { Main, Detail } from './components';
+import { Header } from '../../components';
+import { View } from 'react-native';
 
-const Activity: FC<DefaultProps> = ({ theming: { theme } }) => {
-  return (
-    <>
-      <StatusBar barStyle={theme.statusBar} />
-      <View style={[styles.container, { backgroundColor: theme.background }]}>
-        <Text style={{ color: theme.screenText }}>Activity</Text>
-      </View>
-    </>  
-  );
-}
+const Stack = createStackNavigator();
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center'
-  }
-});;
+const Activity: FC<any> = ({ theme }) => (
+  <Stack.Navigator
+    initialRouteName="main"
+    screenOptions={{
+      header: ({ scene, previous, navigation }) => {
+        const { options } = scene.descriptor;
+        const title: any =
+          options.headerTitle !== undefined
+            ? options.headerTitle
+            : options.title !== undefined
+            ? options.title
+            : scene.route.name;
 
-const mapStateToProps = ({ theming }: DefaultProps): DefaultProps => ({ theming })
+        return (
+          <View style={{ backgroundColor: theme.background }}>
+            <Header
+              navigation={navigation}
+              theme={theme}
+              hasRightIcon={false}
+              hasLeftIcon={previous ? true : false}
+              title={title}
+            />
+          </View>
+        )
+      }
+    }}
+  >
+    <Stack.Screen
+      name="main"
+      component={Main}
+      options={{
+        title: 'activity'
+      }}
+    />
+    <Stack.Screen
+      name="detail"
+      component={Detail}
+      options={{
+        title: 'transaction_details'
+      }}
+    />
+  </Stack.Navigator>
+)
 
-export default connect(mapStateToProps)(Activity);
+export default Activity;
