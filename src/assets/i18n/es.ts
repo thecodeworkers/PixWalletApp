@@ -27,8 +27,12 @@ const es = {
   bank_reference: 'Referencia bancaria',
   commission: 'Comisión',
 
-    //SUMMARY
-    summary: 'Resumen'
+  //SUMMARY
+  summary: 'Resumen',
+
+  //ACTIVITY
+  activity: 'Actividad',
+  transaction_details: 'Detalles de transacción'
 }
 
 export default es;
