@@ -32,6 +32,7 @@ const styles = StyleSheet.create({
   summaryContent: {
     marginRight: '5%',
     marginLeft: '5%',
+    marginTop: '10%'
   },
 
   balanceText: {
@@ -62,7 +63,6 @@ const styles = StyleSheet.create({
   },
 
   chartContent: {
-    // height: '30%',
     width: '100%',
     marginTop: '4%',
     justifyContent: 'center',
@@ -132,6 +132,12 @@ const styles = StyleSheet.create({
 
   textBold: {
     fontWeight: 'bold'
+  },
+
+  message: {
+    width: '100%',
+    alignItems: 'center',
+    justifyContent: 'center'
   }
 
 });

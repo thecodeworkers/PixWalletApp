@@ -39,6 +39,9 @@ const Portfolio = () => {
       <Stack.Screen
         name="currencyList"
         component={CurrencyList}
+        options={{
+          title: 'deposit'
+        }}
       />
       <Stack.Screen
         name="currencyActivity"
@@ -51,6 +54,7 @@ const Portfolio = () => {
       <Stack.Screen
         name="receiveCrypto"
         component={ReceiveCrypto}
+
       />
       <Stack.Screen
         name="sendFiat"
