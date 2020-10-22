@@ -15,7 +15,7 @@ const ReceiveFiat= () => (
   >
     <Stack.Screen name="complete" component={Complete} />
     <Stack.Screen name="main" component={Main} />
-    <Stack.Screen name="main" component={Summary} />
+    <Stack.Screen name="summary" component={Summary} />
   </Stack.Navigator>
 )
 
