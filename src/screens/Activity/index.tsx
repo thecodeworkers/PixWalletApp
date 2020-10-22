@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { Main, Detail } from './components';
 import { HeaderNavigation } from '../../components';
