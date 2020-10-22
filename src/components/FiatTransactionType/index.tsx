@@ -1,35 +1,36 @@
 import React, { FC } from 'react';
 import { View, StatusBar, TouchableOpacity, Text } from 'react-native';
-import { DefaultProps } from '../../../../../../types';
-import { i18n } from '../../../../../../utils';
-import { Header } from '../../../../../../components'
+import { DefaultProps } from '../../types';
+import { i18n } from '../../utils';
+import { Header } from '..'
 import styles from './styles'
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { BankIcon, CardIcon, PixLogo } from '../../../../../../assets/image/svg/icons';
+import { BankIcon, CardIcon, PixLogo } from '../../assets/image/svg/icons';
 import { useNavigation } from '@react-navigation/native';
+import {TrasactionTypeProps} from './types'
 
-const Main: FC<DefaultProps> = ({ theming: { theme }, action }: any) => {
+const FiatTransactionType: FC<TrasactionTypeProps> = ({ theming: { theme }, routeOne, routeTwo, routeThree }: any) => {
 
   const navigation = useNavigation();
 
   const options =
     [{
-      route: '',
+      route: routeOne,
       icon: <PixLogo />,
       iconTitle: 'between_users',
       text: 'funds_free',
       footer: 'daily_limit'
     },
     {
-      route: 'bank',
+      route: routeTwo,
       icon: <BankIcon />,
       iconTitle: 'bank_account',
       text: 'funds_bank',
       footer: 'daily_limit'
     },
     {
-      route: '',
+      route: routeThree,
       icon: <CardIcon />,
       iconTitle: 'bank_transfer',
       text: 'funds_transfer',
@@ -41,14 +42,12 @@ const Main: FC<DefaultProps> = ({ theming: { theme }, action }: any) => {
     <>
       <StatusBar barStyle={theme.statusBar} />
       <View style={[styles.container, { backgroundColor: theme.background }]}>
-        {/* <Header route={''} title='main' colorRight={theme.screenText} colorLeft={theme.defaultActiveIcon} /> */}
-
         <View style={styles.cardContainer}>
 
           {
             options.map((res, index) => {
               return (
-                <TouchableOpacity onPress={() => navigation.navigate(res.route)} style={[styles.card, { backgroundColor: theme.background }]} key={index}>
+                <TouchableOpacity onPress={() => navigation.navigate(res.route)} style={[styles.card, { backgroundColor: theme.defaultCard }]} key={index}>
                   <View style={styles.cardHeader}>
                     <View style={styles.cardHeaderIconContainer}>
                       <View style={{ width: 30, height: 30 }}>
@@ -87,4 +86,4 @@ const mapDispatchToProps = (dispatch: any) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Main);
+export default connect(mapStateToProps, mapDispatchToProps)(FiatTransactionType);

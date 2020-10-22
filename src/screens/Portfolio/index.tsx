@@ -2,12 +2,11 @@ import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { Main, Summary, CurrencyList, CurrencyActivity } from './components';
 import { HeaderNavigation } from '../../components';
-import Receive from '../Receive';
-import ReceiveFiat from '../ReceiveFiat';
-import ReceiveCrypto from '../ReceiveCrypto';
-import SendFiat from '../SendFiat';
-import SendCrypto from '../SendCrypto';
-import InternalTransaction from '../InternalTransaction';
+import ReceiveFiat from '../Fiat/ReceiveFiat';
+import ReceiveCrypto from '../Crypto/ReceiveCrypto';
+import SendFiat from '../../screens/Fiat/SendFiat';
+import SendCrypto from '../../screens/Crypto/ReceiveCrypto';
+import InternalTransaction from '../InternalTransaction/components/Main';
 
 const Stack = createStackNavigator();
 

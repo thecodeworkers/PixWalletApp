@@ -10,7 +10,7 @@ const light: any = {
   defaultActiveIcon: '#35A7D6',
   defaultInactiveIcon: '#C9C9C9',
   statusBar: 'dark-content',
-  announcement:'#EEEEEE',
+  announcement:'#F4F4F4',
   cardGradient: ['#F5F5F5', '#F5F5F5', '#FFFFFF'],
   bigCard: '#FFFFFF'
 }
