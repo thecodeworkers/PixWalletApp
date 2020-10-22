@@ -1,36 +1,15 @@
 import React, { FC } from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { Main, Detail } from './components';
-import { Header } from '../../components';
-import { View } from 'react-native';
+import { HeaderNavigation } from '../../components';
 
 const Stack = createStackNavigator();
 
-const Activity: FC<any> = ({ theme }) => (
+const Activity = () => (
   <Stack.Navigator
     initialRouteName="main"
     screenOptions={{
-      header: ({ scene, previous, navigation }) => {
-        const { options } = scene.descriptor;
-        const title: any =
-          options.headerTitle !== undefined
-            ? options.headerTitle
-            : options.title !== undefined
-            ? options.title
-            : scene.route.name;
-
-        return (
-          <View style={{ backgroundColor: theme.background }}>
-            <Header
-              navigation={navigation}
-              theme={theme}
-              hasRightIcon={false}
-              hasLeftIcon={previous ? true : false}
-              title={title}
-            />
-          </View>
-        )
-      }
+      header: props => <HeaderNavigation {...props} />
     }}
   >
     <Stack.Screen
