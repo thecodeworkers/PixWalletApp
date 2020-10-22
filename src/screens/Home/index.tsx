@@ -19,7 +19,8 @@ const Home = ({ theming: { theme }}: any) => {
     return focused ? defaultActiveIcon : defaultInactiveIcon
   }
 
-  const ActivityWithColor = () => <Activity theme={theme} />
+  const ActivityWithTheme = () => <Activity theme={theme} />
+  const PortfolioWithTheme = () => <Portfolio theme={theme} />
 
   return (
     <Tab.Navigator
@@ -34,7 +35,7 @@ const Home = ({ theming: { theme }}: any) => {
     >
       <Tab.Screen
         name="portfolio"
-        component={Portfolio}
+        component={PortfolioWithTheme}
         options={
           {
             tabBarIcon: ({ focused }) => (
@@ -44,7 +45,7 @@ const Home = ({ theming: { theme }}: any) => {
       />
       <Tab.Screen
         name="activity"
-        component={ActivityWithColor}
+        component={ActivityWithTheme}
         options={
           {
             tabBarIcon: ({ focused }) => (
