@@ -54,15 +54,13 @@ const Main: FC<GeneralProps> = ({ theming: { theme }, action, navigation, curren
       currencies[index].icon = icons[index].icon;
       currencies[index].line = icons[index].line;
     });
+
+    return currencies;
   }
 
   useEffect(() => {
     action.getCurrencies();
   }, []);
-
-  useEffect(() => {
-    if(currencies.length) addIcons();
-  }, [currency]);
 
   return (
     <>
@@ -87,7 +85,7 @@ const Main: FC<GeneralProps> = ({ theming: { theme }, action, navigation, curren
 
             {
               currencies.length ?
-              currencies.map((res: any, index: number) => {
+              addIcons().map((res: any, index: number) => {
                 return (
                   <TouchableOpacity
                     onPress={() => cardSelected(res, index)}
@@ -99,8 +97,8 @@ const Main: FC<GeneralProps> = ({ theming: { theme }, action, navigation, curren
                       colors={index == selectedCard ? backgroundCard : [theme.defaultCard, theme.defaultCard, theme.defaultCard]}
                       style={styles.cardGradient}>
 
-                      <View style={{ flex: 0.33, justifyContent: 'center', alignItems: 'flex-start' }}>
-                        <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }}>
+                      <View style={styles.cardLefSide}>
+                        <View style={styles.cardLeftContent}>
                           <View style={{ width: 50, height: 50 }}>
                             {/* <UsdCard /> */}
                             {res.icon}
@@ -116,7 +114,7 @@ const Main: FC<GeneralProps> = ({ theming: { theme }, action, navigation, curren
                         index != selectedCard
                           ?
                           <>
-                            <View style={{ flex: 0.33, alignItems: 'flex-end' }}>
+                            <View style={styles.cardCenter}>
                               <View style={{ width: '90%', height: 50 }}>
                                 {res.line}
                               </View>

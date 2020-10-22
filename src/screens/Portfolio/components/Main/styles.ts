@@ -91,6 +91,35 @@ const styles = StyleSheet.create({
     shadowRadius: 2.65,
     elevation: 4,
   },
+
+  cardLefSide: {
+    flex: 0.33,
+    justifyContent: 'center',
+    alignItems: 'flex-start'
+  },
+
+  cardLeftContent: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+
+  cardCenter: {
+    flex: 0.33,
+    alignItems: 'flex-end'
+  },
+
+  cardRight: {
+    flex: 0.33,
+    justifyContent: 'center',
+    alignItems: 'flex-end'
+  }
+
+
+
+
+
+
 });;
 
 export default styles;
