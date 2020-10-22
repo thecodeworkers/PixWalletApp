@@ -1,13 +1,17 @@
 import React, { FC } from 'react';
 import { View, Text } from 'react-native';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 import { connect } from 'react-redux';
 import { DefaultProps } from '../../../../types';
 import styles from './styles';
 
-const Main: FC<DefaultProps> = ({ theming: { theme } }) => {
+const Main: FC<DefaultProps | any> = ({ theming: { theme }, navigation }) => {
   return (
     <View style={[styles.container, { backgroundColor: theme.background }]}>
-      <Text style={{ color: theme.screenText }}>Activity</Text>
+      <Text style={{ color: theme.screenText }}>Activity Main</Text>
+      <TouchableOpacity onPress={() => navigation.navigate('detail')}>
+        <Text>Navigate</Text>
+      </TouchableOpacity>
     </View>
   );
 }

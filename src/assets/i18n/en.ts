@@ -29,7 +29,8 @@ const en = {
   summary: 'Summary',
 
   //ACTIVITY
-  activity: 'Activity'
+  activity: 'Activity',
+  transaction_details: 'Transaction details'
 }
 
 export default en;

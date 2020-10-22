@@ -8,29 +8,26 @@ import { connect } from 'react-redux';
 import { DefaultProps } from '../../types';
 import { HeaderProps } from './interfase';
 
-const Header: FC<DefaultProps & HeaderProps> = ({ theming: { theme }, colorRight, colorLeft, title , route}   ) => {
+const platform = Platform.OS;
 
-    const platform = Platform.OS;
+const Header: FC<DefaultProps & HeaderProps> = ({ theming: { theme }, colorRight, colorLeft, title , route}) => {
     const navigation = useNavigation();
 
     return (
-            <View style={colorRight || colorLeft ? styles.header : styles.noIcons}>
-            {
-                 colorLeft
-                    ? <Icon name="arrow-back-outline" style={platform == 'ios' ? styles.ios : null } onPress={() => navigation.goBack()} color={colorLeft} size={30}></Icon>
-                    : <Icon name="arrow-back-outline" color={theme.defaultCard} size={30}></Icon>
-            }
-
-            <Text style={[styles.title, { color: theme.screenText }]}>{i18n.t(title)}</Text>
-
-            {
-                colorRight
-                    ? <Icon name="help-circle" size={32} color={colorRight} onPress={() => navigation.navigate(route)} ></Icon>
-                    : <Icon name="help-circle" size={32} color={theme.background} ></Icon>
-            }
-        </View>
-
-    )
+      <View style={colorRight || colorLeft ? styles.header : styles.noIcons}>
+        {
+          colorLeft
+            ? <Icon name="arrow-back-outline" style={platform == 'ios' ? styles.ios : null } onPress={() => navigation.goBack()} color={colorLeft} size={30}></Icon>
+            : <Icon name="arrow-back-outline" color={theme.defaultCard} size={30}></Icon>
+        }
+      <Text style={[styles.title, { color: theme.screenText }]}>{i18n.t(title)}</Text>
+      {
+        colorRight
+          ? <Icon name="help-circle" size={32} color={colorRight} onPress={() => navigation.navigate(route)} ></Icon>
+          : <Icon name="help-circle" size={32} color={theme.background} ></Icon>
+      }
+    </View>
+  );
 }
 
 const mapStateToProps = ({ theming }: DefaultProps): DefaultProps => ({ theming })

@@ -31,7 +31,8 @@ const es = {
   summary: 'Resumen',
 
   //ACTIVITY
-  activity: 'Actividad'
+  activity: 'Actividad',
+  transaction_details: 'Detalles de transacción'
 }
 
 export default es;

@@ -1,7 +1,8 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-import { Main } from './components';
+import { Main, Detail } from './components';
 import { i18n } from '../../utils';
+import { Header } from '../../components';
 
 const Stack = createStackNavigator();
 
@@ -11,7 +12,16 @@ const Portfolio = () => (
       name="main"
       component={Main}
       options={{
-        title: i18n.t('activity')
+        title: i18n.t('activity'),
+        // header: () => <Header colorRight={null} colorLeft={null} title='summary' route='main' />
+      }}
+    />
+    <Stack.Screen
+      name="detail"
+      component={Detail}
+      options={{
+        title: i18n.t('transaction_details'),
+        // header: () => <Header colorRight={null} colorLeft={null} title='summary' route='main' />
       }}
     />
   </Stack.Navigator>
