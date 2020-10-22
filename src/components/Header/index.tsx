@@ -1,9 +1,9 @@
 import React, { FC } from 'react';
 import { View, Text, Platform } from 'react-native';
-import Icon from 'react-native-vector-icons/Ionicons';
 import { i18n } from '../../utils';
-import styles from './styles';
 import { HeaderProps } from './type';
+import Icon from 'react-native-vector-icons/Ionicons';
+import styles from './styles';
 
 const platform = Platform.OS;
 

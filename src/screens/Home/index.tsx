@@ -7,20 +7,15 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import IonicIcon from 'react-native-vector-icons/Ionicons';
 import styles from './style';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { DefaultProps } from '../../types';
-import { connect } from 'react-redux';
 
 const Tab = createBottomTabNavigator();
 
-const Home = ({ theming: { theme }}: any) => {
+const Home = ({ theme }: any) => {
 
   const setColor = (focused: boolean): string => {
     const { defaultActiveIcon, defaultInactiveIcon } = theme;
     return focused ? defaultActiveIcon : defaultInactiveIcon
   }
-
-  const ActivityWithTheme = () => <Activity theme={theme} />
-  const PortfolioWithTheme = () => <Portfolio theme={theme} />
 
   return (
     <Tab.Navigator
@@ -35,7 +30,7 @@ const Home = ({ theming: { theme }}: any) => {
     >
       <Tab.Screen
         name="portfolio"
-        component={PortfolioWithTheme}
+        component={Portfolio}
         options={
           {
             tabBarIcon: ({ focused }) => (
@@ -45,7 +40,7 @@ const Home = ({ theming: { theme }}: any) => {
       />
       <Tab.Screen
         name="activity"
-        component={ActivityWithTheme}
+        component={Activity}
         options={
           {
             tabBarIcon: ({ focused }) => (
@@ -70,13 +65,11 @@ const Home = ({ theming: { theme }}: any) => {
           {
             tabBarIcon: ({ focused }) => (
               <Icon name="person" color={setColor(focused)} size={32} />
-            ),
+            )
           }}
       />
     </Tab.Navigator>
   );
 }
 
-const mapStateToProps = ({ theming }: DefaultProps): DefaultProps => ({ theming })
-
-export default connect(mapStateToProps)(Home);
+export default Home;

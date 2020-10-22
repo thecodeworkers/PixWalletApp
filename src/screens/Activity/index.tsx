@@ -5,11 +5,11 @@ import { HeaderNavigation } from '../../components';
 
 const Stack = createStackNavigator();
 
-const Activity: FC<any> = ({ theme }) => (
+const Activity = () => (
   <Stack.Navigator
     initialRouteName="main"
     screenOptions={{
-      header: props => <HeaderNavigation {...props} theme={theme} />
+      header: props => <HeaderNavigation {...props} />
     }}
   >
     <Stack.Screen
