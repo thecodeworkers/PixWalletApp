@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { i18n } from '../../../../utils';
 import { bindActionCreators } from 'redux';
 import { setTheme, getCurrencies } from '../../../../store/actions';
-import { PortfolioChart, UsdCard, UsdLine } from '../../../../assets/image/svg';
+import { PortfolioChart, UsdCard, UsdLine, DashCard, BtcCard, EthCard, BtcLine, EthLine, DashLine } from '../../../../assets/image/svg';
 import LinearGradient from 'react-native-linear-gradient';
 import styles from './styles';
 import { ScrollView } from 'react-native-gesture-handler';
@@ -14,11 +14,17 @@ import { CurrencyProps, GeneralProps } from './types';
 
 const Main: FC<GeneralProps> = ({ theming: { theme }, action, navigation, currency }) => {
 
+  const { currencies } = currency;
   const [selectedCard, setSelectedCard] = useState(null);
   const [backgroundCard, setbackgroundCard] = useState([]);
   const [data, setData] = useState(null);
 
-  const { currencies } = currency;
+  const icons = [
+    { icon: <UsdCard />, line: <UsdLine /> },
+    { icon: <BtcCard />, line: <BtcLine /> },
+    { icon: <EthCard />, line: <EthLine /> },
+    { icon: <DashCard />, line: <DashLine /> },
+  ];
 
   const lightTheme = () => action.setTheme('light');
   const darkTheme = () => action.setTheme('dark');
@@ -33,6 +39,7 @@ const Main: FC<GeneralProps> = ({ theming: { theme }, action, navigation, curren
       setData(values);
       return;
     }
+
     resetStates();
   }
 
@@ -40,11 +47,22 @@ const Main: FC<GeneralProps> = ({ theming: { theme }, action, navigation, curren
     setSelectedCard(null);
     setbackgroundCard([]);
     setData(null);
+  };
+
+  const addIcons = () => {
+    currencies.map((res: any, index: number) => {
+      currencies[index].icon = icons[index].icon;
+      currencies[index].line = icons[index].line;
+    });
   }
 
   useEffect(() => {
     action.getCurrencies();
-  }, [])
+  }, []);
+
+  useEffect(() => {
+    if(currencies.length) addIcons();
+  }, [currency]);
 
   return (
     <>
@@ -84,9 +102,10 @@ const Main: FC<GeneralProps> = ({ theming: { theme }, action, navigation, curren
                       <View style={{ flex: 0.33, justifyContent: 'center', alignItems: 'flex-start' }}>
                         <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }}>
                           <View style={{ width: 50, height: 50 }}>
-                            <UsdCard />
+                            {/* <UsdCard /> */}
+                            {res.icon}
                           </View>
-                          <View style={{ flexDirection: 'column', marginLeft: '5%' }}>
+                          <View style={{ flexDirection: 'column', marginLeft: '7%'}}>
                             <Text style={index != selectedCard ? { color: theme.screenText } : { color: '#fff' }}>{res.symbol}</Text>
                             <Text style={index != selectedCard ? { color: theme.veryLightGrey } : { color: '#fff' }}>1000</Text>
                           </View>
@@ -99,7 +118,7 @@ const Main: FC<GeneralProps> = ({ theming: { theme }, action, navigation, curren
                           <>
                             <View style={{ flex: 0.33, alignItems: 'flex-end' }}>
                               <View style={{ width: '90%', height: 50 }}>
-                                <UsdLine />
+                                {res.line}
                               </View>
                             </View>
 

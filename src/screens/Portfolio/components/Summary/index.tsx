@@ -97,13 +97,15 @@ const Summary: FC<GeneralProps> = ({ theming: { theme }, currency }) => {
             height={200}
             width={screenWidth}
             hideMarkers={false}
+            throttleAndroid={true}
+            displayCursor={true}
             yAxisProps={{
               verticalLineWidth: 0
             }}
 
-            xAxisProps={{
-              horizonralLineWidth: 0
-            }}
+            // xAxisProps={{
+            //   horizontalLineWidth: 0
+            // }}
 
             style={{ backgroundColor: theme.background }}
             cursorProps={{
@@ -112,6 +114,19 @@ const Summary: FC<GeneralProps> = ({ theming: { theme }, currency }) => {
               cursorMarkerWidth: 20,
               cursorWidth: 0,
               displayCursor: true,
+
+            }}
+
+            toolTipProps={{
+              displayTriangle: false,
+              lockTriangleCenter: true,
+              style: { elevation: 0 },
+              // scaleY: -30,
+              toolTipTextRenderers: [
+                ({ selectedBarNumber }: any) => ({
+                  text: data[selectedBarNumber].text,
+                }),
+              ],
             }}
           />
         </View>
