@@ -11,8 +11,6 @@ import { ScrollView } from 'react-native-gesture-handler';
 import { ActionButtons, CardsRedirect } from './components';
 import { Header } from '../../../../components';
 import { CurrencyProps, GeneralProps } from './types';
-import { stripIgnoredCharacters } from 'graphql';
-
 
 const Main: FC<GeneralProps> = ({ theming: { theme }, action, navigation, currency }) => {
 
@@ -22,13 +20,8 @@ const Main: FC<GeneralProps> = ({ theming: { theme }, action, navigation, curren
 
   const { currencies } = currency;
 
-  const lightTheme = () => {
-    action.setTheme('light');
-  }
-
-  const darkTheme = () => {
-    action.setTheme('dark');
-  }
+  const lightTheme = () => action.setTheme('light');
+  const darkTheme = () => action.setTheme('dark');
 
   const cardSelected = (values: any, index: any) => {
     let newArray: any = [];
