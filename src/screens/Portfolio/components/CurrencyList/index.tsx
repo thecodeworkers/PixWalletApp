@@ -1,6 +1,5 @@
-import React, { FC } from 'react';
-import { StyleSheet, View, Text, StatusBar, TextInput } from 'react-native';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import React, { FC, useState } from 'react';
+import { StyleSheet, View, Text, StatusBar, TextInput, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { DefaultProps } from '../../../../types';
 import { connect } from 'react-redux';
@@ -9,7 +8,13 @@ import styles from './styles';
 
 const CurrencyList: FC<DefaultProps | any> = ({ theming: { theme }, navigation }) => {
 
-  const { background, defaultActiveIcon, veryLightGrey} = theme;
+  const { background, defaultActiveIcon, veryLightGrey, defaultInactiveIcon } = theme;
+
+  const [ selectedTab, setSelectedTab ] = useState(0);
+
+  const selectedCard = (selected: number) => {
+
+  };
 
   return (
     <>
@@ -28,6 +33,16 @@ const CurrencyList: FC<DefaultProps | any> = ({ theming: { theme }, navigation }
             size={26}
             style={styles.icon}
           />
+        </View>
+
+        <View style={styles.tabParent}>
+          <TouchableOpacity style={[styles.childTab, {backgroundColor: defaultActiveIcon}]} >
+            <Text>Crypto</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity style={[styles.childTab, { backgroundColor: defaultInactiveIcon}]} >
+            <Text>Fiat</Text>
+          </TouchableOpacity>
         </View>
 
         {/* <Text style={{ color: theme.screenText }}>Currency List</Text>
