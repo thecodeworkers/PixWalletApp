@@ -32,7 +32,11 @@ const es = {
 
   //ACTIVITY
   activity: 'Actividad',
-  transaction_details: 'Detalles de transacción'
+  transaction_details: 'Detalles de transacción',
+
+  //CURRENCY LIST
+  deposit: 'Depositar'
 }
+
 
 export default es;

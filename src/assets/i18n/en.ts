@@ -30,7 +30,10 @@ const en = {
 
   //ACTIVITY
   activity: 'Activity',
-  transaction_details: 'Transaction details'
+  transaction_details: 'Transaction details',
+
+  //CURRENCY LIST
+  deposit: 'Deposit'
 }
 
 export default en;
