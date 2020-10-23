@@ -4,30 +4,31 @@ import { useNavigation } from '@react-navigation/native';
 import { Theming } from 'src/types';
 import { BtcCard } from '../../../../../../assets/image/svg';
 import { Separator } from '../../../../../../components';
+import styles from './styles';
 
 const ActivityList: FC<Theming> = ({ theme }) => {
   const navigation = useNavigation();
 
   return (
     <>
-      <TouchableOpacity style={{ height: 50, flexDirection: 'row', marginHorizontal: '5%', marginVertical: '6%' }} onPress={() => navigation.navigate('detail')}>
-        <View style={{ flex: 0.2, justifyContent: 'center' }}>
-          <View style={{ width: 50, height: 50 }}>
+      <TouchableOpacity style={styles.touchableContainer} onPress={() => navigation.navigate('detail')}>
+        <View style={styles.firstSection}>
+          <View style={styles.iconContainer}>
             <BtcCard/>
           </View>
         </View>
-        <View style={{ flex: 0.5, justifyContent: 'center' }}>
-          <Text style={{ fontSize: 14, color: theme.screenTitle }}>Retiraste  $8,978.99</Text>
-          <Text style={{ fontSize: 11, color: '#B7B7B7' }}>from Andrea  *********9898</Text>
-          <Text style={{ fontSize: 11, color: '#B7B7B7' }}>May,12 2020</Text>
+        <View style={styles.secondSection}>
+          <Text style={styles.normalFont(14, theme.screenTitle)}>Retiraste  $8,978.99</Text>
+          <Text style={styles.normalFont(11, '#B7B7B7')}>from Andrea  *********9898</Text>
+          <Text style={styles.normalFont(11, '#B7B7B7')}>May,12 2020</Text>
         </View>
-        <View style={{ flex: 0.3, justifyContent: 'center', alignItems: 'flex-end' }}>
+        <View style={styles.thirdSection}>
           <Text></Text>
-          <Text style={{ fontSize: 13, fontWeight: '900', color: '#C9C9C9' }}>-$8,978.99</Text>
-          <Text style={{ fontSize: 13, fontWeight: '900', color: '#F7931A' }}>9.1 BTC</Text>
+          <Text style={styles.weightFont(13, '900', '#C9C9C9')}>-$8,978.99</Text>
+          <Text style={styles.weightFont(13, '900', '#F7931A')}>9.1 BTC</Text>
         </View>
       </TouchableOpacity>
-      <View style={{ marginHorizontal: '5%' }}>
+      <View style={styles.separatorContainer}>
         <Separator color={theme.whirspersInactive} />
       </View>
     </>
