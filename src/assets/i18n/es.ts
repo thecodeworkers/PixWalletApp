@@ -33,6 +33,9 @@ const es = {
   //ACTIVITY
   activity: 'Actividad',
   transaction_details: 'Detalles de transacción',
+  all: 'Todos',
+  withdraw: 'Retiros',
+  exchange: 'Intercambios',
 
   //CURRENCY LIST
   deposit: 'Depositar'
