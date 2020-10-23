@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
 
   cardGradient: {
     width: '100%',
-    paddingVertical: '5%',
+    paddingVertical: '4.2%',
     paddingHorizontal: '5%',
     flexDirection: 'row',
     borderRadius: 10,

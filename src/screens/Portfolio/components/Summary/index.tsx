@@ -11,6 +11,22 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 import { SlideAreaChart } from 'react-native-slide-charts';
 import { GeneralProps } from './types';
 
+const filters = [
+  { text: '1D' },
+  { text: '1S' },
+  { text: '1M' },
+  { text: '6M' },
+  { text: '1A' }
+];
+
+const data = [
+  { text: 'hello1', x: 0, y: 0, },
+  { text: 'hello2', x: 1, y: 3, },
+  { text: 'hello3', x: 2, y: 20, },
+  { text: 'hello4', x: 3, y: 31, },
+  { text: 'hello5', x: 4, y: 42, },
+];
+
 const Summary: FC<GeneralProps> = ({ theming: { theme }, currency }) => {
 
   const { currencies } = currency;
@@ -20,22 +36,6 @@ const Summary: FC<GeneralProps> = ({ theming: { theme }, currency }) => {
   const selectFilter = (index: any) => {
     index != filter ? setFilter(index) : null;
   }
-
-  const filters = [
-    { text: '1D' },
-    { text: '1S' },
-    { text: '1M' },
-    { text: '6M' },
-    { text: '1A' }
-  ]
-
-  const data = [
-    { text: 'hello1', x: 0, y: 0, },
-    { text: 'hello2', x: 1, y: 3, },
-    { text: 'hello3', x: 2, y: 20, },
-    { text: 'hello4', x: 3, y: 31, },
-    { text: 'hello5', x: 4, y: 42, },
-  ]
 
   return (
     <ScrollView>
@@ -120,7 +120,6 @@ const Summary: FC<GeneralProps> = ({ theming: { theme }, currency }) => {
               displayTriangle: false,
               lockTriangleCenter: true,
               style: { elevation: 0 },
-              // scaleY: -30,
               toolTipTextRenderers: [
                 ({ selectedBarNumber }: any) => ({
                   text: data[selectedBarNumber].text,

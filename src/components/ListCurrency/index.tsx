@@ -11,19 +11,19 @@ import { connect } from 'react-redux';
 import LinearGradient from 'react-native-linear-gradient';
 import { GeneralProps, ReducersProps } from './types';
 
+const icons = [
+  { icon: <UsdCard />, line: <UsdLine /> },
+  { icon: <BtcCard />, line: <BtcLine /> },
+  { icon: <EthCard />, line: <EthLine /> },
+  { icon: <DashCard />, line: <DashLine /> },
+];
+
 const ListCurrency: FC<GeneralProps> = ({ theming: { theme }, currency, action, gradient = false}) => {
 
   const { currencies } = currency;
   const [selectedCard, setSelectedCard] = useState(null);
   const [backgroundCard, setbackgroundCard] = useState([]);
   const [data, setData] = useState(null);
-
-  const icons = [
-    { icon: <UsdCard />, line: <UsdLine /> },
-    { icon: <BtcCard />, line: <BtcLine /> },
-    { icon: <EthCard />, line: <EthLine /> },
-    { icon: <DashCard />, line: <DashLine /> },
-  ];
 
   const cardSelected = (values: any, index: any) => {
     let newArray: any = [];
@@ -57,7 +57,6 @@ const ListCurrency: FC<GeneralProps> = ({ theming: { theme }, currency, action, 
   useEffect(() => {
     action.getCurrencies();
   }, []);
-
 
   return (
     <>
@@ -104,7 +103,7 @@ const ListCurrency: FC<GeneralProps> = ({ theming: { theme }, currency, action, 
                       </>
                       :
                       <>
-                        <CardsRedirect data={data} {...{theming:theme}} />
+                        <CardsRedirect data={data} {...{theming:theme}} reset={resetStates}/>
                       </>
                   }
                   <View>

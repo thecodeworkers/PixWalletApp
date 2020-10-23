@@ -3,20 +3,19 @@ import { View, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import LinearGradient from 'react-native-linear-gradient';
 import { Arrows } from '../../../../../../assets/image/svg';
-import { DefaultProps } from '../../../../../../types';
 import { selectCurrency } from '../../../../../../store/actions';
 import { bindActionCreators } from 'redux';
-import { RedirectProps } from './types';
+import { RedirectProps, ReducerProps} from './types';
 import { connect } from 'react-redux';
 import styles from './styles';
 import { useNavigation } from '@react-navigation/native';
 
-const CardsRedirect: FC<RedirectProps> = ({ theming: { theme }, data, selectedCurrency, action}: any) => {
+const CardsRedirect: FC<RedirectProps> = ({ theming: { theme }, data, action = null, reset}) => {
 
-  const navigation = useNavigation()
+  const navigation = useNavigation();
 
-  const redirect = () => {
-    navigation.navigate('receiveCrypto');
+  const redirect = (route: string) => {
+    navigation.navigate(route);
 
     const currency = {
       symbol: data.symbol,
@@ -25,17 +24,14 @@ const CardsRedirect: FC<RedirectProps> = ({ theming: { theme }, data, selectedCu
     };
 
     action.selectCurrency(currency);
+    reset();
   }
-
-  useEffect(() => {
-    console.log(selectedCurrency)
-  }, [selectedCurrency])
 
   return (
     <View style={styles.main}>
       <View style={styles.mainChild}>
 
-        <TouchableOpacity onPress={redirect} >
+        <TouchableOpacity onPress={() => redirect(data.type != 'FIAT' ? 'sendCrypto' : 'sendFiat' )}>
           <LinearGradient
             start={{ x: 0, y: 0 }}
             end={{ x: 1, y: 0 }}
@@ -47,7 +43,7 @@ const CardsRedirect: FC<RedirectProps> = ({ theming: { theme }, data, selectedCu
           </LinearGradient>
         </TouchableOpacity>
 
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => redirect(data.type != 'FIAT' ? 'receiveCrypto' : 'receiveFiat' )} >
           <LinearGradient
             start={{ x: 0, y: 0 }}
             end={{ x: 1, y: 0 }}
@@ -56,11 +52,11 @@ const CardsRedirect: FC<RedirectProps> = ({ theming: { theme }, data, selectedCu
             style={styles.cardActions}
             useAngle={true}
           >
-            <Icon name="call-received" color={theme.defaultActiveIcon} size={20} style={{ color: 'white' }} />
+            <Icon name="call-received" color={theme.defaultActiveIcon} size={20} style={styles.rotateArrow} />
           </LinearGradient>
         </TouchableOpacity>
 
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => redirect('exchange')}>
           <LinearGradient
             start={{ x: 0, y: 0 }}
             end={{ x: 1, y: 0 }}
@@ -79,7 +75,7 @@ const CardsRedirect: FC<RedirectProps> = ({ theming: { theme }, data, selectedCu
   )
 }
 
-const mapStateToProps = ({ theming, selectedCurrency }: any): any => ({ theming, selectedCurrency })
+const mapStateToProps = ({ theming, selectedCurrency }: ReducerProps): ReducerProps => ({ theming, selectedCurrency })
 
 const mapDispatchToProps = (dispatch: any) => {
   const actions = {

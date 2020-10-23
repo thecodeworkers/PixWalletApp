@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, memo} from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import { DefaultProps } from '../../types';
 import { TabsProps } from './types';
@@ -30,4 +30,4 @@ const Tabs: FC<TabsProps> = ({ theming: { theme }, selectedTab = 0, crypto = nul
 
 const mapStateToProps = ({ theming }: DefaultProps): DefaultProps => ({ theming })
 
-export default connect(mapStateToProps)(Tabs);
+export default connect(mapStateToProps)(memo(Tabs));

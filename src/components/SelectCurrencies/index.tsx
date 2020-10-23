@@ -25,7 +25,7 @@ const SelectCurrencies: FC<DefaultProps> = ({ theming: { theme }, action }: any)
             <Text style={[styles.text, { color: theme.screenText }]}>Default Porfolio</Text>
             <Text style={[styles.amount, { color: theme.screenText }]}>1.234 USD</Text>
           </View>
-          <TouchableOpacity onPress={ () => setModalVisible(true)}  style={styles.selectContainer} activeOpacity={1}>
+          <TouchableOpacity onPress={() => setModalVisible(true)} style={styles.selectContainer} activeOpacity={1}>
             <LinearGradient
               start={{ x: 0, y: 0 }}
               end={{ x: 1, y: 0 }}
@@ -36,10 +36,8 @@ const SelectCurrencies: FC<DefaultProps> = ({ theming: { theme }, action }: any)
             </LinearGradient>
           </TouchableOpacity>
         </View>
-    <SelectCurrencyModal show={modalVisible} />
-
+        <SelectCurrencyModal show={modalVisible} />
       </View>
-
     </>
   );
 }

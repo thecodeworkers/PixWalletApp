@@ -1,13 +1,13 @@
-import React, { FC } from 'react';
+import React, { FC, memo } from 'react';
 import { View, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import LinearGradient from 'react-native-linear-gradient';
-import { DefaultProps } from '../../../../../../types';
+import { DefaultProps, Theming } from '../../../../../../types';
 import { connect } from 'react-redux';
 import styles from './style';
 import { useNavigation } from '@react-navigation/native';
 
-const ActionButtons: FC<DefaultProps> = ({ theming: { theme }}) => {
+const ActionButtons: FC<Theming> = ({ theme }) => {
   const navigation = useNavigation();
 
   const redirect = () => navigation.navigate('currencyList');
@@ -44,6 +44,4 @@ const ActionButtons: FC<DefaultProps> = ({ theming: { theme }}) => {
   )
 }
 
-const mapStateToProps = ({ theming }: DefaultProps): DefaultProps => ({ theming })
-
-export default connect(mapStateToProps)(ActionButtons);
+export default memo(ActionButtons);
