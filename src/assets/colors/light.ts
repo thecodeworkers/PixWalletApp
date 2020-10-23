@@ -12,7 +12,8 @@ const light: any = {
   statusBar: 'dark-content',
   announcement:'#F4F4F4',
   cardGradient: ['#F5F5F5', '#F5F5F5', '#FFFFFF'],
-  bigCard: '#FFFFFF'
+  bigCard: '#FFFFFF',
+  whirspersInactive: '#EEEEEE'
 }
 
 export default light;

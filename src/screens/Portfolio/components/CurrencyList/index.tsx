@@ -2,19 +2,29 @@ import React, { FC, useState } from 'react';
 import { StyleSheet, View, Text, StatusBar, TextInput, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { DefaultProps } from '../../../../types';
+import { Separator, Tabs} from '../../../../components';
 import { connect } from 'react-redux';
 import styles from './styles';
 
 
 const CurrencyList: FC<DefaultProps | any> = ({ theming: { theme }, navigation }) => {
 
-  const { background, defaultActiveIcon, veryLightGrey, defaultInactiveIcon } = theme;
+  const { background, defaultActiveIcon, veryLightGrey, defaultInactiveIcon, whisper, whirspersInactive, summerSky} = theme;
+  const [selectedTab, setSelectedTab] = useState(0);
 
-  const [ selectedTab, setSelectedTab ] = useState(0);
-
-  const selectedCard = (selected: number) => {
-
+  const selectTab = (selected: number) => {
+    setSelectedTab(selected);
   };
+
+  const fiatFunction = () => {
+    console.log('Fiat');
+    setSelectedTab(1);
+  }
+
+  const cryptoFunction = () => {
+    console.log('Crypto');
+    setSelectedTab(0);
+  }
 
   return (
     <>
@@ -23,7 +33,7 @@ const CurrencyList: FC<DefaultProps | any> = ({ theming: { theme }, navigation }
 
         <View style={styles.inputParent}>
           <TextInput
-            style={[styles.input, { borderColor: defaultActiveIcon}]}
+            style={[styles.input, { borderColor: defaultActiveIcon }]}
             placeholder='Search'
             placeholderTextColor={veryLightGrey}
           />
@@ -35,14 +45,12 @@ const CurrencyList: FC<DefaultProps | any> = ({ theming: { theme }, navigation }
           />
         </View>
 
-        <View style={styles.tabParent}>
-          <TouchableOpacity style={[styles.childTab, {backgroundColor: defaultActiveIcon}]} >
-            <Text>Crypto</Text>
-          </TouchableOpacity>
+        <View style={{width: '85%'}}>
+          <Tabs selectedTab={selectedTab} crypto={cryptoFunction} fiat={fiatFunction}/>
+        </View>
 
-          <TouchableOpacity style={[styles.childTab, { backgroundColor: defaultInactiveIcon}]} >
-            <Text>Fiat</Text>
-          </TouchableOpacity>
+        <View style={styles.separatorParent}>
+          <Separator color={defaultActiveIcon} width={4}/>
         </View>
 
         {/* <Text style={{ color: theme.screenText }}>Currency List</Text>
