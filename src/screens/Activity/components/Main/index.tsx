@@ -30,7 +30,7 @@ const Main: FC<ActivityProps> = ({ theming: { theme }}) => {
       <View style={styles.filter}>
         <ActivityFilter theme={theme} />
       </View>
-      <Separator width={4} color={'#35A7D6'} />
+      <Separator width={4} color={theme.principalSeparator} />
       <View style={styles.list}>
         <FlatList
           data={DATA}

@@ -13,7 +13,10 @@ const light: any = {
   announcement:'#F4F4F4',
   cardGradient: ['#F5F5F5', '#F5F5F5', '#FFFFFF'],
   bigCard: '#FFFFFF',
-  whirspersInactive: '#EEEEEE'
+  whirspersInactive: '#EEEEEE',
+  principalSeparator: '#35A7D6',
+  tabsTitle: '#35A7D6',
+  tabsTitleClear: '#C9C9C9'
 }
 
 export default light;

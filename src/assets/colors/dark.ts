@@ -13,7 +13,10 @@ const dark: any = {
   announcement:'#7A7A7A',
   cardGradient: ['#313131', '#313131', '#313131'],
   bigCard: '#161617',
-  whirspersInactive: '#313131'
+  whirspersInactive: '#313131',
+  principalSeparator: '#E5E5E5',
+  tabsTitle: '#E5E5E5',
+  tabsTitleClear: '#313131'
 }
 
 export default dark;

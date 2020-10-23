@@ -34,8 +34,8 @@ const ActivityFilter: FC<Theming> = ({ theme }) => {
           if(index == selected) {
             buttonProps = {
               ...button,
-              backgroundButton: '#EBEBEB',
-              titleColor: '#35A7D6',
+              backgroundButton: theme.whirspersInactive,
+              titleColor: theme.tabsTitle,
               opacity: 1
             }
           }
