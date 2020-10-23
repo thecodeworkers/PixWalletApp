@@ -16,7 +16,8 @@ const dark: any = {
   whirspersInactive: '#313131',
   principalSeparator: '#E5E5E5',
   tabsTitle: '#E5E5E5',
-  tabsTitleClear: '#313131'
+  tabsTitleClear: '#313131',
+  separatorGray:'#FFFFFF'
 }
 
 export default dark;
