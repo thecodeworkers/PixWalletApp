@@ -6,3 +6,4 @@ export { default as SelectCurrencies} from './SelectCurrencies';
 export { default as FiatTransactionType} from './FiatTransactionType';
 export { default as SelectCurrencyModal } from './SelectCurrencyModal';
 export { default as Separator } from './Separator';
+export { default as Tabs } from './Tabs';

@@ -10,9 +10,9 @@ const styles = StyleSheet.create({
     borderWidth: 2.5,
     borderColor: 'blue',
     paddingVertical: '3%',
-    paddingHorizontal: 15,
+    paddingHorizontal: 18,
     width: '100%',
-    borderRadius: 6,
+    borderRadius: 7,
     textAlign: 'right',
     color: '#000'
   },
@@ -27,6 +27,29 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: '20%',
     left: '3%'
+  },
+
+  //TABS
+
+  tabParent: {
+    flexDirection: 'row',
+    marginTop: '8%',
+    width: '85%',
+    justifyContent: 'space-between'
+  },
+
+  childTab: {
+    backgroundColor: 'gray',
+    width: '47%',
+    borderRadius: 4,
+    paddingVertical: '2.5%',
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+
+  separatorParent: {
+    width: '100%',
+    marginTop: '5%'
   }
 
 });

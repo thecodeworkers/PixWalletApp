@@ -1,15 +1,30 @@
-import React, { FC } from 'react';
-import { StyleSheet, View, Text, StatusBar, TextInput } from 'react-native';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import React, { FC, useState } from 'react';
+import { StyleSheet, View, Text, StatusBar, TextInput, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { DefaultProps } from '../../../../types';
+import { Separator, Tabs} from '../../../../components';
 import { connect } from 'react-redux';
 import styles from './styles';
 
 
 const CurrencyList: FC<DefaultProps | any> = ({ theming: { theme }, navigation }) => {
 
-  const { background, defaultActiveIcon, veryLightGrey} = theme;
+  const { background, defaultActiveIcon, veryLightGrey, defaultInactiveIcon, whisper, whirspersInactive, summerSky} = theme;
+  const [selectedTab, setSelectedTab] = useState(0);
+
+  const selectTab = (selected: number) => {
+    setSelectedTab(selected);
+  };
+
+  const fiatFunction = () => {
+    console.log('Fiat');
+    setSelectedTab(1);
+  }
+
+  const cryptoFunction = () => {
+    console.log('Crypto');
+    setSelectedTab(0);
+  }
 
   return (
     <>
@@ -18,7 +33,7 @@ const CurrencyList: FC<DefaultProps | any> = ({ theming: { theme }, navigation }
 
         <View style={styles.inputParent}>
           <TextInput
-            style={[styles.input, { borderColor: defaultActiveIcon}]}
+            style={[styles.input, { borderColor: defaultActiveIcon }]}
             placeholder='Search'
             placeholderTextColor={veryLightGrey}
           />
@@ -28,6 +43,14 @@ const CurrencyList: FC<DefaultProps | any> = ({ theming: { theme }, navigation }
             size={26}
             style={styles.icon}
           />
+        </View>
+
+        <View style={{width: '85%'}}>
+          <Tabs selectedTab={selectedTab} crypto={cryptoFunction} fiat={fiatFunction}/>
+        </View>
+
+        <View style={styles.separatorParent}>
+          <Separator color={defaultActiveIcon} width={4}/>
         </View>
 
         {/* <Text style={{ color: theme.screenText }}>Currency List</Text>
