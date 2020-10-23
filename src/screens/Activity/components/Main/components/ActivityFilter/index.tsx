@@ -1,9 +1,9 @@
 import React, { FC, memo, useState } from 'react';
 import { View } from 'react-native';
+import { ActivityButtonFilterProps } from '../types';
 import { Theming } from '../../../../../../types';
 import FilterButton from '../FilterButton';
 import styles from './styles';
-import { ActivityButtonFilterProps } from '../types';
 
 const buttons = [
   {
@@ -35,7 +35,8 @@ const ActivityFilter: FC<Theming> = ({ theme }) => {
             buttonProps = {
               ...button,
               backgroundButton: '#EBEBEB',
-              titleColor: '#35A7D6'
+              titleColor: '#35A7D6',
+              opacity: 1
             }
           }
 
