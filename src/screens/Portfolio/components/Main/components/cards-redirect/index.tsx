@@ -1,20 +1,41 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect} from 'react';
 import { View, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import LinearGradient from 'react-native-linear-gradient';
 import { Arrows } from '../../../../../../assets/image/svg';
 import { DefaultProps } from '../../../../../../types';
+import { selectCurrency } from '../../../../../../store/actions';
+import { bindActionCreators } from 'redux';
 import { RedirectProps } from './types';
 import { connect } from 'react-redux';
 import styles from './styles';
+import { useNavigation } from '@react-navigation/native';
 
-const CardsRedirect: FC<RedirectProps> = ({ theming: { theme }, data }) => {
+const CardsRedirect: FC<RedirectProps> = ({ theming: { theme }, data, selectedCurrency, action}: any) => {
+
+  const navigation = useNavigation()
+
+  const redirect = () => {
+    navigation.navigate('receiveCrypto');
+
+    const currency = {
+      symbol: data.symbol,
+      type: data.type,
+      color: data.color
+    };
+
+    action.selectCurrency(currency);
+  }
+
+  useEffect(() => {
+    console.log(selectedCurrency)
+  }, [selectedCurrency])
 
   return (
     <View style={styles.main}>
       <View style={styles.mainChild}>
 
-        <TouchableOpacity>
+        <TouchableOpacity onPress={redirect} >
           <LinearGradient
             start={{ x: 0, y: 0 }}
             end={{ x: 1, y: 0 }}
@@ -58,6 +79,16 @@ const CardsRedirect: FC<RedirectProps> = ({ theming: { theme }, data }) => {
   )
 }
 
-const mapStateToProps = ({ theming }: DefaultProps): DefaultProps => ({ theming })
+const mapStateToProps = ({ theming, selectedCurrency }: any): any => ({ theming, selectedCurrency })
 
-export default connect(mapStateToProps)(CardsRedirect);
+const mapDispatchToProps = (dispatch: any) => {
+  const actions = {
+    selectCurrency
+  };
+
+  return {
+    action: bindActionCreators(actions, dispatch),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(CardsRedirect);

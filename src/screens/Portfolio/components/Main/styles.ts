@@ -37,7 +37,8 @@ const styles = StyleSheet.create({
     height: 230,
     justifyContent: 'center',
     alignItems: 'center',
-    alignSelf: 'center'
+    alignSelf: 'center',
+    marginTop: '6%'
   },
 
   linearGradient: {

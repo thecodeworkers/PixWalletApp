@@ -37,7 +37,7 @@ const SelectCurrencies: FC<DefaultProps> = ({ theming: { theme }, action }: any)
           </TouchableOpacity>
         </View>
     <SelectCurrencyModal show={modalVisible} />
-        
+
       </View>
 
     </>

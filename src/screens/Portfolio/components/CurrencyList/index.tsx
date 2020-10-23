@@ -1,15 +1,15 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useState, useEffect } from 'react';
 import { StyleSheet, View, Text, StatusBar, TextInput, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { DefaultProps } from '../../../../types';
-import { Separator, Tabs} from '../../../../components';
+import { Separator, Tabs, ListCurrency} from '../../../../components';
 import { connect } from 'react-redux';
 import styles from './styles';
 
 
-const CurrencyList: FC<DefaultProps | any> = ({ theming: { theme }, navigation }) => {
+const CurrencyList: FC<DefaultProps | any> = ({ theming: { theme }, navigation, currency }) => {
 
-  const { background, defaultActiveIcon, veryLightGrey, defaultInactiveIcon, whisper, whirspersInactive, summerSky} = theme;
+  const { background, defaultActiveIcon, veryLightGrey } = theme;
   const [selectedTab, setSelectedTab] = useState(0);
 
   const selectTab = (selected: number) => {
@@ -19,12 +19,12 @@ const CurrencyList: FC<DefaultProps | any> = ({ theming: { theme }, navigation }
   const fiatFunction = () => {
     console.log('Fiat');
     setSelectedTab(1);
-  }
+  };
 
   const cryptoFunction = () => {
     console.log('Crypto');
     setSelectedTab(0);
-  }
+  };
 
   return (
     <>
@@ -53,16 +53,15 @@ const CurrencyList: FC<DefaultProps | any> = ({ theming: { theme }, navigation }
           <Separator color={defaultActiveIcon} width={4}/>
         </View>
 
-        {/* <Text style={{ color: theme.screenText }}>Currency List</Text>
-        <TouchableOpacity onPress={() => navigation.navigate('currencyActivity')}>
-          <Text>Navigate</Text>
-        </TouchableOpacity> */}
+        <View style={styles.cardsParent}>
+          <ListCurrency gradient={false}/>
+        </View>
 
       </View>
     </>
   );
 }
 
-const mapStateToProps = ({ theming }: DefaultProps): DefaultProps => ({ theming })
+const mapStateToProps = ({ theming, currency }: DefaultProps | any): DefaultProps | any => ({ theming, currency })
 
 export default connect(mapStateToProps)(CurrencyList);
