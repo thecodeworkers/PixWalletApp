@@ -31,6 +31,9 @@ const en = {
   //ACTIVITY
   activity: 'Activity',
   transaction_details: 'Transaction details',
+  all: 'All',
+  withdraw: 'Withdraw',
+  exchange: 'Exchange',
 
   //CURRENCY LIST
   deposit: 'Deposit'
