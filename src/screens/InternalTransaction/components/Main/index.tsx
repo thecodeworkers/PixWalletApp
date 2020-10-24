@@ -2,14 +2,14 @@ import React, { FC } from 'react';
 import { StyleSheet, View, Text} from 'react-native';
 import { connect } from 'react-redux';
 import { DefaultProps } from '../../../../types';
-import { DiamondCurrencies, SelectCurrencies } from '../../../../components'
+import { DiamondCurrencies, SelectCrypto } from '../../../../components'
 
 const Main: FC<DefaultProps> = ({ theming: { theme } }) => {
   return (
     <>
      <View style={[styles.container, { backgroundColor: theme.background }]}>
      <DiamondCurrencies currency='USD' {...{theming: {theme}}}/>
-      <SelectCurrencies />
+      <SelectCrypto />
      </View>
  
     </>
