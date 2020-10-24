@@ -1,4 +1,4 @@
-import React, { FC, useState, useEffect } from 'react';
+import React, { FC, useState, useEffect, useRef } from 'react';
 import { View, Text, StatusBar, TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
 import { i18n } from '../../../../utils';
@@ -10,11 +10,15 @@ import { ScrollView } from 'react-native-gesture-handler';
 import { ActionButtons } from './components';
 import { ListCurrency } from '../../../../components';
 import { CurrencyProps, GeneralProps } from './types';
+import LottieView from 'lottie-react-native';
+import  './bodymovin.json';
 
 const Main: FC<GeneralProps> = ({ theming: { theme }, action, navigation }) => {
 
   const lightTheme = () => action.setTheme('light');
   const darkTheme = () => action.setTheme('dark');
+
+  const hey = useRef(null);
 
   return (
     <>
@@ -42,6 +46,13 @@ const Main: FC<GeneralProps> = ({ theming: { theme }, action, navigation }) => {
             </TouchableOpacity>
           </View>
         </View>
+
+        <LottieView
+        ref={hey}
+        source={require('./bodymovin.json')} autoPlay loop
+      />
+
+
       </ScrollView>
     </>
   );
