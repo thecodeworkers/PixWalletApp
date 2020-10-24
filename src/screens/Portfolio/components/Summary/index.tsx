@@ -38,7 +38,7 @@ const Summary: FC<GeneralProps> = ({ theming: { theme }, currency }) => {
   }
 
   return (
-    <ScrollView>
+    <ScrollView style={{backgroundColor: theme.background}}>
       <View style={[styles.main, { backgroundColor: theme.background }]}>
         <View style={styles.summaryContent}>
           <View>

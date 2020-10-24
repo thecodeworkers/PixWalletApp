@@ -52,7 +52,6 @@ const Main: FC<GeneralProps> = ({ theming: { theme }, action, navigation }) => {
         source={require('./bodymovin.json')} autoPlay loop
       />
 
-
       </ScrollView>
     </>
   );
