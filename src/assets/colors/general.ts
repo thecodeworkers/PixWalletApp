@@ -3,7 +3,7 @@ const general: any = {
   whisper: '#EEEEEE',
   veryLightGrey: '#C9C9C9',
   jaguar: '#21212A',
-  whiteSmoke: '#F4F4F4'
+  whiteSmoke: '#F4F4F4',
 }
 
 export default general;

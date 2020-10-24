@@ -16,7 +16,8 @@ const light: any = {
   whirspersInactive: '#EEEEEE',
   principalSeparator: '#35A7D6',
   tabsTitle: '#35A7D6',
-  tabsTitleClear: '#C9C9C9'
+  tabsTitleClear: '#C9C9C9',
+  separatorGray:'#EDEDED'
 }
 
 export default light;
