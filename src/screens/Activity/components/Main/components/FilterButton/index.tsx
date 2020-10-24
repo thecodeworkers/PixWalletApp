@@ -4,7 +4,7 @@ import { FilterButtonProps } from './types';
 import { i18n } from '../../../../../../utils';
 import styles from './styles';
 
-const FilterButton: FC<FilterButtonProps> = ({ theme, title, titleColor = '#C9C9C9', buttonWidth = '22%', backgroundButton = null, onPress  }) => (
+const FilterButton: FC<FilterButtonProps> = ({ theme, title, titleColor = null, buttonWidth = '22%', backgroundButton = null, opacity = 0.2, onPress  }) => (
   <TouchableOpacity
     style={[
       styles.buttonBody,
@@ -14,8 +14,9 @@ const FilterButton: FC<FilterButtonProps> = ({ theme, title, titleColor = '#C9C9
       }
     ]}
     onPress={onPress}
+    activeOpacity={opacity}
   >
-    <Text style={[ styles.buttonTitle, { color: titleColor }]}>{i18n.t(title)}</Text>
+    <Text style={[ styles.buttonTitle, { color: titleColor ? titleColor : theme.tabsTitleClear }]}>{i18n.t(title)}</Text>
   </TouchableOpacity>
 );
 

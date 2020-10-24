@@ -8,11 +8,15 @@ import { connect } from 'react-redux';
 import { UsdCard } from '../../assets/image/svg';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import LinearGradient from 'react-native-linear-gradient';
-import { SelectCurrencyModal } from '../../components'
+import { SelectCryptoModal } from '../../components'
+import { showComponent } from '../../store/actions' ;
 
-const SelectCurrencies: FC<DefaultProps> = ({ theming: { theme }, action }: any) => {
+const SelectCrypto: FC<DefaultProps> = ({ theming: { theme }, action, intermittence }: any) => {
 
-  const [modalVisible, setModalVisible] = useState(false);
+
+  const openModal = () => {
+    action.showComponent(true)
+  }
 
   return (
     <>
@@ -25,7 +29,7 @@ const SelectCurrencies: FC<DefaultProps> = ({ theming: { theme }, action }: any)
             <Text style={[styles.text, { color: theme.screenText }]}>Default Porfolio</Text>
             <Text style={[styles.amount, { color: theme.screenText }]}>1.234 USD</Text>
           </View>
-          <TouchableOpacity onPress={() => setModalVisible(true)} style={styles.selectContainer} activeOpacity={1}>
+          <TouchableOpacity onPress={openModal}  style={styles.selectContainer} activeOpacity={1}>
             <LinearGradient
               start={{ x: 0, y: 0 }}
               end={{ x: 1, y: 0 }}
@@ -36,16 +40,18 @@ const SelectCurrencies: FC<DefaultProps> = ({ theming: { theme }, action }: any)
             </LinearGradient>
           </TouchableOpacity>
         </View>
-        <SelectCurrencyModal show={modalVisible} />
+    <SelectCryptoModal />
+
       </View>
     </>
   );
 }
 
-const mapStateToProps = ({ theming }: DefaultProps): DefaultProps => ({ theming })
+const mapStateToProps = ({ theming, intermittence }: DefaultProps | any): DefaultProps | any => ({ theming, intermittence })
 
 const mapDispatchToProps = (dispatch: any) => {
   const actions = {
+    showComponent
   };
 
   return {
@@ -53,4 +59,4 @@ const mapDispatchToProps = (dispatch: any) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(SelectCurrencies);
+export default connect(mapStateToProps, mapDispatchToProps)(SelectCrypto);
