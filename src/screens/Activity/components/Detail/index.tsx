@@ -26,15 +26,15 @@ const Detail: FC<DefaultProps> = ({ theming: { theme } }) => {
         flexDirection: 'row',
         justifyContent: 'center'
       }}>
-        <View style={{ flex: 0.43, justifyContent: 'center' }}>
-          <View style={{ width: 70, height: 70 }}>
+        <View style={{ flex: 0.40, justifyContent: 'center' }}>
+          <View style={{ width: 60, height: 60 }}>
             <EthCard/>
           </View>
         </View>
-        <View style={{ flex: 0.43, justifyContent: 'center', alignItems: 'flex-end' }}>
-          <Text>Enviando</Text>
-          <Text>4.7 ETH</Text>
-          <Text>-$1,132.00</Text>
+        <View style={{ flex: 0.40, justifyContent: 'center', alignItems: 'flex-end' }}>
+          <Text style={{ color: '#444457', fontSize: 13 }}>Enviando</Text>
+          <Text style={{ color: '#444457', fontSize: 15 }}>4.7 ETH</Text>
+          <Text style={{ color: '#C9C9C9', fontSize: 17 }}>-$1,132.00</Text>
         </View>
       </View>
       <View style={{ height: 89, marginBottom: '8%', marginHorizontal: '11%', flexDirection: 'row', justifyContent: 'space-between' }}>
@@ -52,9 +52,9 @@ const Detail: FC<DefaultProps> = ({ theming: { theme } }) => {
           justifyContent: 'center',
           alignItems: 'center'
         }}>
-          <Text>Comisión</Text>
-          <Text>4.7 ETH</Text>
-          <Text>-$1,132.00</Text>
+          <Text style={{ color: '#21212A', fontSize: 14, marginBottom: 5 }}>Comisión</Text>
+          <Text style={{ color: '#21212A', fontSize: 14 }}>4.7 ETH</Text>
+          <Text style={{ color: '#C9C9C9', fontSize: 10 }}>-$1,132.00</Text>
         </View>
         <View style={{
           backgroundColor: '#FFFFFF',
@@ -70,8 +70,8 @@ const Detail: FC<DefaultProps> = ({ theming: { theme } }) => {
           justifyContent: 'center',
           alignItems: 'center'
         }}>
-          <Text>May,12 2020</Text>
-          <Text>4:18 pm</Text>
+          <Text style={{ color: '#B7B7B7', fontSize: 10 }}>May,12 2020</Text>
+          <Text style={{ color: '#B7B7B7', fontSize: 10 }}>4:18 pm</Text>
         </View>
       </View>
       <View style={{
@@ -91,8 +91,8 @@ const Detail: FC<DefaultProps> = ({ theming: { theme } }) => {
         justifyContent: 'center',
         alignItems: 'center'
       }}>
-        <Text>Nota personal</Text>
-        <Text>Add note</Text>
+        <Text style={{ color: '#21212A', fontSize: 15, marginBottom: 5 }}>Nota personal</Text>
+        <Text style={{ color: '#B7B7B7', fontSize: 12 }}>Add note</Text>
       </View>
       <View style={{
         backgroundColor: '#FFFFFF',
@@ -111,8 +111,8 @@ const Detail: FC<DefaultProps> = ({ theming: { theme } }) => {
         justifyContent: 'center',
         alignItems: 'center'
       }}>
-        <Text>Enviado</Text>
-        <Text>1qwteydhfa132gswrdgsfqtteypmnbvxc129sfarwt</Text>
+        <Text style={{ color: '#21212A', fontSize: 15, marginBottom: 5 }}>Enviado</Text>
+        <Text style={{ color: '#B7B7B7', fontSize: 12, width: 195, textAlign: 'center' }}>1qwteydhfa132gswrdgsfqtteypmnbvxc129sfarwt</Text>
       </View>
       <View style={{
         backgroundColor: '#FFFFFF',
@@ -131,8 +131,8 @@ const Detail: FC<DefaultProps> = ({ theming: { theme } }) => {
         justifyContent: 'center',
         alignItems: 'center'
       }}>
-        <Text>Transaction ID</Text>
-        <Text>1qwteydhfa132gswrdgsfqtteypmnbvxc129sfarwt</Text>
+        <Text style={{ color: '#21212A', fontSize: 15, marginBottom: 5 }}>Transaction ID</Text>
+        <Text style={{ color: '#B7B7B7', fontSize: 12, width: 195, textAlign: 'center' }}>1qwteydhfa132gswrdgsfqtteypmnbvxc129sfarwt</Text>
       </View>
     </ScrollView>
   );
