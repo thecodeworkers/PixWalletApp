@@ -46,7 +46,7 @@ const CurrencyList: FC<DefaultProps | any> = ({ theming: { theme }, navigation }
         </View>
 
         <View style={{width: '85%'}}>
-          <Tabs selectedTab={selectedTab} crypto={cryptoFunction} fiat={fiatFunction}/>
+          <Tabs theme={theme} selectedTab={selectedTab} crypto={cryptoFunction} fiat={fiatFunction}/>
         </View>
 
         <View style={styles.separatorParent}>

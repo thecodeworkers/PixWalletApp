@@ -47,6 +47,6 @@ const Detail: FC<DefaultProps> = ({ theming: { theme } }) => {
   );
 }
 
-const mapStateToProps = ({ theming }: DefaultProps): DefaultProps => ({ theming })
+const mapStateToProps = ({ theming }: DefaultProps): DefaultProps => ({ theming });
 
 export default connect(mapStateToProps)(Detail);

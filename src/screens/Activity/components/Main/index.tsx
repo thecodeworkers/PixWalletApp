@@ -1,9 +1,9 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 import { View, FlatList } from 'react-native';
 import { connect } from 'react-redux';
 import { ActivityProps, StateProps } from './types';
 import { ActivityFilter, ActivityList } from './components';
-import { Separator } from '../../../../components';
+import { Separator, Tabs } from '../../../../components';
 import styles from './styles';
 
 const DATA = [
@@ -25,12 +25,21 @@ const DATA = [
 ]
 
 const Main: FC<ActivityProps> = ({ theming: { theme }}) => {
+  const [filter, setFilter] = useState('all');
+
   return (
     <View style={[styles.container, { backgroundColor: theme.background }]}>
       <View style={styles.filter}>
-        <ActivityFilter theme={theme} />
+        <ActivityFilter theme={theme} filterResult={tab => setFilter(tab)} />
       </View>
       <Separator width={4} color={theme.principalSeparator} />
+      {
+        filter == 'deposit' || filter == 'withdraw' ? (
+          <View style={{ marginHorizontal: '5%' }}>
+            <Tabs theme={theme} />
+          </View>
+        ) : null
+      }
       <View style={styles.list}>
         <FlatList
           data={DATA}
