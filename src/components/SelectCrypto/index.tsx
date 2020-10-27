@@ -41,13 +41,9 @@ const SelectCrypto: FC<DefaultProps> = ({ theming: { theme }, action, intermitte
           </TouchableOpacity>
         </View>
     <SelectCryptoModal />
-<<<<<<< HEAD
-=======
 
       </View>
->>>>>>> 9321a14eae57f7947feed14594e8fbd41dbc3b72
 
-      </View>
     </>
   );
 }

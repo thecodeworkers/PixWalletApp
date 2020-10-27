@@ -47,10 +47,10 @@ const Main: FC<GeneralProps> = ({ theming: { theme }, action, navigation }) => {
           </View>
         </View>
 
-        <LottieView
+        {/* <LottieView
         ref={hey}
         source={require('./bodymovin.json')} autoPlay loop
-      />
+      /> */}
 
       </ScrollView>
     </>
