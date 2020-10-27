@@ -44,7 +44,7 @@ const CurrencyList: FC<GeneralProps> = ({ theming: { theme }, navigation, curren
       </View>
 
       <View style={{width: '85%'}}>
-        <Tabs selectedTab={selectedTab} crypto={cryptoFunction} fiat={fiatFunction}/>
+        <Tabs selectedTab={selectedTab} crypto={cryptoFunction} fiat={fiatFunction} {...theme}/>
       </View>
 
       <View style={styles.separatorParent}>
