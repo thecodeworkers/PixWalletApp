@@ -17,7 +17,7 @@ const shadowOptions = (width: number, height: number, opacity: number, radius: n
 
 const styles = StyleSheet.create({
   actionButtons: {
-    marginVertical: '8%',
+    marginVertical: '7%',
     width: '90%',
     alignSelf: 'center',
     flexDirection: 'row',

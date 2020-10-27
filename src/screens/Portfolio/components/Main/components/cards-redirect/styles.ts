@@ -6,20 +6,25 @@ const styles = StyleSheet.create({
     height: 42,
     borderRadius: 6,
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
   },
 
   main: {
-    flex: 0.66, 
-    flexDirection: 'row', 
-    justifyContent: 'flex-end' 
+    flex: 0.66,
+    flexDirection: 'row',
+    justifyContent: 'flex-end'
   },
 
   mainChild: {
-    width: '85%', 
-    flexDirection: 'row', 
-    justifyContent: 'space-evenly', 
-    alignItems: 'center' 
+    width: '85%',
+    flexDirection: 'row',
+    justifyContent: 'space-evenly',
+    alignItems: 'center'
+  },
+
+  rotateArrow: {
+    color: 'white',
+    transform: [{rotate: '-90deg'}]
   }
 });
 

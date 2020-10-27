@@ -1,8 +1,7 @@
-import { DefaultProps } from  '../../types';
+import { Theming } from  '../../types';
 
 export type TabsProps = {
-  fiat: any,
-  crypto: any,
-  selectedTab: number
-} & DefaultProps;
-
+  fiat?: () => void,
+  crypto?: () => void,
+  selectedTab?: number
+} & Theming;

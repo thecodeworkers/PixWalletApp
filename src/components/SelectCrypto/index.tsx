@@ -8,13 +8,13 @@ import { connect } from 'react-redux';
 import { UsdCard, BtcCard } from '../../assets/image/svg';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import LinearGradient from 'react-native-linear-gradient';
-import { SelectCryptoModal } from '../../components'
+import SelectCryptoModal from '../SelectCryptoModal'
 import { showComponent } from '../../store/actions' ;
 
 const SelectCrypto: FC<DefaultProps> = ({ theming: { theme }, action, intermittence }: any) => {
 
 
-  const openModal = () => {    
+  const openModal = () => {
     action.showComponent(true)
   }
 
@@ -41,7 +41,7 @@ const SelectCrypto: FC<DefaultProps> = ({ theming: { theme }, action, intermitte
           </TouchableOpacity>
         </View>
     <SelectCryptoModal />
-        
+
       </View>
 
     </>

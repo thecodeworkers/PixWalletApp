@@ -1,11 +1,9 @@
-import React, { FC } from 'react';
+import React, { FC, memo } from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
-import { DefaultProps } from '../../types';
 import { TabsProps } from './types';
 import styles from './styles';
-import { connect } from 'react-redux';
 
-const Tabs: FC<TabsProps> = ({ theming: { theme }, selectedTab = 0, crypto = null, fiat = null }: any) => {
+const Tabs: FC<TabsProps> = ({ theme, selectedTab = 0, crypto, fiat }) => {
 
   const { background, defaultActiveIcon, veryLightGrey, whirspersInactive } = theme;
 
@@ -13,14 +11,14 @@ const Tabs: FC<TabsProps> = ({ theming: { theme }, selectedTab = 0, crypto = nul
     <View style={styles.tabParent}>
       <TouchableOpacity
         style={[styles.childTab, selectedTab === 0 ? { backgroundColor: defaultActiveIcon } : { backgroundColor: whirspersInactive }]}
-        onPress={() => crypto()}
+        onPress={crypto}
       >
         <Text style={selectedTab === 0 ? { color: background } : { color: veryLightGrey }}>Crypto</Text>
       </TouchableOpacity>
 
       <TouchableOpacity
         style={[styles.childTab, selectedTab === 1 ? { backgroundColor: defaultActiveIcon } : { backgroundColor: whirspersInactive }]}
-        onPress={() => fiat()}
+        onPress={fiat}
       >
         <Text style={selectedTab === 1 ? { color: background } : { color: veryLightGrey }}>Fiat</Text>
       </TouchableOpacity>
@@ -28,6 +26,4 @@ const Tabs: FC<TabsProps> = ({ theming: { theme }, selectedTab = 0, crypto = nul
   )
 };
 
-const mapStateToProps = ({ theming }: DefaultProps): DefaultProps => ({ theming })
-
-export default connect(mapStateToProps)(Tabs);
+export default memo(Tabs);
