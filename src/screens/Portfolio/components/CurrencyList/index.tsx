@@ -1,15 +1,16 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useState, useEffect } from 'react';
 import { StyleSheet, View, Text, StatusBar, TextInput, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { DefaultProps } from '../../../../types';
-import { Separator, Tabs} from '../../../../components';
+import { Separator, Tabs, ListCurrency} from '../../../../components';
+import { ReducerProps, GeneralProps } from './types';
 import { connect } from 'react-redux';
 import styles from './styles';
 
 
-const CurrencyList: FC<DefaultProps | any> = ({ theming: { theme }, navigation }) => {
+const CurrencyList: FC<GeneralProps> = ({ theming: { theme }, navigation, currency }) => {
 
-  const { background, defaultActiveIcon, veryLightGrey, defaultInactiveIcon, whisper, whirspersInactive, summerSky} = theme;
+  const { background, defaultActiveIcon, veryLightGrey } = theme;
   const [selectedTab, setSelectedTab] = useState(0);
 
   const selectTab = (selected: number) => {
@@ -19,50 +20,45 @@ const CurrencyList: FC<DefaultProps | any> = ({ theming: { theme }, navigation }
   const fiatFunction = () => {
     console.log('Fiat');
     setSelectedTab(1);
-  }
+  };
 
   const cryptoFunction = () => {
     console.log('Crypto');
     setSelectedTab(0);
-  }
+  };
 
   return (
-    <>
-      <StatusBar barStyle={theme.statusBar} />
-      <View style={[styles.container, { backgroundColor: background }]}>
-
-        <View style={styles.inputParent}>
-          <TextInput
-            style={[styles.input, { borderColor: defaultActiveIcon }]}
-            placeholder='Search'
-            placeholderTextColor={veryLightGrey}
-          />
-          <Icon
-            name='search'
-            color={veryLightGrey}
-            size={26}
-            style={styles.icon}
-          />
-        </View>
-
-        <View style={{width: '85%'}}>
-          <Tabs theme={theme} selectedTab={selectedTab} crypto={cryptoFunction} fiat={fiatFunction}/>
-        </View>
-
-        <View style={styles.separatorParent}>
-          <Separator color={defaultActiveIcon} width={4}/>
-        </View>
-
-        {/* <Text style={{ color: theme.screenText }}>Currency List</Text>
-        <TouchableOpacity onPress={() => navigation.navigate('currencyActivity')}>
-          <Text>Navigate</Text>
-        </TouchableOpacity> */}
-
+    <View style={[styles.container, { backgroundColor: background }]}>
+      <View style={styles.inputParent}>
+        <TextInput
+          style={[styles.input, { borderColor: defaultActiveIcon }]}
+          placeholder='Search'
+          placeholderTextColor={veryLightGrey}
+        />
+        <Icon
+          name='search'
+          color={veryLightGrey}
+          size={26}
+          style={styles.icon}
+        />
       </View>
-    </>
+
+      <View style={{width: '85%'}}>
+        <Tabs selectedTab={selectedTab} crypto={cryptoFunction} fiat={fiatFunction} {...theme}/>
+      </View>
+
+      <View style={styles.separatorParent}>
+        <Separator color={defaultActiveIcon} width={4}/>
+      </View>
+
+      <View style={styles.cardsParent}>
+        <ListCurrency gradient={false}/>
+      </View>
+
+    </View>
   );
 }
 
-const mapStateToProps = ({ theming }: DefaultProps): DefaultProps => ({ theming })
+const mapStateToProps = ({ theming, currency }: ReducerProps ): ReducerProps => ({ theming, currency })
 
 export default connect(mapStateToProps)(CurrencyList);

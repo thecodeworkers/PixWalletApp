@@ -1,6 +1,12 @@
 import { DefaultProps  } from '../../../../../../types';
 
 export type RedirectProps = {
-  backgroundCard: any,
-  data: any
-} & DefaultProps
+  action?: any
+  selectedCurrency?: any,
+  data: any,
+  reset: () => void
+} & DefaultProps;
+
+export type ReducerProps = {
+  selectedCurrency: any
+} & DefaultProps;

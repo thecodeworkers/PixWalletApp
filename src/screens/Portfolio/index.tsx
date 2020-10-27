@@ -68,6 +68,8 @@ const Portfolio = () => {
         name="internalTransaction"
         component={InternalTransaction}
       />
+
+
     </Stack.Navigator>
   )
 }
