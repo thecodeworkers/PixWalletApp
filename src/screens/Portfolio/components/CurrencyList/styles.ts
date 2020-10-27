@@ -50,6 +50,11 @@ const styles = StyleSheet.create({
   separatorParent: {
     width: '100%',
     marginTop: '5%'
+  },
+
+  cardsParent: {
+    marginTop: '7%',
+    width: '90%'
   }
 
 });

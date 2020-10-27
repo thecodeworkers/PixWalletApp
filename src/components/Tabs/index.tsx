@@ -3,7 +3,7 @@ import { View, Text, TouchableOpacity } from 'react-native';
 import { TabsProps } from './types';
 import styles from './styles';
 
-const Tabs: FC<TabsProps> = ({ theme, selectedTab = 0, crypto, fiat }: any) => {
+const Tabs: FC<TabsProps> = ({ theme, selectedTab = 0, crypto, fiat }) => {
 
   const { background, defaultActiveIcon, veryLightGrey, whirspersInactive } = theme;
 
