@@ -5,7 +5,7 @@ import { i18n } from '../../utils';
 import styles from './styles'
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { UsdCard } from '../../assets/image/svg';
+import { UsdCard, BtcCard } from '../../assets/image/svg';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import LinearGradient from 'react-native-linear-gradient';
 import { SelectCryptoModal } from '../../components'

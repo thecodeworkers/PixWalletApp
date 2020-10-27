@@ -10,3 +10,9 @@ export { default as DashLine } from './currency-lines/dash-line';
 export { default as Arrows } from './arrows';
 export { default as PixLogo } from './pix-logo';
 export { default as SummaryChart } from './summary-chart';
+export { default as BtcSymbol } from './currency-symbols/btc-symbol';
+export { default as EthSymbol } from './currency-symbols/eth-symbol';
+export { default as DashSymbol } from './currency-symbols/dash-symbol';
+export { default as UsdSymbol } from './currency-symbols/usd-symbol';
+
+
