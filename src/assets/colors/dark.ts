@@ -17,7 +17,8 @@ const dark: any = {
   principalSeparator: '#E5E5E5',
   tabsTitle: '#E5E5E5',
   tabsTitleClear: '#313131',
-  separatorGray:'#FFFFFF'
+  separatorGray:'#FFFFFF',
+  currencyTab: '#5E5E5E'
 }
 
 export default dark;

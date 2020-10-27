@@ -17,7 +17,8 @@ const light: any = {
   principalSeparator: '#35A7D6',
   tabsTitle: '#35A7D6',
   tabsTitleClear: '#C9C9C9',
-  separatorGray:'#EDEDED'
+  separatorGray:'#EDEDED',
+  currencyTab: '#35A7D6'
 }
 
 export default light;
