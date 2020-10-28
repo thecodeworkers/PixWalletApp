@@ -17,18 +17,25 @@ const styles = StyleSheet.create({
 
   maxButton: {
     flexDirection: 'row',
+    // backgroundColor: 'green',
     flex: 0.30,
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding:5
+     justifyContent: 'center',
+     alignItems: 'center',
+    //  backgroundColor:'red'
   },
 
   boxSymbol: {
-    width: 30,
-    height: 55,
+    width: '100%',
+    height: 50,
     borderLeftWidth: 2,
     justifyContent: 'center',
-    alignSelf: 'center',
+    alignItems: 'center',
+    //  alignSelf: 'center',
+    // marginRight:5,
+    // marginLeft:5,
+    flexDirection: 'row',
+    // backgroundColor: 'orange',
+    paddingLeft: 6
   },
   
   text: {

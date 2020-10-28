@@ -9,3 +9,4 @@ export { default as Separator } from './Separator';
 export { default as Tabs } from './Tabs';
 export { default as ListCurrency } from './ListCurrency';
 export { default as InputCurrency } from './CurrencyInput';
+export { default as GradientButton } from './GradientButton';

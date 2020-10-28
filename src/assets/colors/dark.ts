@@ -12,6 +12,7 @@ const dark: any = {
   statusBar: 'light-content',
   announcement:'#7A7A7A',
   cardGradient: ['#313131', '#313131', '#313131'],
+  buttonGradient:['#33A3DC', '#57D6AF'],
   bigCard: '#161617',
   whirspersInactive: '#313131',
   principalSeparator: '#E5E5E5',

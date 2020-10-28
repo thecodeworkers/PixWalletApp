@@ -1,32 +1,57 @@
 import React, { FC, useState } from 'react';
-import { View, TextInput, TouchableOpacity, Text} from 'react-native';
-import { DefaultProps } from '../../types';
+import { View, TextInput, TouchableOpacity, Text } from 'react-native';
+import { InputProps } from './types';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import styles from './styles'
-import {BtcSymbol, DashSymbol, EthSymbol, UsdSymbol} from '../../assets/image/svg'
+import { BtcSymbol, DashSymbol, EthSymbol, UsdSymbol } from '../../assets/image/svg'
 
 
-const CurrencyInput: FC<DefaultProps> = ({ theming: { theme }, action }: any) => {
+const CurrencyInput: FC<InputProps> = ({ theming: { theme }, symbol }: any) => {
+
+  const currentSymbol = symbol
+
+  const selectedSymbol = (currentSymbol: any): any => {
+
+    switch (currentSymbol) {
+      case 'BTC':
+        return ['orange', <BtcSymbol />]
+      case 'ETH':
+        return ['purple', <EthSymbol />]
+      case 'DASH':
+        return ['lightBlue', <DashSymbol />]
+      case 'USD':
+        return ['green', <UsdSymbol />]
+
+      default:
+        return []
+    }
+  }
 
   return (
     <View style={[styles.inputContainer, { borderColor: theme.whirspersInactive }]}>
-      <TextInput placeholder={'prueba'} placeholderTextColor={'orange'} style={styles.input} />
+      <TextInput keyboardType={'numeric'} placeholder={'0'} placeholderTextColor={selectedSymbol(currentSymbol)[0]} style={[styles.input, { color: selectedSymbol(currentSymbol)[0]}]} />
+
+   
       <TouchableOpacity style={[styles.maxButton, { borderColor: theme.whirspersInactive }]}>
         <View style={[styles.boxSymbol, { borderColor: theme.whirspersInactive }]}>
-          
-          <BtcSymbol />
-        
-     
+
+          <View style={{ width: 40, height: 30 }}>
+            {selectedSymbol(currentSymbol)[1]}
+          </View>
+
+          <View style={{ width: '50%' }}>
+            <Text style={styles.text}>max</Text>
+          </View>
+
         </View>
-     
-      <Text style={styles.text}>Max</Text>
+
       </TouchableOpacity>
     </View>
   );
 }
 
-const mapStateToProps = ({ theming, intermittence }: DefaultProps | any): DefaultProps | any => ({ theming, intermittence })
+const mapStateToProps = ({ theming }: InputProps): InputProps | any => ({ theming })
 
 const mapDispatchToProps = (dispatch: any) => {
   const actions = {

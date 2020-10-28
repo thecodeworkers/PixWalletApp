@@ -43,7 +43,7 @@ opacity:0.95,
   },
   card: {
    
-    padding: 20,
+    padding: 10,
     flexDirection: 'row',
    
   },
