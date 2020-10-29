@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
     shadowRadius: 2.62,
     elevation: 4,
     justifyContent:"flex-start",
-    padding:20,
+    padding:10,
     flexDirection:'row'
   },
   currency:{
