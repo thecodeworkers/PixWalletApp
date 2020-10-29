@@ -10,7 +10,7 @@ import { useNavigation } from '@react-navigation/native';
 const ActionButtons: FC<Theming> = ({ theme }) => {
   const navigation = useNavigation();
 
-  const redirect = () => navigation.navigate('currencyList');
+  const redirect = () => navigation.navigate('receiveFiat');
 
   return (
     <View style={styles.actionButtons}>
