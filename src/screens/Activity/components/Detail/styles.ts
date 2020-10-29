@@ -30,18 +30,18 @@ const styles: any = {
   secondCard: {
     height: 89,
     marginBottom: '8%',
-    marginHorizontal: '11%',
+    marginHorizontal: '7%',
     flexDirection: 'row',
     justifyContent: 'space-between'
   },
   feeCard: {
-    flex: 0.45,
+    flex: 0.46,
     justifyContent: 'center',
     alignItems: 'center',
     ...generalShadow('#000', 0, 2, 0.23, 2.62, 4)
   },
   dateCard: {
-    flex: 0.45,
+    flex: 0.46,
     justifyContent: 'center',
     alignItems: 'center',
     ...generalShadow('#000', 0, 2, 0.23, 2.62, 4)
