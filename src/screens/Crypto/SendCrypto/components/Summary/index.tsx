@@ -1,12 +1,12 @@
 import React, { FC } from 'react';
 import { View, Text} from 'react-native';
 import { connect } from 'react-redux';
-import { DefaultProps } from '../../../../types';
+import { DefaultProps } from '../../../../../types';
 import styles from './styles'
-import { DiamondCurrencies, GradientButton, InputCurrency} from '../../../../components'
-import { UsdCard } from '../../../../assets/image/svg'
+import { DiamondCurrencies, GradientButton, InputCurrency} from '../../../../../components'
+import { UsdCard } from '../../../../../assets/image/svg'
 
-const Main: FC<DefaultProps> = ({ theming: { theme } }) => {
+const Summary: FC<DefaultProps> = ({ theming: { theme } }) => {
   return (
     
      <View style={[styles.container, { backgroundColor: theme.background }]}>
@@ -40,4 +40,4 @@ const Main: FC<DefaultProps> = ({ theming: { theme } }) => {
 
 const mapStateToProps = ({ theming }: DefaultProps): DefaultProps => ({ theming })
 
-export default connect(mapStateToProps)(Main);
+export default connect(mapStateToProps)(Summary);

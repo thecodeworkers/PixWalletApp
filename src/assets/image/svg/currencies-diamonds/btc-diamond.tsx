@@ -2,13 +2,13 @@ import React from 'react';
 import { SvgXml } from 'react-native-svg';
 
 const BtcDiamond = () => {
-		const logo = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="208.491" height="190.498" viewBox="0 0 208.491 190.498">
+		const logo = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="178.438" height="178.438" viewBox="0 0 178.438 178.438">
     <defs>
       <linearGradient id="linear-gradient" x1="0.138" y1="0.177" x2="1.107" y2="1.183" gradientUnits="objectBoundingBox">
         <stop offset="0" stop-color="#fbfbfb"/>
         <stop offset="1" stop-color="#ff8008"/>
       </linearGradient>
-      <filter id="Rectangle_1577" x="8.996" y="0" width="190.498" height="190.498" filterUnits="userSpaceOnUse">
+      <filter id="Rectangle_1577" x="0" y="0" width="178.438" height="178.438" filterUnits="userSpaceOnUse">
         <feOffset dy="20" input="SourceAlpha"/>
         <feGaussianBlur stdDeviation="15" result="blur"/>
         <feFlood flood-color="#ff8008" flood-opacity="0.188"/>
@@ -19,51 +19,24 @@ const BtcDiamond = () => {
         <stop offset="0" stop-color="#fbfbfb"/>
         <stop offset="1" stop-color="#ff8008" stop-opacity="0.161"/>
       </linearGradient>
-      <filter id="Rectangle_1687" x="17.993" y="0" width="190.498" height="190.498" filterUnits="userSpaceOnUse">
-        <feOffset dy="20" input="SourceAlpha"/>
-        <feGaussianBlur stdDeviation="15" result="blur-2"/>
-        <feFlood flood-color="#ff8008" flood-opacity="0.188"/>
-        <feComposite operator="in" in2="blur-2"/>
-        <feComposite in="SourceGraphic"/>
-      </filter>
-      <filter id="Rectangle_1686" x="0" y="0" width="190.498" height="190.498" filterUnits="userSpaceOnUse">
-        <feOffset dy="20" input="SourceAlpha"/>
-        <feGaussianBlur stdDeviation="15" result="blur-3"/>
-        <feFlood flood-color="#ff8008" flood-opacity="0.188"/>
-        <feComposite operator="in" in2="blur-3"/>
-        <feComposite in="SourceGraphic"/>
-      </filter>
-      <linearGradient id="linear-gradient-4" x1="0.925" y1="0.965" x2="0.087" y2="0.113" gradientUnits="objectBoundingBox">
+      <linearGradient id="linear-gradient-4" x1="-0.262" y1="0.126" x2="0.945" y2="0.951" gradientUnits="objectBoundingBox">
         <stop offset="0" stop-color="#ffc837"/>
         <stop offset="1" stop-color="#ff8008"/>
       </linearGradient>
     </defs>
-    <g id="Group_559" data-name="Group 559" transform="translate(56 25)">
-      <g id="Group_197" data-name="Group 197" transform="translate(-11 0)">
-        <g transform="matrix(1, 0, 0, 1, -45, -25)" filter="url(#Rectangle_1577)">
-          <rect id="Rectangle_1577-2" data-name="Rectangle 1577" width="71.533" height="70.592" rx="3" transform="translate(103.91 25) rotate(45)" fill="url(#linear-gradient)"/>
+    <g id="Group_559" data-name="Group 559" transform="translate(37.083 25)">
+      <g id="Group_197" data-name="Group 197" transform="translate(0 0)">
+        <g transform="matrix(1, 0, 0, 1, -37.08, -25)" filter="url(#Rectangle_1577)">
+          <rect id="Rectangle_1577-2" data-name="Rectangle 1577" width="62.949" height="62.121" rx="3" transform="translate(88.93 25) rotate(45)" fill="url(#linear-gradient)"/>
         </g>
+        <rect id="Rectangle_1686" data-name="Rectangle 1686" width="62.949" height="62.121" rx="3" transform="translate(43.926) rotate(45)" fill="url(#linear-gradient-2)"/>
+        <path id="Path_625" data-name="Path 625" d="M3,0H59.949a3,3,0,0,1,3,3V59.121a3,3,0,0,1-3,3H3a3,3,0,0,1-3-3V3A3,3,0,0,1,3,0Z" transform="translate(59.76) rotate(45)" fill="url(#linear-gradient-2)"/>
+        <rect id="Rectangle_1578" data-name="Rectangle 1578" width="62.121" height="61.293" rx="3" transform="translate(52.429 0.586) rotate(45)" fill="url(#linear-gradient-4)"/>
       </g>
-      <g id="Group_931" data-name="Group 931">
-        <g id="Group_932" data-name="Group 932">
-          <g id="Group_936" data-name="Group 936">
-            <g transform="matrix(1, 0, 0, 1, -56, -25)" filter="url(#Rectangle_1687)">
-              <rect id="Rectangle_1687-2" data-name="Rectangle 1687" width="71.533" height="70.592" rx="3" transform="translate(112.91 25) rotate(45)" fill="url(#linear-gradient-2)"/>
-            </g>
-            <g id="Group_934" data-name="Group 934">
-              <g id="Group_933" data-name="Group 933">
-                <g transform="matrix(1, 0, 0, 1, -56, -25)" filter="url(#Rectangle_1686)">
-                  <rect id="Rectangle_1686-2" data-name="Rectangle 1686" width="71.533" height="70.592" rx="3" transform="translate(94.92 25) rotate(45)" fill="url(#linear-gradient-2)"/>
-                </g>
-              </g>
-              <rect id="Rectangle_1578" data-name="Rectangle 1578" width="70.592" height="69.651" rx="3" transform="translate(48.578 0.666) rotate(45)" fill="url(#linear-gradient-4)"/>
-            </g>
-          </g>
-        </g>
-        <path id="symbol" d="M145.87,100.583c.445-2.975-1.82-4.574-4.918-5.641l1-4.03L139.5,90.3l-.978,3.924c-.645-.161-1.307-.312-1.965-.463l.985-3.95-2.452-.611-1.005,4.029c-.534-.122-1.058-.242-1.567-.368l0-.013L129.141,92l-.653,2.62s1.82.417,1.782.443a1.305,1.305,0,0,1,1.143,1.427l-1.145,4.591a2.029,2.029,0,0,1,.255.082l-.259-.064-1.6,6.432a.893.893,0,0,1-1.124.583c.024.036-1.783-.445-1.783-.445l-1.218,2.808,3.192.8c.594.149,1.176.3,1.749.451l-1.015,4.076,2.45.611,1.005-4.033c.669.182,1.319.349,1.955.507l-1,4.014,2.453.611,1.015-4.069c4.183.792,7.329.472,8.653-3.311,1.067-3.046-.053-4.8-2.254-5.95a3.912,3.912,0,0,0,3.132-3.6Zm-5.605,7.86c-.758,3.046-5.887,1.4-7.55.987l1.347-5.4C135.724,104.444,141.057,105.266,140.264,108.443Zm.759-7.9c-.692,2.771-4.961,1.363-6.346,1.018l1.221-4.9C137.284,97,141.744,97.648,141.023,100.539Z" transform="translate(-86.906 -51.604)" fill="#fff"/>
-      </g>
+      <path id="symbol" d="M143.309,99.217c.392-2.618-1.6-4.026-4.327-4.964l.884-3.547-2.159-.538-.861,3.453c-.568-.141-1.15-.275-1.73-.407l.867-3.476-2.158-.538-.885,3.545c-.47-.107-.931-.213-1.379-.324l0-.011-2.977-.743-.574,2.306s1.6.367,1.568.39a1.149,1.149,0,0,1,1.006,1.256l-1.007,4.04a1.786,1.786,0,0,1,.224.072l-.228-.057-1.412,5.66a.786.786,0,0,1-.989.513c.022.031-1.569-.392-1.569-.392l-1.072,2.471,2.809.7c.523.131,1.035.268,1.539.4l-.893,3.587,2.156.538.885-3.549c.589.16,1.161.307,1.72.446l-.882,3.532,2.159.538.893-3.58c3.681.7,6.449.416,7.615-2.914.939-2.681-.047-4.227-1.984-5.236a3.443,3.443,0,0,0,2.756-3.17Zm-4.932,6.917c-.667,2.681-5.181,1.232-6.644.868l1.185-4.752C134.382,102.615,139.074,103.338,138.377,106.133Zm.668-6.955c-.609,2.439-4.366,1.2-5.584.9l1.075-4.31C135.754,96.067,139.679,96.634,139.045,99.178Z" transform="translate(-81.741 -56.116)" fill="#fff"/>
     </g>
   </svg>
+  
   
 
   

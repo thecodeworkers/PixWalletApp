@@ -1,21 +1,39 @@
 import React, { FC, useState } from 'react';
 import { View, Text, TouchableOpacity, } from 'react-native';
-import { DefaultProps } from '../../types';
+import { InputProps } from './types';
 import { i18n } from '../../utils';
 import styles from './styles'
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { UsdCard, BtcCard } from '../../assets/image/svg';
+import { UsdCard, BtcCard, EthCard, DashCard} from '../../assets/image/svg';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import LinearGradient from 'react-native-linear-gradient';
 import SelectCryptoModal from '../SelectCryptoModal'
 import { showComponent } from '../../store/actions' ;
 
-const SelectCrypto: FC<DefaultProps> = ({ theming: { theme }, action, intermittence }: any) => {
-
+const SelectCrypto: FC<InputProps> = ({ theming: { theme }, action, symbol }: any) => {
+  
+  const currentSymbol = symbol
 
   const openModal = () => {
     action.showComponent(true)
+  }
+
+  const selectedSymbol = (currentSymbol: any): any => {
+
+    switch (currentSymbol) {
+      case 'BTC':
+        return ['orange', <BtcCard />]
+      case 'ETH':
+        return ['purple', <EthCard />]
+      case 'DASH':
+        return ['lightBlue', <DashCard />]
+      case 'USD':
+        return ['green', <UsdCard />]
+
+      default:
+        return []
+    }
   }
 
   return (
@@ -23,7 +41,7 @@ const SelectCrypto: FC<DefaultProps> = ({ theming: { theme }, action, intermitte
       <View style={styles.cardContainer}>
         <View style={[styles.card, { backgroundColor: theme.defaultCard }]}>
           <View style={styles.currency}>
-            <UsdCard />
+          {selectedSymbol(currentSymbol)[1]}
           </View>
           <View style={styles.textContainer}>
             <Text style={[styles.text, { color: theme.screenText }]}>Default Porfolio</Text>
@@ -48,7 +66,7 @@ const SelectCrypto: FC<DefaultProps> = ({ theming: { theme }, action, intermitte
   );
 }
 
-const mapStateToProps = ({ theming, intermittence }: DefaultProps | any): DefaultProps | any => ({ theming, intermittence })
+const mapStateToProps = ({ theming }: InputProps | any): InputProps | any => ({ theming })
 
 const mapDispatchToProps = (dispatch: any) => {
   const actions = {

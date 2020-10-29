@@ -5,7 +5,7 @@ import { HeaderNavigation } from '../../components';
 import ReceiveFiat from '../Fiat/ReceiveFiat';
 import ReceiveCrypto from '../Crypto/ReceiveCrypto';
 import SendFiat from '../../screens/Fiat/SendFiat';
-import SendCrypto from '../../screens/Crypto/ReceiveCrypto';
+import SendCrypto from '../../screens/Crypto/SendCrypto';
 import InternalTransaction from '../InternalTransaction/components/Main';
 
 const Stack = createStackNavigator();

@@ -38,15 +38,15 @@ const Main: FC<GeneralProps> = ({ theming: { theme }, action, navigation }) => {
             <ListCurrency gradient={true} />
 
             <TouchableOpacity onPress={lightTheme}>
-              <Text>light</Text>
+              <Text style={{ color: theme.screenText }}>light</Text>
             </TouchableOpacity>
 
             <TouchableOpacity onPress={darkTheme}>
-              <Text>dark</Text>
+              <Text style={{ color: theme.screenText }}>dark</Text>
             </TouchableOpacity>
 
             <TouchableOpacity onPress={() => navigation.navigate('whitelist')}>
-              <Text>whitelist</Text>
+              <Text style={{ color: theme.screenText }}>whitelist</Text>
             </TouchableOpacity>
           </View>
         </View>

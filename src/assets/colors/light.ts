@@ -19,7 +19,9 @@ const light: any = {
   tabsTitle: '#35A7D6',
   tabsTitleClear: '#C9C9C9',
   separatorGray:'#EDEDED',
-  currencyTab: '#35A7D6'
+  currencyTab: '#35A7D6',
+  shareButton: '#21212A',
+  inputBorder:'#EBEBEB'
 }
 
 export default light;

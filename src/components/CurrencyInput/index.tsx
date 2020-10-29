@@ -33,15 +33,15 @@ const CurrencyInput: FC<InputProps> = ({ theming: { theme }, symbol }: any) => {
       <TextInput keyboardType={'numeric'} placeholder={'0'} placeholderTextColor={selectedSymbol(currentSymbol)[0]} style={[styles.input, { color: selectedSymbol(currentSymbol)[0]}]} />
 
    
-      <TouchableOpacity style={[styles.maxButton, { borderColor: theme.whirspersInactive }]}>
-        <View style={[styles.boxSymbol, { borderColor: theme.whirspersInactive }]}>
+      <TouchableOpacity style={[styles.maxButton, { borderColor: theme.inputBorder }]}>
+        <View style={[styles.boxSymbol, { borderColor: theme.veryLightGrey }]}>
 
           <View style={{ width: 40, height: 30 }}>
             {selectedSymbol(currentSymbol)[1]}
           </View>
 
           <View style={{ width: '50%' }}>
-            <Text style={styles.text}>max</Text>
+            <Text style={[styles.text, { color: theme.pinkSwan }]}>max</Text>
           </View>
 
         </View>
