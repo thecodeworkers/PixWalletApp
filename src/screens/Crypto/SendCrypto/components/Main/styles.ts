@@ -65,6 +65,40 @@ const styles = StyleSheet.create({
     fontWeight:'bold'
   },
 
+  clipBoardContainer: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderWidth: 2,
+    borderRadius: 6,
+    margin: 10,
+    width: '85%',
+    alignSelf: 'flex-end',
+  },
+  clipBoardInput: {
+    fontSize: 14,
+    height: 60,
+    width: '80%',
+  },
+  clipBoardIcon: {
+    padding: 10,
+    margin: 5,
+  },
+  selectContainer:{
+    justifyContent:'center',
+    alignContent:'center',
+  
+
+  },
+  selectButton:{
+    padding:8,
+    borderRadius:10,
+    justifyContent: 'center',
+    alignItems: 'center',
+    ...generalShadow('#000', 0, 2, 0.23, 2.62, 8),
+  },
+ 
+
   
   
 });

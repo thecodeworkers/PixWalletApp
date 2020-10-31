@@ -29,11 +29,11 @@ const CurrencyInput: FC<InputProps> = ({ theming: { theme }, symbol }: any) => {
   }
 
   return (
-    <View style={[styles.inputContainer, { borderColor: theme.whirspersInactive }]}>
+    <View style={[styles.inputContainer, { borderColor: theme.inputBorder, backgroundColor: theme.defaultCard}]}>
       <TextInput keyboardType={'numeric'} placeholder={'0'} placeholderTextColor={selectedSymbol(currentSymbol)[0]} style={[styles.input, { color: selectedSymbol(currentSymbol)[0]}]} />
 
    
-      <TouchableOpacity style={[styles.maxButton, { borderColor: theme.inputBorder }]}>
+      <TouchableOpacity style={[styles.maxButton, { borderColor: theme.inputBorder, backgroundColor:theme.defaultCard }]}>
         <View style={[styles.boxSymbol, { borderColor: theme.veryLightGrey }]}>
 
           <View style={{ width: 40, height: 30 }}>
@@ -41,7 +41,7 @@ const CurrencyInput: FC<InputProps> = ({ theming: { theme }, symbol }: any) => {
           </View>
 
           <View style={{ width: '50%' }}>
-            <Text style={[styles.text, { color: theme.pinkSwan }]}>max</Text>
+            <Text style={[styles.text, { color: theme.pinkSwan }]}>Max</Text>
           </View>
 
         </View>

@@ -45,7 +45,7 @@ const SelectCrypto: FC<InputProps> = ({ theming: { theme }, action, symbol }: an
           </View>
           <View style={styles.textContainer}>
             <Text style={[styles.text, { color: theme.screenText }]}>Default Porfolio</Text>
-            <Text style={[styles.amount, { color: theme.screenText }]}>1.234 USD</Text>
+            <Text style={[styles.amount, { color:  selectedSymbol(currentSymbol)[0]  }]}>1.234 USD</Text>
           </View>
           <TouchableOpacity onPress={openModal}  style={styles.selectContainer} activeOpacity={1}>
             <LinearGradient

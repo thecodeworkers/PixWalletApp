@@ -13,7 +13,7 @@ const GradientButton: FC<DefaultProps> = ({ theming: { theme }, text }: any) => 
         end={{ x: 1, y: 0 }}
         colors={theme.buttonGradient}
       >
-        <Text  style={[styles.text, { color: theme.background }]}>{text}</Text>
+        <Text  style={[styles.text, { color: theme.whiteSmoke }]}>{text}</Text>
       </LinearGradient>
     </TouchableOpacity>
   );

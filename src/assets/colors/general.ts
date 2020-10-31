@@ -6,7 +6,7 @@ const general: any = {
   whiteSmoke: '#F4F4F4',
   pacificBlue: '#008DE4',
   suvaGray: '#8B8B8B',
-  pinkSwan: '#B7B7B7'
+  pinkSwan: '#B7B7B7',
 
 }
 
