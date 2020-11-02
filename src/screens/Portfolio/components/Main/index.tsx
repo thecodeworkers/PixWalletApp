@@ -45,9 +45,15 @@ const Main: FC<GeneralProps> = ({ theming: { theme }, action, navigation }) => {
               <Text style={{ color: theme.screenText }}>dark</Text>
             </TouchableOpacity>
 
+<<<<<<< HEAD
             <TouchableOpacity onPress={() => navigation.navigate('whitelist')}>
               <Text style={{ color: theme.screenText }}>whitelist</Text>
             </TouchableOpacity>
+=======
+            {/* <TouchableOpacity onPress={() => navigation.navigate('whitelist')}>
+              <Text>whitelist</Text>
+            </TouchableOpacity> */}
+>>>>>>> cf0fd8dcf35ee2622ebd65fbb3b21987ea9071f6
           </View>
         </View>
 
