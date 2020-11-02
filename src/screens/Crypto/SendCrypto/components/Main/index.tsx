@@ -37,7 +37,7 @@ const Main: FC<DefaultProps> = ({ theming: { theme } }) => {
         </View>
       </View>
 
-      <View style={{ flex: 0.20, justifyContent: 'space-between', width: '90%', flexDirection:'row', backgroundColor:'red', alignSelf:'center' }}>
+      <View style={{ flex: 0.15, justifyContent: 'space-between', width: '90%', flexDirection:'row', alignSelf:'center' }}>
 
         <TouchableOpacity style={styles.selectContainer} activeOpacity={1}>
           <LinearGradient
@@ -46,14 +46,15 @@ const Main: FC<DefaultProps> = ({ theming: { theme } }) => {
             colors={theme.cardGradient}
             style={styles.selectButton}
           >
-            <Icons name="chevron-down-outline" color={theme.screenText} size={32} />
+            <Icons name="list" color={theme.screenText} size={32} />
           </LinearGradient>
         </TouchableOpacity>
 
         <TouchableOpacity style={[styles.clipBoardContainer, { borderColor: theme.summerSky }]}>
           <TextInput
             style={styles.clipBoardInput}
-            placeholderTextColor={theme.pacificBlue}
+           placeholder={'Tap to paste address'}
+           placeholderTextColor={theme.veryLightGrey}
             underlineColorAndroid="transparent"
             editable={false}
           />
@@ -62,8 +63,8 @@ const Main: FC<DefaultProps> = ({ theming: { theme } }) => {
 
       </View>
 
-      <View style={{ flex: 0.10, justifyContent: "flex-end", marginBottom: 10 }}>
-        <GradientButton {...{ theming: { theme }, text: 'Next' }} />
+      <View style={{ flex: 0.15, justifyContent: "flex-end", marginBottom: 10 }}>
+        <GradientButton {...{ theming: { theme }, text: 'Next', route:'summary' }} />
       </View>
     </View>
   );
