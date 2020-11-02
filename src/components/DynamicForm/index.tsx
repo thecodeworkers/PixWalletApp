@@ -10,7 +10,7 @@ const validate = (values: FormikValues) => {
     errors.email = true;
   }
 
-  if(values.password.length > 3 && values.password.length < 8) {
+  if(values.password.length < 8) {
     errors.password = true;
     return errors;
   }
@@ -53,7 +53,7 @@ const DynamicForm = () => {
     onSubmit={values => console.log(values)}
     validate={validate}
     >
-      {({ handleChange, handleBlur, handleSubmit, values, isValid, errors, touched }) => {
+      {({ handleChange, handleBlur, handleSubmit, values, isValid, errors, touched }: any) => {
         return (
           <>
             {
@@ -64,11 +64,12 @@ const DynamicForm = () => {
                 element.isTouched = touched[name];
                 element.value = values[name];
 
+                element.onChangeText = (event: any) => handleChange(name)(event);
+                element.onFocus = (event: any) => handleBlur(name)(event);
+
                 return (
                   <Item
                     key={index}
-                    onChangeText={handleChange(name)}
-                    onFocus={handleBlur(name)}
                     {...element}
                   />
                 )

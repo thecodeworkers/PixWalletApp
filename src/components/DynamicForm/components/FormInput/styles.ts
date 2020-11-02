@@ -2,13 +2,15 @@ import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   textInput: {
-    height: 40,
-    width: '60%',
+    height: 43,
+    width: '80%',
     margin: 10,
     backgroundColor: 'white',
-    borderColor: 'gray',
     borderWidth: 2,
-    borderRadius: 10,
+    borderRadius: 7,
+    fontWeight: 'bold',
+    paddingLeft: 15,
+    fontSize: 11
   },
 });
 
