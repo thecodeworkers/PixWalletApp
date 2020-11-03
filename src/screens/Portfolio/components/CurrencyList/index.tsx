@@ -1,12 +1,9 @@
 import React, { FC, useState, useEffect } from 'react';
 import { StyleSheet, View, Text, StatusBar, TextInput, TouchableOpacity } from 'react-native';
-import Icon from 'react-native-vector-icons/Ionicons';
-import { DefaultProps } from '../../../../types';
-import { Separator, Tabs, ListCurrency} from '../../../../components';
+import { Separator, Tabs, ListCurrency, SearchInput } from '../../../../components';
 import { ReducerProps, GeneralProps } from './types';
 import { connect } from 'react-redux';
 import styles from './styles';
-
 
 const CurrencyList: FC<GeneralProps> = ({ theming: { theme }, navigation, currency }) => {
 
@@ -18,33 +15,22 @@ const CurrencyList: FC<GeneralProps> = ({ theming: { theme }, navigation, curren
   };
 
   const fiatFunction = () => {
-    console.log('Fiat');
     setSelectedTab(1);
   };
 
   const cryptoFunction = () => {
-    console.log('Crypto');
     setSelectedTab(0);
   };
 
   return (
-    <View style={[styles.container, { backgroundColor: background }]}>
-      <View style={styles.inputParent}>
-        <TextInput
-          style={[styles.input, { borderColor: defaultActiveIcon }]}
-          placeholder='Search'
-          placeholderTextColor={veryLightGrey}
-        />
-        <Icon
-          name='search'
-          color={veryLightGrey}
-          size={26}
-          style={styles.icon}
-        />
+    <View style={[styles.container, { backgroundColor: theme.background }]}>
+
+      <View style={{width: '80%'}}>
+        <SearchInput theme={theme}/>
       </View>
 
       <View style={{width: '85%'}}>
-        <Tabs selectedTab={selectedTab} crypto={cryptoFunction} fiat={fiatFunction} {...theme}/>
+        <Tabs selectedTab={selectedTab} crypto={cryptoFunction} fiat={fiatFunction} theme={theme} />
       </View>
 
       <View style={styles.separatorParent}>
