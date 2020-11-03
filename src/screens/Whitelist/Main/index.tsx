@@ -19,7 +19,7 @@ const Main: FC<any> = ({ theming: { theme }, navigation }) => {
         <View style={{ flex: 0.2, backgroundColor: 'red' }}>
 
         </View>
-        <TouchableOpacity style={{ flex: 0.4, backgroundColor: 'blue' }} onPress={() => navigation.navigate('whitelist', { screen: 'create' })}>
+        <TouchableOpacity style={{ flex: 0.4, backgroundColor: 'blue' }} onPress={() => navigation.navigate('createWhitelist')}>
           <Text>Add a new account</Text>
         </TouchableOpacity>
       </View>
