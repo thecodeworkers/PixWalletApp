@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import { generalShadow } from '../../../../../assets/styles';
 
 const styles = StyleSheet.create({
   container: {
@@ -25,25 +26,20 @@ const styles = StyleSheet.create({
     padding:10,
     flexDirection:'row'
   },
-  currency:{
-    width:60,
-    height:60,
-    flex:0.20
+
+  firstCard:{
+    height: 89,
+      marginHorizontal: '5%',
+      flexDirection: 'row',
   },
-  textContainer:{
-    flex:0.70,
-    flexDirection:'column',
-    justifyContent:'space-between',
-    marginLeft:10
+  sendingCard: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius:5,
+    ...generalShadow('#000', 0, 2, 0.23, 2.62, 4)
   },
-  text:{
-    fontSize:16
-  },
-  amount:{
-    fontSize:24,
-    fontWeight:'bold'
-  },
-  
+
 });
 
 export default styles;
