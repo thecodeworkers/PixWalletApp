@@ -1,5 +1,5 @@
-import React, { FC, useState, useEffect} from 'react';
-import { View, Text, Modal, TouchableHighlight, TouchableOpacity } from 'react-native';
+import React, { FC, useState, useEffect, useRef} from 'react';
+import { View, Text, Modal, TouchableHighlight, TouchableOpacity, Animated } from 'react-native';
 import { CardsRedirect } from '../../screens/Portfolio/components/Main/components/';
 import { UsdCard, BtcCard, EthCard, DashCard, UsdLine, BtcLine, EthLine, DashLine } from '../../assets/image/svg';
 import { getCurrencies, selectCurrency } from '../../store/actions';
@@ -20,6 +20,8 @@ const icons = [
 
 const ListCurrency: FC<GeneralProps> = ({ theming: { theme }, currency, action, gradient = false}) => {
 
+  const fadeAnim = useRef(new Animated.Value(0)).current
+
   const { currencies } = currency;
   const [selectedCard, setSelectedCard] = useState(null);
   const [backgroundCard, setbackgroundCard] = useState([]);
@@ -30,6 +32,7 @@ const ListCurrency: FC<GeneralProps> = ({ theming: { theme }, currency, action, 
     values.gradients[0] != values.gradients[1] ? newArray = values.gradients.reverse() : newArray = values.gradients;
 
     if (index != selectedCard) {
+      animation;
       setSelectedCard(index);
       setbackgroundCard(newArray);
       setData(values);
@@ -58,14 +61,35 @@ const ListCurrency: FC<GeneralProps> = ({ theming: { theme }, currency, action, 
     action.getCurrencies();
   }, []);
 
+  const animation = () => {
+    Animated.timing(fadeAnim, {
+      toValue: 0.8,
+      duration: 200,
+      useNativeDriver: true
+    }).start();
+
+    console.log('PREESS')
+  }
+
+  const animationOut= () => {
+    Animated.timing(fadeAnim, {
+      toValue: 1,
+      duration: 200,
+      useNativeDriver: true
+    }).start();
+  }
+
   return (
     <>
       {
         currencies.length ?
           addIcons().map((res: any, index: number) => {
             return (
+              <Animated.View  style={{transform: [{scale: fadeAnim}]}}>
               <TouchableOpacity
                 // onPress={() => cardSelected(res, index)}
+                onPressIn={index == selectedCard ? animation : () => {}}
+                // onPressOut={index != selectedCard ? animationOut : () => {}}
                 key={index}
                 activeOpacity={0.5}>
                 <LinearGradient
@@ -110,6 +134,7 @@ const ListCurrency: FC<GeneralProps> = ({ theming: { theme }, currency, action, 
                   </View>
                 </LinearGradient>
               </TouchableOpacity>
+              </Animated.View>
             );
           }) :
           <View style={{ alignItems: 'center' }}>
