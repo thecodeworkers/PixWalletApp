@@ -67,9 +67,9 @@ const ReceiveCrypto: FC<DefaultProps> = ({ theming: { theme } }) => {
         </View>
 
         <View style={{marginTop: 10}}>
-        <TouchableOpacity style={[styles.shareButton, { backgroundColor: theme.screenText }]} onPress={onShare}>
-          <Text style={[styles.shareText, { color: theme.background }]}>{i18n.t('share')}</Text>
-          <MaterialIcon name="reply" style={styles.shareIcon} color={theme.background} size={30} />
+        <TouchableOpacity style={[styles.shareButton, { backgroundColor: theme.shareButton }]} onPress={onShare}>
+          <Text style={[styles.shareText, { color: theme.whiteSmoke }]}>{i18n.t('share')}</Text>
+          <MaterialIcon name="reply" style={styles.shareIcon} color={theme.whiteSmoke} size={30} />
         </TouchableOpacity>
         </View>
 
@@ -83,15 +83,15 @@ const ReceiveCrypto: FC<DefaultProps> = ({ theming: { theme } }) => {
           : <Text style={[styles.copyText, { color: theme.screenText }]} >{i18n.t('tap_copy')}</Text>
         }
 
-          <TouchableOpacity style={[styles.clipBoardContainer, { borderColor: theme.defaultActiveIcon }]} onPress={copyClipboard}>
+          <TouchableOpacity style={[styles.clipBoardContainer, { borderColor: theme.summerSky }]} onPress={copyClipboard}>
             <TextInput
               style={styles.clipBoardInput}
               placeholder={wallet}
-              placeholderTextColor={theme.defaultActiveIcon}
+              placeholderTextColor={theme.pacificBlue}
               underlineColorAndroid="transparent"
               editable={false}
             />
-            <FaIcons name="clone" solid={true} style={[styles.clipBoardIcon, { color: theme.defaultActiveIcon }]} size={30} />
+            <FaIcons name="clone" solid={true} style={[styles.clipBoardIcon, { color: theme.summerSky }]} size={30} />
           </TouchableOpacity>
 
           </View>

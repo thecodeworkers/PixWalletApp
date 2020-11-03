@@ -2,7 +2,7 @@ import React, { FC, useEffect} from 'react';
 import { View, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import LinearGradient from 'react-native-linear-gradient';
-import { Arrows } from '../../../../../../assets/image/svg';
+import { Exchange, Send, Receive} from '../../../../../../assets/image/svg';
 import { selectCurrency } from '../../../../../../store/actions';
 import { bindActionCreators } from 'redux';
 import { RedirectProps, ReducerProps} from './types';
@@ -39,7 +39,9 @@ const CardsRedirect: FC<RedirectProps> = ({ theming: { theme }, data, action = n
             colors={data.gradients.reverse()}
             style={styles.cardActions}
             useAngle={true}>
-            <Icon name="call-made" color={theme.defaultActiveIcon} size={20} style={{ color: 'white' }} />
+           <View style={{ width: 24 }}>
+              <Send />
+            </View>
           </LinearGradient>
         </TouchableOpacity>
 
@@ -52,7 +54,9 @@ const CardsRedirect: FC<RedirectProps> = ({ theming: { theme }, data, action = n
             style={styles.cardActions}
             useAngle={true}
           >
-            <Icon name="call-received" color={theme.defaultActiveIcon} size={20} style={styles.rotateArrow} />
+           <View style={{ width: 24 }}>
+              <Receive />
+            </View>
           </LinearGradient>
         </TouchableOpacity>
 
@@ -66,7 +70,7 @@ const CardsRedirect: FC<RedirectProps> = ({ theming: { theme }, data, action = n
             useAngle={true}>
 
             <View style={{ width: 24 }}>
-              <Arrows />
+              <Exchange />
             </View>
           </LinearGradient>
         </TouchableOpacity>

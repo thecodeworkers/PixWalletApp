@@ -10,7 +10,7 @@ const dark: any = {
   defaultActiveIcon: '#E5E5E5',
   defaultInactiveIcon: '#313131',
   statusBar: 'light-content',
-  announcement:'#7A7A7A',
+  announcement:'#313131',
   cardGradient: ['#313131', '#313131', '#313131'],
   buttonGradient:['#33A3DC', '#57D6AF'],
   bigCard: '#161617',
@@ -19,7 +19,9 @@ const dark: any = {
   tabsTitle: '#E5E5E5',
   tabsTitleClear: '#313131',
   separatorGray:'#FFFFFF',
-  currencyTab: '#5E5E5E'
+  currencyTab: '#5E5E5E',
+  shareButton: '#21212A',
+  inputBorder:'#636363'
 }
 
 export default dark;
