@@ -1,5 +1,5 @@
-import React, { FC, useState, useEffect} from 'react';
-import { View, Text, Modal, TouchableHighlight, TouchableOpacity } from 'react-native';
+import React, { FC, useState, useEffect, useRef} from 'react';
+import { View, Text, Modal, TouchableHighlight, TouchableOpacity, Animated } from 'react-native';
 import { CardsRedirect } from '../../screens/Portfolio/components/Main/components/';
 import { UsdCard, BtcCard, EthCard, DashCard, UsdLine, BtcLine, EthLine, DashLine } from '../../assets/image/svg';
 import { getCurrencies, selectCurrency } from '../../store/actions';
@@ -20,10 +20,16 @@ const icons = [
 
 const ListCurrency: FC<GeneralProps> = ({ theming: { theme }, currency, action, gradient = false}) => {
 
+  let fadeAnim = useRef(new Animated.Value(1)).current;
+
   const { currencies } = currency;
   const [selectedCard, setSelectedCard] = useState(null);
   const [backgroundCard, setbackgroundCard] = useState([]);
   const [data, setData] = useState(null);
+
+  useEffect(() => {
+    action.getCurrencies();
+  }, []);
 
   const cardSelected = (values: any, index: any) => {
     let newArray: any = [];
@@ -33,6 +39,7 @@ const ListCurrency: FC<GeneralProps> = ({ theming: { theme }, currency, action, 
       setSelectedCard(index);
       setbackgroundCard(newArray);
       setData(values);
+      animation();
       return;
     }
 
@@ -40,6 +47,7 @@ const ListCurrency: FC<GeneralProps> = ({ theming: { theme }, currency, action, 
   }
 
   const resetStates = () => {
+    animation();
     setSelectedCard(null);
     setbackgroundCard([]);
     setData(null);
@@ -52,11 +60,29 @@ const ListCurrency: FC<GeneralProps> = ({ theming: { theme }, currency, action, 
     });
 
     return currencies;
-  }
+  };
 
-  useEffect(() => {
-    action.getCurrencies();
-  }, []);
+  const animation = () => {
+
+      Animated.sequence([
+      Animated.timing(
+        fadeAnim,
+        {
+          toValue: 0.8,
+          duration: 400,
+          useNativeDriver: true
+        }
+      ),
+      Animated.timing(
+        fadeAnim,
+        {
+          toValue: 1,
+          duration: 400,
+          useNativeDriver: true
+        }
+      ),
+    ]).start();
+  }
 
   return (
     <>
@@ -64,15 +90,12 @@ const ListCurrency: FC<GeneralProps> = ({ theming: { theme }, currency, action, 
         currencies.length ?
           addIcons().map((res: any, index: number) => {
             return (
+              <Animated.View style={{transform: [{scale:fadeAnim}]}}>
               <TouchableOpacity
-                // onPress={() => cardSelected(res, index)}
+                onPress={() => cardSelected(res, index)}
                 key={index}
                 activeOpacity={0.5}>
-                <LinearGradient
-                  start={{ x: 0, y: 3 }}
-                  end={{ x: 1, y: 0 }}
-                  colors={index == selectedCard ? backgroundCard : [theme.defaultCard, theme.defaultCard, theme.defaultCard]}
-                  style={styles.cardGradient}>
+                  <View style={[styles.cardGradient, {backgroundColor: theme.background}]}>
 
                   <View style={styles.cardLefSide}>
                     <View style={styles.cardLeftContent}>
@@ -80,8 +103,8 @@ const ListCurrency: FC<GeneralProps> = ({ theming: { theme }, currency, action, 
                         {res.icon}
                       </TouchableOpacity>
                       <View style={{ flexDirection: 'column', marginLeft: '7%' }}>
-                        <Text style={index != selectedCard ? { color: theme.screenText } : { color: '#fff' }}>{res.symbol}</Text>
-                        <Text style={index != selectedCard ? { color: theme.veryLightGrey } : { color: '#fff' }}>1000</Text>
+                        <Text style={index != selectedCard ? { color: theme.screenText } : { color: theme.screenText }}>{res.symbol}</Text>
+                        <Text style={index != selectedCard ? { color: theme.veryLightGrey } : { color: theme.veryLightGrey }}>1000</Text>
                       </View>
                     </View>
                   </View>
@@ -108,8 +131,9 @@ const ListCurrency: FC<GeneralProps> = ({ theming: { theme }, currency, action, 
                   }
                   <View>
                   </View>
-                </LinearGradient>
+                </View>
               </TouchableOpacity>
+              </Animated.View>
             );
           }) :
           <View style={{ alignItems: 'center' }}>
