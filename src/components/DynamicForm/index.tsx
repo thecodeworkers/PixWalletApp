@@ -1,8 +1,8 @@
-import React from 'react';
-import { Button, Text } from 'react-native';
+import React, { FC } from 'react';
+import { Text, TouchableOpacity } from 'react-native';
 import { Formik, FormikValues } from 'formik';
+import { DynamicFormProps } from './types';
 import FormItem from './components';
-import { TouchableOpacity } from 'react-native-gesture-handler';
 
 const validate = (values: FormikValues) => {
   // const errors: any = {};
@@ -19,51 +19,8 @@ const validate = (values: FormikValues) => {
   // return errors;
 };
 
-const elements: Array<any> = [
-  {
-    name: 'chase',
-    component: 'FormInput',
-    isTouched: false,
-    isError: false,
-    placeholder: 'Chase',
-    value: ''
-  },
-  {
-    name: 'branchAddress',
-    component: 'FormInput',
-    isTouched: false,
-    isError: false,
-    placeholder: 'Branch Address',
-    value: ''
-  },
-  {
-    name: 'checkingAccount',
-    component: 'FormInput',
-    isTouched: false,
-    isError: false,
-    placeholder: 'Checking Account',
-    value: ''
-  },
-  {
-    name: 'routingNumber',
-    component: 'FormInput',
-    isTouched: false,
-    isError: false,
-    placeholder: 'Routing Number',
-    value: ''
-  },
-  {
-    name: 'bankName',
-    component: 'FormInput',
-    isTouched: false,
-    isError: false,
-    placeholder: 'Bank Name',
-    value: ''
-  }
-];
 
-
-const DynamicForm = () => {
+const DynamicForm: FC<DynamicFormProps> = ({ elements }) => {
   const initialValues: any = {};
 
   elements.forEach(({ name, value }) => {
