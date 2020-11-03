@@ -21,7 +21,9 @@ const light: any = {
   separatorGray:'#EDEDED',
   currencyTab: '#35A7D6',
   shareButton: '#21212A',
-  inputBorder:'#EBEBEB'
+  inputBorder:'#EBEBEB',
+  twoFactBackground:'#F4F4F4',
+  twoFactBorder: '#35A7D6',
 }
 
 export default light;

@@ -60,7 +60,7 @@ sendingCard: {
     borderRadius: 6,
     margin: 10,
     width: '50%',
-    alignSelf: 'flex-end',
+    alignSelf: 'center',
   },
   clipBoardInput: {
     fontSize: 16,
@@ -82,7 +82,6 @@ sendingCard: {
     borderRadius:10,
     justifyContent: 'center',
     alignItems: 'center',
-
   },
 
 });

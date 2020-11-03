@@ -1,39 +1,46 @@
 import React, { FC } from 'react';
-import { View, Text} from 'react-native';
+import { View, Text } from 'react-native';
 import { connect } from 'react-redux';
 import { DefaultProps } from '../../../../../types';
 import styles from './styles'
-import { DiamondCurrencies, GradientButton, InputCurrency} from '../../../../../components'
-import { UsdCard } from '../../../../../assets/image/svg'
+import { GradientButton } from '../../../../../components'
+import { PixLogo } from '../../../../../assets/image/svg'
 
 const Complete: FC<DefaultProps> = ({ theming: { theme } }) => {
   return (
-    
-     <View style={[styles.container, { backgroundColor: theme.background }]}>
-        <View style={{flex:0.25}}>
-       <DiamondCurrencies currency={'BTC'} />
-       </View>
-     
-     <View style={styles.cardContainer}>
-        <View style={[styles.card, { backgroundColor: theme.defaultCard }]}>
-          <View style={styles.currency}>
-            <UsdCard />
-          </View>
-          <View style={styles.textContainer}>
-            <Text style={[styles.text, { color: theme.screenText }]}>Default Porfolio</Text>
-            <Text style={[styles.amount, { color: theme.screenText }]}>1.234 USD</Text>
+    <View style={[styles.container, { backgroundColor: theme.background }]}>
+      <View style={{ flex: 0.40 }}>
+        <View style={{ width: 100, alignSelf: 'center' }}>
+          <PixLogo color={'orange'} />
+        </View>
+      </View>
+
+      <View style={{ flex: 0.20 }}>
+        <View style={styles.firstCard}>
+          <View style={[{ backgroundColor: theme.defaultCard }, styles.sendingCard]}>
+            <Text style={[{ color: theme.screenText }]}>Sent</Text>
+            <Text style={[{ color: 'orange', fontSize:24  }]}>0.2300000</Text>
+            <Text style={[{ color: theme.screenText, fontSize:18 }]}>12$</Text>
           </View>
         </View>
       </View>
 
-      <View style={{alignSelf:'center', flex:0.25}}>
-      <InputCurrency {...{theming: {theme}}} symbol={'BTC'} />
+      <View style={{ flex: 0.40 }}>
+        <View style={styles.firstCard}>
+          <View style={[{ backgroundColor: theme.defaultCard }, styles.sendingCard]}>
+            <Text style={[{ color: theme.screenText }]}>Sent to</Text>
+            <Text style={[{ color: 'orange' }]}>ejrk4bbnk3l44klbk5lbl435nl3nkl</Text>
+          </View>
+        </View>
       </View>
 
-      <View style={{flex:0.25, justifyContent:"flex-end", marginBottom:10}}>
-      <GradientButton {...{theming: {theme},text: 'Next'}}  />
+      <View style={{ flex: 0.25, justifyContent: "flex-end", marginBottom: 10 }}>
+        <GradientButton {...{ theming: { theme }, text: 'Continue', route: 'complete' }} />
       </View>
-     </View>
+
+    </View>
+
+
   );
 }
 

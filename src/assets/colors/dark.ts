@@ -21,7 +21,9 @@ const dark: any = {
   separatorGray:'#FFFFFF',
   currencyTab: '#5E5E5E',
   shareButton: '#21212A',
-  inputBorder:'#636363'
+  inputBorder:'#636363',
+  twoFactBackground:'#1B1B1B',
+  twoFactBorder: '#636363',
 }
 
 export default dark;
