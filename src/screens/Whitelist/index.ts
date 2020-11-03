@@ -1,2 +1,2 @@
-export { default as ActivityMain } from './Main';
-export { default as ActivityCreate } from './Create';
+export { default as WhitelistMain } from './Main';
+export { default as WhitelistCreate } from './Create';

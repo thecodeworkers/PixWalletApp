@@ -39,7 +39,8 @@ const es = {
   deposit: 'Depositar',
 
   // WHITELIST
-  whitelist: 'Whitelist'
+  whitelist: 'Whitelist',
+  new_account: 'Agregar nueva cuenta'
 }
 
 export default es;

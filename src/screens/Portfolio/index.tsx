@@ -1,14 +1,26 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-import { Main, Summary, CurrencyList, CurrencyActivity } from './components';
+import { PortfolioMain, PortfolioSummary, CurrencyList, CurrencyActivity } from './components';
 import { HeaderNavigation } from '../../components';
 import ReceiveFiat from '../Fiat/ReceiveFiat';
 import ReceiveCrypto from '../Crypto/ReceiveCrypto';
 import SendFiat from '../../screens/Fiat/SendFiat';
 import SendCrypto from '../../screens/Crypto/SendCrypto';
 import InternalTransaction from '../InternalTransaction/components/Main';
+import { WhitelistMain, WhitelistCreate } from '../Whitelist';
 
 const Stack = createStackNavigator();
+
+const whitelistScreen = {
+  whitelist: {
+    component: WhitelistMain,
+    title: 'whitelist'
+  },
+  createWhitelist: {
+    component: WhitelistCreate,
+    title: 'new_account'
+  }
+}
 
 const Portfolio = () => {
   return (
@@ -20,14 +32,14 @@ const Portfolio = () => {
     >
       <Stack.Screen
         name="main"
-        component={Main}
+        component={PortfolioMain}
         options={{
           title: 'portfolio'
         }}
       />
       <Stack.Screen
         name="summary"
-        component={Summary}
+        component={PortfolioSummary}
         options={{
           title: 'summary'
         }}
@@ -64,6 +76,9 @@ const Portfolio = () => {
         name="internalTransaction"
         component={InternalTransaction}
       />
+      {
+
+      }
     </Stack.Navigator>
   )
 }
