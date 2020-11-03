@@ -36,7 +36,10 @@ const en = {
   exchange: 'Exchange',
 
   //CURRENCY LIST
-  deposit: 'Deposit'
+  deposit: 'Deposit',
+
+  // WHITELIST
+  whitelist: 'Whitelist'
 }
 
 export default en;

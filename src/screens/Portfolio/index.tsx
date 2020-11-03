@@ -7,6 +7,7 @@ import ReceiveCrypto from '../Crypto/ReceiveCrypto';
 import SendFiat from '../../screens/Fiat/SendFiat';
 import SendCrypto from '../../screens/Crypto/SendCrypto';
 import InternalTransaction from '../InternalTransaction/components/Main';
+import Whitelist from '../Whitelist';
 
 const Stack = createStackNavigator();
 
@@ -32,10 +33,6 @@ const Portfolio = () => {
           title: 'summary'
         }}
       />
-      {/* <Stack.Screen
-        name="receive"
-        component={Receive}
-      /> */}
       <Stack.Screen
         name="currencyList"
         component={CurrencyList}
@@ -68,8 +65,10 @@ const Portfolio = () => {
         name="internalTransaction"
         component={InternalTransaction}
       />
-
-
+      <Stack.Screen
+        name="whitelist"
+        component={Whitelist}
+      />
     </Stack.Navigator>
   )
 }

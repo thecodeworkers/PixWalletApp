@@ -1,5 +1,3 @@
-import { Summary } from "src/screens/Portfolio/components";
-
 const es = {
   portfolio: 'Portafolio',
 
@@ -38,8 +36,10 @@ const es = {
   exchange: 'Intercambios',
 
   //CURRENCY LIST
-  deposit: 'Depositar'
-}
+  deposit: 'Depositar',
 
+  // WHITELIST
+  whitelist: 'Whitelist'
+}
 
 export default es;
