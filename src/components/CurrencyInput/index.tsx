@@ -27,6 +27,7 @@ const CurrencyInput: FC<InputProps> = ({ theming: { theme }, symbol }: any) => {
         return []
     }
   }
+  
 
   return (
     <View style={[styles.inputContainer, { borderColor: theme.inputBorder, backgroundColor: theme.defaultCard}]}>
