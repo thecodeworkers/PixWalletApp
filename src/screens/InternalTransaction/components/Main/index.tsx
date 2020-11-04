@@ -3,7 +3,7 @@ import { View, Text} from 'react-native';
 import { connect } from 'react-redux';
 import { DefaultProps } from '../../../../types';
 import styles from './styles'
-import { DiamondCurrencies, GradientButton, InputCurrency} from '../../../../components'
+import { DiamondCurrencies, GradientButton, CurrencyInput} from '../../../../components'
 import { UsdCard } from '../../../../assets/image/svg'
 
 const Main: FC<DefaultProps> = ({ theming: { theme } }) => {
@@ -27,7 +27,7 @@ const Main: FC<DefaultProps> = ({ theming: { theme } }) => {
       </View>
 
       <View style={{alignSelf:'center', flex:0.25}}>
-      <InputCurrency {...{theming: {theme}}} symbol={'BTC'} />
+      <CurrencyInput theme={theme} symbol={'BTC'} />
       </View>
 
       <View style={{flex:0.25, justifyContent:"flex-end", marginBottom:10}}>

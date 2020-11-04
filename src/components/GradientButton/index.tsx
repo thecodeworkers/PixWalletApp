@@ -2,7 +2,6 @@ import React, { FC } from 'react';
 import { Text, TouchableOpacity } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import styles from './styles'
-import { connect } from 'react-redux';
 import { DefaultProps } from '../../types';
 import { useNavigation } from '@react-navigation/native';
 
@@ -22,7 +21,5 @@ const GradientButton: FC<DefaultProps> = ({ theming: { theme }, text, route }: a
   );
 }
 
-const mapStateToProps = ({ theming }: DefaultProps | any): DefaultProps | any => ({ theming })
 
-
-export default connect(mapStateToProps)(GradientButton);
+export default GradientButton;

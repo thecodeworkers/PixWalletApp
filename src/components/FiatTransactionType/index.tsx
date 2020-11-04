@@ -4,8 +4,6 @@ import { DefaultProps } from '../../types';
 import { i18n } from '../../utils';
 import { Header } from '..'
 import styles from './styles'
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
 import { BankIcon, CardIcon, PixLogo } from '../../assets/image/svg/icons';
 import { useNavigation } from '@react-navigation/native';
 import {TrasactionTypeProps} from './types'
@@ -75,15 +73,4 @@ const FiatTransactionType: FC<TrasactionTypeProps> = ({ theming: { theme }, rout
   );
 }
 
-const mapStateToProps = ({ theming }: DefaultProps): DefaultProps => ({ theming })
-
-const mapDispatchToProps = (dispatch: any) => {
-  const actions = {
-  };
-
-  return {
-    action: bindActionCreators(actions, dispatch),
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(FiatTransactionType);
+export default FiatTransactionType;
