@@ -1,6 +1,8 @@
+import { Theming } from '../../types';
+
 export type DynamicFormProps = {
   elements: Array<Elements>
-}
+} & Theming
 
 type Elements = {
   name: string

@@ -20,7 +20,7 @@ const validate = (values: FormikValues) => {
 };
 
 
-const DynamicForm: FC<DynamicFormProps> = ({ elements }) => {
+const DynamicForm: FC<DynamicFormProps> = ({ elements, theme }) => {
   const initialValues: any = {};
 
   elements.forEach(({ name, value }) => {
@@ -50,6 +50,7 @@ const DynamicForm: FC<DynamicFormProps> = ({ elements }) => {
                 return (
                   <Item
                     key={index}
+                    theme={theme}
                     {...element}
                   />
                 )

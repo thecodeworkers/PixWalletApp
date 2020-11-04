@@ -53,8 +53,8 @@ const Create: FC<any> = ({ theming: { theme } }) => (
     <View style={{ flex: 0.2 }}>
 
     </View>
-    <View style={{ flex: 0.8, width: '90%', alignItems: 'center' }}>
-      <DynamicForm elements={elements} />
+    <View style={{ flex: 0.8, width: '75%', alignItems: 'center' }}>
+      <DynamicForm elements={elements} theme={theme} />
     </View>
   </View>
 );

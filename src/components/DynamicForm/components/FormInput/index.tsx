@@ -2,10 +2,13 @@ import React from 'react';
 import { TextInput } from 'react-native';
 import styles from './styles';
 
-const FormInput = ({ isError, isTouched, ...props }: any) => (
+const FormInput = ({ theme, isError, isTouched, ...props }: any) => (
   <TextInput
-    style={[styles.textInput, { borderColor: (isError && isTouched) ? 'red' : '#35A7D6' }]}
-    placeholderTextColor={'#C9C9C9'}
+    style={[styles.textInput, {
+      borderColor: (isError && isTouched) ? 'red' : theme.summerSky,
+      backgroundColor: theme.inputBackground
+    }]}
+    placeholderTextColor={theme.veryLightGrey}
     {...props}
   />
 );
