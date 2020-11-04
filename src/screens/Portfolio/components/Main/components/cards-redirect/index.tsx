@@ -30,49 +30,28 @@ const CardsRedirect: FC<RedirectProps> = ({ theming: { theme }, data, action = n
   return (
     <View style={styles.main}>
       <View style={styles.mainChild}>
-
         <TouchableOpacity onPress={() => redirect(data.type != 'FIAT' ? 'sendCrypto' : 'sendFiat' )}>
-          <LinearGradient
-            start={{ x: 0, y: 0 }}
-            end={{ x: 1, y: 0 }}
-            locations={[0, 0.7, 0.7]}
-            colors={data.gradients.reverse()}
-            style={styles.cardActions}
-            useAngle={true}>
+          <View style={[styles.cardActions, {borderColor: data.color, backgroundColor: theme.background}]}>
            <View style={{ width: 24 }}>
-              <Send />
+              <Send colorOne={data.gradients[0]} colorTwo={data.gradients[2]}/>
             </View>
-          </LinearGradient>
+          </View>
         </TouchableOpacity>
 
         <TouchableOpacity onPress={() => redirect(data.type != 'FIAT' ? 'receiveCrypto' : 'receiveFiat' )} >
-          <LinearGradient
-            start={{ x: 0, y: 0 }}
-            end={{ x: 1, y: 0 }}
-            locations={[0, 0.7, 0.7]}
-            colors={data.gradients.reverse()}
-            style={styles.cardActions}
-            useAngle={true}
-          >
+          <View style={[styles.cardActions, {borderColor: data.color, backgroundColor: theme.background}]}>
            <View style={{ width: 24 }}>
-              <Receive />
+              <Receive colorOne={data.gradients[0]} colorTwo={data.gradients[2]} />
             </View>
-          </LinearGradient>
+          </View>
         </TouchableOpacity>
 
         <TouchableOpacity onPress={() => redirect('exchange')}>
-          <LinearGradient
-            start={{ x: 0, y: 0 }}
-            end={{ x: 1, y: 0 }}
-            locations={[0, 0.7, 0.7]}
-            colors={data.gradients.reverse()}
-            style={styles.cardActions}
-            useAngle={true}>
-
+          <View style={[styles.cardActions, {borderColor: data.color, backgroundColor: theme.background}]}>
             <View style={{ width: 24 }}>
-              <Exchange />
+              <Exchange colorOne={data.gradients[0]} colorTwo={data.gradients[2]} />
             </View>
-          </LinearGradient>
+          </View>
         </TouchableOpacity>
       </View>
     </View>

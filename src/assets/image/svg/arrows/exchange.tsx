@@ -1,12 +1,12 @@
 import React, { FC } from 'react';
 import { SvgXml } from 'react-native-svg';
 
-const Exchange = () => {
+const Exchange = ({colorOne = '#45b649', colorTwo = '#dce35b'}) => {
   const figure = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18" height="14" viewBox="0 0 18 14">
   <defs>
     <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
-      <stop offset="0" stop-color="#45b649"/>
-      <stop offset="1" stop-color="#dce35b"/>
+      <stop offset="0" stop-color=${colorOne}/>
+      <stop offset="1" stop-color=${colorTwo}/>
     </linearGradient>
   </defs>
   <g id="Group_938" data-name="Group 938" transform="translate(-180.148 -317.874)">
@@ -18,7 +18,6 @@ const Exchange = () => {
     </g>
   </g>
 </svg>
-
 `;
 
   return (

@@ -31,6 +31,10 @@ const ListCurrency: FC<GeneralProps> = ({ theming: { theme }, currency, action, 
     action.getCurrencies();
   }, []);
 
+  useEffect(() => {
+    animation();
+  }, [selectedCard]);
+
   const cardSelected = (values: any, index: any) => {
     let newArray: any = [];
     values.gradients[0] != values.gradients[1] ? newArray = values.gradients.reverse() : newArray = values.gradients;
@@ -39,7 +43,6 @@ const ListCurrency: FC<GeneralProps> = ({ theming: { theme }, currency, action, 
       setSelectedCard(index);
       setbackgroundCard(newArray);
       setData(values);
-      animation();
       return;
     }
 
@@ -47,7 +50,7 @@ const ListCurrency: FC<GeneralProps> = ({ theming: { theme }, currency, action, 
   }
 
   const resetStates = () => {
-    animation();
+    // animation();
     setSelectedCard(null);
     setbackgroundCard([]);
     setData(null);
@@ -63,13 +66,12 @@ const ListCurrency: FC<GeneralProps> = ({ theming: { theme }, currency, action, 
   };
 
   const animation = () => {
-
       Animated.sequence([
       Animated.timing(
         fadeAnim,
         {
-          toValue: 0.8,
-          duration: 400,
+          toValue: 0.95,
+          duration: 200,
           useNativeDriver: true
         }
       ),
@@ -77,7 +79,7 @@ const ListCurrency: FC<GeneralProps> = ({ theming: { theme }, currency, action, 
         fadeAnim,
         {
           toValue: 1,
-          duration: 400,
+          duration: 200,
           useNativeDriver: true
         }
       ),
@@ -90,12 +92,12 @@ const ListCurrency: FC<GeneralProps> = ({ theming: { theme }, currency, action, 
         currencies.length ?
           addIcons().map((res: any, index: number) => {
             return (
-              <Animated.View style={{transform: [{scale:fadeAnim}]}}>
+              <Animated.View style={index == selectedCard ? {transform: [{ scale:fadeAnim }]} : {transform: [{ scale:1 }]} }>
               <TouchableOpacity
                 onPress={() => cardSelected(res, index)}
                 key={index}
                 activeOpacity={0.5}>
-                  <View style={[styles.cardGradient, {backgroundColor: theme.background}]}>
+                  <View style={[styles.cardGradient, {backgroundColor: theme.defaultCard}]}>
 
                   <View style={styles.cardLefSide}>
                     <View style={styles.cardLeftContent}>
@@ -126,7 +128,7 @@ const ListCurrency: FC<GeneralProps> = ({ theming: { theme }, currency, action, 
                       </>
                       :
                       <>
-                        <CardsRedirect data={data} {...{theming:theme}} reset={resetStates}/>
+                        <CardsRedirect data={data} reset={resetStates}/>
                       </>
                   }
                   <View>
