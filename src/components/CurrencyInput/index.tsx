@@ -30,6 +30,8 @@ const CurrencyInput: FC<InputProps> = ({ theming: { theme }, symbol }: any) => {
 
 
   
+
+
   return (
     <View style={[styles.inputContainer, { borderColor: theme.inputBorder, backgroundColor: theme.defaultCard}]}>
       <TextInput keyboardType={'numeric'} placeholder={'0'} placeholderTextColor={selectedSymbol(currentSymbol)[0]} style={[styles.input, { color: selectedSymbol(currentSymbol)[0]}]} />
