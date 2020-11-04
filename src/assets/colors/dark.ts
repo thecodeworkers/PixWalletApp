@@ -24,6 +24,7 @@ const dark: any = {
   inputBorder:'#636363',
   twoFactBackground:'#1B1B1B',
   twoFactBorder: '#636363',
+  inputBackground: '#313131'
 }
 
 export default dark;

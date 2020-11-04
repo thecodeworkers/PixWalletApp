@@ -24,6 +24,7 @@ const light: any = {
   inputBorder:'#EBEBEB',
   twoFactBackground:'#F4F4F4',
   twoFactBorder: '#35A7D6',
+  inputBackground: '#FFFFFF'
 }
 
 export default light;
