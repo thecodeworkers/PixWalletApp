@@ -31,7 +31,7 @@ const CardsRedirect: FC<RedirectProps> = ({ theming: { theme }, data, action = n
     <View style={styles.main}>
       <View style={styles.mainChild}>
         <TouchableOpacity onPress={() => redirect(data.type != 'FIAT' ? 'sendCrypto' : 'sendFiat' )}>
-          <View style={[styles.cardActions, {borderColor: data.color, backgroundColor: theme.background}]}>
+          <View style={[styles.cardActions, {borderColor: data.color, backgroundColor: theme.defaultCard}]}>
            <View style={{ width: 24 }}>
               <Send colorOne={data.gradients[0]} colorTwo={data.gradients[2]}/>
             </View>
@@ -39,7 +39,7 @@ const CardsRedirect: FC<RedirectProps> = ({ theming: { theme }, data, action = n
         </TouchableOpacity>
 
         <TouchableOpacity onPress={() => redirect(data.type != 'FIAT' ? 'receiveCrypto' : 'receiveFiat' )} >
-          <View style={[styles.cardActions, {borderColor: data.color, backgroundColor: theme.background}]}>
+          <View style={[styles.cardActions, {borderColor: data.color, backgroundColor: theme.defaultCard}]}>
            <View style={{ width: 24 }}>
               <Receive colorOne={data.gradients[0]} colorTwo={data.gradients[2]} />
             </View>
@@ -47,7 +47,7 @@ const CardsRedirect: FC<RedirectProps> = ({ theming: { theme }, data, action = n
         </TouchableOpacity>
 
         <TouchableOpacity onPress={() => redirect('exchange')}>
-          <View style={[styles.cardActions, {borderColor: data.color, backgroundColor: theme.background}]}>
+          <View style={[styles.cardActions, {borderColor: data.color, backgroundColor: theme.defaultCard}]}>
             <View style={{ width: 24 }}>
               <Exchange colorOne={data.gradients[0]} colorTwo={data.gradients[2]} />
             </View>
