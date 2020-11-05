@@ -14,13 +14,8 @@ const CurrencyList: FC<GeneralProps> = ({ theming: { theme }, navigation, curren
     setSelectedTab(selected);
   };
 
-  const fiatFunction = () => {
-    setSelectedTab(1);
-  };
-
-  const cryptoFunction = () => {
-    setSelectedTab(0);
-  };
+  const fiatFunction = () => setSelectedTab(1);
+  const cryptoFunction = () => setSelectedTab(0);
 
   return (
     <View style={[styles.container, { backgroundColor: theme.background }]}>
