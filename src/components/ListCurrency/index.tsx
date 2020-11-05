@@ -18,7 +18,61 @@ const icons = [
   { icon: <DashCard />, line: <DashLine /> },
 ];
 
-const ListCurrency: FC<GeneralProps> = ({ theming: { theme }, currency, action, gradient = false }) => {
+const currency = {
+  currencies: [
+    {
+       "active":true,
+       "color":"#45B649",
+       "gradients":["#45B649", "#45B649", "#DCE35B"],
+       "icon":<UsdCard/>,
+       "id":"5f8e3d112c3795c5ce88991b",
+       "line":<UsdLine/>,
+       "name":"Dollar",
+       "price":1,
+       "symbol":"USD",
+       "type":"FIAT"
+    },
+    {
+       "active":true,
+       "color":"#F7931A",
+       "gradients":["#FF8008", "#FF8008", "#FFC837"],
+       "icon":<BtcCard/>,
+       "id":"5f8e3d8b2c3795c5ce88991c",
+       "line":<UsdLine/>,
+       "name":"Bitcoin",
+       "price":1,
+       "symbol":"BTC",
+       "type":"CRYPTO"
+    },
+    {
+       "active":true,
+       "color":"#444457",
+       "gradients": ["#304352", "#304352", "#AEAEE6"],
+       "icon":<EthCard/>,
+       "id":"5f8e3dc12c3795c5ce88991d",
+       "line":<EthLine />,
+       "name":"Ethereum",
+       "price":1,
+       "symbol":"ETH",
+       "type":"CRYPTO"
+    },
+    {
+       "active":true,
+       "color":"#008DE4",
+       "gradients":["#03629B", "#03629B", "#008DE4"],
+       "icon":<DashCard/>,
+       "id":"5f8e3dfd2c3795c5ce88991e",
+       "line":<DashLine/>,
+       "name":"Dash",
+       "price":1,
+       "symbol":"DASH",
+       "type":"CRYPTO"
+    }
+ ]
+};
+
+
+const ListCurrency: FC<GeneralProps> = ({ theming: { theme }, action, gradient = false }) => {
 
   const scaleAnim = useRef(new Animated.Value(1)).current;
   const scaleOut = useRef(new Animated.Value(1)).current;
@@ -26,17 +80,15 @@ const ListCurrency: FC<GeneralProps> = ({ theming: { theme }, currency, action, 
   const fadeIn = useRef(new Animated.Value(0)).current;
   const fadeOut = useRef(new Animated.Value(0)).current;
 
-  const { currencies } = currency;
-  const [selectedCard, setSelectedCard] = useState(currencies.length + 1);
+  // const { currencies } = currency;
+  const [selectedCard, setSelectedCard] = useState(null);
   const [backgroundCard, setbackgroundCard] = useState([]);
   const [data, setData] = useState(null);
   const [animationType, setAnimationType] = useState({});
 
-  useEffect(() => {
-    action.getCurrencies();
-  }, []);
-
-
+  // useEffect(() => {
+  //   action.getCurrencies();
+  // }, []);
 
   const cardSelected = (values: any, index: any) => {
     let newArray: any = [];
@@ -51,25 +103,33 @@ const ListCurrency: FC<GeneralProps> = ({ theming: { theme }, currency, action, 
       return;
     }
 
-    resetStates();
+    console.log('INDICEEEE', index);
+    if(index == selectedCard) resetStates();
   }
 
   const resetStates = () => {
-    setSelectedCard(currencies.length + 1);
-    setbackgroundCard([]);
-    setData(null);
-    setAnimationType(scaleOut);
+
+    console.log('ENTEEEER')
+    console.log('SELECTED', selectedCard)
+
     outAnimation();
+    setAnimationType(scaleOut);
+    setTimeout(() => {
+      setSelectedCard(null);
+      setData(null);
+      setbackgroundCard([]);
+    }, 2000);
+   ;
   };
 
-  const addIcons = () => {
-    currencies.map((res: any, index: number) => {
-      currencies[index].icon = icons[index].icon;
-      currencies[index].line = icons[index].line;
-    });
+  // const addIcons = () => {
+  //   currencies.map((res: any, index: number) => {
+  //     currencies[index].icon = icons[index].icon;
+  //     currencies[index].line = icons[index].line;
+  //   });
 
-    return currencies;
-  };
+  //   return currencies;
+  // };
 
   const animation = () => {
     Animated.sequence([
@@ -112,18 +172,18 @@ const ListCurrency: FC<GeneralProps> = ({ theming: { theme }, currency, action, 
 
   const getCurrenciesIndex = (values: any) => {
 
-    const hey = currencies[selectedCard];
-    const index = currencies.indexOf(hey);
+    const hey = currency.currencies[1];
+    const index = currency.currencies.indexOf(hey);
     return index;
   }
 
   return (
     <>
       {
-        currencies.length ?
-          addIcons().map((res: any, index: number) => {
+        currency.currencies.length ?
+        currency.currencies.map((res: any, index: number) => {
             return (
-              <Animated.View style={{ transform: [{ scale: Object.keys(animationType).length != 0 && index == getCurrenciesIndex(res) - currencies.length ? animationType : scaleOut }] }} key={index}>
+              <Animated.View style={{ transform: [{ scale: Object.keys(animationType).length != 0 && index == selectedCard ? animationType : 1 }] }} key={index}>
                 <TouchableOpacity
                   onPress={() => cardSelected(res, index)}
                   key={index}
@@ -215,3 +275,19 @@ export default connect(mapStateToProps, mapDispatchToProps)(ListCurrency);
   //     }
   //   ).start()
   // };
+
+
+  //DOLAR
+  //["#45B649", "#45B649", "#DCE35B"]
+
+  //ETH
+  //["#304352", "#304352", "#AEAEE6"]
+
+  //BTC
+  //["#FF8008", "#FF8008", "#FFC837"]
+
+  //DASH
+  //["#03629B", "#03629B", "#008DE4"]
+
+
+  //Cambiar currency.currencies por la función add icons

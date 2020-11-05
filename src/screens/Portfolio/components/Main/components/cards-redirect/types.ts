@@ -4,7 +4,7 @@ export type RedirectProps = {
   action?: any
   selectedCurrency?: any,
   data: any,
-  reset: () => void
+  reset: () => any
 } & DefaultProps;
 
 export type ReducerProps = {
