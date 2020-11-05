@@ -1,8 +1,14 @@
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
+  initialMargin: {
+    marginTop: '10%'
+  },
   container: {
-    flex: 1
+    height: 50,
+    flexDirection: 'row',
+    marginHorizontal: '5%',
+    marginVertical: '4%'
   }
 });
 
