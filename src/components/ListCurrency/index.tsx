@@ -1,4 +1,4 @@
-import React, { FC, useState, useEffect, useRef} from 'react';
+import React, { FC, useState, useEffect, useRef } from 'react';
 import { View, Text, Modal, TouchableHighlight, TouchableOpacity, Animated } from 'react-native';
 import { CardsRedirect } from '../../screens/Portfolio/components/Main/components/';
 import { UsdCard, BtcCard, EthCard, DashCard, UsdLine, BtcLine, EthLine, DashLine } from '../../assets/image/svg';
@@ -18,18 +18,77 @@ const icons = [
   { icon: <DashCard />, line: <DashLine /> },
 ];
 
-const ListCurrency: FC<GeneralProps> = ({ theming: { theme }, currency, action, gradient = false}) => {
+const currency = {
+  currencies: [
+    {
+       "active":true,
+       "color":"#45B649",
+       "gradients":["#45B649", "#45B649", "#DCE35B"],
+       "icon":<UsdCard/>,
+       "id":"5f8e3d112c3795c5ce88991b",
+       "line":<UsdLine/>,
+       "name":"Dollar",
+       "price":1,
+       "symbol":"USD",
+       "type":"FIAT"
+    },
+    {
+       "active":true,
+       "color":"#F7931A",
+       "gradients":["#FF8008", "#FF8008", "#FFC837"],
+       "icon":<BtcCard/>,
+       "id":"5f8e3d8b2c3795c5ce88991c",
+       "line":<UsdLine/>,
+       "name":"Bitcoin",
+       "price":1,
+       "symbol":"BTC",
+       "type":"CRYPTO"
+    },
+    {
+       "active":true,
+       "color":"#444457",
+       "gradients": ["#304352", "#304352", "#AEAEE6"],
+       "icon":<EthCard/>,
+       "id":"5f8e3dc12c3795c5ce88991d",
+       "line":<EthLine />,
+       "name":"Ethereum",
+       "price":1,
+       "symbol":"ETH",
+       "type":"CRYPTO"
+    },
+    {
+       "active":true,
+       "color":"#008DE4",
+       "gradients":["#03629B", "#03629B", "#008DE4"],
+       "icon":<DashCard/>,
+       "id":"5f8e3dfd2c3795c5ce88991e",
+       "line":<DashLine/>,
+       "name":"Dash",
+       "price":1,
+       "symbol":"DASH",
+       "type":"CRYPTO"
+    }
+ ]
+};
 
-  let fadeAnim = useRef(new Animated.Value(1)).current;
 
-  const { currencies } = currency;
+const ListCurrency: FC<GeneralProps> = ({ theming: { theme }, action, gradient = false }) => {
+
+  const scaleAnim = useRef(new Animated.Value(1)).current;
+  const scaleOut = useRef(new Animated.Value(1)).current;
+  const transX = useRef(new Animated.Value(40)).current;
+  const fadeIn = useRef(new Animated.Value(0)).current;
+  const fadeOut = useRef(new Animated.Value(0)).current;
+
+  // const { currencies } = currency;
   const [selectedCard, setSelectedCard] = useState(null);
   const [backgroundCard, setbackgroundCard] = useState([]);
   const [data, setData] = useState(null);
+  const [animationType, setAnimationType] = useState({});
 
-  useEffect(() => {
-    action.getCurrencies();
-  }, []);
+  // useEffect(() => {
+  //   action.getCurrencies();
+  // }, []);
 
   const cardSelected = (values: any, index: any) => {
     let newArray: any = [];
@@ -40,99 +99,137 @@ const ListCurrency: FC<GeneralProps> = ({ theming: { theme }, currency, action, 
       setbackgroundCard(newArray);
       setData(values);
       animation();
+      setAnimationType(scaleAnim);
       return;
     }
 
-    resetStates();
+    console.log('INDICEEEE', index);
+    if(index == selectedCard) resetStates();
   }
 
   const resetStates = () => {
-    animation();
-    setSelectedCard(null);
-    setbackgroundCard([]);
-    setData(null);
+
+    console.log('ENTEEEER')
+    console.log('SELECTED', selectedCard)
+
+    outAnimation();
+    setAnimationType(scaleOut);
+    setTimeout(() => {
+      setSelectedCard(null);
+      setData(null);
+      setbackgroundCard([]);
+    }, 2000);
+   ;
   };
 
-  const addIcons = () => {
-    currencies.map((res: any, index: number) => {
-      currencies[index].icon = icons[index].icon;
-      currencies[index].line = icons[index].line;
-    });
+  // const addIcons = () => {
+  //   currencies.map((res: any, index: number) => {
+  //     currencies[index].icon = icons[index].icon;
+  //     currencies[index].line = icons[index].line;
+  //   });
 
-    return currencies;
-  };
+  //   return currencies;
+  // };
 
   const animation = () => {
-
-      Animated.sequence([
-      Animated.timing(
-        fadeAnim,
-        {
-          toValue: 0.8,
-          duration: 400,
-          useNativeDriver: true
-        }
-      ),
-      Animated.timing(
-        fadeAnim,
-        {
-          toValue: 1,
-          duration: 400,
-          useNativeDriver: true
-        }
-      ),
+    Animated.sequence([
+      animationProps(0.95, 200, scaleAnim),
+      animationProps(1, 200, scaleAnim),
+      animationProps(0, 800, transX),
     ]).start();
+
+    Animated.timing(
+      fadeIn,
+      {
+        delay: 400,
+        toValue: 1,
+        duration: 600,
+        useNativeDriver: true,
+      }
+    ).start();
+  };
+
+  const outAnimation = () => {
+    Animated.sequence([
+      animationProps(0.95, 200, scaleOut),
+      animationProps(1, 200, scaleOut),
+    ]).start();
+  };
+
+  const animationProps = (value: number, duration: number, name: any, delay: number = 0) => {
+    const animation = Animated.timing(
+      name,
+      {
+        delay,
+        toValue: value,
+        duration,
+        useNativeDriver: true
+      }
+    )
+
+    return animation;
+  };
+
+  const getCurrenciesIndex = (values: any) => {
+
+    const hey = currency.currencies[1];
+    const index = currency.currencies.indexOf(hey);
+    return index;
   }
 
   return (
     <>
       {
-        currencies.length ?
-          addIcons().map((res: any, index: number) => {
+        currency.currencies.length ?
+        currency.currencies.map((res: any, index: number) => {
             return (
-              <Animated.View style={{transform: [{scale:fadeAnim}]}}>
-              <TouchableOpacity
-                onPress={() => cardSelected(res, index)}
-                key={index}
-                activeOpacity={0.5}>
-                  <View style={[styles.cardGradient, {backgroundColor: theme.background}]}>
+              <Animated.View style={{ transform: [{ scale: Object.keys(animationType).length != 0 && index == selectedCard ? animationType : 1 }] }} key={index}>
+                <TouchableOpacity
+                  onPress={() => cardSelected(res, index)}
+                  key={index}
+                  activeOpacity={1}>
+                  <View style={[styles.cardGradient, { backgroundColor: theme.defaultCard }]}>
 
-                  <View style={styles.cardLefSide}>
-                    <View style={styles.cardLeftContent}>
-                      <TouchableOpacity style={{ width: 50, height: 50 }} onPress={gradient ? () => cardSelected(res, index) : () => {null}} activeOpacity={1}>
-                        {res.icon}
-                      </TouchableOpacity>
-                      <View style={{ flexDirection: 'column', marginLeft: '7%' }}>
-                        <Text style={index != selectedCard ? { color: theme.screenText } : { color: theme.screenText }}>{res.symbol}</Text>
-                        <Text style={index != selectedCard ? { color: theme.veryLightGrey } : { color: theme.veryLightGrey }}>1000</Text>
+                    <View style={styles.cardLefSide}>
+                      <View style={styles.cardLeftContent}>
+                        <TouchableOpacity style={{ width: 50, height: 50 }} onPress={gradient ? () => cardSelected(res, index) : () => { null }} activeOpacity={1}>
+                          {res.icon}
+                        </TouchableOpacity>
+                        <View style={{ flexDirection: 'column', marginLeft: '7%' }}>
+                          <Text style={{ color: theme.screenText }}>{res.symbol}</Text>
+                          <Text style={{ color: theme.veryLightGrey }}>1000</Text>
+                        </View>
                       </View>
                     </View>
-                  </View>
 
-                  {
-                    index != selectedCard
-                      ?
-                      <>
-                        <View style={styles.cardCenter}>
-                          <View style={{ width: '80%', height: 50, alignSelf: 'flex-end'}}>
-                            {res.line}
+                    {
+                      index != selectedCard
+                        ?
+                        <>
+                          <View style={styles.cardCenter}>
+                            <View style={{ width: '80%', height: 50, alignSelf: 'flex-end' }}>
+                              {res.line}
+                            </View>
                           </View>
-                        </View>
 
-                        <View style={{ flex: 0.23, justifyContent: 'center', alignItems: 'flex-end'}}>
-                          <Text style={{ color: theme.veryLightGrey }}>0.00%</Text>
-                          <Text style={{ color: res.color }}>{res.price}</Text>
-                        </View>
-                      </>
-                      :
-                      <>
-                        <CardsRedirect data={data} {...{theming:theme}} reset={resetStates}/>
-                      </>
-                  }
-                  <View>
+                          <View style={{ flex: 0.23, justifyContent: 'center', alignItems: 'flex-end' }}>
+                            <Text style={{ color: theme.veryLightGrey }}>0.00%</Text>
+                            <Text style={{ color: res.color }}>{res.price}</Text>
+                          </View>
+                        </>
+                        :
+                        <>
+                          <View style={{ flex: 0.66, justifyContent: 'center' }}>
+                            <Animated.View style={{ transform: [{ translateX: selectedCard == index ? transX : null }], opacity: selectedCard == index ? fadeIn : null }}>
+                              <CardsRedirect data={data} reset={resetStates} />
+                            </Animated.View>
+                          </View>
+                        </>
+                    }
+                    <View>
+                    </View>
                   </View>
-                </View>
-              </TouchableOpacity>
+                </TouchableOpacity>
               </Animated.View>
             );
           }) :
@@ -144,7 +241,7 @@ const ListCurrency: FC<GeneralProps> = ({ theming: { theme }, currency, action, 
   )
 }
 
-const mapStateToProps = ({ theming, currency }: ReducersProps): ReducersProps => ({ theming, currency})
+const mapStateToProps = ({ theming, currency }: ReducersProps): ReducersProps => ({ theming, currency })
 
 const mapDispatchToProps = (dispatch: any) => {
   const actions = {
@@ -158,3 +255,39 @@ const mapDispatchToProps = (dispatch: any) => {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(ListCurrency);
+
+  // const translateAnimation = () => {
+  //   Animated.timing(
+  //     transX,
+  //     {
+  //       toValue: 0,
+  //       duration: 1000,
+  //       useNativeDriver: true
+  //     }
+  //   ).start()
+
+  //   Animated.timing(
+  //     fadeIn,
+  //     {
+  //       toValue: 1,
+  //       duration: 1000,
+  //       useNativeDriver: true,
+  //     }
+  //   ).start()
+  // };
+
+
+  //DOLAR
+  //["#45B649", "#45B649", "#DCE35B"]
+
+  //ETH
+  //["#304352", "#304352", "#AEAEE6"]
+
+  //BTC
+  //["#FF8008", "#FF8008", "#FFC837"]
+
+  //DASH
+  //["#03629B", "#03629B", "#008DE4"]
+
+
+  //Cambiar currency.currencies por la función add icons

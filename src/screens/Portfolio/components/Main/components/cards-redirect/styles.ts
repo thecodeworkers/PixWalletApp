@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import { generalShadow } from '../../../../../../assets/styles/shadow';
 
 const styles = StyleSheet.create({
   cardActions: {
@@ -7,6 +8,9 @@ const styles = StyleSheet.create({
     borderRadius: 6,
     justifyContent: 'center',
     alignItems: 'center',
+    borderWidth: 2,
+    ...generalShadow(),
+    // backgroundColor: 'blue'
   },
 
   main: {

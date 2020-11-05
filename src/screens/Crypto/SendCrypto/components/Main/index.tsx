@@ -3,7 +3,7 @@ import { View, Text, TouchableOpacity, TextInput } from 'react-native';
 import { connect } from 'react-redux';
 import { DefaultProps } from '../../../../../types';
 import styles from './styles'
-import { DiamondCurrencies, GradientButton, InputCurrency, SelectCrypto } from '../../../../../components'
+import { DiamondCurrencies, GradientButton, CurrencyInput, SelectCrypto } from '../../../../../components'
 import FaIcons from 'react-native-vector-icons/FontAwesome5';
 import Icons from 'react-native-vector-icons/Ionicons';
 import LinearGradient from 'react-native-linear-gradient';
@@ -21,7 +21,7 @@ const Main: FC<DefaultProps> = ({ theming: { theme } }) => {
       </View>
 
       <View style={{ alignSelf: 'center', flex: 0.20 }}>
-        <InputCurrency {...{ theming: { theme } }} symbol={'BTC'} />
+        <CurrencyInput theme={theme} symbol={'BTC'} />
       </View>
 
       <View style={{ flex: 0.20 }}>
