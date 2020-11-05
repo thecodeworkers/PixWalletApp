@@ -1,7 +1,6 @@
-import React, { FC, useState } from 'react';
+import React, { FC } from 'react';
 import { View, Text, TouchableOpacity, } from 'react-native';
 import { InputProps } from './types';
-import { i18n } from '../../utils';
 import styles from './styles'
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';

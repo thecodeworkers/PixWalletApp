@@ -1,13 +1,11 @@
-import React, { FC, useState } from 'react';
+import React, { FC } from 'react';
 import { View, TextInput, TouchableOpacity, Text } from 'react-native';
 import { InputProps } from './types';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
 import styles from './styles'
 import { BtcSymbol, DashSymbol, EthSymbol, UsdSymbol } from '../../assets/image/svg'
 
 
-const CurrencyInput: FC<InputProps> = ({ theming: { theme }, symbol }: any) => {
+const CurrencyInput: FC<InputProps> = ({theme, symbol }: any) => {
 
   const currentSymbol = symbol
 
@@ -31,7 +29,6 @@ const CurrencyInput: FC<InputProps> = ({ theming: { theme }, symbol }: any) => {
   return (
     <View style={[styles.inputContainer, { borderColor: theme.inputBorder, backgroundColor: theme.defaultCard}]}>
       <TextInput keyboardType={'numeric'} placeholder={'0'} placeholderTextColor={selectedSymbol(currentSymbol)[0]} style={[styles.input, { color: selectedSymbol(currentSymbol)[0]}]} />
-
    
       <TouchableOpacity style={[styles.maxButton, { borderColor: theme.inputBorder, backgroundColor:theme.defaultCard }]}>
         <View style={[styles.boxSymbol, { borderColor: theme.veryLightGrey }]}>
@@ -51,15 +48,4 @@ const CurrencyInput: FC<InputProps> = ({ theming: { theme }, symbol }: any) => {
   );
 }
 
-const mapStateToProps = ({ theming }: InputProps): InputProps | any => ({ theming })
-
-const mapDispatchToProps = (dispatch: any) => {
-  const actions = {
-  };
-
-  return {
-    action: bindActionCreators(actions, dispatch),
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(CurrencyInput);
+export default CurrencyInput;

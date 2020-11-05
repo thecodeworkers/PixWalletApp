@@ -9,6 +9,6 @@ export { default as Separator } from './Separator';
 export { default as Tabs } from './Tabs';
 export { default as ListCurrency } from './ListCurrency';
 export { default as DynamicForm } from './DynamicForm';
-export { default as InputCurrency } from './CurrencyInput';
+export { default as CurrencyInput } from './CurrencyInput';
 export { default as GradientButton } from './GradientButton';
 export { default as SearchInput } from './SearchInput';

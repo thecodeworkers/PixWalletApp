@@ -1,15 +1,15 @@
 import React, { FC } from 'react';
-import { View, StatusBar, TouchableOpacity, Text } from 'react-native';
+import { View, Text } from 'react-native';
 import { DefaultProps } from '../../../../../types';
 import { i18n } from '../../../../../utils';
-import {Announcement } from '../../../../../components'
+import { Announcement } from '../../../../../components'
 import styles from './styles'
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { ClockIcon, DiamondIcon, MoneyIcon } from '../../../../../assets/image/svg/icons';
 import Icon from 'react-native-vector-icons/Ionicons';
 
-const Bank: FC<DefaultProps> = ({ theming: { theme }, action }: any) => {
+const Bank: FC<DefaultProps> = ({ theming: { theme } }: any) => {
 
   return (
     <>
@@ -39,23 +39,23 @@ const Bank: FC<DefaultProps> = ({ theming: { theme }, action }: any) => {
             <View style={styles.commisionTextContainer}>
 
               <Text style={[styles.textLeft, { color: theme.screenText }]}>{i18n.t('commission')}
-               <Icon name="help-circle" size={24} color={theme.defaultActiveIcon} ></Icon>
-               </Text>
+                <Icon name="help-circle" size={24} color={theme.defaultActiveIcon} ></Icon>
+              </Text>
               <Text style={[styles.textRight, { color: theme.veryLightGrey }]}>{i18n.t('commission')}</Text>
             </View>
 
           </View>
 
         </View>
-        <View style={{marginTop:5, marginBottom:5}}>
-            <Announcement icon={<ClockIcon />} text={'funds_credited'} />
+        <View style={{ marginTop: 5, marginBottom: 5 }}>
+          <Announcement theme={theme} icon={<ClockIcon />} text={'funds_credited'} />
         </View>
-      <View style={{marginTop:5, marginBottom:5}}>
-      <Announcement icon={<DiamondIcon />} text={'pix_fee'} />
-      </View>
-      <View style={{marginTop:5, marginBottom:5}}>
-       <Announcement icon={<MoneyIcon />} text={'limit_manage'} />
-       </View>
+        <View style={{ marginTop: 5, marginBottom: 5 }}>
+          <Announcement theme={theme} icon={<DiamondIcon />} text={'pix_fee'} />
+        </View>
+        <View style={{ marginTop: 5, marginBottom: 5 }}>
+          <Announcement theme={theme} icon={<MoneyIcon />} text={'limit_manage'} />
+        </View>
 
       </View>
     </>
