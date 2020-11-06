@@ -1,11 +1,11 @@
 import React, { FC } from 'react';
 import { View, Text, TouchableOpacity, TextInput } from 'react-native';
 import { connect } from 'react-redux';
-import { DefaultProps } from '../../../../../types';
+import { DefaultProps } from '../../../../types';
 import styles from './styles'
-import { GradientButton } from '../../../../../components';
+import { GradientButton } from '../../../../components';
 import FaIcons from 'react-native-vector-icons/FontAwesome5';
-import { PixLogo } from '../../../../../assets/image/svg'
+import { PixLogo } from '../../../../assets/image/svg'
 
 
 const Summary: FC<DefaultProps> = ({ theming: { theme } }) => {

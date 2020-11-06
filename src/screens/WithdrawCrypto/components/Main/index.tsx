@@ -1,9 +1,9 @@
 import React, { FC } from 'react';
 import { View, Text, TouchableOpacity, TextInput } from 'react-native';
 import { connect } from 'react-redux';
-import { DefaultProps } from '../../../../../types';
+import { DefaultProps } from '../../../../types';
 import styles from './styles'
-import { DiamondCurrencies, GradientButton, CurrencyInput, SelectCrypto } from '../../../../../components'
+import { DiamondCurrencies, GradientButton, CurrencyInput, SelectCrypto } from '../../../../components'
 import FaIcons from 'react-native-vector-icons/FontAwesome5';
 import Icons from 'react-native-vector-icons/Ionicons';
 import LinearGradient from 'react-native-linear-gradient';

@@ -14,13 +14,14 @@ const CardsRedirect: FC<RedirectProps> = ({ theming: { theme }, data, action = n
 
   const navigation = useNavigation();
 
-  const redirect = (route: string) => {
+  const redirect = (route: string, transactionType: string = '') => {
     navigation.navigate(route);
 
     const currency = {
       symbol: data.symbol,
       type: data.type,
-      color: data.color
+      color: data.color,
+      transactionType: transactionType
     };
 
     action.selectCurrency(currency);
@@ -30,7 +31,7 @@ const CardsRedirect: FC<RedirectProps> = ({ theming: { theme }, data, action = n
   return (
     <View style={styles.main}>
       <View style={styles.mainChild}>
-        <TouchableOpacity onPress={() => redirect(data.type != 'FIAT' ? 'sendCrypto' : 'sendFiat' )}>
+        <TouchableOpacity onPress={() => redirect(data.type != 'FIAT' ? 'withdrawCrypto' : 'transactionType', 'withdraw')}>
           <View style={[styles.cardActions, {borderColor: data.color, backgroundColor: theme.defaultCard}]}>
            <View style={{ width: 24 }}>
               <Send colorOne={data.gradients[0]} colorTwo={data.gradients[2]}/>
@@ -38,7 +39,7 @@ const CardsRedirect: FC<RedirectProps> = ({ theming: { theme }, data, action = n
           </View>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={() => redirect(data.type != 'FIAT' ? 'receiveCrypto' : 'receiveFiat' )} >
+        <TouchableOpacity onPress={() => redirect(data.type != 'FIAT' ? 'receive' : 'transactionType', 'deposit')} >
           <View style={[styles.cardActions, {borderColor: data.color, backgroundColor: theme.defaultCard}]}>
            <View style={{ width: 24 }}>
               <Receive colorOne={data.gradients[0]} colorTwo={data.gradients[2]} />

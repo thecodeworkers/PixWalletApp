@@ -6,7 +6,7 @@ import { HeaderNavigation } from '../../components';
 
 const Stack = createStackNavigator();
 
-const ReceiveFiat= () => (
+const InternalTransaction= () => (
   <Stack.Navigator
     initialRouteName="main"
     screenOptions={{
@@ -19,4 +19,4 @@ const ReceiveFiat= () => (
   </Stack.Navigator>
 )
 
-export default ReceiveFiat;
+export default InternalTransaction;

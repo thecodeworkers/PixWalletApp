@@ -1,34 +1,35 @@
 import React, { FC } from 'react';
 import { View, StatusBar, TouchableOpacity, Text } from 'react-native';
-import { DefaultProps } from '../../types';
 import { i18n } from '../../utils';
-import { Header } from '..'
 import styles from './styles'
+import { connect } from 'react-redux';
 import { BankIcon, CardIcon, PixLogo } from '../../assets/image/svg/icons';
 import { useNavigation } from '@react-navigation/native';
 import {TrasactionTypeProps} from './types'
 
-const FiatTransactionType: FC<TrasactionTypeProps> = ({ theming: { theme }, routeOne, routeTwo, routeThree }: any) => {
+const TransactionType: FC<TrasactionTypeProps> = ({ theming: { theme }, transactionType, route}: any) => {
 
   const navigation = useNavigation();
+  const type = 'withdraw'
+
 
   const options =
     [{
-      route: routeOne,
+      route:  type ==='withdraw' ? 'internalTrasaction' : 'receive',
       icon: <PixLogo />,
-      iconTitle: 'between_users',
+      iconTitle: type ==='withdraw' ? 'between_users' : 'Crypto digital asset',
       text: 'funds_free',
       footer: 'daily_limit'
     },
     {
-      route: routeTwo,
+      route: type ==='withdraw' ? 'withdrawFiat' : 'deposit',
       icon: <BankIcon />,
       iconTitle: 'bank_account',
       text: 'funds_bank',
       footer: 'daily_limit'
     },
     {
-      route: routeThree,
+      route: type ==='withdraw' ? 'withdrawFiat' : 'deposit',
       icon: <CardIcon />,
       iconTitle: 'bank_transfer',
       text: 'funds_transfer',
@@ -73,4 +74,7 @@ const FiatTransactionType: FC<TrasactionTypeProps> = ({ theming: { theme }, rout
   );
 }
 
-export default FiatTransactionType;
+const mapStateToProps = ({ theming }: TrasactionTypeProps | any): TrasactionTypeProps | any => ({ theming })
+
+export default connect(mapStateToProps)(TransactionType);
+

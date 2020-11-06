@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     padding: 20,
     borderRadius: 10,
-   
+
   },
   shareButton: {
     borderRadius: 6,
@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
     padding: 10,
     margin: 5,
   }
- 
+
 });
 
 export default styles;

@@ -2,11 +2,11 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import {Complete, Main, Summary} from './components';
-import { HeaderNavigation } from '../../../components';
+import { HeaderNavigation } from '../../components';
 
 const Stack = createStackNavigator();
 
-const SendCrypto= () => (
+const WithdrawCrypto= () => (
   <Stack.Navigator
     initialRouteName="main"
     screenOptions={{
@@ -19,4 +19,4 @@ const SendCrypto= () => (
   </Stack.Navigator>
 )
 
-export default SendCrypto;
+export default WithdrawCrypto;
