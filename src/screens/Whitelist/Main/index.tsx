@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { View, FlatList, Text, TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
-import { Separator } from '../../../components';
+import { SearchInput, Separator } from '../../../components';
 import { DefaultProps } from '../../../types';
 import { WhitelistItem } from './components';
 import styles from './styles';
@@ -15,21 +15,25 @@ const DATA = [
 const Main: FC<any> = ({ theming: { theme }, navigation }) => {
   return (
     <View style={[styles.container, { backgroundColor: theme.background }]}>
-      <View style={{ flex: 0.1, flexDirection: 'row', marginHorizontal: '5%' }}>
-        <View style={{ flex: 0.2, backgroundColor: 'red' }}>
+      <TouchableOpacity style={{ flex: 0.1, flexDirection: 'row', marginHorizontal: '10%' }} onPress={() => navigation.navigate('createWhitelist')}>
+        <View style={{ flex: 0.25, justifyContent: 'center', alignItems: 'center' }}>
+          <View style={{ width: 50, height: 50, justifyContent: 'center', alignItems: 'center' }}>
+            <View style={{ width: 30, height: 30 }}>
 
+            </View>
+          </View>
         </View>
-        <TouchableOpacity style={{ flex: 0.4, backgroundColor: 'blue' }} onPress={() => navigation.navigate('createWhitelist')}>
-          <Text>Add a new account</Text>
-        </TouchableOpacity>
+        <View style={{ flex: 0.7, justifyContent: 'center' }}>
+          <Text style={{ color: theme.screenText, fontSize: 13, marginBottom: 2 }}>Add new account</Text>
+        </View>
+      </TouchableOpacity>
+      <View style={{ flex: 0.1, marginHorizontal: '10%', justifyContent: 'flex-end' }}>
+        <SearchInput theme={theme} />
       </View>
-      <View style={{ flex: 0.9 }}>
-        <View style={{ marginTop: '10%' }}>
-          <Separator/>
-        </View>
+      <View style={styles.listContainer}>
         <FlatList
           data={DATA}
-          renderItem={WhitelistItem}
+          renderItem={props => <WhitelistItem theme={theme} {...props} />}
           keyExtractor={(item: any) => item.id}
         />
       </View>

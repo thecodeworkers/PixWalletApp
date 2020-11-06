@@ -96,7 +96,7 @@ const ReceiveCrypto: FC<DefaultProps> = ({ theming: { theme } }) => {
 
           </View>
           <View  style={{marginTop: 10}}>
-          <Announcement icon={<InfoIcon/>} text={'info_receive'} />
+          <Announcement theme={theme} icon={<InfoIcon/>} text={'info_receive'} />
           </View>
 
       </View>

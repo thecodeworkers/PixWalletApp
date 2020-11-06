@@ -1,5 +1,6 @@
-import { DefaultProps } from  '../../types';
+import { Theming } from "src/types";
 
 export type InputProps = {
   symbol:any
-} & DefaultProps;
+} & Theming
+

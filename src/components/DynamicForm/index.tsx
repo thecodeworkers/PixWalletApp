@@ -57,7 +57,7 @@ const DynamicForm: FC<DynamicFormProps> = ({ elements, theme }) => {
               })
             }
             <TouchableOpacity onPress={handleSubmit} disabled={!isValid}>
-              <Text style={{ color: '#35A7D6', fontWeight: 'bold' }}>Done</Text>
+              <Text style={{ color: theme.summerSky, fontWeight: 'bold' }}>Done</Text>
             </TouchableOpacity>
           </>
         )

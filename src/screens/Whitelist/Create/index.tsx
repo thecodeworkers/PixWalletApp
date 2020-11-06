@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
 import { View } from 'react-native';
 import { DefaultProps } from '../../../types';
-import { connect } from 'react-redux';
 import { DynamicForm } from '../../../components';
+import { connect } from 'react-redux';
 import styles from './styles';
 
 const elements: Array<any> = [
@@ -53,7 +53,7 @@ const Create: FC<any> = ({ theming: { theme } }) => (
     <View style={{ flex: 0.2 }}>
 
     </View>
-    <View style={{ flex: 0.8, width: '75%', alignItems: 'center' }}>
+    <View style={styles.formContainer}>
       <DynamicForm elements={elements} theme={theme} />
     </View>
   </View>

@@ -14,7 +14,6 @@ const styles = StyleSheet.create({
 
   inputParent: {
     width: '100%',
-    marginTop: '8%',
     position: 'relative'
   },
 
