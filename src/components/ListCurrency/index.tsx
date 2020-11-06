@@ -5,6 +5,7 @@ import { UsdCard, BtcCard, EthCard, DashCard, UsdLine, BtcLine, EthLine, DashLin
 import { getCurrencies, selectCurrency } from '../../store/actions';
 import { DefaultProps } from '../../types';
 import { i18n } from '../../utils';
+import { animationProps } from '../../utils/common';
 import styles from './styles'
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
@@ -71,20 +72,19 @@ const currency = {
  ]
 };
 
-
 const ListCurrency: FC<GeneralProps> = ({ theming: { theme }, action, gradient = false }) => {
 
   const scaleAnim = useRef(new Animated.Value(1)).current;
   const scaleOut = useRef(new Animated.Value(1)).current;
-  const transX = useRef(new Animated.Value(40)).current;
+  const transX = useRef(new Animated.Value(15)).current;
   const fadeIn = useRef(new Animated.Value(0)).current;
-  const fadeOut = useRef(new Animated.Value(0)).current;
 
   // const { currencies } = currency;
   const [selectedCard, setSelectedCard] = useState(null);
   const [backgroundCard, setbackgroundCard] = useState([]);
   const [data, setData] = useState(null);
   const [animationType, setAnimationType] = useState({});
+  const [endIn, setEndIn] = useState(null);
 
   // useEffect(() => {
   //   action.getCurrencies();
@@ -98,28 +98,21 @@ const ListCurrency: FC<GeneralProps> = ({ theming: { theme }, action, gradient =
       setSelectedCard(index);
       setbackgroundCard(newArray);
       setData(values);
-      animation();
+      restoreRedirect();
       setAnimationType(scaleAnim);
       return;
     }
-
-    console.log('INDICEEEE', index);
-    if(index == selectedCard) resetStates();
+    resetStates();
   }
 
   const resetStates = () => {
-
-    console.log('ENTEEEER')
-    console.log('SELECTED', selectedCard)
-
     outAnimation();
     setAnimationType(scaleOut);
     setTimeout(() => {
       setSelectedCard(null);
       setData(null);
       setbackgroundCard([]);
-    }, 2000);
-   ;
+    }, 600);
   };
 
   // const addIcons = () => {
@@ -135,46 +128,27 @@ const ListCurrency: FC<GeneralProps> = ({ theming: { theme }, action, gradient =
     Animated.sequence([
       animationProps(0.95, 200, scaleAnim),
       animationProps(1, 200, scaleAnim),
-      animationProps(0, 800, transX),
+      animationProps(0, 400, transX),
     ]).start();
 
-    Animated.timing(
-      fadeIn,
-      {
-        delay: 400,
-        toValue: 1,
-        duration: 600,
-        useNativeDriver: true,
-      }
-    ).start();
+    animationProps(1, 600, fadeIn, 400).start();
   };
 
   const outAnimation = () => {
     Animated.sequence([
       animationProps(0.95, 200, scaleOut),
       animationProps(1, 200, scaleOut),
+      animationProps(15, 400, transX),
     ]).start();
+
+    animationProps(0, 600, fadeIn, 400).start();
   };
 
-  const animationProps = (value: number, duration: number, name: any, delay: number = 0) => {
-    const animation = Animated.timing(
-      name,
-      {
-        delay,
-        toValue: value,
-        duration,
-        useNativeDriver: true
-      }
-    )
-
-    return animation;
-  };
-
-  const getCurrenciesIndex = (values: any) => {
-
-    const hey = currency.currencies[1];
-    const index = currency.currencies.indexOf(hey);
-    return index;
+  const restoreRedirect = () => {
+    Animated.sequence([
+      animationProps(0, 3, fadeIn),
+      animationProps(5, 1, transX)
+    ]).start(() => animation());
   }
 
   return (
@@ -183,7 +157,7 @@ const ListCurrency: FC<GeneralProps> = ({ theming: { theme }, action, gradient =
         currency.currencies.length ?
         currency.currencies.map((res: any, index: number) => {
             return (
-              <Animated.View style={{ transform: [{ scale: Object.keys(animationType).length != 0 && index == selectedCard ? animationType : 1 }] }} key={index}>
+              <Animated.View style={{ transform: [{ scale: index == selectedCard ? animationType : 1 }] }} key={index}>
                 <TouchableOpacity
                   onPress={() => cardSelected(res, index)}
                   key={index}
@@ -220,7 +194,7 @@ const ListCurrency: FC<GeneralProps> = ({ theming: { theme }, action, gradient =
                         :
                         <>
                           <View style={{ flex: 0.66, justifyContent: 'center' }}>
-                            <Animated.View style={{ transform: [{ translateX: selectedCard == index ? transX : null }], opacity: selectedCard == index ? fadeIn : null }}>
+                            <Animated.View style={{ transform: [{ translateX: selectedCard == index ? transX : 200 }], opacity: selectedCard == index ? fadeIn : 0.6 }}>
                               <CardsRedirect data={data} reset={resetStates} />
                             </Animated.View>
                           </View>
@@ -245,8 +219,7 @@ const mapStateToProps = ({ theming, currency }: ReducersProps): ReducersProps =>
 
 const mapDispatchToProps = (dispatch: any) => {
   const actions = {
-    getCurrencies,
-
+    getCurrencies
   };
 
   return {
