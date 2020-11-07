@@ -19,10 +19,16 @@ const WhitelistItem: FC<WhitelistItemProps> = ({ theme, index, item, onPress }) 
       <TouchableOpacity style={styles.container} onPress={() => onPress(index)}>
         <View style={{ flex: 0.25, justifyContent: 'center', alignItems: 'center' }}>
           <View style={{
+            backgroundColor: '#FCFCFC',
             width: 50,
             height: 50,
             justifyContent: 'center',
             alignItems: 'center',
+            borderRadius: 5,
+            borderColor: '#DEDEDE',
+            borderWidth: 0.5,
+            borderBottomColor: 'blue',
+            borderLeftColor: 'blue',
             ...generalShadow()
           }}>
             <View style={{ width: 30, height: 30 }}>
