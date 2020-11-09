@@ -7,6 +7,7 @@ import { SearchInput } from '../../../components';
 import { DefaultProps } from '../../../types';
 import { WhitelistItem } from './components';
 import { resizeInitialFlex, resizeFinalFlex } from './functions';
+import LinearGradient from 'react-native-linear-gradient';
 import styles from './styles';
 
 const DATA = [

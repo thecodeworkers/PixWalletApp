@@ -36,12 +36,14 @@ const withdrawCryptoScreen = {
     title:'withdrawCrypto'
   }
 }
+
 const withdrawFiatScreen = {
   withdrawFiat: {
     component: WithdrawFiat,
     title:'withdrawFiat'
   }
 }
+
 const depositScreen = {
   deposit: {
     component: Deposit,
@@ -86,11 +88,11 @@ const Portfolio = () => {
           ...defaultScreen,
           ...receiveScreen,
           ...transactionTypeScreen,
-         ...depositScreen,
+          ...depositScreen,
           ...withdrawCryptoScreen,
           ...withdrawFiatScreen,
           ...internalTransactionScreen,
-          ...whitelistScreen,
+          ...whitelistScreen
         }).map(([name, { component, title }]: Array<any>, index) => (
           <Stack.Screen
             key={index}
