@@ -1,5 +1,11 @@
-export { default as Portfolio } from './Portfolio';
 export { default as Activity } from './Activity';
 export { default as Exchange } from './Exchange';
 export { default as Profile } from './Profile';
 export { default as Onboarding } from './Onboarding';
+export { default as Receive } from './Receive';
+export { default as Deposit } from './Deposit';
+export { default as TransactionType } from './TransactionType';
+export * from './Portfolio';
+export * from './Whitelist';
+export * from './Withdraw';
+export * from './InternalTransaction';

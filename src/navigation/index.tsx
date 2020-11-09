@@ -4,11 +4,11 @@ import { NavigationContainer } from '@react-navigation/native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 const NavigationWrapper = () => (
-  <SafeAreaProvider>
+  // <SafeAreaProvider>
     <NavigationContainer>
       <Root/>
     </NavigationContainer>
-  </SafeAreaProvider>
+  // </SafeAreaProvider>
 );
 
 export default NavigationWrapper;
