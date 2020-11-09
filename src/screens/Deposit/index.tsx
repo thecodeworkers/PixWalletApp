@@ -1,15 +1,15 @@
 import React, { FC } from 'react';
 import { View, Text } from 'react-native';
-import { DefaultProps } from '../../../../../types';
-import { i18n } from '../../../../../utils';
-import { Announcement } from '../../../../../components'
+import { DefaultProps } from '../../types';
+import { i18n } from '../../utils';
+import { Announcement } from '../../components'
 import styles from './styles'
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { ClockIcon, DiamondIcon, MoneyIcon } from '../../../../../assets/image/svg/icons';
+import { ClockIcon, DiamondIcon, MoneyIcon } from '../../assets/image/svg/icons';
 import Icon from 'react-native-vector-icons/Ionicons';
 
-const Bank: FC<DefaultProps> = ({ theming: { theme } }: any) => {
+const Deposit: FC<DefaultProps> = ({ theming: { theme } }: any) => {
 
   return (
     <>
@@ -73,4 +73,4 @@ const mapDispatchToProps = (dispatch: any) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Bank);
+export default connect(mapStateToProps, mapDispatchToProps)(Deposit);

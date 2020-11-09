@@ -1,10 +1,10 @@
 import React, { FC } from 'react';
 import { View, Text } from 'react-native';
 import { connect } from 'react-redux';
-import { DefaultProps } from '../../../../../types';
+import { DefaultProps } from '../../../../types';
 import styles from './styles'
-import { GradientButton } from '../../../../../components'
-import { PixLogo } from '../../../../../assets/image/svg'
+import { GradientButton } from '../../../../components'
+import { PixLogo } from '../../../../assets/image/svg'
 
 const Complete: FC<DefaultProps> = ({ theming: { theme } }) => {
   return (

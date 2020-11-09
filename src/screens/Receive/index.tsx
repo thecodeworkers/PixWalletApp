@@ -1,21 +1,25 @@
 import React, { FC, useState } from 'react';
 import {View, Text, Share, TouchableOpacity, TextInput } from 'react-native';
 import { connect } from 'react-redux';
-import { DefaultProps } from '../../../types';
-import {Announcement, DiamondCurrencies} from '../../../components'
-import { i18n } from '../../../utils';
+import {Announcement, DiamondCurrencies} from '../../components'
+import { i18n } from '../../utils';
 import styles from './styles'
 import QRCode from 'react-native-qrcode-svg';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 import FaIcons from 'react-native-vector-icons/FontAwesome5';
 import Clipboard from '@react-native-community/clipboard';
-import { InfoIcon } from '../../../assets/image/svg/icons';
+import { InfoIcon } from '../../assets/image/svg/icons';
+import {ReceiveProps} from './types'
 
-const ReceiveCrypto: FC<DefaultProps> = ({ theming: { theme } }) => {
-  
+
+const ReceiveScreen: FC<ReceiveProps> = ({ theming: { theme }, selectedCurrency }) => {
+
   const wallet = '35xnAT9CbcURiWTMN7AS9cbVdHN4JrrCBT'
   const user = 'Gerard Miot'
   const [copied, setCopied] = useState(false);
+  const currency = selectedCurrency.currency
+
+
 
   const copyClipboard = async () => {
     Clipboard.setString(wallet);
@@ -52,7 +56,7 @@ const ReceiveCrypto: FC<DefaultProps> = ({ theming: { theme } }) => {
     <>
        <View style={[styles.container, { backgroundColor: theme.background }]}>
 
-          <DiamondCurrencies currency='USD'/>
+          <DiamondCurrencies currency={currency.symbol}/>
 
         <View style={styles.qrContainer}>
           <QRCode
@@ -60,7 +64,7 @@ const ReceiveCrypto: FC<DefaultProps> = ({ theming: { theme } }) => {
             size={170}
             backgroundColor={theme.background}
             color={theme.screenText}
-            logo={require('../../../assets/image/pix.png')}
+            logo={require('../../assets/image/pix.png')}
             logoSize={55}
             logoBorderRadius={8}
           />
@@ -96,7 +100,7 @@ const ReceiveCrypto: FC<DefaultProps> = ({ theming: { theme } }) => {
 
           </View>
           <View  style={{marginTop: 10}}>
-          <Announcement theme={theme} icon={<InfoIcon/>} text={'info_receive'} />
+          <Announcement  theme={theme} icon={<InfoIcon/>} text={'info_receive'} />
           </View>
 
       </View>
@@ -104,7 +108,6 @@ const ReceiveCrypto: FC<DefaultProps> = ({ theming: { theme } }) => {
   );
 }
 
+const mapStateToProps = ({ theming, selectedCurrency }: ReceiveProps): ReceiveProps=> ({ theming, selectedCurrency })
 
-const mapStateToProps = ({ theming }: DefaultProps): DefaultProps => ({ theming })
-
-export default connect(mapStateToProps)(ReceiveCrypto);
+export default connect(mapStateToProps)(ReceiveScreen);

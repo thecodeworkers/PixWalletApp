@@ -3,11 +3,12 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { PortfolioMain, PortfolioSummary } from './components';
 import { HeaderNavigation } from '../../components';
 import { WhitelistMain, WhitelistCreate } from '../Whitelist';
-import ReceiveFiat from '../Fiat/ReceiveFiat';
-import ReceiveCrypto from '../Crypto/ReceiveCrypto';
-import SendFiat from '../../screens/Fiat/SendFiat';
-import SendCrypto from '../../screens/Crypto/SendCrypto';
+import Receive from '../Receive';
+import Deposit from '../Deposit';
+import WithdrawCrypto from '../WithdrawCrypto';
+import WithdrawFiat from '../WithdrawFiat';
 import InternalTransaction from '../InternalTransaction/components/Main';
+import TransactionType from '../TransactionType';
 
 const Stack = createStackNavigator();
 
@@ -22,21 +23,36 @@ const defaultScreen = {
   }
 }
 
-const cryptoScreen = {
-  sendCrypto: {
-    component: SendCrypto
-  },
-  receiveCrypto: {
-    component: ReceiveCrypto
+const transactionTypeScreen = {
+  transactionType: {
+    component: TransactionType,
+    title:'inernalTrasantion'
   }
 }
 
-const fiatScreen = {
-  sendFiat: {
-    component: SendFiat
+const withdrawCryptoScreen = {
+  withdrawCrypto: {
+    component: WithdrawCrypto,
+    title:'withdrawCrypto'
+  }
+}
+const withdrawFiatScreen = {
+  withdrawFiat: {
+    component: WithdrawFiat,
+    title:'withdrawFiat'
+  }
+}
+const depositScreen = {
+  deposit: {
+    component: Deposit,
+    title:'deposit'
   },
-  receiveFiat: {
-    component: ReceiveFiat
+}
+
+ const receiveScreen = {
+  receive: {
+    component: Receive,
+    title:'receive'
   }
 }
 
@@ -68,8 +84,11 @@ const Portfolio = () => {
       {
         Object.entries({
           ...defaultScreen,
-          ...cryptoScreen,
-          ...fiatScreen,
+          ...receiveScreen,
+          ...transactionTypeScreen,
+         ...depositScreen,
+          ...withdrawCryptoScreen,
+          ...withdrawFiatScreen,
           ...internalTransactionScreen,
           ...whitelistScreen,
         }).map(([name, { component, title }]: Array<any>, index) => (
