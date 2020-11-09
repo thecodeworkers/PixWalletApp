@@ -5,36 +5,39 @@ import styles from './styles'
 import { connect } from 'react-redux';
 import { BankIcon, CardIcon, PixLogo } from '../../assets/image/svg/icons';
 import { useNavigation } from '@react-navigation/native';
-import {TrasactionTypeProps} from './types'
+import { TrasactionTypeProps } from './types'
 
-const TransactionType: FC<TrasactionTypeProps> = ({ theming: { theme }, transactionType, route}: any) => {
+const TransactionType: FC<TrasactionTypeProps> = ({ theming: { theme }, transactionType, route }: any) => {
 
   const navigation = useNavigation();
   const type = 'withdraw'
 
-
-  const options =
-    [{
-      route:  type ==='withdraw' ? 'internalTrasaction' : 'receive',
-      icon: <PixLogo />,
-      iconTitle: type ==='withdraw' ? 'between_users' : 'Crypto digital asset',
-      text: 'funds_free',
-      footer: 'daily_limit'
-    },
-    {
-      route: type ==='withdraw' ? 'withdrawFiat' : 'deposit',
-      icon: <BankIcon />,
-      iconTitle: 'bank_account',
-      text: 'funds_bank',
-      footer: 'daily_limit'
-    },
-    {
-      route: type ==='withdraw' ? 'withdrawFiat' : 'deposit',
-      icon: <CardIcon />,
-      iconTitle: 'bank_transfer',
-      text: 'funds_transfer',
-      footer: 'daily_limit'
-    },
+  const options: any=
+    [
+     {
+        route: 'internalTrasaction',
+        icon: <PixLogo />,
+        iconTitle:'between_users',
+        text: 'funds_free',
+        footer: 'daily_limit',
+        show: type === 'withdraw' ? true : false
+      },
+      {
+        route: type === 'withdraw' ? 'withdrawFiat' : 'deposit',
+        icon: <BankIcon />,
+        iconTitle: 'bank_account',
+        text: 'funds_bank',
+        footer: 'daily_limit',
+        show: true,
+      },
+      {
+        route: type === 'withdraw' ? 'withdrawFiat' : 'deposit',
+        icon: <CardIcon />,
+        iconTitle: 'bank_transfer',
+        text: 'funds_transfer',
+        footer: 'daily_limit',
+        show: true,
+      },
     ]
 
   return (
@@ -44,9 +47,12 @@ const TransactionType: FC<TrasactionTypeProps> = ({ theming: { theme }, transact
         <View style={styles.cardContainer}>
 
           {
-            options.map((res, index) => {
+            options.map((res:any, index:any) => {
+
               return (
-                <TouchableOpacity onPress={() => navigation.navigate(res.route)} style={[styles.card, { backgroundColor: theme.defaultCard }]} key={index}>
+                 res.show ? (
+                    <TouchableOpacity onPress={() => navigation.navigate(res.route)} style={[styles.card, { backgroundColor: theme.defaultCard }]} key={index}>
+
                   <View style={styles.cardHeader}>
                     <View style={styles.cardHeaderIconContainer}>
                       <View style={{ width: 30, height: 30 }}>
@@ -62,9 +68,11 @@ const TransactionType: FC<TrasactionTypeProps> = ({ theming: { theme }, transact
                   </View>
 
                   <View style={styles.cardFooter}>
-                    <Text  style={[styles.cardFooterText, { color: theme.screenText }]}>{i18n.t(res.footer)}</Text>
+                    <Text style={[styles.cardFooterText, { color: theme.screenText }]}>{i18n.t(res.footer)}</Text>
                   </View>
-                </TouchableOpacity>
+                </TouchableOpacity>) : null
+
+
               )
             })
           }
