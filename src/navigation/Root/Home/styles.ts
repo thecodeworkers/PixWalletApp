@@ -2,7 +2,7 @@ import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   tabStyles: {
-    paddingBottom: 5, 
+    paddingBottom: 5,
   },
 
   main: {

@@ -1,16 +1,13 @@
 import React from 'react';
-import Portfolio from '../Portfolio';
-import Activity from '../Activity';
-import Exchange from '../Exchange';
-import Profile from '../Profile';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import IonicIcon from 'react-native-vector-icons/Ionicons';
-import styles from './style';
+import styles from './styles';
+import { Portfolio, Activity, Exchange, Profile } from '../../../screens';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 const Tab = createBottomTabNavigator();
 
-const Home = ({ theme }: any) => {
+const HomeNavigator = ({ theme }: any) => {
 
   const setColor = (focused: boolean): string => {
     const { defaultActiveIcon, defaultInactiveIcon } = theme;
@@ -72,4 +69,4 @@ const Home = ({ theme }: any) => {
   );
 }
 
-export default Home;
+export default HomeNavigator;
