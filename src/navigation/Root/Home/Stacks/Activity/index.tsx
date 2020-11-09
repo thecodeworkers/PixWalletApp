@@ -1,11 +1,11 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-import { Main, Detail } from './components';
-import { HeaderNavigation } from '../../components';
+import { HeaderNavigation } from '../../../../../components';
+import { ActivityMain, ActivityDetail } from '../../../../../screens';
 
 const Stack = createStackNavigator();
 
-const Activity = () => (
+export default () => (
   <Stack.Navigator
     initialRouteName="main"
     screenOptions={{
@@ -14,19 +14,17 @@ const Activity = () => (
   >
     <Stack.Screen
       name="main"
-      component={Main}
+      component={ActivityMain}
       options={{
         title: 'activity'
       }}
     />
     <Stack.Screen
       name="detail"
-      component={Detail}
+      component={ActivityDetail}
       options={{
         title: 'transaction_details'
       }}
     />
   </Stack.Navigator>
-)
-
-export default Activity;
+);

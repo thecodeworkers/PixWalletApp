@@ -3,8 +3,8 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import IonicIcon from 'react-native-vector-icons/Ionicons';
 import styles from './styles';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { Activity, Exchange, Profile } from '../../../screens';
-import { PortfolioStack } from './Stacks';
+import { Exchange, Profile } from '../../../screens';
+import { ActivityStack, PortfolioStack } from './Stacks';
 
 const Tab = createBottomTabNavigator();
 
@@ -34,7 +34,7 @@ const HomeNavigator = ({ theme }: any) => {
       />
       <Tab.Screen
         name="activity"
-        component={Activity}
+        component={ActivityStack}
         options={{
           tabBarIcon: ({ focused }) => (
             <IonicIcon name="document-text-outline" color={setColor(focused)} size={30} />

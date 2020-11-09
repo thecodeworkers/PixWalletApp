@@ -3,7 +3,7 @@ import { View, FlatList } from 'react-native';
 import { connect } from 'react-redux';
 import { ActivityProps, StateProps } from './types';
 import { ActivityFilter, ActivityList } from './components';
-import { Separator, Tabs } from '../../../../components';
+import { Separator, Tabs } from '../../../components';
 import styles from './styles';
 
 const DATA = [

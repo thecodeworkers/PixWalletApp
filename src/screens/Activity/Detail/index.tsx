@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
 import { View, Text, ScrollView } from 'react-native';
 import { connect } from 'react-redux';
-import { EthCard } from '../../../../assets/image/svg';
-import { DefaultProps } from '../../../../types';
+import { EthCard } from '../../../assets/image/svg';
+import { DefaultProps } from '../../../types';
 import styles from './styles';
 
 const Detail: FC<DefaultProps> = ({ theming: { theme } }) => {

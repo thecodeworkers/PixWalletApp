@@ -1,4 +1,4 @@
-import { generalShadow } from '../../../../assets/styles';
+import { generalShadow } from '../../../assets/styles';
 
 const styles: any = {
   container: {

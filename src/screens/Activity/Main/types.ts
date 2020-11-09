@@ -1,4 +1,4 @@
-import { DefaultProps, NavigationProps } from '../../../../types';
+import { DefaultProps, NavigationProps } from '../../../types';
 
 export type StateProps = {
 

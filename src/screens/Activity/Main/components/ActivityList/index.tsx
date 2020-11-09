@@ -2,8 +2,8 @@ import React, { FC } from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { Theming } from 'src/types';
-import { BtcCard, EthCard,UsdCard, DashCard } from '../../../../../../assets/image/svg';
-import { Separator } from '../../../../../../components';
+import { BtcCard, EthCard,UsdCard, DashCard } from '../../../../../assets/image/svg';
+import { Separator } from '../../../../../components';
 import styles from './styles';
 
 const ActivityList: FC<Theming> = ({ theme }) => {

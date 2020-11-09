@@ -1,4 +1,4 @@
-import { Theming } from '../../../../../../types';
+import { Theming } from '../../../../../types';
 import { ActivityButtonFilterProps } from '../types';
 
 export type FilterButtonProps = {
