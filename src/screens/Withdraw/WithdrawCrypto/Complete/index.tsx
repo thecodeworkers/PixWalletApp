@@ -38,7 +38,7 @@ const WithdrawCryptoComplete: FC<WithdrawCryptoProps> = ({ theming: { theme }, s
       </View>
 
       <View style={{ flex: 0.25, justifyContent: "flex-end", marginBottom: 10 }}>
-        <GradientButton {...{ theming: { theme }, text: 'Continue', route: 'complete' }} />
+        <GradientButton theme={theme}  text={'Continue'} route={'complete'} />
       </View>
 
     </View>
