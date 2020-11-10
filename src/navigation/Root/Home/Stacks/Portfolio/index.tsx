@@ -8,8 +8,12 @@ import {
   WhitelistCreate,
   Receive,
   Deposit,
-  WithdrawCrypto,
-  WithdrawFiat,
+  WithdrawCryptoMain,
+  WithdrawCryptoComplete,
+  WithdrawCryptoSummary,
+  WithdrawFiatMain,
+  WithdrawFiatComplete,
+  WithdrawFiatSummary,
   TransactionType,
   InternalTransactionMain,
   InternalTransactionSummary
@@ -35,15 +39,34 @@ const transactionTypeScreen = {
   }
 }
 
-const withdrawScreen = {
-  withdrawCrypto: {
-    component: WithdrawCrypto,
-    title:'withdrawCrypto'
+const withdrawCryptoScreen = {
+  withdrawCryptoMain: {
+    component: WithdrawCryptoMain,
+    title:''
   },
-  withdrawFiat: {
-    component: WithdrawFiat,
-    title:'withdrawFiat'
-  }
+  withdrawCryptoSummary: {
+    component: WithdrawCryptoSummary,
+    title:''
+  },
+  withdrawCryptoComplete: {
+    component: WithdrawCryptoComplete,
+    title:''
+  },
+}
+
+const withdrawFiatScreen = {
+  withdrawFiatMain: {
+    component: WithdrawFiatMain,
+    title:''
+  },
+  withdrawFiatSummary: {
+    component: WithdrawFiatSummary,
+    title:''
+  },
+  withdrawFiatComplete: {
+    component: WithdrawFiatComplete,
+    title:''
+  },
 }
 
 const depositScreen = {
@@ -95,7 +118,8 @@ export default () => (
         ...receiveScreen,
         ...transactionTypeScreen,
         ...depositScreen,
-        ...withdrawScreen,
+         ...withdrawCryptoScreen,
+         ...withdrawFiatScreen,
         ...internalTransactionScreen,
         ...whitelistScreen
       }).map(([name, { component, title }]: Array<any>, index) => (

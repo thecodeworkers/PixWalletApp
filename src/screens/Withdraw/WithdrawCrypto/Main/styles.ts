@@ -1,10 +1,16 @@
 import { StyleSheet } from 'react-native';
-import { generalShadow } from '../../../../../assets/styles';
+import { generalShadow } from '../../../../assets/styles'
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor:'red',
+  },
+  cardContainer:{
+    width:'90%',
+    alignSelf:'center',
+    marginVertical:20,
+    flex:0.25
   },
   card: {
     borderRadius:10,
@@ -20,18 +26,6 @@ const styles = StyleSheet.create({
     padding:10,
     flexDirection:'row'
   },
-firstCard:{
-  height: 89,
-    marginHorizontal: '5%',
-    flexDirection: 'row',
-},
-sendingCard: {
-  flex: 1,
-  justifyContent: 'center',
-  alignItems: 'center',
-  borderRadius:5,
-  ...generalShadow('#000', 0, 2, 0.23, 2.62, 4)
-},
     secondCard: {
     height: 89,
     marginHorizontal: '5%',
@@ -52,6 +46,25 @@ sendingCard: {
     ...generalShadow('#000', 0, 2, 0.23, 2.62, 4),
     borderRadius:5,
   },
+  currency:{
+    width:60,
+    height:60,
+    flex:0.20
+  },
+  textContainer:{
+    flex:0.70,
+    flexDirection:'column',
+    justifyContent:'space-between',
+    marginLeft:10
+  },
+  text:{
+    fontSize:16
+  },
+  amount:{
+    fontSize:24,
+    fontWeight:'bold'
+  },
+
   clipBoardContainer: {
     flexDirection: 'row',
     justifyContent: 'center',
@@ -59,13 +72,13 @@ sendingCard: {
     borderWidth: 2,
     borderRadius: 6,
     margin: 10,
-    width: '50%',
-    alignSelf: 'center',
+    width: '85%',
+    alignSelf: 'flex-end',
   },
   clipBoardInput: {
     fontSize: 16,
     height: 60,
-
+    width: '80%',
     textAlign:'center'
   },
   clipBoardIcon: {
@@ -75,15 +88,16 @@ sendingCard: {
   selectContainer:{
     justifyContent:'center',
     alignContent:'center',
-    marginHorizontal:30
+
+
   },
   selectButton:{
     padding:8,
     borderRadius:10,
     justifyContent: 'center',
     alignItems: 'center',
-  },
 
+  },
 });
 
 export default styles;

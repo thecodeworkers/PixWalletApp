@@ -1,6 +1,7 @@
 import { Theming } from "src/types";
 
 export type InputProps = {
-  symbol:any
+  symbol:any,
+  color:any
 } & Theming
 

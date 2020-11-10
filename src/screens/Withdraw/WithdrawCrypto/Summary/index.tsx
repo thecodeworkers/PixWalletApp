@@ -1,20 +1,23 @@
 import React, { FC } from 'react';
 import { View, Text, TouchableOpacity, TextInput } from 'react-native';
 import { connect } from 'react-redux';
-import { DefaultProps } from '../../../../../types';
+import { WithdrawCryptoProps } from '../types';
 import styles from './styles'
-import { GradientButton } from '../../../../../components';
+import { GradientButton } from '../../../../components';
 import FaIcons from 'react-native-vector-icons/FontAwesome5';
-import { PixLogo } from '../../../../../assets/image/svg'
+import { PixLogo } from '../../../../assets/image/svg'
 
 
-const Summary: FC<DefaultProps> = ({ theming: { theme } }) => {
+const WithdrawCryptoSummary: FC<WithdrawCryptoProps> = ({ theming: { theme }, selectedCurrency }) => {
+
+  const currency = selectedCurrency.currency
+
   return (
 
     <View style={[styles.container, { backgroundColor: theme.background }]}>
       <View style={{ flex: 0.25 }}>
         <View style={{ width: 100, alignSelf: 'center' }}>
-          <PixLogo color={'orange'} />
+          <PixLogo color={currency.color} />
         </View>
       </View>
 
@@ -22,7 +25,7 @@ const Summary: FC<DefaultProps> = ({ theming: { theme } }) => {
         <View style={styles.firstCard}>
           <View style={[{ backgroundColor: theme.defaultCard }, styles.sendingCard]}>
             <Text style={[{ color: theme.screenText }]}>Sending</Text>
-            <Text style={[{ color: theme.screenText }]}>0.2300000</Text>
+            <Text style={[{ color: currency.color }]}>0.2300000 {currency.symbol}</Text>
             <Text style={[{ color: theme.screenText }]}>12$</Text>
           </View>
         </View>
@@ -67,13 +70,13 @@ const Summary: FC<DefaultProps> = ({ theming: { theme } }) => {
       </View>
 
       <View style={{ flex: 0.25, justifyContent: "flex-end", marginBottom: 10 }}>
-        <GradientButton {...{ theming: { theme }, text: 'Next', route:'complete' }} />
+        <GradientButton {...{ theming: { theme }, text: 'Next', route:'withdrawCryptoComplete' }} />
       </View>
     </View>
   );
 }
 
 
-const mapStateToProps = ({ theming }: DefaultProps): DefaultProps => ({ theming })
+const mapStateToProps = ({ theming, selectedCurrency }: WithdrawCryptoProps): WithdrawCryptoProps => ({ theming, selectedCurrency })
 
-export default connect(mapStateToProps)(Summary);
+export default connect(mapStateToProps)(WithdrawCryptoSummary);
