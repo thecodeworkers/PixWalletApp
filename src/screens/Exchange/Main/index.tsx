@@ -1,13 +1,19 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 import { View, Text, ScrollView } from 'react-native';
+import { BtcCard, EthCard } from '../../../assets/image/svg';
+import { SwipeUp } from '../../../components';
 import { DefaultProps } from '../../../types';
 import { connect } from 'react-redux';
-import { BtcCard, EthCard } from '../../../assets/image/svg';
 import styles from './styles';
 
 const Main: FC<DefaultProps> = ({ theming: { theme } }) => {
+  const [extraHeight, setExtraHeight] = useState(150);
+
   return (
-    <ScrollView style={[{ backgroundColor: theme.background }, styles.container]}>
+    <ScrollView
+      style={[{ backgroundColor: theme.background }, styles.container]}
+      onLayout={dimensions =>  { if(dimensions.nativeEvent.layout.height < 550) setExtraHeight(100) }}
+    >
       <View>
         <View style={[styles.currencyCardContainer, styles.topMargin, { backgroundColor: theme.defaultCard }]}>
           <View style={styles.currencyCardIconContainer}>
@@ -53,6 +59,9 @@ const Main: FC<DefaultProps> = ({ theming: { theme } }) => {
             <Text style={[{ color: theme.screenText }, styles.textCardTitleContainer]}>$25</Text>
           </View>
         </View>
+      </View>
+      <View style={{ height: extraHeight, justifyContent: 'flex-end' }}>
+        <SwipeUp color="#F7931A" route="summary"/>
       </View>
     </ScrollView>
   );
