@@ -10,9 +10,9 @@ const light: any = {
   defaultActiveIcon: '#35A7D6',
   defaultInactiveIcon: '#C9C9C9',
   statusBar: 'dark-content',
-  announcement:'#F4F4F4',
+  announcement: '#F4F4F4',
   cardGradient: ['#F5F5F5', '#F5F5F5', '#FFFFFF'],
-  buttonGradient:['#33A3DC', '#57D6AF'],
+  buttonGradient: ['#33A3DC', '#57D6AF'],
   bigCard: '#FFFFFF',
   whirspersInactive: '#EEEEEE',
   principalSeparator: '#35A7D6',
@@ -24,7 +24,10 @@ const light: any = {
   inputBorder:'#EBEBEB',
   twoFactBackground:'#F4F4F4',
   twoFactBorder: '#35A7D6',
-  inputBackground: '#FFFFFF'
+  inputBackground: '#FFFFFF',
+  silverGradient: ['#FFFFFF', '#F5F5F5'],
+  iconCard: '#FCFCFC',
+  iconCardBorder: '#DEDEDE'
 }
 
 export default light;

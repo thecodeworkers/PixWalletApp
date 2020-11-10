@@ -12,7 +12,7 @@ const dark: any = {
   statusBar: 'light-content',
   announcement:'#313131',
   cardGradient: ['#313131', '#313131', '#313131'],
-  buttonGradient:['#33A3DC', '#57D6AF'],
+  buttonGradient: ['#33A3DC', '#57D6AF'],
   bigCard: '#161617',
   whirspersInactive: '#313131',
   principalSeparator: '#E5E5E5',
@@ -24,7 +24,10 @@ const dark: any = {
   inputBorder:'#636363',
   twoFactBackground:'#1B1B1B',
   twoFactBorder: '#636363',
-  inputBackground: '#313131'
+  inputBackground: '#313131',
+  silverGradient: ['#313131', '#313131'],
+  iconCard: '#313131',
+  iconCardBorder: '#707070'
 }
 
 export default dark;

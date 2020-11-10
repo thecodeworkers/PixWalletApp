@@ -4,4 +4,5 @@ export { default as CardIcon } from './card';
 export { default as ClockIcon } from './clock';
 export { default as DiamondIcon } from './diamond';
 export { default as MoneyIcon } from './money';
-export { default as PixLogo } from './pix'
+export { default as PixLogo } from './pix';
+export { default as PlusIcon } from './plus';
