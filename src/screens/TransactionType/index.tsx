@@ -7,10 +7,10 @@ import { BankIcon, CardIcon, PixLogo } from '../../assets/image/svg/icons';
 import { useNavigation } from '@react-navigation/native';
 import { TrasactionTypeProps } from './types'
 
-const TransactionType: FC<TrasactionTypeProps> = ({ theming: { theme }, transactionType, route }: any) => {
+const TransactionType: FC<TrasactionTypeProps> = ({ theming: { theme }, selectedCurrency }: any) => {
 
   const navigation = useNavigation();
-  const type = 'withdraw'
+  const type = selectedCurrency.currency.transactionType
 
   const options: any=
     [
@@ -23,7 +23,7 @@ const TransactionType: FC<TrasactionTypeProps> = ({ theming: { theme }, transact
         show: type === 'withdraw' ? true : false
       },
       {
-        route: type === 'withdraw' ? 'withdrawFiat' : 'deposit',
+        route: type === 'withdraw' ? 'withdrawFiatMain' : 'deposit',
         icon: <BankIcon />,
         iconTitle: 'bank_account',
         text: 'funds_bank',
@@ -31,7 +31,7 @@ const TransactionType: FC<TrasactionTypeProps> = ({ theming: { theme }, transact
         show: true,
       },
       {
-        route: type === 'withdraw' ? 'withdrawFiat' : 'deposit',
+        route: type === 'withdraw' ? 'withdrawFiatMain' : 'deposit',
         icon: <CardIcon />,
         iconTitle: 'bank_transfer',
         text: 'funds_transfer',
@@ -82,7 +82,7 @@ const TransactionType: FC<TrasactionTypeProps> = ({ theming: { theme }, transact
   );
 }
 
-const mapStateToProps = ({ theming }: TrasactionTypeProps | any): TrasactionTypeProps | any => ({ theming })
+const mapStateToProps = ({ theming, selectedCurrency }: TrasactionTypeProps | any): TrasactionTypeProps | any => ({ theming, selectedCurrency })
 
 export default connect(mapStateToProps)(TransactionType);
 

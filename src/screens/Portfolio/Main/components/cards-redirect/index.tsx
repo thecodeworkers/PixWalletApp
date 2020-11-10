@@ -31,7 +31,7 @@ const CardsRedirect: FC<RedirectProps> = ({ theming: { theme }, data, action = n
   return (
     <View style={styles.main}>
       <View style={styles.mainChild}>
-        <TouchableOpacity onPress={() => redirect(data.type != 'FIAT' ? 'withdrawCrypto' : 'transactionType', 'withdraw')}>
+        <TouchableOpacity onPress={() => redirect(data.type != 'FIAT' ? 'withdrawCryptoMain' : 'transactionType', 'withdraw')}>
           <View style={[styles.cardActions, {borderColor: data.color, backgroundColor: theme.defaultCard}]}>
            <View style={{ width: 24 }}>
               <Send colorOne={data.gradients[0]} colorTwo={data.gradients[2]}/>

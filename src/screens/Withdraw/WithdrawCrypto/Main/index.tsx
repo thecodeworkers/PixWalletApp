@@ -1,27 +1,30 @@
 import React, { FC } from 'react';
 import { View, Text, TouchableOpacity, TextInput } from 'react-native';
 import { connect } from 'react-redux';
-import { DefaultProps } from '../../../../../types';
+import { WithdrawCryptoProps } from '../types';
 import styles from './styles'
-import { DiamondCurrencies, GradientButton, CurrencyInput, SelectCrypto } from '../../../../../components'
+import { DiamondCurrencies, GradientButton, CurrencyInput, SelectCrypto } from '../../../../components'
 import FaIcons from 'react-native-vector-icons/FontAwesome5';
 import Icons from 'react-native-vector-icons/Ionicons';
 import LinearGradient from 'react-native-linear-gradient';
 
-const Main: FC<DefaultProps> = ({ theming: { theme } }) => {
+const WithdrawCryptoMain: FC<WithdrawCryptoProps> = ({ theming: { theme }, selectedCurrency }) => {
+
+  const currency = selectedCurrency.currency
+
   return (
 
     <View style={[styles.container, { backgroundColor: theme.background }]}>
       <View style={{ flex: 0.25 }}>
-        <DiamondCurrencies currency={'BTC'} />
+        <DiamondCurrencies currency={currency.symbol} />
       </View>
 
       <View style={{ flex: 0.25 }}>
-        <SelectCrypto  {...{ theming: { theme } }} symbol={'BTC'} />
+        <SelectCrypto  {...{ theming: { theme } }} color={currency.color} symbol={currency.symbol} />
       </View>
 
       <View style={{ alignSelf: 'center', flex: 0.20 }}>
-        <CurrencyInput theme={theme} symbol={'BTC'} />
+        <CurrencyInput color ={currency.color} theme={theme} symbol={currency.symbol} />
       </View>
 
       <View style={{ flex: 0.20 }}>
@@ -64,13 +67,13 @@ const Main: FC<DefaultProps> = ({ theming: { theme } }) => {
       </View>
 
       <View style={{ flex: 0.15, justifyContent: "flex-end", marginBottom: 10 }}>
-        <GradientButton {...{ theming: { theme }, text: 'Next', route:'summary' }} />
+        <GradientButton {...{ theming: { theme }, text: 'Next', route:'withdrawCryptoSummary' }} />
       </View>
     </View>
   );
 }
 
 
-const mapStateToProps = ({ theming }: DefaultProps): DefaultProps => ({ theming })
+const mapStateToProps = ({ theming, selectedCurrency }: WithdrawCryptoProps): WithdrawCryptoProps => ({ theming, selectedCurrency})
 
-export default connect(mapStateToProps)(Main);
+export default connect(mapStateToProps)(WithdrawCryptoMain);

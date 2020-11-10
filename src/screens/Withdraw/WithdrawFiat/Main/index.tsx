@@ -1,17 +1,19 @@
 import React, { FC } from 'react';
 import { View, Text} from 'react-native';
 import { connect } from 'react-redux';
-import { DefaultProps } from '../../../types';
+import { WithdrawFiatProps } from '../types';
 import styles from './styles'
-import { DiamondCurrencies, GradientButton, CurrencyInput} from '../../../components'
-import { UsdCard } from '../../../assets/image/svg'
+import { DiamondCurrencies, GradientButton, CurrencyInput} from '../../../../components'
+import { UsdCard } from '../../../../assets/image/svg'
 
-const Main: FC<DefaultProps> = ({ theming: { theme } }) => {
+const WithdrawFiatMain: FC<WithdrawFiatProps> = ({ theming: { theme }, selectedCurrency }) => {
+
+  const currency = selectedCurrency.currency
+
   return (
-
      <View style={[styles.container, { backgroundColor: theme.background }]}>
         <View style={{flex:0.25}}>
-       <DiamondCurrencies currency={'BTC'} />
+       <DiamondCurrencies currency={currency.symbol} />
        </View>
 
      <View style={styles.cardContainer}>
@@ -21,13 +23,13 @@ const Main: FC<DefaultProps> = ({ theming: { theme } }) => {
           </View>
           <View style={styles.textContainer}>
             <Text style={[styles.text, { color: theme.screenText }]}>Default Porfolio</Text>
-            <Text style={[styles.amount, { color: theme.screenText }]}>1.234 USD</Text>
+            <Text style={[styles.amount, { color: currency.color }]}>1.234 USD</Text>
           </View>
         </View>
       </View>
 
       <View style={{alignSelf:'center', flex:0.25}}>
-      <CurrencyInput theme={theme} color={'red'} symbol={'BTC'} />
+      <CurrencyInput theme={theme} symbol={currency.symbol} color={currency.color} />
       </View>
 
       <View style={{flex:0.25, justifyContent:"flex-end", marginBottom:10}}>
@@ -38,6 +40,6 @@ const Main: FC<DefaultProps> = ({ theming: { theme } }) => {
 }
 
 
-const mapStateToProps = ({ theming }: DefaultProps): DefaultProps => ({ theming })
+const mapStateToProps = ({ theming, selectedCurrency}: WithdrawFiatProps): WithdrawFiatProps => ({ theming,selectedCurrency})
 
-export default connect(mapStateToProps)(Main);
+export default connect(mapStateToProps)(WithdrawFiatMain);

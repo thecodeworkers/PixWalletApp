@@ -5,7 +5,7 @@ import styles from './styles'
 import { BtcSymbol, DashSymbol, EthSymbol, UsdSymbol } from '../../assets/image/svg'
 
 
-const CurrencyInput: FC<InputProps> = ({theme, symbol }: any) => {
+const CurrencyInput: FC<InputProps> = ({theme, symbol, color }: any) => {
 
   const currentSymbol = symbol
 
@@ -13,13 +13,13 @@ const CurrencyInput: FC<InputProps> = ({theme, symbol }: any) => {
 
     switch (currentSymbol) {
       case 'BTC':
-        return ['orange', <BtcSymbol />]
+        return <BtcSymbol />
       case 'ETH':
-        return ['purple', <EthSymbol />]
+        return <EthSymbol />
       case 'DASH':
-        return ['lightBlue', <DashSymbol />]
+        return <DashSymbol />
       case 'USD':
-        return ['green', <UsdSymbol />]
+        return <UsdSymbol />
 
       default:
         return []
@@ -28,8 +28,8 @@ const CurrencyInput: FC<InputProps> = ({theme, symbol }: any) => {
 
   return (
     <View style={[styles.inputContainer, { borderColor: theme.inputBorder, backgroundColor: theme.defaultCard}]}>
-      <TextInput keyboardType={'numeric'} placeholder={'0'} placeholderTextColor={selectedSymbol(currentSymbol)[0]} style={[styles.input, { color: selectedSymbol(currentSymbol)[0]}]} />
-   
+      <TextInput keyboardType={'numeric'} placeholder={'0'} placeholderTextColor={color} style={[styles.input, { color: selectedSymbol(currentSymbol)[0]}]} />
+
       <TouchableOpacity style={[styles.maxButton, { borderColor: theme.inputBorder, backgroundColor:theme.defaultCard }]}>
         <View style={[styles.boxSymbol, { borderColor: theme.veryLightGrey }]}>
 

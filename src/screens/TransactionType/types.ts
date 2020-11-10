@@ -1,5 +1,5 @@
 import { DefaultProps } from '../../types';
 
 export type TrasactionTypeProps = {
-  transactionType:any
+  selectedCurrency:any
 } & DefaultProps;

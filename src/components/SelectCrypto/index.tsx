@@ -10,8 +10,8 @@ import LinearGradient from 'react-native-linear-gradient';
 import SelectCryptoModal from '../SelectCryptoModal'
 import { showComponent } from '../../store/actions' ;
 
-const SelectCrypto: FC<InputProps> = ({ theming: { theme }, action, symbol }: any) => {
-  
+const SelectCrypto: FC<InputProps> = ({ theming: { theme }, action, symbol, color }: any) => {
+
   const currentSymbol = symbol
 
   const openModal = () => {
@@ -22,13 +22,13 @@ const SelectCrypto: FC<InputProps> = ({ theming: { theme }, action, symbol }: an
 
     switch (currentSymbol) {
       case 'BTC':
-        return ['orange', <BtcCard />]
+        return <BtcCard />
       case 'ETH':
-        return ['purple', <EthCard />]
+        return <EthCard />
       case 'DASH':
-        return ['lightBlue', <DashCard />]
+        return <DashCard />
       case 'USD':
-        return ['green', <UsdCard />]
+        return <UsdCard />
 
       default:
         return []
@@ -40,11 +40,11 @@ const SelectCrypto: FC<InputProps> = ({ theming: { theme }, action, symbol }: an
       <View style={styles.cardContainer}>
         <View style={[styles.card, { backgroundColor: theme.defaultCard }]}>
           <View style={styles.currency}>
-          {selectedSymbol(currentSymbol)[1]}
+          {selectedSymbol(currentSymbol)}
           </View>
           <View style={styles.textContainer}>
             <Text style={[styles.text, { color: theme.screenText }]}>Default Porfolio</Text>
-            <Text style={[styles.amount, { color:  selectedSymbol(currentSymbol)[0]  }]}>1.234 USD</Text>
+            <Text style={[styles.amount, { color:  color }]}>1.234 USD</Text>
           </View>
           <TouchableOpacity onPress={openModal}  style={styles.selectContainer} activeOpacity={1}>
             <LinearGradient
