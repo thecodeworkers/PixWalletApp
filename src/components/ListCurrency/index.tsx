@@ -128,20 +128,20 @@ const ListCurrency: FC<GeneralProps> = ({ theming: { theme }, action, gradient =
     Animated.sequence([
       animationProps(0.95, 200, scaleAnim),
       animationProps(1, 200, scaleAnim),
-      animationProps(0, 400, transX),
+      animationProps(0, 300, transX),
     ]).start();
 
-    animationProps(1, 600, fadeIn, 400).start();
+    animationProps(1, 600, fadeIn, 300).start();
   };
 
   const outAnimation = () => {
     Animated.sequence([
       animationProps(0.95, 200, scaleOut),
       animationProps(1, 200, scaleOut),
-      animationProps(15, 400, transX),
+      animationProps(15, 300, transX),
     ]).start();
 
-    animationProps(0, 600, fadeIn, 400).start();
+    animationProps(0, 600, fadeIn, 300).start();
   };
 
   const restoreRedirect = () => {

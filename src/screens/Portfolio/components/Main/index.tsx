@@ -20,7 +20,7 @@ const Main: FC<GeneralProps> = ({ theming: { theme }, action, navigation }) => {
   const darkTheme = () => action.setTheme('dark');
 
   const fadeIn = useRef(new Animated.Value(0)).current;
-  const transY = useRef(new Animated.Value(50)).current;
+  const transY = useRef(new Animated.Value(80)).current;
 
   useEffect(() => {
     animationProps(1, 800, fadeIn).start();
@@ -34,7 +34,7 @@ const Main: FC<GeneralProps> = ({ theming: { theme }, action, navigation }) => {
         <View style={[styles.container, { backgroundColor: theme.background }]}>
 
           <View style={styles.chartParent}>
-            <TouchableOpacity style={[styles.portfolioCard, { backgroundColor: theme.bigCard }]} activeOpacity={0.7} onPress={() => navigation.navigate('summary')}>
+            <TouchableOpacity style={[styles.portfolioCard, { backgroundColor: theme.bigCard }]} activeOpacity={1} onPress={() => navigation.navigate('summary')}>
               <Text style={[styles.estimatedText, { color: theme.veryLightGrey }]}>Estimated value</Text>
               <Text style={[styles.fundsText, { color: theme.screenText }]}>1.123,32$</Text>
             </TouchableOpacity>
