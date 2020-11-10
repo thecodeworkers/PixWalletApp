@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { Exchange, Profile } from '../../../screens';
-import { ActivityStack, PortfolioStack } from './Stacks';
+import { Profile } from '../../../screens';
+import { ActivityStack, ExchangeStack, PortfolioStack } from './Stacks';
 import { Theming } from '../../../types';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import IonicIcon from 'react-native-vector-icons/Ionicons';
@@ -44,7 +44,7 @@ const HomeNavigator: FC<Theming> = ({ theme }) => {
       />
       <Tab.Screen
         name="exchange"
-        component={Exchange}
+        component={ExchangeStack}
         options={{
           tabBarIcon: ({ focused }) => (
             <Icon name="compare-arrows" color={setColor(focused)} size={33} />

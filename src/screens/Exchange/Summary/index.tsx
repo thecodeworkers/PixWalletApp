@@ -1,16 +1,16 @@
 import React, { FC } from 'react';
 import { StyleSheet, View, Text, StatusBar } from 'react-native';
 import { connect } from 'react-redux';
-import { DefaultProps } from '../../types';
+import { DefaultProps } from '../../../types';
 
-const Exchage: FC<DefaultProps> = ({ theming: { theme } }) => {
+const Summary: FC<DefaultProps> = ({ theming: { theme } }) => {
   return (
     <>
       <StatusBar barStyle={theme.statusBar} />
       <View style={[styles.container, { backgroundColor: theme.background }]}>
-        <Text style={{ color: theme.screenText }}>Exchange</Text>
+        <Text style={{ color: theme.screenText }}>Exchange Summary</Text>
       </View>
-    </>  
+    </>
   );
 }
 
@@ -24,4 +24,4 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = ({ theming }: DefaultProps): DefaultProps => ({ theming })
 
-export default connect(mapStateToProps)(Exchage);
+export default connect(mapStateToProps)(Summary);
