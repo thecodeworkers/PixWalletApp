@@ -17,7 +17,7 @@ const WhitelistItem: FC<WhitelistItemProps> = ({ theme, index, item, onPress }) 
       }
       <TouchableOpacity style={styles.container} onPress={() => onPress(index)}>
         <View style={styles.iconSection}>
-          <View style={styles.iconContainer}>
+          <View style={[{ backgroundColor: theme.iconCard, borderColor: theme.iconCardBorder }, styles.iconContainer]}>
             <View style={styles.iconArea}>
               <BankIcon/>
             </View>

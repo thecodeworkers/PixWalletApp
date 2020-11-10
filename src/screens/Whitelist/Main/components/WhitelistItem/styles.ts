@@ -17,13 +17,11 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   iconContainer: {
-    backgroundColor: '#FCFCFC',
     width: 50,
     height: 50,
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 5,
-    borderColor: '#DEDEDE',
     borderWidth: 0.5,
     borderBottomColor: 'blue',
     borderLeftColor: 'blue',

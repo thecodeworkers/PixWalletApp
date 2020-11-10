@@ -1,13 +1,9 @@
 import React, { FC, useEffect, useState } from 'react';
-import { View, FlatList, Text, TouchableOpacity } from 'react-native';
-import { connect } from 'react-redux';
-import { generalShadow } from '../../../assets/styles';
-import { PlusIcon } from '../../../assets/image/svg/icons';
+import { View, FlatList, Text, TouchableOpacity, Platform } from 'react-native';
+import { WhitelistItem, GradientPlusIos, GradientPlusAndroid } from './components';
 import { SearchInput } from '../../../components';
 import { DefaultProps } from '../../../types';
-import { WhitelistItem } from './components';
-import { resizeInitialFlex, resizeFinalFlex } from './functions';
-import LinearGradient from 'react-native-linear-gradient';
+import { connect } from 'react-redux';
 import styles from './styles';
 
 const DATA = [
@@ -61,7 +57,7 @@ const DATA = [
     name: 'Ana',
     address: '1qwteydhfa132gswrdgsfqtt...'
   },
-]
+];
 
 const Main: FC<any> = ({ theming: { theme }, navigation }) => {
   const [address, setAddress] = useState('');
@@ -72,40 +68,34 @@ const Main: FC<any> = ({ theming: { theme }, navigation }) => {
 
   return (
     <View style={[styles.container, { backgroundColor: theme.background }]}>
-      <View style={{ flex: resizeInitialFlex(), justifyContent: 'flex-end' }}>
+      <View style={styles.topContainer}>
         {
           address ? (
-            <View style={{ flex: 0.2, flexDirection: 'row', marginHorizontal: '10%' }}>
-              <Text>Sent to</Text>
-              <Text style={{ marginLeft: 17, color: '#C9C9C9' }}>1qwteydhfa132gswrdgsfqtt...</Text>
+            <View style={styles.addressContainer}>
+              <Text style={{ color: theme.screenText }}>Sent to</Text>
+              <Text style={styles.addressSelected}>1qwteydhfa132gswrdgsfqtt...</Text>
             </View>
           ) : null
         }
-        <TouchableOpacity style={{ flex: 0.3, flexDirection: 'row', marginHorizontal: '6%' }} onPress={() => navigation.navigate('createWhitelist')} activeOpacity={0.8}>
-          <View style={{ flex: 0.25, justifyContent: 'center', alignItems: 'center' }}>
-            <View style={{
-              backgroundColor: '#FFFFFF',
-              width: 45,
-              height: 45,
-              justifyContent: 'center',
-              alignItems: 'center',
-              borderRadius: 5,
-              ...generalShadow()
-             }}>
-              <View style={{ width: 25, height: 25 }}>
-                <PlusIcon/>
-              </View>
-            </View>
+        <TouchableOpacity style={styles.buttonContainer} onPress={() => navigation.navigate('createWhitelist')} activeOpacity={0.8}>
+          <View style={styles.plusButton}>
+            {
+              Platform.OS == 'ios' ? (
+                <GradientPlusIos theme={theme}/>
+              ) : (
+                <GradientPlusAndroid theme={theme}/>
+              )
+            }
           </View>
-          <View style={{ flex: 0.7, justifyContent: 'center' }}>
-            <Text style={{ color: theme.screenText, fontSize: 13 }}>Add new account</Text>
+          <View style={styles.textButtonContainer}>
+            <Text style={[{ color: theme.screenText }, styles.textButton]}>Add new account</Text>
           </View>
         </TouchableOpacity>
-        <View style={{ flex: address ? 0.4 : 0.5, marginHorizontal: '10%', justifyContent: 'flex-end' }}>
+        <View style={[{ flex: address ? 0.4 : 0.5 }, styles.searchContainer]}>
           <SearchInput theme={theme} />
         </View>
       </View>
-      <View style={{ flex: resizeFinalFlex() }}>
+      <View style={styles.listContainer}>
         <FlatList
           data={DATA}
           renderItem={props => <WhitelistItem theme={theme} {...props} onPress={index  => setAddress(DATA[index].address)} />}

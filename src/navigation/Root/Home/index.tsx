@@ -1,14 +1,15 @@
-import React from 'react';
-import Icon from 'react-native-vector-icons/MaterialIcons';
-import IonicIcon from 'react-native-vector-icons/Ionicons';
-import styles from './styles';
+import React, { FC } from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Exchange, Profile } from '../../../screens';
 import { ActivityStack, PortfolioStack } from './Stacks';
+import { Theming } from '../../../types';
+import Icon from 'react-native-vector-icons/MaterialIcons';
+import IonicIcon from 'react-native-vector-icons/Ionicons';
+import styles from './styles';
 
 const Tab = createBottomTabNavigator();
 
-const HomeNavigator = ({ theme }: any) => {
+const HomeNavigator: FC<Theming> = ({ theme }) => {
   const setColor = (focused: boolean): string => {
     const { defaultActiveIcon, defaultInactiveIcon } = theme;
     return focused ? defaultActiveIcon : defaultInactiveIcon
