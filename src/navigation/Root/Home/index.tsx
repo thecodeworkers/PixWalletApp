@@ -38,7 +38,7 @@ const HomeNavigator: FC<Theming> = ({ theme }) => {
         component={ActivityStack}
         options={{
           tabBarIcon: ({ focused }) => (
-            <IonicIcon name="document-text-outline" color={setColor(focused)} size={30} />
+            <IonicIcon name="document-text" color={setColor(focused)} size={30} />
           )
         }}
       />
