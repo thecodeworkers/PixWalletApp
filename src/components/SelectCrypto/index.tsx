@@ -7,7 +7,6 @@ import { connect } from 'react-redux';
 import { UsdCard, BtcCard, EthCard, DashCard} from '../../assets/image/svg';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import LinearGradient from 'react-native-linear-gradient';
-import SelectCryptoModal from '../SelectCryptoModal'
 import { showComponent } from '../../store/actions' ;
 
 const SelectCrypto: FC<InputProps> = ({ theming: { theme }, action, symbol, color }: any) => {
@@ -57,8 +56,6 @@ const SelectCrypto: FC<InputProps> = ({ theming: { theme }, action, symbol, colo
             </LinearGradient>
           </TouchableOpacity>
         </View>
-    <SelectCryptoModal />
-
       </View>
 
     </>

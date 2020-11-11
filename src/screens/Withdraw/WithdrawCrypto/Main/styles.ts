@@ -6,7 +6,7 @@ const styles = StyleSheet.create({
     flex: 1
   },
   cardContainer:{
-    width:'90%',
+    // width:'90%',
     alignSelf:'center',
     marginVertical:20,
     flex:0.25,
@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
   },
     secondCard: {
     height: '80%',
-    marginHorizontal: '5%',
+    marginHorizontal: '8%',
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
     flex: 0.45,
     justifyContent: 'center',
     alignItems: 'center',
-    borderRadius:5,
+    borderRadius: 5,
     ...generalShadow('#000', 0, 2, 0.23, 2.62, 4)
   },
   dateCard: {
@@ -47,9 +47,9 @@ const styles = StyleSheet.create({
     borderRadius:5,
   },
   currency:{
-    width:60,
-    height:60,
-    flex:0.20
+    width: 60,
+    height: 60,
+    flex: 0.20
   },
   textContainer:{
     flex:0.70,
@@ -91,8 +91,8 @@ const styles = StyleSheet.create({
   },
 
   selectButton:{
-    padding:8,
-    borderRadius:10,
+    padding: 8,
+    borderRadius: 10,
     justifyContent: 'center',
     alignItems: 'center'
   },

@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   cardContainer:{
-    width:'90%',
+    width: '100%',
     alignSelf:'center',
     marginVertical:20,
   },

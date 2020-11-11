@@ -19,11 +19,11 @@ const WithdrawCryptoMain: FC<WithdrawCryptoProps> = ({ theming: { theme }, selec
         <DiamondCurrencies currency={currency.symbol} />
       </View>
 
-      <View style={{ flex: 0.25 }}>
-        <SelectCrypto  {...{ theming: { theme } }} color={currency.color} symbol={currency.symbol} />
+      <View style={{ flex: 0.25, marginHorizontal: '8%' }}>
+        <SelectCrypto  theme={theme} color={currency.color} symbol={currency.symbol} />
       </View>
 
-      <View style={{ alignSelf: 'center', flex: 0.20 }}>
+      <View style={{ alignSelf: 'center', flex: 0.20, marginHorizontal: '8%' }}>
         <CurrencyInput color ={currency.color} theme={theme} symbol={currency.symbol} />
       </View>
 
@@ -40,7 +40,7 @@ const WithdrawCryptoMain: FC<WithdrawCryptoProps> = ({ theming: { theme }, selec
         </View>
       </View>
 
-      <View style={{ flex: 0.15, justifyContent: 'space-between', width: '90%', flexDirection:'row', alignSelf:'center' }}>
+      <View style={{ flex: 0.15, justifyContent: 'space-between', flexDirection:'row', alignSelf:'center', marginHorizontal: '8%' }}>
 
         <TouchableOpacity style={styles.selectContainer} activeOpacity={1}>
           <LinearGradient
@@ -66,7 +66,7 @@ const WithdrawCryptoMain: FC<WithdrawCryptoProps> = ({ theming: { theme }, selec
 
       </View>
 
-      <View style={{ flex: 0.15, justifyContent: "flex-end", marginBottom: 10 }}>
+      <View style={{ flex: 0.15, justifyContent: "flex-end", marginBottom: 10, marginHorizontal: '8%' }}>
         <GradientButton theme={theme} text={'Next'} route={'withdrawCryptoSummary'} />
       </View>
     </View>

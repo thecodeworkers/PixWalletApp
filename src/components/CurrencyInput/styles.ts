@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
   inputContainer: {
     flexDirection: 'row',
-    width: '90%',
+    width: '100%',
 
     borderWidth: 2,
     borderRadius: 10,
@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
     // backgroundColor: 'orange',
     paddingLeft: 6
   },
-  
+
   text: {
     fontSize: 18,
     fontWeight: 'bold'

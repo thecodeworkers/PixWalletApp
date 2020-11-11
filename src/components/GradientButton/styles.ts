@@ -2,7 +2,7 @@ import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   touchable: {
-    width: '90%',
+    width: '100%',
     alignItems: 'center',
     alignSelf:'center',
 
