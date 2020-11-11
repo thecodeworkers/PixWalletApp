@@ -2,10 +2,10 @@ import React, { FC } from 'react';
 import { Text, TouchableOpacity } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import styles from './styles'
-import { DefaultProps } from '../../types';
+import { GradientButtonProps } from './types';
 import { useNavigation } from '@react-navigation/native';
 
-const GradientButton: FC<DefaultProps> = ({ theming: { theme }, text, route }: any) => {
+const GradientButton: FC<GradientButtonProps> = ({ theme, text, route }: any) => {
 
   const navigation = useNavigation();
   return (
