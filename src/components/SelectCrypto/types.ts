@@ -1,5 +1,6 @@
 import { DefaultProps } from  '../../types';
 
 export type InputProps = {
-  symbol:any
+  symbol:any,
+  color:any
 } & DefaultProps;

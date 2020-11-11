@@ -1,2 +1,2 @@
-export { default as WithdrawCrypto } from './WithdrawCrypto';
-export { default as WithdrawFiat } from './WithdrawFiat';
+export { WithdrawCryptoMain, WithdrawCryptoSummary, WithdrawCryptoComplete, } from './WithdrawCrypto';
+export { WithdrawFiatMain, WithdrawFiatComplete, WithdrawFiatSummary } from './WithdrawFiat';
