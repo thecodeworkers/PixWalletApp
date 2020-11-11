@@ -1,26 +1,21 @@
 import React, { FC } from 'react';
-import { StyleSheet, View, Text, StatusBar } from 'react-native';
-import { connect } from 'react-redux';
+import { View, Text } from 'react-native';
 import { DefaultProps } from '../../../types';
+import { connect } from 'react-redux';
+import styles from './styles';
 
 const Summary: FC<DefaultProps> = ({ theming: { theme } }) => {
   return (
-    <>
-      <StatusBar barStyle={theme.statusBar} />
-      <View style={[styles.container, { backgroundColor: theme.background }]}>
-        <Text style={{ color: theme.screenText }}>Exchange Summary</Text>
+    <View style={[{ backgroundColor: theme.background }, styles.container]}>
+      <View style={styles.currencyContainer}>
+
       </View>
-    </>
+      <View style={styles.processContainer}>
+
+      </View>
+    </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center'
-  }
-});;
 
 const mapStateToProps = ({ theming }: DefaultProps): DefaultProps => ({ theming })
 

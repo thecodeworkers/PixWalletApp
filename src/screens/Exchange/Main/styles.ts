@@ -1,17 +1,21 @@
 import { StyleSheet } from 'react-native';
 import { generalShadow } from '../../../assets/styles';
 
+const commonStyles: any = {
+  borderRadius: 5,
+  marginHorizontal: '8%',
+  flexDirection: 'row',
+  alignItems: 'center'
+}
+
 const styles = StyleSheet.create({
   container: {
     flex: 1
   },
   currencyCardContainer: {
-    borderRadius: 5,
+    ...commonStyles,
     marginVertical: 25,
-    marginHorizontal: '8%',
     height: 72,
-    flexDirection: 'row',
-    alignItems: 'center',
     ...generalShadow()
   },
   currencyCardIconContainer: {
@@ -27,12 +31,9 @@ const styles = StyleSheet.create({
     fontSize: 25
   },
   textCardContainer: {
-    flexDirection: 'row',
+    ...commonStyles,
     justifyContent: 'space-between',
-    alignItems: 'center',
-    borderRadius: 5,
     marginVertical: 10,
-    marginHorizontal: '8%',
     height: 70,
     ...generalShadow()
   },
@@ -44,12 +45,9 @@ const styles = StyleSheet.create({
     fontSize: 15
   },
   textShortCardContainer: {
-    flexDirection: 'row',
+    ...commonStyles,
     justifyContent: 'space-between',
-    alignItems: 'center',
-    borderRadius: 5,
     marginVertical: 10,
-    marginHorizontal: '8%',
     height: 55,
     ...generalShadow()
   },
