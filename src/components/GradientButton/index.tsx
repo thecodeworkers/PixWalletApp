@@ -10,7 +10,7 @@ const GradientButton: FC<DefaultProps> = ({ theming: { theme }, text, route }: a
   const navigation = useNavigation();
   return (
     <TouchableOpacity activeOpacity={1} style={styles.touchable} onPress={() => navigation.navigate(route)}>
-      <LinearGradient   style={styles.gradientButton}
+      <LinearGradient style={styles.gradientButton}
         start={{ x: 0, y: 0 }}
         end={{ x: 1, y: 0 }}
         colors={theme.buttonGradient}

@@ -20,7 +20,7 @@ const CurrencyList: FC<GeneralProps> = ({ theming: { theme }, navigation, curren
   return (
     <View style={[styles.container, { backgroundColor: theme.background }]}>
 
-      <View style={{width: '80%'}}>
+      <View style={{width: '80%', marginTop: '7%'}}>
         <SearchInput theme={theme}/>
       </View>
 

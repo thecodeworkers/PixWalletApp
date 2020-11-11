@@ -11,6 +11,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import LinearGradient from 'react-native-linear-gradient';
 import { GeneralProps, ReducersProps } from './types';
+import navigation from 'src/navigation';
 
 const icons = [
   { icon: <UsdCard />, line: <UsdLine /> },
@@ -72,7 +73,7 @@ const currency = {
  ]
 };
 
-const ListCurrency: FC<GeneralProps> = ({ theming: { theme }, action, gradient = false }) => {
+const ListCurrency: FC<GeneralProps> = ({ theming: { theme }, action, gradient = false}) => {
 
   const scaleAnim = useRef(new Animated.Value(1)).current;
   const scaleOut = useRef(new Animated.Value(1)).current;
@@ -103,7 +104,7 @@ const ListCurrency: FC<GeneralProps> = ({ theming: { theme }, action, gradient =
       return;
     }
     resetStates();
-  }
+  };
 
   const resetStates = () => {
     outAnimation();
@@ -149,7 +150,11 @@ const ListCurrency: FC<GeneralProps> = ({ theming: { theme }, action, gradient =
       animationProps(0, 3, fadeIn),
       animationProps(5, 1, transX)
     ]).start(() => animation());
-  }
+  };
+
+  const redirect = () => {
+    console.log('enteeer');
+  };
 
   return (
     <>
@@ -159,7 +164,7 @@ const ListCurrency: FC<GeneralProps> = ({ theming: { theme }, action, gradient =
             return (
               <Animated.View style={{ transform: [{ scale: index == selectedCard ? animationType : 1 }] }} key={index}>
                 <TouchableOpacity
-                  onPress={() => cardSelected(res, index)}
+                  onPress={gradient ? () => cardSelected(res, index) : () => redirect()}
                   key={index}
                   activeOpacity={1}>
                   <View style={[styles.cardGradient, { backgroundColor: theme.defaultCard }]}>

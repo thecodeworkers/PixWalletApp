@@ -3,14 +3,13 @@ import { generalShadow } from '../../../../../assets/styles';
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor:'red',
+    flex: 1
   },
   cardContainer:{
     width:'90%',
     alignSelf:'center',
     marginVertical:20,
-    flex:0.25
+    flex:0.25,
   },
   card: {
     borderRadius:10,
@@ -27,11 +26,12 @@ const styles = StyleSheet.create({
     flexDirection:'row'
   },
     secondCard: {
-    height: 89,
+    height: '80%',
     marginHorizontal: '5%',
     flexDirection: 'row',
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
   },
+
   feeCard: {
     flex: 0.45,
     justifyContent: 'center',
@@ -88,15 +88,13 @@ const styles = StyleSheet.create({
   selectContainer:{
     justifyContent:'center',
     alignContent:'center',
-
-
   },
+
   selectButton:{
     padding:8,
     borderRadius:10,
     justifyContent: 'center',
-    alignItems: 'center',
-
+    alignItems: 'center'
   },
 });
 

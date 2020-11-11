@@ -10,8 +10,9 @@ import { useNavigation } from '@react-navigation/native';
 const ActionButtons: FC<Theming> = ({ theme }) => {
   const navigation = useNavigation();
 
-  const redirect = () => navigation.navigate('currencyList');
-
+  const redirect = () => {
+    navigation.navigate('currencyList');
+  }
   return (
     <View style={styles.actionButtons}>
       <TouchableOpacity activeOpacity={1} onPress={redirect}>

@@ -12,7 +12,8 @@ import {
   WithdrawFiat,
   TransactionType,
   InternalTransactionMain,
-  InternalTransactionSummary
+  InternalTransactionSummary,
+  CurrencyList
 } from '../../../../../screens';
 
 const Stack = createStackNavigator();
@@ -82,6 +83,13 @@ const whitelistScreen = {
   }
 }
 
+const currencyListScreen = {
+  currencyList: {
+    component: CurrencyList,
+    title: 'receive'
+  }
+}
+
 export default () => (
   <Stack.Navigator
     initialRouteName="main"
@@ -97,7 +105,8 @@ export default () => (
         ...depositScreen,
         ...withdrawScreen,
         ...internalTransactionScreen,
-        ...whitelistScreen
+        ...whitelistScreen,
+        ...currencyListScreen
       }).map(([name, { component, title }]: Array<any>, index) => (
         <Stack.Screen
           key={index}

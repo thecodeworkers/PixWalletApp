@@ -5,11 +5,11 @@ import { HeaderNavigation } from '../../../components';
 
 const Stack = createStackNavigator();
 
-const WithdrawCrypto= () => (
+const WithdrawCrypto = () => (
   <Stack.Navigator
     initialRouteName="main"
     screenOptions={{
-      header: props => <HeaderNavigation {...props} />
+      headerShown: false
     }}
   >
     <Stack.Screen name="complete" component={Complete} />

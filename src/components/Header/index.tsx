@@ -7,7 +7,7 @@ import styles from './styles';
 
 const platform = Platform.OS;
 
-const Header: FC<HeaderProps> = ({ theme, navigation, hasRightIcon, hasLeftIcon, title }) => {
+const Header: FC<HeaderProps> = ({ theme, navigation, hasRightIcon, hasLeftIcon, title}) => {
   return (
     <View style={hasRightIcon || hasLeftIcon ? styles.header : styles.noIcons}>
       {
