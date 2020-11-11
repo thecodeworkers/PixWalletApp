@@ -25,91 +25,121 @@ const Stack = createStackNavigator();
 const defaultScreen = {
   portfolio: {
     component: PortfolioMain,
-    title: 'portfolio'
+    options: {
+      title: 'portfolio'
+    }
   },
   portfolioSummary: {
     component: PortfolioSummary,
-    title: 'summary'
+    options: {
+      title: 'summary'
+    }
   }
 }
 
 const transactionTypeScreen = {
   transactionType: {
     component: TransactionType,
-    title:''
+    options: {
+      title: ''
+    }
   }
 }
 
 const withdrawCryptoScreen = {
   withdrawCryptoMain: {
     component: WithdrawCryptoMain,
-    title:''
+    options: {
+      title: ''
+    }
   },
   withdrawCryptoSummary: {
     component: WithdrawCryptoSummary,
-    title:''
+    options: {
+      title: ''
+    }
   },
   withdrawCryptoComplete: {
     component: WithdrawCryptoComplete,
-    title:''
+    options: {
+      title: ''
+    }
   },
 }
 
 const withdrawFiatScreen = {
   withdrawFiatMain: {
     component: WithdrawFiatMain,
-    title:''
+    options: {
+      title: ''
+    }
   },
   withdrawFiatSummary: {
     component: WithdrawFiatSummary,
-    title:''
+    options: {
+      title: ''
+    }
   },
   withdrawFiatComplete: {
     component: WithdrawFiatComplete,
-    title:''
+    options: {
+      title: ''
+    }
   },
 }
 
 const depositScreen = {
   deposit: {
     component: Deposit,
-    title:'deposit'
+    options: {
+      title: 'deposit'
+    }
   },
 }
 
  const receiveScreen = {
   receive: {
     component: Receive,
-    title:'receive'
+    options: {
+      title: 'receive'
+    }
   }
 }
 
 const internalTransactionScreen = {
   internalTransaction: {
     component: InternalTransactionMain,
-    title: ''
+    options: {
+      title: ''
+    }
   },
   internalTransactionSummary: {
     component: InternalTransactionSummary,
-    title: ''
+    options: {
+      title: ''
+    }
   }
 }
 
 const whitelistScreen = {
   whitelist: {
     component: WhitelistMain,
-    title: 'whitelist'
+    options: {
+      title: 'whitelist'
+    }
   },
   createWhitelist: {
     component: WhitelistCreate,
-    title: 'new_account'
+    options: {
+      title: 'new_account'
+    }
   }
 }
 
 const currencyListScreen = {
   currencyList: {
     component: CurrencyList,
-    title: 'receive'
+    options: ({ route }: any) => ({ title: route?.params?.name })
   }
 }
 
@@ -131,14 +161,12 @@ export default () => (
         ...internalTransactionScreen,
         ...whitelistScreen,
         ...currencyListScreen
-      }).map(([name, { component, title }]: Array<any>, index) => (
+      }).map(([name, { component, options }]: Array<any>, index) => (
         <Stack.Screen
           key={index}
           name={name}
           component={component}
-          options={{
-            title
-          }}
+          options={options}
         />
       ))
     }
