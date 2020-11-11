@@ -15,7 +15,7 @@ const TransactionType: FC<TrasactionTypeProps> = ({ theming: { theme }, selected
   const options: any=
     [
      {
-        route: 'internalTrasaction',
+        route: 'internalTransaction',
         icon: <PixLogo />,
         iconTitle:'between_users',
         text: 'funds_free',
@@ -51,7 +51,7 @@ const TransactionType: FC<TrasactionTypeProps> = ({ theming: { theme }, selected
 
               return (
                  res.show ? (
-                    <TouchableOpacity onPress={() => navigation.navigate(res.route)} style={[styles.card, { backgroundColor: theme.defaultCard }]} key={index}>
+                    <TouchableOpacity onPress= {() => navigation.navigate(res.route)} style={[styles.card, { backgroundColor: theme.defaultCard }]} key={index}>
 
                   <View style={styles.cardHeader}>
                     <View style={styles.cardHeaderIconContainer}>

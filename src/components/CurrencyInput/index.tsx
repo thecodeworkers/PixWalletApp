@@ -34,7 +34,7 @@ const CurrencyInput: FC<InputProps> = ({theme, symbol, color }: any) => {
         <View style={[styles.boxSymbol, { borderColor: theme.veryLightGrey }]}>
 
           <View style={{ width: 40, height: 30 }}>
-            {selectedSymbol(currentSymbol)[1]}
+            {selectedSymbol(currentSymbol)}
           </View>
 
           <View style={{ width: '50%' }}>
