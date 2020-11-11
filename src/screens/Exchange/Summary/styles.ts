@@ -6,11 +6,24 @@ const styles = StyleSheet.create({
   },
   currencyContainer: {
     flex: 0.4,
-    backgroundColor: 'coral'
+    justifyContent: 'space-between',
+    marginHorizontal: '8%'
+  },
+  currencyCard: {
+    width: 85,
+    height: 85,
+    flex: 0.25,
+    // backgroundColor: 'green'
+  },
+  gradientLine: {
+    height: 10,
+    flex: 0.5,
+    marginBottom: '2%'
   },
   processContainer: {
     flex: 0.6,
-    backgroundColor: 'violet'
+    justifyContent: 'flex-end',
+    alignItems: 'center'
   }
 });
 
