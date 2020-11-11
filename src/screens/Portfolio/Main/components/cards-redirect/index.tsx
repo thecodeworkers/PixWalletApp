@@ -29,6 +29,7 @@ const CardsRedirect: FC<RedirectProps> = ({ theming: { theme }, data, action = n
   }
 
   return (
+
     <View style={styles.main}>
       <View style={styles.mainChild}>
         <TouchableOpacity onPress={() => redirect(data.type != 'FIAT' ? 'withdrawCryptoMain' : 'transactionType', 'withdraw')}>

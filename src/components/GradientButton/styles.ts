@@ -5,17 +5,16 @@ const styles = StyleSheet.create({
     width: '90%',
     alignItems: 'center',
     alignSelf:'center',
-    
+
   },
   gradientButton: {
-
-    padding: 20,
+    padding: '4.5%',
     alignItems: 'center',
     width: '100%',
     borderRadius:5,
   },
   text:{
-    fontSize:20,
+    fontSize:16,
     fontWeight:'bold'
   }
 });

@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
 
   separatorParent: {
     width: '100%',
-    marginTop: '5%'
+    marginTop: '4%'
   },
 
   cardsParent: {

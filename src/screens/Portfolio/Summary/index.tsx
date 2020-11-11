@@ -77,7 +77,7 @@ const Summary: FC<GeneralProps> = ({ theming: { theme }, currency }) => {
                     )
                   }) :
                   <View style={styles.message}>
-                    <Text> No hay monedas disponibles </Text>
+                    <Text style={{color: theme.screenText}}> No hay monedas disponibles </Text>
                   </View>
                 }
               </View>
