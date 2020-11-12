@@ -46,7 +46,7 @@ const Summary: FC<GeneralProps> = ({ theming: { theme }, currency }) => {
           <View style={styles.userContainer}>
             <Text style={[styles.userText, {color: theme.screenText}]}>Arianna Perez</Text>
             <View style={{ width: 30, height: 30 }}>
-              <PixLogo />
+              <PixLogo color='#2699FB' />
             </View>
           </View>
 
@@ -55,13 +55,14 @@ const Summary: FC<GeneralProps> = ({ theming: { theme }, currency }) => {
           </View>
 
           <View style={styles.chartContent}>
-            <View style={{ position: 'relative', height: 93, width: '100%', justifyContent: 'center', alignItems: 'center' }}>
+            <View style={styles.chartItem}>
               <View style={[styles.chartCards, { backgroundColor: theme.background }]}>
 
                 {
                 currencies.length ?
                   currencies.map((res: any, index: number) => {
                     return (
+                      <>
                       <TouchableOpacity style={{ justifyContent: 'center', alignItems: 'center', zIndex: 999 }} onPress={() => console.log('enter')} key={index}>
                         <LinearGradient
                           start={{ x: 0, y: 3 }}
@@ -74,6 +75,7 @@ const Summary: FC<GeneralProps> = ({ theming: { theme }, currency }) => {
                         <Text style={{color: theme.screenText}}>{res.symbol}</Text>
                         <Text style={[styles.percent, { color: theme.veryLightGrey }]}>0,00%</Text>
                       </TouchableOpacity>
+                      </>
                     )
                   }) :
                   <View style={styles.message}>
