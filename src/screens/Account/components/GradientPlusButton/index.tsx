@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { View } from 'react-native';
-import { PlusIcon } from '../../../../../assets/image/svg/icons';
-import { Theming } from '../../../../../types';
+import { PlusIcon } from '../../../../assets/image/svg/icons';
+import { Theming } from '../../../../types';
 import LinearGradient from 'react-native-linear-gradient';
 import styles from './styles';
 

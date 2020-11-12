@@ -1,18 +1,16 @@
 import React, { FC } from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
-import { WhitelistItemProps } from './types';
-import { Separator } from '../../../../../components';
-import { BankIcon } from '../../../../../assets/image/svg/icons';
+import { ListItemProps } from './types';
+import { Separator } from '../../../../components';
+import { BankIcon } from '../../../../assets/image/svg/icons';
 import styles from './styles';
 
-const WhitelistItem: FC<WhitelistItemProps> = ({ theme, index, item, onPress }) => {
+const ListItem: FC<ListItemProps> = ({ theme, index, item, showTopLine = true, onPress }) => {
   return (
     <>
       {
-        index == 0 ? (
-          <View style={styles.initialMargin}>
-            <Separator color={theme.whirspersInactive} />
-          </View>
+        index == 0 && showTopLine ? (
+          <Separator color={theme.whirspersInactive} />
         ) : null
       }
       <TouchableOpacity style={styles.container} onPress={() => onPress(index)}>
@@ -33,4 +31,4 @@ const WhitelistItem: FC<WhitelistItemProps> = ({ theme, index, item, onPress }) 
   );
 }
 
-export default WhitelistItem;
+export default ListItem;

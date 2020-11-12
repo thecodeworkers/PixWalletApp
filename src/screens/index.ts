@@ -5,7 +5,7 @@ export { default as Deposit } from './Deposit';
 export { default as TransactionType } from './TransactionType';
 export * from './Activity';
 export * from './Portfolio';
-export * from './Whitelist';
+export * from './Account';
 export * from './Withdraw';
 export * from './InternalTransaction';
 export * from './Exchange';
