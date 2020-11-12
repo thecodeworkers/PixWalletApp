@@ -1,8 +1,8 @@
 import React, { FC, useEffect, useState } from 'react';
-import { View, FlatList, Text, TouchableOpacity, Platform } from 'react-native';
-import { WhitelistItem, GradientPlusIos, GradientPlusAndroid } from './components';
-import { SearchInput } from '../../../components';
-import { DefaultProps } from '../../../types';
+import { View, FlatList, Text } from 'react-native';
+import { ListItem, CreateAccountButton } from '../../components';
+import { SearchInput } from '../../../../components';
+import { DefaultProps } from '../../../../types';
 import { connect } from 'react-redux';
 import styles from './styles';
 
@@ -59,7 +59,7 @@ const DATA = [
   },
 ];
 
-const Main: FC<any> = ({ theming: { theme }, navigation }) => {
+const Whitelist: FC<any> = ({ theming: { theme } }) => {
   const [address, setAddress] = useState('');
 
   useEffect(() => {
@@ -77,28 +77,18 @@ const Main: FC<any> = ({ theming: { theme }, navigation }) => {
             </View>
           ) : null
         }
-        <TouchableOpacity style={styles.buttonContainer} onPress={() => navigation.navigate('createWhitelist')} activeOpacity={0.8}>
-          <View style={styles.plusButton}>
-            {
-              Platform.OS == 'ios' ? (
-                <GradientPlusIos theme={theme}/>
-              ) : (
-                <GradientPlusAndroid theme={theme}/>
-              )
-            }
-          </View>
-          <View style={styles.textButtonContainer}>
-            <Text style={[{ color: theme.screenText }, styles.textButton]}>Add new account</Text>
-          </View>
-        </TouchableOpacity>
+        <View style={styles.buttonContainer}>
+          <CreateAccountButton theme={theme}/>
+        </View>
         <View style={[{ flex: address ? 0.4 : 0.5 }, styles.searchContainer]}>
           <SearchInput theme={theme} />
         </View>
       </View>
       <View style={styles.listContainer}>
         <FlatList
+          style={{ marginTop: '10%' }}
           data={DATA}
-          renderItem={props => <WhitelistItem theme={theme} {...props} onPress={index  => setAddress(DATA[index].address)} />}
+          renderItem={props => <ListItem theme={theme} {...props} onPress={index  => setAddress(DATA[index].address)} />}
           keyExtractor={(item: any) => item.id}
         />
       </View>
@@ -108,4 +98,4 @@ const Main: FC<any> = ({ theming: { theme }, navigation }) => {
 
 const mapStateToProps = ({ theming }: DefaultProps): DefaultProps => ({ theming });
 
-export default connect(mapStateToProps)(Main);
+export default connect(mapStateToProps)(Whitelist);

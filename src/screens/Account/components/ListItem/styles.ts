@@ -1,10 +1,7 @@
 import { StyleSheet } from 'react-native';
-import { generalShadow } from '../../../../../assets/styles';
+import { generalShadow } from '../../../../assets/styles';
 
 const styles = StyleSheet.create({
-  initialMargin: {
-    marginTop: '10%'
-  },
   container: {
     height: 50,
     flexDirection: 'row',

@@ -4,8 +4,9 @@ import { HeaderNavigation } from '../../../../../components';
 import {
   PortfolioMain,
   PortfolioSummary,
-  WhitelistMain,
-  WhitelistCreate,
+  BankAccount,
+  Whitelist,
+  AccountCreate,
   Receive,
   Deposit,
   WithdrawCryptoMain,
@@ -121,15 +122,21 @@ const internalTransactionScreen = {
   }
 }
 
-const whitelistScreen = {
+const accountScreen = {
+  bankAccount: {
+    component: BankAccount,
+    options: {
+      title: 'deposit'
+    }
+  },
   whitelist: {
-    component: WhitelistMain,
+    component: Whitelist,
     options: {
       title: 'whitelist'
     }
   },
-  createWhitelist: {
-    component: WhitelistCreate,
+  createAccount: {
+    component: AccountCreate,
     options: {
       title: 'new_account'
     }
@@ -156,10 +163,10 @@ export default () => (
         ...receiveScreen,
         ...transactionTypeScreen,
         ...depositScreen,
-         ...withdrawCryptoScreen,
-         ...withdrawFiatScreen,
+        ...withdrawCryptoScreen,
+        ...withdrawFiatScreen,
         ...internalTransactionScreen,
-        ...whitelistScreen,
+        ...accountScreen,
         ...currencyListScreen
       }).map(([name, { component, options }]: Array<any>, index) => (
         <Stack.Screen
