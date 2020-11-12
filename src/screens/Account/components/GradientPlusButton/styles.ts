@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { generalShadow } from '../../../../../assets/styles';
+import { generalShadow } from '../../../../assets/styles';
 
 const commonStyles: any = {
   borderRadius: 5,

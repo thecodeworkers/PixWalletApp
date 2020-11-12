@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { View } from 'react-native';
-import { DefaultProps } from '../../../types';
-import { DynamicForm } from '../../../components';
+import { DefaultProps } from '../../../../types';
+import { DynamicForm } from '../../../../components';
 import { connect } from 'react-redux';
 import styles from './styles';
 
