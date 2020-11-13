@@ -11,7 +11,7 @@ const Root: FC<DefaultProps> = ({ theming: { theme }}) => {
 
   return (
     <>
-      <StatusBar barStyle={theme.statusBar} />
+      <StatusBar barStyle={theme.statusBar} backgroundColor={theme.background} />
       <SafeAreaView style={{ flex: 1, backgroundColor: theme.background }}>
         {
           isAuth ? (
