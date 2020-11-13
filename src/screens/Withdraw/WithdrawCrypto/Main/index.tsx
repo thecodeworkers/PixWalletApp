@@ -1,8 +1,9 @@
 import React, { FC } from 'react';
-import { View, Text, TouchableOpacity, TextInput } from 'react-native';
+import { View, Text, TouchableOpacity, TextInput, ScrollView } from 'react-native';
 import { connect } from 'react-redux';
 import { WithdrawCryptoProps } from '../types';
 import styles from './styles'
+import { i18n } from '../../../../utils'
 import { DiamondCurrencies, GradientButton, CurrencyInput, SelectCrypto } from '../../../../components'
 import FaIcons from 'react-native-vector-icons/FontAwesome5';
 import Icons from 'react-native-vector-icons/Ionicons';
@@ -14,33 +15,33 @@ const WithdrawCryptoMain: FC<WithdrawCryptoProps> = ({ theming: { theme }, selec
 
   return (
 
-    <View style={[styles.container, { backgroundColor: theme.background }]}>
-      <View style={{ flex: 0.25 }}>
+    <ScrollView style={[styles.container, { backgroundColor: theme.background }]}>
+      <View style={{ marginVertical:30 }}>
         <DiamondCurrencies currency={currency.symbol} />
       </View>
 
-      <View style={{ flex: 0.25, marginHorizontal: '8%' }}>
+      <View style={styles.selectCurrencyContainer}>
         <SelectCrypto  theme={theme} color={currency.color} symbol={currency.symbol} />
       </View>
 
-      <View style={{ alignSelf: 'center', flex: 0.20, marginHorizontal: '8%' }}>
+      <View style={styles.inputContainer}>
         <CurrencyInput color ={currency.color} theme={theme} symbol={currency.symbol} />
       </View>
 
-      <View style={{ flex: 0.20 }}>
+      <View style={styles.cardContainer}>
         <View style={styles.secondCard}>
           <View style={[{ backgroundColor: theme.defaultCard }, styles.feeCard]}>
-            <Text style={[{ color: theme.screenText }]}>Comisión</Text>
+            <Text style={[{ color: theme.screenText }]}>{i18n.t('commission')}</Text>
             <Text style={[{ color: theme.screenText }]}>25$</Text>
           </View>
           <View style={[{ backgroundColor: theme.defaultCard }, styles.dateCard]}>
-            <Text style={[{ color: theme.screenText }]}>Total</Text>
+            <Text style={[{ color: theme.screenText }]}>{i18n.t('total')}</Text>
             <Text style={[{ color: theme.screenText }]} >0.22</Text>
           </View>
         </View>
       </View>
 
-      <View style={{ flex: 0.15, justifyContent: 'space-between', flexDirection:'row', alignSelf:'center', marginHorizontal: '8%' }}>
+      <View style={styles.listCotainer}>
 
         <TouchableOpacity style={styles.selectContainer} activeOpacity={1}>
           <LinearGradient
@@ -66,10 +67,10 @@ const WithdrawCryptoMain: FC<WithdrawCryptoProps> = ({ theming: { theme }, selec
 
       </View>
 
-      <View style={{ flex: 0.15, justifyContent: "flex-end", marginBottom: 10, marginHorizontal: '8%' }}>
-        <GradientButton theme={theme} text={'Next'} route={'withdrawCryptoSummary'} />
+      <View style={styles.buttonConainer}>
+        <GradientButton theme={theme} text={i18n.t('next')} route={'withdrawCryptoSummary'} />
       </View>
-    </View>
+    </ScrollView>
   );
 }
 
