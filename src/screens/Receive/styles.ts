@@ -1,19 +1,26 @@
 import { StyleSheet } from 'react-native';
 
+const margin = {
+  marginHorizontal:'8%',
+  marginVertical:20
+}
 const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
-  diamondConatiner: {
-    alignSelf: 'center',
-    height:'18%'
+  diamondContainer: {
+  marginHorizontal:'8%',
+  marginVertical:10
   },
   qrContainer: {
     alignSelf: 'center',
-    padding: 20,
     borderRadius: 10,
-
+    ...margin
   },
+  shareContainer:{
+    ...margin
+  },
+
   shareButton: {
     borderRadius: 6,
     width: 170,
@@ -51,9 +58,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderWidth: 2,
     borderRadius: 6,
-    margin: 10,
-    width: '90%',
+    marginTop: 10,
+    width: '100%',
     alignSelf: 'center',
+    padding:6
   },
   clipBoardInput: {
     fontSize: 14,
@@ -63,6 +71,9 @@ const styles = StyleSheet.create({
   clipBoardIcon: {
     padding: 10,
     margin: 5,
+  },
+  textContainer:{
+    ...margin
   }
 
 });

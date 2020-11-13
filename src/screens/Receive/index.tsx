@@ -1,5 +1,5 @@
 import React, { FC, useState } from 'react';
-import {View, Text, Share, TouchableOpacity, TextInput } from 'react-native';
+import {View, Text, Share, TouchableOpacity, TextInput, ScrollView } from 'react-native';
 import { connect } from 'react-redux';
 import {Announcement, DiamondCurrencies} from '../../components'
 import { i18n } from '../../utils';
@@ -54,9 +54,11 @@ const ReceiveScreen: FC<ReceiveProps> = ({ theming: { theme }, selectedCurrency 
 
   return (
     <>
-       <View style={[styles.container, { backgroundColor: theme.background }]}>
-
+       <ScrollView style={[styles.container, { backgroundColor: theme.background }]}>
+          <View style={styles.diamondContainer}>
           <DiamondCurrencies currency={currency.symbol}/>
+          </View>
+
 
         <View style={styles.qrContainer}>
           <QRCode
@@ -65,12 +67,12 @@ const ReceiveScreen: FC<ReceiveProps> = ({ theming: { theme }, selectedCurrency 
             backgroundColor={theme.background}
             color={theme.screenText}
             logo={require('../../assets/image/pix.png')}
-            logoSize={55}
-            logoBorderRadius={8}
+            logoSize={30}
+            logoBorderRadius={4}
           />
         </View>
 
-        <View style={{marginTop: 10}}>
+        <View style={styles.shareContainer}>
         <TouchableOpacity style={[styles.shareButton, { backgroundColor: theme.shareButton }]} onPress={onShare}>
           <Text style={[styles.shareText, { color: theme.whiteSmoke }]}>{i18n.t('share')}</Text>
           <MaterialIcon name="reply" style={styles.shareIcon} color={theme.whiteSmoke} size={30} />
@@ -78,9 +80,7 @@ const ReceiveScreen: FC<ReceiveProps> = ({ theming: { theme }, selectedCurrency 
         </View>
 
 
-        <View style={{marginTop: 30}}>
-
-
+        <View style={styles.textContainer}>
         {
           copied
           ?  <Text style={[styles.copyText, { color: theme.screenText }]} >{i18n.t('copied')}</Text>
@@ -103,7 +103,7 @@ const ReceiveScreen: FC<ReceiveProps> = ({ theming: { theme }, selectedCurrency 
           <Announcement  theme={theme} icon={<InfoIcon/>} text={'info_receive'} />
           </View>
 
-      </View>
+      </ScrollView>
     </>
   );
 }
