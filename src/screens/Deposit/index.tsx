@@ -65,13 +65,13 @@ const Deposit: FC<DefaultProps> = ({ theming: { theme } }: any) => {
 
         </View>
 
-        <View style={{ marginTop: 5, marginBottom: 5 }}>
+        <View style={{ marginTop: 6, marginBottom: 6 }}>
           <Announcement theme={theme} icon={<ClockIcon />} text={'funds_credited'} />
         </View>
-        <View style={{ marginTop: 5, marginBottom: 5 }}>
+        <View style={{ marginTop: 6, marginBottom: 6 }}>
           <Announcement theme={theme} icon={<DiamondIcon />} text={'pix_fee'} />
         </View>
-        <View style={{ marginTop: 5, marginBottom: 5 }}>
+        <View style={{ marginTop: 6, marginBottom: 6 }}>
           <Announcement theme={theme} icon={<MoneyIcon />} text={'limit_manage'} />
         </View>
 
