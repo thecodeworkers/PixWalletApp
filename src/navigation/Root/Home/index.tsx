@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState} from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Profile } from '../../../screens';
 import { Keyboard } from 'react-native';

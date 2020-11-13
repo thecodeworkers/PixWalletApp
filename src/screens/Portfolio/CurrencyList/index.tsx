@@ -5,7 +5,7 @@ import { ReducerProps, GeneralProps } from './types';
 import { connect } from 'react-redux';
 import styles from './styles';
 
-const CurrencyList: FC<GeneralProps> = ({ theming: { theme }, navigation, currency, route}) => {
+const CurrencyList: FC<GeneralProps> = ({ theming: { theme }, navigation, currency, route }) => {
 
   const params = route?.params?.name;
   const { background, defaultActiveIcon, veryLightGrey } = theme;
