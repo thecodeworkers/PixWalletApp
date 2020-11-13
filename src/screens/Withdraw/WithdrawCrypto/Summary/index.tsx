@@ -56,7 +56,7 @@ const WithdrawCryptoSummary: FC<WithdrawCryptoProps> = ({ theming: { theme }, se
 
       <View style={styles.twoFactorContainer}>
         <TouchableOpacity style={styles.selectContainer} activeOpacity={1}>
-          <FaIcons name="lock" color={theme.screenText} size={32} />
+          <FaIcons name="lock" color={theme.screenText} size={28} />
         </TouchableOpacity>
 
         <View style={[styles.clipBoardContainer, { borderColor: theme.twoFactBorder, backgroundColor: theme.twoFactBackground }]}>
