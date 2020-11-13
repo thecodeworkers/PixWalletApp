@@ -36,7 +36,7 @@ const Summary: FC<GeneralProps> = ({ theming: { theme }, currency }) => {
   }
 
   return (
-    <ScrollView style={{backgroundColor: theme.background}}>
+    <ScrollView style={{ backgroundColor: theme.background }}>
       <View style={[styles.main, { backgroundColor: theme.background }]}>
         <View style={styles.summaryContent}>
           <View>
@@ -44,14 +44,14 @@ const Summary: FC<GeneralProps> = ({ theming: { theme }, currency }) => {
           </View>
 
           <View style={styles.userContainer}>
-            <Text style={[styles.userText, {color: theme.screenText}]}>Arianna Perez</Text>
+            <Text style={[styles.userText, { color: theme.screenText }]}>Arianna Perez</Text>
             <View style={{ width: 30, height: 30 }}>
               <PixLogo color='#2699FB' />
             </View>
           </View>
 
           <View style={styles.balanceContainer}>
-            <Text style={[styles.balance, {color: theme.screenText}]}>$ 3,245.04</Text>
+            <Text style={[styles.balance, { color: theme.screenText }]}>$ 3,245.04</Text>
           </View>
 
           <View style={styles.chartContent}>
@@ -59,28 +59,28 @@ const Summary: FC<GeneralProps> = ({ theming: { theme }, currency }) => {
               <View style={[styles.chartCards, { backgroundColor: theme.background }]}>
 
                 {
-                currencies.length ?
-                  currencies.map((res: any, index: number) => {
-                    return (
-                      <>
-                      <TouchableOpacity style={{ justifyContent: 'center', alignItems: 'center', zIndex: 999 }} onPress={() => console.log('enter')} key={index}>
-                        <LinearGradient
-                          start={{ x: 0, y: 3 }}
-                          end={{ x: 1, y: 0 }}
-                          locations={[0, 0.8, 0]}
-                          colors={res.gradients.reverse()}
-                          style={styles.cardGradient}
-                          useAngle={true}
-                        />
-                        <Text style={{color: theme.screenText}}>{res.symbol}</Text>
-                        <Text style={[styles.percent, { color: theme.veryLightGrey }]}>0,00%</Text>
-                      </TouchableOpacity>
-                      </>
-                    )
-                  }) :
-                  <View style={styles.message}>
-                    <Text style={{color: theme.screenText}}> No hay monedas disponibles </Text>
-                  </View>
+                  currencies.length ?
+                    currencies.map((res: any, index: number) => {
+                      return (
+                        <>
+                          <TouchableOpacity style={{ justifyContent: 'center', alignItems: 'center', zIndex: 999 }} onPress={() => console.log('enter')} key={index}>
+                            <LinearGradient
+                              start={{ x: 0, y: 3 }}
+                              end={{ x: 1, y: 0 }}
+                              locations={[0, 0.8, 0]}
+                              colors={res.gradients.reverse()}
+                              style={styles.cardGradient}
+                              useAngle={true}
+                            />
+                            <Text style={{ color: theme.screenText }}>{res.symbol}</Text>
+                            <Text style={[styles.percent, { color: theme.veryLightGrey }]}>0,00%</Text>
+                          </TouchableOpacity>
+                        </>
+                      )
+                    }) :
+                    <View style={styles.message}>
+                      <Text style={{ color: theme.screenText }}> No hay monedas disponibles </Text>
+                    </View>
                 }
               </View>
               <SummaryChart />
@@ -88,18 +88,30 @@ const Summary: FC<GeneralProps> = ({ theming: { theme }, currency }) => {
           </View>
 
         </View>
-        <View>
+        <View style={styles.yRange}>
+
+          <View style={{ position: 'absolute', zIndex: 999, left: '10%', height: '100%', bottom: 0 }}>
+            <Text>10</Text>
+            <Text>20</Text>
+            <Text>30</Text>
+            <Text>40</Text>
+          </View>
+
           <SlideAreaChart
             data={data}
             chartLineColor='#35A7D6'
             chartLineWidth={4}
             height={200}
             width={screenWidth}
-            hideMarkers={false}
             throttleAndroid={true}
             displayCursor={true}
             yAxisProps={{
-              verticalLineWidth: 0
+              verticalLineWidth: 0,
+              axisLabel: true,
+              hideMarkers: false,
+              axisLabelStyle: {
+                fontSize: 13
+              }
             }}
 
             // xAxisProps={{
@@ -146,13 +158,13 @@ const Summary: FC<GeneralProps> = ({ theming: { theme }, currency }) => {
 
         <View style={[styles.bigCard, { backgroundColor: theme.defaultCard }]}>
           <View style={styles.row}>
-            <Text style={[styles.textBold, {color: theme.screenText}]}>Change </Text>
-            <Text style={{color: theme.veryLightGrey }}>0,00%</Text>
+            <Text style={[styles.textBold, { color: theme.screenText }]}>Change </Text>
+            <Text style={{ color: theme.veryLightGrey }}>0,00%</Text>
           </View>
 
           <View style={[styles.row, { marginTop: '5%' }]}>
-            <Text style={[styles.textBold, {color: theme.screenText}]}>Portafolio age </Text>
-            <Text style={{color: theme.veryLightGrey }}>0,00%</Text>
+            <Text style={[styles.textBold, { color: theme.screenText }]}>Portafolio age </Text>
+            <Text style={{ color: theme.veryLightGrey }}>0,00%</Text>
           </View>
         </View>
       </View>
@@ -160,7 +172,7 @@ const Summary: FC<GeneralProps> = ({ theming: { theme }, currency }) => {
   )
 };
 
-const mapStateToProps = ({ theming, currency }: GeneralProps): GeneralProps => ({ theming, currency})
+const mapStateToProps = ({ theming, currency }: GeneralProps): GeneralProps => ({ theming, currency })
 
 const mapDispatchToProps = (dispatch: any) => {
   const actions = {

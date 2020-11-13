@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
 
   chartCards: {
     position: 'absolute',
-    width: '92%',
+    width: '94%',
     height: 74,
     borderRadius: 10,
     ...shadowOptions(0, 2, 0.25, 3.84, '#000', 3),
@@ -80,8 +80,8 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     padding: '5%',
     zIndex: 999,
-    left: '4%',
-    right: '4%'
+    left: '3%',
+    right: '3%'
   },
 
   smallCard: {
@@ -141,11 +141,19 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
 
-  chartItem : {
+  chartItem: {
     position: 'relative',
-    height: 93, width: '90%',
+    height: 93,
+     width: '85%',
     justifyContent: 'center',
     alignItems: 'center'
+  },
+
+  yRange: {
+    position: 'relative',
+    height: 200,
+    width: '100%',
+    backgroundColor: 'green'
   }
 
 });
