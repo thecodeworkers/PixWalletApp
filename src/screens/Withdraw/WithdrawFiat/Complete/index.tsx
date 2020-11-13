@@ -1,43 +1,52 @@
 import React, { FC } from 'react';
-import { View, Text} from 'react-native';
+import { View, Text, ScrollView } from 'react-native';
 import { connect } from 'react-redux';
-import { DefaultProps } from '../../../../types';
-import styles from './styles'
-import { DiamondCurrencies, GradientButton, CurrencyInput} from '../../../../components'
-import { UsdCard } from '../../../../assets/image/svg'
+import { WithdrawFiatProps } from '../types';
+import { i18n } from '../../../../utils';
+import styles from './styles';
+import { GradientButton } from '../../../../components';
+import { PixLogo } from '../../../../assets/image/svg';
 
-const WithdrawFiatComplete: FC<DefaultProps> = ({ theming: { theme } }) => {
+const WithdrawFiatComplete: FC<WithdrawFiatProps> = ({ theming: { theme }, selectedCurrency }) => {
+
+  const currency = selectedCurrency.currency
+
   return (
+    <View style={[styles.container, { backgroundColor: theme.background }]}>
 
-     <View style={[styles.container, { backgroundColor: theme.background }]}>
-        <View style={{flex:0.25}}>
-       <DiamondCurrencies currency={'BTC'} />
-       </View>
+      <View style={styles.logoContainer}>
+        <View style={{ width: 100, alignSelf: 'center' }}>
+          <PixLogo color={currency.color} />
+        </View>
+      </View>
 
-     <View style={styles.cardContainer}>
-        <View style={[styles.card, { backgroundColor: theme.defaultCard }]}>
-          <View style={styles.currency}>
-            <UsdCard />
-          </View>
-          <View style={styles.textContainer}>
-            <Text style={[styles.text, { color: theme.screenText }]}>Default Porfolio</Text>
-            <Text style={[styles.amount, { color: theme.screenText }]}>1.234 USD</Text>
+      <View style={styles.cardContainer}>
+        <View style={styles.firstCard}>
+          <View style={[{ backgroundColor: theme.defaultCard }, styles.sendingCard]}>
+            <Text style={[{ color: theme.screenText }]}>USD {i18n.t('sent')}</Text>
+            <Text style={[{ color: currency.color, fontSize: 24 }]}>$1,234.00</Text>
           </View>
         </View>
       </View>
 
-      <View style={{alignSelf:'center', flex:0.25}}>
-      <CurrencyInput theme={theme} symbol={'BTC'} color={'red'} />
+      <View style={styles.cardContainer}>
+        <View style={styles.firstCard}>
+          <View style={[{ backgroundColor: theme.defaultCard }, styles.sendingCard]}>
+            <Text style={[{ color: theme.screenText }]}>{i18n.t('sent_to')}</Text>
+            <Text style={[{ color: currency.color }]}>ejrk4bbnk3l44klbk5lbl435nl3nkl</Text>
+          </View>
+        </View>
       </View>
 
-      <View style={{flex:0.25, justifyContent:"flex-end", marginBottom:10}}>
-      <GradientButton theme={theme} text={'Next'} route={'portfolio'}  />
+      <View style={styles.buttonContainer}>
+        <GradientButton theme={theme} text={i18n.t('continue')} route={'portfolio'} />
       </View>
-     </View>
+
+    </View>
   );
 }
 
 
-const mapStateToProps = ({ theming }: DefaultProps): DefaultProps => ({ theming })
+const mapStateToProps = ({ theming, selectedCurrency }: WithdrawFiatProps): WithdrawFiatProps => ({ theming, selectedCurrency })
 
 export default connect(mapStateToProps)(WithdrawFiatComplete);

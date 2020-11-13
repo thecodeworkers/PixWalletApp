@@ -8,6 +8,8 @@ import { BtcSymbol, DashSymbol, EthSymbol, UsdSymbol } from '../../assets/image/
 const CurrencyInput: FC<InputProps> = ({theme, symbol, color }: any) => {
 
   const currentSymbol = symbol
+  console.log(symbol);
+
 
   const selectedSymbol = (currentSymbol: any): any => {
 

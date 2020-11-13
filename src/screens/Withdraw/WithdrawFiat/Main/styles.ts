@@ -1,22 +1,24 @@
 import { StyleSheet } from 'react-native';
 import { generalShadow } from '../../../../assets/styles';
 
+const margin = {
+  marginVertical: 10,
+  marginHorizontal: '8%'
+}
+
 const styles = StyleSheet.create({
   main: {
     flex: 1,
   },
-  cardContainer:{
-    width:'90%',
-    alignSelf:'center',
-marginVertical:10,
-    flex:0.13
+  cardContainer: {
+    width: '84%',
+    alignSelf: 'center',
+    marginVertical: 10,
   },
   container: {
-    height:75,
-    alignSelf:'center',
+    alignSelf: 'center',
     flexDirection: 'row',
-    width:'90%',
-        borderRadius:10,
+    borderRadius: 10,
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
@@ -25,12 +27,12 @@ marginVertical:10,
     shadowOpacity: 0.23,
     shadowRadius: 2.62,
     elevation: 4,
-    justifyContent:"flex-start",
-    padding:10,
-    marginVertical:20,
+    justifyContent: "flex-start",
+    padding: 10,
+    marginVertical: 10,
   },
   card: {
-    borderRadius:10,
+    borderRadius: 10,
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
@@ -39,33 +41,36 @@ marginVertical:10,
     shadowOpacity: 0.23,
     shadowRadius: 2.62,
     elevation: 4,
-    justifyContent:"flex-start",
-    padding:10,
-    flexDirection:'row'
+    justifyContent: "flex-start",
+    padding: 10,
+    flexDirection: 'row'
   },
-  currency:{
-    width:60,
-    height:60,
-    flex:0.20
+  currency: {
+    width: 60,
+    height: 60,
+    flex: 0.20
   },
-  textContainer:{
-    flex:0.70,
-    flexDirection:'column',
-    justifyContent:'space-between',
-    marginLeft:10
+  addressContainer: {
+    alignSelf: 'center',
+    ...margin
   },
-  text:{
-    fontSize:16
+  textContainer: {
+    flex: 0.70,
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+    marginLeft: 10
   },
-  amount:{
-    fontSize:24,
-    fontWeight:'bold'
+  text: {
+    fontSize: 16
+  },
+  amount: {
+    fontSize: 24,
+    fontWeight: 'bold'
   },
   iconSection: {
     flex: 0.20,
     justifyContent: 'center',
     alignItems: 'center',
-
   },
   iconContainer: {
     width: 50,
@@ -85,7 +90,8 @@ marginVertical:10,
   },
   detailContainer: {
     flex: 0.8,
-    justifyContent: 'center'
+    justifyContent: 'center',
+    marginLeft:15
   },
   nameFont: {
     fontSize: 13,
@@ -94,32 +100,34 @@ marginVertical:10,
   addressFont: {
     fontSize: 14
   },
-  selectContainer:{
-    position:"absolute",
-    right:30,
-    top:-20,
+  selectContainer: {
+    position: "absolute",
+    right: 30,
+    top: -20,
 
   },
-  selectButton:{
-    padding:8,
-    borderRadius:10,
+  selectButton: {
+    padding: 5,
+    borderRadius: 10,
     justifyContent: 'center',
     alignItems: 'center',
     ...generalShadow(),
-    width:50
+    width: 40
+  },
+  secondCardContainer: {
+    ...margin
   },
   secondCard: {
-    height: 70,
-    marginHorizontal: '5%',
+    height: 74,
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginVertical:20,
+    marginVertical: 10,
   },
   feeCard: {
     flex: 0.45,
     justifyContent: 'center',
     alignItems: 'center',
-    borderRadius:5,
+    borderRadius: 5,
     ...generalShadow('#000', 0, 2, 0.23, 2.62, 4)
   },
   dateCard: {
@@ -127,9 +135,21 @@ marginVertical:10,
     justifyContent: 'center',
     alignItems: 'center',
     ...generalShadow('#000', 0, 2, 0.23, 2.62, 4),
-    borderRadius:5,
+    borderRadius: 5,
   },
 
+  inputContainer: {
+    alignSelf: 'center',
+    ...margin
+  },
+  announcemetenContainer: {
+    ...margin
+  },
+  buttonContainer: {
+    justifyContent: "flex-end",
+    ...margin,
+    flex: 1
+  }
 });
 
 export default styles;

@@ -4,7 +4,6 @@ const styles = StyleSheet.create({
   main:{
     flexDirection: 'row',
     borderRadius: 6,
-    width:'70%',
     alignSelf: 'center',
     justifyContent:'center',
     alignItems:'center',
@@ -12,17 +11,17 @@ const styles = StyleSheet.create({
     height:70
   },
   infoContainer:{
-    flex:0.25, 
+    flex:0.25,
     justifyContent:"center",
      alignItems:'center',
-    
-    
+
+
   },
   infoIcon:{
     width:24 , height:24,
   },
   infoText:{
-    fontSize: 12, 
+    fontSize: 12,
     paddingTop:2.5,
     paddingBottom:2.5,
   }

@@ -72,19 +72,19 @@ const withdrawFiatScreen = {
   withdrawFiatMain: {
     component: WithdrawFiatMain,
     options: {
-      title: ''
+      title: 'withdraw'
     }
   },
   withdrawFiatSummary: {
     component: WithdrawFiatSummary,
     options: {
-      title: ''
+      title: 'withdraw'
     }
   },
   withdrawFiatComplete: {
     component: WithdrawFiatComplete,
     options: {
-      title: ''
+      title: 'withdraw'
     }
   },
 }

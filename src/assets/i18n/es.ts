@@ -40,7 +40,20 @@ const es = {
 
   // WHITELIST
   whitelist: 'Whitelist',
-  new_account: 'Agregar nueva cuenta'
+  new_account: 'Agregar nueva cuenta',
+
+  // WITHDRAW
+  fund_credited_wires: 'Los fondos serán acreditados dentro de 1 días hábiles. A partir de la 1pm',
+  sent_to:'Enviado a',
+  sent:'Enviado',
+  sending:'Enviando',
+  total:'Total',
+  balance:'Balance',
+
+  //General
+  next:'Siguiente',
+  continue:'Continuar'
+
 }
 
 export default es;
