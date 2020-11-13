@@ -25,6 +25,15 @@ const data = [
   { text: 'hello5', x: 4, y: 42, },
 ];
 
+const yValues = [
+  '100',
+  '80',
+  '60',
+  '40',
+  '20',
+  '0'
+]
+
 const Summary: FC<GeneralProps> = ({ theming: { theme }, currency }) => {
 
   const { currencies } = currency;
@@ -90,11 +99,12 @@ const Summary: FC<GeneralProps> = ({ theming: { theme }, currency }) => {
         </View>
         <View style={styles.yRange}>
 
-          <View style={{ position: 'absolute', zIndex: 999, left: '10%', height: '100%', bottom: 0 }}>
-            <Text>10</Text>
-            <Text>20</Text>
-            <Text>30</Text>
-            <Text>40</Text>
+          <View style={{ position: 'absolute', zIndex: 1, left: '8%', height: '100%', justifyContent: 'space-evenly'}}>
+            {
+              yValues.map((value: any, index: number) => {
+                return <Text key={index} style={styles.axisText}>{value}</Text>
+              })
+            }
           </View>
 
           <SlideAreaChart
@@ -118,7 +128,7 @@ const Summary: FC<GeneralProps> = ({ theming: { theme }, currency }) => {
             //   horizontalLineWidth: 0
             // }}
 
-            style={{ backgroundColor: theme.background }}
+            style={{ backgroundColor: theme.background, zIndex: -1}}
             cursorProps={{
               cursorBorderColor: 'white',
               cursorColor: '#35A7D6',

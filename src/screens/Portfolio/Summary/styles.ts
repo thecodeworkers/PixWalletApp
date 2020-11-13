@@ -153,7 +153,14 @@ const styles = StyleSheet.create({
     position: 'relative',
     height: 200,
     width: '100%',
-    backgroundColor: 'green'
+    backgroundColor: 'green',
+    marginTop: '5%'
+  },
+
+  axisText: {
+    fontWeight: 'bold',
+    fontSize: 11,
+    textAlign: 'right'
   }
 
 });
