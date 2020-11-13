@@ -18,7 +18,7 @@ const filters = [
 ];
 
 const data = [
-  { text: 'hello1', x: 0, y: 0, },
+  { text: 'hello1', x: 0, y: 16, },
   { text: 'hello2', x: 1, y: 3, },
   { text: 'hello3', x: 2, y: 20, },
   { text: 'hello4', x: 3, y: 31, },
@@ -32,7 +32,7 @@ const yValues = [
   '40',
   '20',
   '0'
-]
+];
 
 const Summary: FC<GeneralProps> = ({ theming: { theme }, currency }) => {
 
@@ -99,7 +99,7 @@ const Summary: FC<GeneralProps> = ({ theming: { theme }, currency }) => {
         </View>
         <View style={styles.yRange}>
 
-          <View style={{ position: 'absolute', zIndex: 1, left: '8%', height: '100%', justifyContent: 'space-evenly'}}>
+          <View style={styles.chartParent}>
             {
               yValues.map((value: any, index: number) => {
                 return <Text key={index} style={styles.axisText}>{value}</Text>
@@ -117,31 +117,28 @@ const Summary: FC<GeneralProps> = ({ theming: { theme }, currency }) => {
             displayCursor={true}
             yAxisProps={{
               verticalLineWidth: 0,
+              horizontalLineWidth: 0,
               axisLabel: true,
               hideMarkers: false,
-              axisLabelStyle: {
-                fontSize: 13
-              }
             }}
 
-            // xAxisProps={{
-            //   horizontalLineWidth: 0
-            // }}
+            xAxisProps={{
+              horizontalLineWidth: 1
+            }}
 
-            style={{ backgroundColor: theme.background, zIndex: -1}}
+            style={{ backgroundColor: 'rgba(0,0,0,0)', zIndex:2 }}
             cursorProps={{
               cursorBorderColor: 'white',
               cursorColor: '#35A7D6',
               cursorMarkerWidth: 20,
               cursorWidth: 0,
-              displayCursor: true,
-
+              displayCursor: true
             }}
 
             toolTipProps={{
-              displayTriangle: false,
+              displayTriangle: true,
               lockTriangleCenter: true,
-              style: { elevation: 0 },
+              style: { elevation: 0, zIndex: 999, bottom: 0, marginBottom: 0 },
               toolTipTextRenderers: [
                 ({ selectedBarNumber }: any) => ({
                   text: data[selectedBarNumber].text,

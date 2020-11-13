@@ -153,7 +153,6 @@ const styles = StyleSheet.create({
     position: 'relative',
     height: 200,
     width: '100%',
-    backgroundColor: 'green',
     marginTop: '5%'
   },
 
@@ -161,6 +160,14 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 11,
     textAlign: 'right'
+  },
+
+  chartParent: {
+    position: 'absolute',
+    zIndex: 1, left: '5%',
+    height: '100%',
+    justifyContent: 'space-between',
+    top: '5%'
   }
 
 });
