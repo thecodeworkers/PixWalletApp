@@ -42,6 +42,7 @@ const styles = StyleSheet.create({
 
   userContainer: {
     marginTop: '1%',
+    marginLeft: '2%',
     flexDirection: 'row',
     width: '100%'
   },
@@ -53,8 +54,7 @@ const styles = StyleSheet.create({
   },
 
   balanceContainer: {
-    marginTop: '2%',
-    marginLeft: '5%'
+    marginTop: '2%'
   },
 
   balance: {
@@ -67,20 +67,21 @@ const styles = StyleSheet.create({
     marginTop: '4%',
     justifyContent: 'center',
     alignItems: 'center',
-    alignSelf: 'center'
+    alignSelf: 'center',
   },
 
   chartCards: {
     position: 'absolute',
-    width: '83%',
+    width: '94%',
     height: 74,
     borderRadius: 10,
     ...shadowOptions(0, 2, 0.25, 3.84, '#000', 3),
-
     flexDirection: 'row',
     justifyContent: 'space-between',
     padding: '5%',
-    zIndex: 999
+    zIndex: 999,
+    left: '3%',
+    right: '3%'
   },
 
   smallCard: {
@@ -138,6 +139,35 @@ const styles = StyleSheet.create({
     width: '100%',
     alignItems: 'center',
     justifyContent: 'center'
+  },
+
+  chartItem: {
+    position: 'relative',
+    height: 93,
+     width: '85%',
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+
+  yRange: {
+    position: 'relative',
+    height: 200,
+    width: '100%',
+    marginTop: '5%'
+  },
+
+  axisText: {
+    fontWeight: 'bold',
+    fontSize: 11,
+    textAlign: 'right'
+  },
+
+  chartParent: {
+    position: 'absolute',
+    zIndex: 1, left: '5%',
+    height: '100%',
+    justifyContent: 'space-between',
+    top: '5%'
   }
 
 });
