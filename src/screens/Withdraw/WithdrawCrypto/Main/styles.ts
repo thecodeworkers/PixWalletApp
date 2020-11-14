@@ -40,14 +40,12 @@ const styles = StyleSheet.create({
     ...generalShadow('#000', 0, 2, 0.23, 2.62, 4),
     borderRadius: 5,
   },
-
   clipBoardContainer: {
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
     borderWidth: 2,
     borderRadius: 6,
-
   },
   clipBoardInput: {
     fontSize: 16,
@@ -63,7 +61,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignContent: 'center',
   },
-
   selectButton: {
     padding: 8,
     borderRadius: 10,
@@ -74,13 +71,13 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     flexDirection: 'row',
     alignSelf: 'center',
-    marginHorizontal:'14%',
-    marginVertical:20
+    marginHorizontal: '14%',
+    marginVertical: 20
   },
-  buttonConainer:{
-   marginHorizontal:'8%',
-   flex:1,
-   justifyContent:'flex-end'
+  buttonConainer: {
+    marginHorizontal: '8%',
+    flex: 1,
+    justifyContent: 'flex-end'
   }
 });
 

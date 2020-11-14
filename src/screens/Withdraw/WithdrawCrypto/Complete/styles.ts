@@ -24,7 +24,6 @@ const styles = StyleSheet.create({
     height: 120,
     flexDirection: 'row',
   },
-
   secondCard: {
     height: 74,
     flexDirection: 'row',
@@ -41,7 +40,6 @@ const styles = StyleSheet.create({
     justifyContent: "flex-end",
     marginHorizontal: '8%',
   }
-
 });
 
 export default styles;

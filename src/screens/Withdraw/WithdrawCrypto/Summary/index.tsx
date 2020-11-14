@@ -21,7 +21,6 @@ const WithdrawCryptoSummary: FC<WithdrawCryptoProps> = ({ theming: { theme }, se
         </View>
       </View>
 
-
       <View style={styles.cardContainer}>
         <View style={styles.firstCard}>
           <View style={[{ backgroundColor: theme.defaultCard }, styles.sendingCard]}>

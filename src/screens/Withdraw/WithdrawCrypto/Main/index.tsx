@@ -16,16 +16,16 @@ const WithdrawCryptoMain: FC<WithdrawCryptoProps> = ({ theming: { theme }, selec
   return (
 
     <ScrollView style={[styles.container, { backgroundColor: theme.background }]}>
-      <View style={{ marginVertical:30 }}>
+      <View style={{ marginVertical: 30 }}>
         <DiamondCurrencies currency={currency.symbol} />
       </View>
 
       <View style={styles.selectCurrencyContainer}>
-        <SelectCrypto  theme={theme} color={currency.color} symbol={currency.symbol} />
+        <SelectCrypto theme={theme} color={currency.color} symbol={currency.symbol} />
       </View>
 
       <View style={styles.inputContainer}>
-        <CurrencyInput color ={currency.color} theme={theme} symbol={currency.symbol} />
+        <CurrencyInput color={currency.color} theme={theme} symbol={currency.symbol} />
       </View>
 
       <View style={styles.cardContainer}>
@@ -57,8 +57,8 @@ const WithdrawCryptoMain: FC<WithdrawCryptoProps> = ({ theming: { theme }, selec
         <TouchableOpacity style={[styles.clipBoardContainer, { borderColor: theme.summerSky }]}>
           <TextInput
             style={styles.clipBoardInput}
-           placeholder={'Tap to paste address'}
-           placeholderTextColor={theme.veryLightGrey}
+            placeholder={'Tap to paste address'}
+            placeholderTextColor={theme.veryLightGrey}
             underlineColorAndroid="transparent"
             editable={false}
           />
@@ -75,6 +75,6 @@ const WithdrawCryptoMain: FC<WithdrawCryptoProps> = ({ theming: { theme }, selec
 }
 
 
-const mapStateToProps = ({ theming, selectedCurrency }: WithdrawCryptoProps): WithdrawCryptoProps => ({ theming, selectedCurrency})
+const mapStateToProps = ({ theming, selectedCurrency }: WithdrawCryptoProps): WithdrawCryptoProps => ({ theming, selectedCurrency })
 
 export default connect(mapStateToProps)(WithdrawCryptoMain);
