@@ -4,13 +4,13 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
-  cardContainer:{
-    width:'90%',
-    alignSelf:'center'
+  cardContainer: {
+    width: '90%',
+    alignSelf: 'center'
   },
   card: {
-    marginVertical:15,
-    borderRadius:5,
+    marginVertical: 15,
+    borderRadius: 5,
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
@@ -20,41 +20,41 @@ const styles = StyleSheet.create({
     shadowRadius: 2.62,
     elevation: 4,
   },
-  cardHeader:{
-    flexDirection:'row',
+  cardHeader: {
+    flexDirection: 'row',
     alignSelf: 'center',
-    paddingTop:2.5,
-    paddingBottom:2.5
+    paddingTop: 2.5,
+    paddingBottom: 2.5
   },
-  cardHeaderIconContainer:{
-      flex:0.20, 
-      justifyContent:"center",
-       alignItems:'center',
+  cardHeaderIconContainer: {
+    flex: 0.20,
+    justifyContent: "center",
+    alignItems: 'center',
   },
-  cardHeaderText:{
-    fontSize: 16, 
-    paddingTop:10,
-    paddingBottom:10,
-    fontWeight:'bold'
+  cardHeaderText: {
+    fontSize: 16,
+    paddingTop: 10,
+    paddingBottom: 10,
+    fontWeight: 'bold'
   },
-  cardBody:{
-    flexDirection:'row',
+  cardBody: {
+    flexDirection: 'row',
     alignSelf: 'center',
-    width:'85%'
+    width: '85%'
   },
-  cardBodyText:{
-    fontSize: 14, 
-    
-  },
-  cardFooter:{
-    flexDirection:'row',
-    alignSelf: 'center',
-    width:'85%'
-  },
-  cardFooterText:{
+  cardBodyText: {
     fontSize: 14,
-    paddingTop:10, 
-  paddingBottom:10
+
+  },
+  cardFooter: {
+    flexDirection: 'row',
+    alignSelf: 'center',
+    width: '85%'
+  },
+  cardFooterText: {
+    fontSize: 14,
+    paddingTop: 10,
+    paddingBottom: 10
   }
 
 });

@@ -2,11 +2,11 @@ import React, { FC } from 'react';
 import { View, Text, TouchableOpacity, } from 'react-native';
 import { InputProps } from './types';
 import styles from './styles'
-import { UsdCard, BtcCard, EthCard, DashCard} from '../../assets/image/svg';
+import { UsdCard, BtcCard, EthCard, DashCard } from '../../assets/image/svg';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import LinearGradient from 'react-native-linear-gradient';
 
-const SelectCrypto: FC<InputProps> = ({ theme, symbol, color }: any) => {
+const SelectCrypto: FC<InputProps> = ({ theme, symbol, color }) => {
 
   const currentSymbol = symbol
 
@@ -32,13 +32,13 @@ const SelectCrypto: FC<InputProps> = ({ theme, symbol, color }: any) => {
       <View style={styles.cardContainer}>
         <View style={[styles.card, { backgroundColor: theme.defaultCard }]}>
           <View style={styles.currency}>
-          {selectedSymbol(currentSymbol)}
+            {selectedSymbol(currentSymbol)}
           </View>
           <View style={styles.textContainer}>
             <Text style={[styles.text, { color: theme.screenText }]}>Default Porfolio</Text>
-            <Text style={[styles.amount, { color:  color }]}>1.234 USD</Text>
+            <Text style={[styles.amount, { color: color }]}>1.234 USD</Text>
           </View>
-          <TouchableOpacity  style={styles.selectContainer} activeOpacity={1}>
+          <TouchableOpacity style={styles.selectContainer} activeOpacity={1}>
             <LinearGradient
               start={{ x: 0, y: 0 }}
               end={{ x: 1, y: 0 }}
