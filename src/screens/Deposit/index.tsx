@@ -9,7 +9,7 @@ import { connect } from 'react-redux';
 import { ClockIcon, DiamondIcon, MoneyIcon } from '../../assets/image/svg/icons';
 import Icon from 'react-native-vector-icons/Ionicons';
 
-const Deposit: FC<DefaultProps> = ({ theming: { theme } }: any) => {
+const Deposit: FC<DefaultProps> = ({ theming: { theme } }) => {
 
   return (
     <>
@@ -60,9 +60,7 @@ const Deposit: FC<DefaultProps> = ({ theming: { theme } }: any) => {
 
               </View>
             </View>
-
           </View>
-
         </View>
 
         <View style={{ marginTop: 6, marginBottom: 6 }}>

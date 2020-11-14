@@ -44,10 +44,10 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   commisionTextContainer: {
-    width:'100%',
+    width: '100%',
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginVertical:10
+    marginVertical: 10
   },
   icon: {
     paddingTop: 10,
