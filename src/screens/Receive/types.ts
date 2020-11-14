@@ -1,5 +1,5 @@
 import { DefaultProps } from '../../types';
 
 export type ReceiveProps = {
-  selectedCurrency:any
+  selectedCurrency: any
 } & DefaultProps;
