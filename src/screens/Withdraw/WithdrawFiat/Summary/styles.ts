@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
     height: 100,
     alignSelf: 'center',
     marginHorizontal: '8%',
-    marginVertical:30
+    marginVertical: 30
   },
   cardContainer: {
     ...margin
@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
   textBig: {
     fontSize: 18
   },
-  buttonContainer:{
+  buttonContainer: {
     ...margin,
   }
 

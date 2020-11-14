@@ -91,7 +91,7 @@ const styles = StyleSheet.create({
   detailContainer: {
     flex: 0.8,
     justifyContent: 'center',
-    marginLeft:15
+    marginLeft: 15
   },
   nameFont: {
     fontSize: 13,
@@ -137,7 +137,6 @@ const styles = StyleSheet.create({
     ...generalShadow('#000', 0, 2, 0.23, 2.62, 4),
     borderRadius: 5,
   },
-
   inputContainer: {
     alignSelf: 'center',
     ...margin

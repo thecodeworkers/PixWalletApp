@@ -98,7 +98,7 @@ const depositScreen = {
   },
 }
 
- const receiveScreen = {
+const receiveScreen = {
   receive: {
     component: Receive,
     options: {

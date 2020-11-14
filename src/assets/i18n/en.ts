@@ -48,7 +48,7 @@ const en = {
   sent: 'Sent',
   sending: 'Sending',
   total: 'Total',
-  balance:'Balance',
+  balance: 'Balance',
 
   //General
   next: 'Next',

@@ -51,14 +51,12 @@ const WithdrawFiatSummary: FC<WithdrawFiatProps> = ({ theming: { theme }, select
         </View>
       </View>
 
-      <View style={[styles.buttonContainer, {flex:1, justifyContent:'flex-end'}]}>
+      <View style={[styles.buttonContainer, { flex: 1, justifyContent: 'flex-end' }]}>
         <SwipeUp color={currency.color} route={'withdrawFiatComplete'} />
       </View>
-
     </View>
   );
 }
-
 
 const mapStateToProps = ({ theming, selectedCurrency }: WithdrawFiatProps): WithdrawFiatProps => ({ theming, selectedCurrency })
 

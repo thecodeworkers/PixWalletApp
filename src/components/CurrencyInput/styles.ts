@@ -5,7 +5,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     borderWidth: 2,
     borderRadius: 10,
-    width:'100%'
+    width: '100%'
   },
   input: {
     padding: 12,
@@ -13,30 +13,22 @@ const styles = StyleSheet.create({
     fontSize: 26,
     textAlign: 'right',
   },
-
   maxButton: {
     flexDirection: 'row',
     // backgroundColor: 'green',
     flex: 0.30,
-     justifyContent: 'center',
-     alignItems: 'center',
-    //  backgroundColor:'red'
+    justifyContent: 'center',
+    alignItems: 'center',
   },
-
   boxSymbol: {
     width: '100%',
     height: 50,
     borderLeftWidth: 2,
     justifyContent: 'center',
     alignItems: 'center',
-    //  alignSelf: 'center',
-    // marginRight:5,
-    // marginLeft:5,
     flexDirection: 'row',
-    // backgroundColor: 'orange',
     paddingLeft: 6
   },
-
   text: {
     fontSize: 18,
     fontWeight: 'bold'

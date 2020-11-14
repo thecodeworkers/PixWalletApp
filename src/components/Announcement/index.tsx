@@ -12,12 +12,12 @@ const Announcement: FC<AnnouncementProps> = ({ theme, text, icon }) => {
 
         <View style={styles.infoContainer}>
           <View style={styles.infoIcon}>
-         {icon}
+            {icon}
           </View>
         </View>
 
-        <View style={{flex:0.75}}>
-            <Text style={[styles.infoText, { color: theme.suvaGray }]}>{i18n.t(text)}</Text> 
+        <View style={{ flex: 0.75 }}>
+          <Text style={[styles.infoText, { color: theme.suvaGray }]}>{i18n.t(text)}</Text>
         </View>
 
       </View>

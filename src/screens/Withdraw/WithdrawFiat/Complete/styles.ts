@@ -17,13 +17,13 @@ const styles = StyleSheet.create({
     marginHorizontal: '8%',
     marginVertical: 30
   },
-  cardContainer:{
-  ...margin
+  cardContainer: {
+    ...margin
   },
-  buttonContainer:{
+  buttonContainer: {
     ...margin,
-    flex:1,
-    justifyContent:'flex-end',
+    flex: 1,
+    justifyContent: 'flex-end',
 
   },
   firstCard: {
