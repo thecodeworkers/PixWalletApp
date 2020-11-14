@@ -18,7 +18,7 @@ const ActionButtons: FC<Theming> = ({ theme }) => {
 
   return (
     <View style={styles.actionButtons}>
-      <TouchableOpacity activeOpacity={1} onPress={() => redirect('receive')}>
+      <TouchableOpacity activeOpacity={1} onPress={() => redirect('deposit')}>
         <LinearGradient
           start={{ x: 0, y: 0 }}
           end={{ x: 1, y: 0 }}
@@ -39,7 +39,7 @@ const ActionButtons: FC<Theming> = ({ theme }) => {
         </LinearGradient>
       </TouchableOpacity>
 
-      <TouchableOpacity activeOpacity={1} onPress={() => redirect('deposit')}>
+      <TouchableOpacity activeOpacity={1} onPress={() => redirect('withdraw')}>
         <LinearGradient
           start={{ x: 0, y: 0 }}
           end={{ x: 1, y: 0 }}

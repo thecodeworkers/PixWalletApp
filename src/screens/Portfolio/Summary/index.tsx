@@ -9,6 +9,59 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 import { SlideAreaChart } from 'react-native-slide-charts';
 import { GeneralProps } from './types';
 
+const currency = {
+  currencies: [
+    {
+       "active":true,
+       "color":"#45B649",
+       "gradients":["#45B649", "#45B649", "#DCE35B"],
+      //  "icon":<UsdCard/>,
+       "id":"5f8e3d112c3795c5ce88991b",
+      //  "line":<UsdLine/>,
+       "name":"Dollar",
+       "price":1,
+       "symbol":"USD",
+       "type":"FIAT"
+    },
+    {
+       "active":true,
+       "color":"#F7931A",
+       "gradients":["#FF8008", "#FF8008", "#FFC837"],
+      //  "icon":<BtcCard/>,
+       "id":"5f8e3d8b2c3795c5ce88991c",
+      //  "line":<UsdLine/>,
+       "name":"Bitcoin",
+       "price":1,
+       "symbol":"BTC",
+       "type":"CRYPTO"
+    },
+    {
+       "active":true,
+       "color":"#444457",
+       "gradients": ["#304352", "#304352", "#AEAEE6"],
+      //  "icon":<EthCard/>,
+       "id":"5f8e3dc12c3795c5ce88991d",
+      //  "line":<EthLine />,
+       "name":"Ethereum",
+       "price":1,
+       "symbol":"ETH",
+       "type":"CRYPTO"
+    },
+    {
+       "active":true,
+       "color":"#008DE4",
+       "gradients":["#03629B", "#03629B", "#008DE4"],
+      //  "icon":<DashCard/>,
+       "id":"5f8e3dfd2c3795c5ce88991e",
+      //  "line":<DashLine/>,
+       "name":"Dash",
+       "price":1,
+       "symbol":"DASH",
+       "type":"CRYPTO"
+    }
+ ]
+};
+
 const filters = [
   { text: '1D' },
   { text: '1S' },
@@ -34,7 +87,7 @@ const yValues = [
   '0'
 ];
 
-const Summary: FC<GeneralProps> = ({ theming: { theme }, currency }) => {
+const Summary: FC<GeneralProps> = ({ theming: { theme } }) => {
 
   const { currencies } = currency;
   const screenWidth = Dimensions.get("window").width;
@@ -54,7 +107,7 @@ const Summary: FC<GeneralProps> = ({ theming: { theme }, currency }) => {
 
           <View style={styles.userContainer}>
             <Text style={[styles.userText, { color: theme.screenText }]}>Arianna Perez</Text>
-            <View style={{ width: 30, height: 30 }}>
+            <View style={{ width: 28, height: 28 }}>
               <PixLogo color='#2699FB' />
             </View>
           </View>
@@ -71,7 +124,7 @@ const Summary: FC<GeneralProps> = ({ theming: { theme }, currency }) => {
                   currencies.length ?
                     currencies.map((res: any, index: number) => {
                       return (
-                        <>
+                        <View key={index}>
                           <TouchableOpacity style={{ justifyContent: 'center', alignItems: 'center', zIndex: 999 }} onPress={() => console.log('enter')} key={index}>
                             <LinearGradient
                               start={{ x: 0, y: 3 }}
@@ -84,7 +137,7 @@ const Summary: FC<GeneralProps> = ({ theming: { theme }, currency }) => {
                             <Text style={{ color: theme.screenText }}>{res.symbol}</Text>
                             <Text style={[styles.percent, { color: theme.veryLightGrey }]}>0,00%</Text>
                           </TouchableOpacity>
-                        </>
+                        </View>
                       )
                     }) :
                     <View style={styles.message}>

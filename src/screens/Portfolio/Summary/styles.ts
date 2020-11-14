@@ -42,6 +42,7 @@ const styles = StyleSheet.create({
 
   userContainer: {
     marginTop: '1%',
+    marginLeft: '2%',
     flexDirection: 'row',
     width: '100%'
   },
@@ -53,8 +54,7 @@ const styles = StyleSheet.create({
   },
 
   balanceContainer: {
-    marginTop: '2%',
-    marginLeft: '5%'
+    marginTop: '2%'
   },
 
   balance: {
