@@ -21,9 +21,9 @@ const styles = StyleSheet.create({
     ...margin
   },
   buttonContainer: {
-    ...margin,
-    flex: 1,
-    justifyContent: 'flex-end',
+    justifyContent: "center",
+    marginHorizontal: '8%',
+    flex: 1
 
   },
   firstCard: {
