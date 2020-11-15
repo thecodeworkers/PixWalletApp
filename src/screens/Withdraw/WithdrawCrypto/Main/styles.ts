@@ -75,7 +75,7 @@ const styles = StyleSheet.create({
     marginVertical: 20
   },
   buttonConainer: {
-    marginHorizontal: '8%',
+    ...margin,
     flex: 1,
     justifyContent: 'flex-end'
   }

@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
   buttonContainer: {
     flex: 1,
     justifyContent: "flex-end",
-    marginHorizontal: '8%',
+   ...margin
   }
 });
 

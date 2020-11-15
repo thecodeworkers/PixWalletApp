@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 import { View, Text, TouchableOpacity, TextInput } from 'react-native';
 import { connect } from 'react-redux';
 import { WithdrawCryptoProps } from '../types';
@@ -7,14 +7,17 @@ import { i18n } from '../../../../utils'
 import { SwipeUp } from '../../../../components';
 import FaIcons from 'react-native-vector-icons/FontAwesome5';
 import { PixLogo } from '../../../../assets/image/svg'
+import { ScrollView } from 'react-native-gesture-handler';
 
 const WithdrawCryptoSummary: FC<WithdrawCryptoProps> = ({ theming: { theme }, selectedCurrency }) => {
 
   const currency = selectedCurrency.currency
+  const [extraHeight, setExtraHeight] = useState(150);
 
   return (
 
-    <View style={[styles.container, { backgroundColor: theme.background }]}>
+    <ScrollView style={[styles.container, { backgroundColor: theme.background }]}
+    onLayout={dimensions =>  { if(dimensions.nativeEvent.layout.height < 550) setExtraHeight(100) }}>
       <View style={styles.logoContainer}>
         <View style={{ width: 100, alignSelf: 'center' }}>
           <PixLogo color={currency.color} />
@@ -68,10 +71,10 @@ const WithdrawCryptoSummary: FC<WithdrawCryptoProps> = ({ theming: { theme }, se
         </View>
       </View>
 
-      <View style={styles.buttonContainer}>
+      <View style={{ height: extraHeight, justifyContent: 'flex-end' }}>
         <SwipeUp color={currency.color} route={'withdrawCryptoComplete'} />
       </View>
-    </View>
+    </ScrollView>
   );
 }
 
