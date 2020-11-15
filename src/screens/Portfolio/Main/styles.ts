@@ -18,7 +18,7 @@ const shadowOptions = (width: number, height: number, opacity: number, radius: n
 const styles = StyleSheet.create({
 
   container: {
-    flex: 1,
+    flex: 1
   },
 
   portfolioCard: {

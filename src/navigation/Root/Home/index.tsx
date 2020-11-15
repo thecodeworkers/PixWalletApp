@@ -1,6 +1,7 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Profile } from '../../../screens';
+import { Keyboard } from 'react-native';
 import { ActivityStack, ExchangeStack, PortfolioStack } from './Stacks';
 import { Theming } from '../../../types';
 import Icon from 'react-native-vector-icons/MaterialIcons';
@@ -10,6 +11,7 @@ import styles from './styles';
 const Tab = createBottomTabNavigator();
 
 const HomeNavigator: FC<Theming> = ({ theme }) => {
+
   const setColor = (focused: boolean): string => {
     const { defaultActiveIcon, defaultInactiveIcon } = theme;
     return focused ? defaultActiveIcon : defaultInactiveIcon
@@ -22,6 +24,7 @@ const HomeNavigator: FC<Theming> = ({ theme }) => {
         tabStyle: { backgroundColor: theme.background, ...styles.tabStyles},
         style: { ...styles.main },
         showLabel: false,
+        keyboardHidesTabBar: true
       }}
     >
       <Tab.Screen
@@ -61,7 +64,13 @@ const HomeNavigator: FC<Theming> = ({ theme }) => {
         }}
       />
     </Tab.Navigator>
+
+
   );
+}
+
+const ab = () => {
+
 }
 
 export default HomeNavigator;
