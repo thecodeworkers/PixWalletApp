@@ -17,7 +17,7 @@ const WithdrawCryptoSummary: FC<WithdrawCryptoProps> = ({ theming: { theme }, se
   return (
 
     <ScrollView style={[styles.container, { backgroundColor: theme.background }]}
-    onLayout={dimensions =>  { if(dimensions.nativeEvent.layout.height < 550) setExtraHeight(100) }}>
+      onLayout={dimensions => { if (dimensions.nativeEvent.layout.height < 550) setExtraHeight(100) }}>
       <View style={styles.logoContainer}>
         <View style={{ width: 100, alignSelf: 'center' }}>
           <PixLogo color={currency.color} />
