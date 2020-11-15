@@ -20,6 +20,7 @@ const TransactionType: FC<TrasactionTypeProps> = ({ theming: { theme }, selected
         iconTitle: 'between_users',
         text: 'funds_free',
         footer: 'daily_limit',
+        footer_amount: '$20,000.00',
         show: type === 'withdraw' ? true : false
       },
       {
@@ -28,6 +29,7 @@ const TransactionType: FC<TrasactionTypeProps> = ({ theming: { theme }, selected
         iconTitle: 'bank_account',
         text: 'funds_bank',
         footer: 'daily_limit',
+        footer_amount: '$2,000.00',
         show: true,
       },
       {
@@ -36,6 +38,7 @@ const TransactionType: FC<TrasactionTypeProps> = ({ theming: { theme }, selected
         iconTitle: 'bank_transfer',
         text: 'funds_transfer',
         footer: 'daily_limit',
+        footer_amount: '$20,000.00',
         show: true,
       },
     ]
@@ -55,7 +58,7 @@ const TransactionType: FC<TrasactionTypeProps> = ({ theming: { theme }, selected
 
                     <View style={styles.cardHeader}>
                       <View style={styles.cardHeaderIconContainer}>
-                        <View style={{ width: 30, height: 30 }}>
+                        <View style={{ width: 24, height: 24 }}>
                           {res.icon}
                         </View>
                       </View>
@@ -69,6 +72,7 @@ const TransactionType: FC<TrasactionTypeProps> = ({ theming: { theme }, selected
 
                     <View style={styles.cardFooter}>
                       <Text style={[styles.cardFooterText, { color: theme.screenText }]}>{i18n.t(res.footer)}</Text>
+                      <Text style={[styles.cardFooterBoldText, { color: theme.mediumAquamarine }]}> {res.footer_amount}</Text>
                     </View>
                   </TouchableOpacity>) : null
               )

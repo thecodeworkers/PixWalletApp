@@ -42,7 +42,7 @@ const transactionTypeScreen = {
   transactionType: {
     component: TransactionType,
     options: {
-      title: ''
+      title: 'withdraw'
     }
   }
 }
