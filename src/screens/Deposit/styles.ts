@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.23,
     shadowRadius: 2.62,
     elevation: 4,
-    marginVertical: 25,
+    marginVertical: 30,
   },
   cardBody: {
     width: '85%',
@@ -47,7 +47,13 @@ const styles = StyleSheet.create({
     width: '100%',
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginVertical: 10
+    marginVertical: 10,
+  },
+  commisionBox: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignContent: 'center',
+    alignItems: 'center'
   },
   icon: {
     paddingTop: 10,

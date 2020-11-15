@@ -33,7 +33,7 @@ const Deposit: FC<DefaultProps> = ({ theming: { theme } }) => {
             </View>
             <View style={styles.textContainer}>
               <Text style={[styles.textLeft, { color: theme.screenText }]}>{i18n.t('checking_account')}</Text>
-              <Text style={[styles.textRight, { color: theme.veryLightGrey }]}>609501090</Text>
+              <Text style={[styles.textRight, { color: theme.summerSky }]}>609501090</Text>
             </View>
             <View style={styles.textContainer}>
               <Text style={[styles.textLeft, { color: theme.screenText }]}>{i18n.t('routing_number')}</Text>
@@ -41,7 +41,7 @@ const Deposit: FC<DefaultProps> = ({ theming: { theme } }) => {
             </View>
             <View style={styles.textContainer}>
               <Text style={[styles.textLeft, { color: theme.screenText }]}>{i18n.t('bank_name')}</Text>
-              <Text style={[styles.textRight, { color: theme.veryLightGrey }]}>Chase</Text>
+              <Text style={[styles.textRight, { color: theme.summerSky }]}>Chase</Text>
             </View>
             <View style={[styles.textContainer, { marginTop: 30, marginBottom: 1 }]}>
               <Text style={[styles.textLeft, { color: theme.screenText }]}>{i18n.t('bank_reference')}</Text>
@@ -51,13 +51,13 @@ const Deposit: FC<DefaultProps> = ({ theming: { theme } }) => {
           <View style={[styles.textContainer, { borderTopColor: theme.defaultInactiveIcon, borderTopWidth: 1, justifyContent: 'center' }]}>
             <View style={styles.commisionContainer}>
               <View style={styles.commisionTextContainer}>
-                <Text>
+                <View style={styles.commisionBox}>
                   <Text style={[styles.textLeft, { color: theme.screenText }]}>{i18n.t('commission')}  </Text>
                   <Icon name="help-circle" size={24} color={theme.defaultActiveIcon} ></Icon>
-                </Text>
-
-                <Text style={[styles.textRight, { color: theme.veryLightGrey }]}>10$</Text>
-
+                </View>
+                <View style={styles.commisionBox}>
+                  <Text style={[styles.textRight, { color: theme.veryLightGrey }]}>10$</Text>
+                </View>
               </View>
             </View>
           </View>
@@ -69,7 +69,7 @@ const Deposit: FC<DefaultProps> = ({ theming: { theme } }) => {
         <View style={{ marginTop: 6, marginBottom: 6 }}>
           <Announcement theme={theme} icon={<DiamondIcon />} text={'pix_fee'} />
         </View>
-        <View style={{ marginTop: 6, marginBottom: 6 }}>
+        <View style={{ marginTop: 6, marginBottom: 20 }}>
           <Announcement theme={theme} icon={<MoneyIcon />} text={'limit_manage'} />
         </View>
 
