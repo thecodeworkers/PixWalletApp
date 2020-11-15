@@ -27,7 +27,9 @@ const WithdrawFiatMain: FC<WithdrawFiatProps> = ({ theming: { theme }, selectedC
           </View>
           <View style={styles.textContainer}>
             <Text style={[styles.text, { color: theme.screenText }]}>Default Porfolio</Text>
-            <Text style={[styles.amount, { color: currency.color }]}>1.234 USD</Text>
+            <Text style={[styles.amount, { color: currency.color }]}>1,234.00
+            <Text style={[styles.amountCurrency, { color: currency.color }]}> {currency.symbol}</Text>
+            </Text>
           </View>
         </View>
       </View>

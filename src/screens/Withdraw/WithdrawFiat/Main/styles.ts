@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
   },
   currency: {
     width: 60,
-    height: 60,
+    height: 50,
     flex: 0.20
   },
   addressContainer: {
@@ -57,15 +57,18 @@ const styles = StyleSheet.create({
   textContainer: {
     flex: 0.70,
     flexDirection: 'column',
-    justifyContent: 'space-between',
     marginLeft: 10
   },
   text: {
-    fontSize: 16
+    fontSize: 14
   },
   amount: {
-    fontSize: 24,
+    fontSize: 23,
     fontWeight: 'bold'
+  },
+  amountCurrency: {
+    fontSize: 18,
+    fontWeight: 'normal'
   },
   iconSection: {
     flex: 0.20,
@@ -142,11 +145,13 @@ const styles = StyleSheet.create({
     ...margin
   },
   announcemetenContainer: {
-    ...margin
+    ...margin,
+    width: '65%',
+    alignSelf: 'center'
   },
   buttonContainer: {
-    justifyContent: "flex-end",
-    ...margin,
+    justifyContent: "center",
+    marginHorizontal: '8%',
     flex: 1
   }
 });

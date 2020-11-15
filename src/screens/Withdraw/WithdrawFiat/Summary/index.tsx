@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, ScrollView } from 'react-native';
 import { connect } from 'react-redux';
 import { WithdrawFiatProps } from '../types';
 import styles from './styles'
@@ -12,7 +12,7 @@ const WithdrawFiatSummary: FC<WithdrawFiatProps> = ({ theming: { theme }, select
   const currency = selectedCurrency.currency
 
   return (
-    <View style={[styles.container, { backgroundColor: theme.background }]}>
+    <ScrollView style={[styles.container, { backgroundColor: theme.background }]}>
 
       <View style={styles.logoContainer}>
         <View style={{ width: 100, alignSelf: 'center' }}>
@@ -54,7 +54,7 @@ const WithdrawFiatSummary: FC<WithdrawFiatProps> = ({ theming: { theme }, select
       <View style={[styles.buttonContainer, { flex: 1, justifyContent: 'flex-end' }]}>
         <SwipeUp color={currency.color} route={'withdrawFiatComplete'} />
       </View>
-    </View>
+    </ScrollView>
   );
 }
 

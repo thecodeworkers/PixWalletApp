@@ -12,7 +12,7 @@ const WithdrawFiatComplete: FC<WithdrawFiatProps> = ({ theming: { theme }, selec
   const currency = selectedCurrency.currency
 
   return (
-    <View style={[styles.container, { backgroundColor: theme.background }]}>
+    <ScrollView style={[styles.container, { backgroundColor: theme.background }]}>
 
       <View style={styles.logoContainer}>
         <View style={{ width: 100, alignSelf: 'center' }}>
@@ -42,7 +42,7 @@ const WithdrawFiatComplete: FC<WithdrawFiatProps> = ({ theming: { theme }, selec
         <GradientButton theme={theme} text={i18n.t('continue')} route={'portfolio'} />
       </View>
 
-    </View>
+    </ScrollView>
   );
 }
 

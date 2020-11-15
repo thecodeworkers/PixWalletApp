@@ -26,11 +26,11 @@ const CurrencyInput: FC<InputProps> = ({ theme, symbol, color }) => {
   }
 
   return (
-    <View style={[styles.inputContainer, { borderColor: theme.inputBorder, backgroundColor: theme.defaultCard }]}>
+    <View style={[styles.inputContainer, { borderColor: theme.inputBorder, backgroundColor: theme.inputBackground }]}>
       <TextInput keyboardType={'numeric'} placeholder={'0'} placeholderTextColor={color} style={[styles.input, { color: selectedSymbol(currentSymbol)[0] }]} />
 
-      <TouchableOpacity style={[styles.maxButton, { borderColor: theme.inputBorder, backgroundColor: theme.defaultCard }]}>
-        <View style={[styles.boxSymbol, { borderColor: theme.veryLightGrey }]}>
+      <TouchableOpacity style={[styles.maxButton, { borderColor: theme.inputBorder, backgroundColor: theme.inputBackground }]}>
+        <View style={[styles.boxSymbol, { borderColor: theme.inputBorder }]}>
           <View style={{ width: 40, height: 30 }}>
             {selectedSymbol(currentSymbol)[1]}
           </View>
