@@ -30,4 +30,5 @@ const dark: any = {
   iconCardBorder: '#707070'
 }
 
+
 export default dark;
