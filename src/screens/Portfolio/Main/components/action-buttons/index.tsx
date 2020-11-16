@@ -1,11 +1,11 @@
 import React, { FC, memo } from 'react';
-import { View, TouchableOpacity } from 'react-native';
-import Icon from 'react-native-vector-icons/MaterialIcons';
-import LinearGradient from 'react-native-linear-gradient';
-import { DefaultProps, Theming } from '../../../../../types';
-import { connect } from 'react-redux';
-import styles from './style';
+import { View, TouchableOpacity, Platform } from 'react-native';
+import { Theming } from '../../../../../types';
 import { useNavigation } from '@react-navigation/native';
+import LinearGradient from 'react-native-linear-gradient';
+import Icon from 'react-native-vector-icons/MaterialIcons';
+import styles from './style';
+import { generalShadow } from '../../../../../assets/styles';
 
 const ActionButtons: FC<Theming> = ({ theme }) => {
   const navigation = useNavigation();
@@ -19,34 +19,40 @@ const ActionButtons: FC<Theming> = ({ theme }) => {
   return (
     <View style={styles.actionButtons}>
       <TouchableOpacity activeOpacity={1} onPress={() => redirect('deposit')}>
-        <LinearGradient
-          start={{ x: 0, y: 0 }}
-          end={{ x: 1, y: 0 }}
-          colors={theme.cardGradient}
-          style={styles.linearGradient}
-        >
-          <Icon name="trending-flat" color={theme.defaultActiveIcon} size={32} style={styles.leftArrow} />
-        </LinearGradient>
+        <View style={Platform.OS == 'ios' ? { ...generalShadow() } : {}}>
+          <LinearGradient
+            start={{ x: 0, y: 0 }}
+            end={{ x: 1, y: 0 }}
+            colors={theme.cardGradient}
+            style={styles.linearGradient}
+          >
+            <Icon name="trending-flat" color={theme.defaultActiveIcon} size={32} style={styles.leftArrow} />
+          </LinearGradient>
+        </View>
       </TouchableOpacity>
 
       <TouchableOpacity activeOpacity={1} onPress={() => redirect('exchange')}>
-        <LinearGradient
-          start={{ x: 0, y: 0 }}
-          end={{ x: 1, y: 0 }}
-          colors={theme.cardGradient}
-          style={styles.linearGradient}>
-          <Icon name="compare-arrows" color={theme.defaultActiveIcon} size={32} />
-        </LinearGradient>
+        <View style={Platform.OS == 'ios' ? { ...generalShadow() } : {}}>
+          <LinearGradient
+            start={{ x: 0, y: 0 }}
+            end={{ x: 1, y: 0 }}
+            colors={theme.cardGradient}
+            style={styles.linearGradient}>
+            <Icon name="compare-arrows" color={theme.defaultActiveIcon} size={32} />
+          </LinearGradient>
+        </View>
       </TouchableOpacity>
 
       <TouchableOpacity activeOpacity={1} onPress={() => redirect('withdraw')}>
-        <LinearGradient
-          start={{ x: 0, y: 0 }}
-          end={{ x: 1, y: 0 }}
-          colors={theme.cardGradient}
-          style={styles.linearGradient}>
-          <Icon name="trending-flat" color={theme.defaultActiveIcon} size={32} style={styles.rightArrow} />
-        </LinearGradient>
+        <View style={Platform.OS == 'ios' ? { ...generalShadow() } : {}}>
+          <LinearGradient
+            start={{ x: 0, y: 0 }}
+            end={{ x: 1, y: 0 }}
+            colors={theme.cardGradient}
+            style={styles.linearGradient}>
+            <Icon name="trending-flat" color={theme.defaultActiveIcon} size={32} style={styles.rightArrow} />
+          </LinearGradient>
+        </View>
       </TouchableOpacity>
     </View>
   )
