@@ -50,7 +50,7 @@ const WithdrawCryptoSummary: FC<WithdrawCryptoProps> = ({ theming: { theme }, se
       <View style={styles.cardContainer}>
         <View style={styles.firstCard}>
           <View style={[{ backgroundColor: theme.defaultCard }, styles.sendingCard]}>
-            <Text style={[{ color: theme.screenText }]}>{i18n.t('sending_to')}</Text>
+            <Text style={[{ color: theme.screenText }]}>{i18n.t('sent_to')}</Text>
             <Text style={[{ color: theme.screenText }]}>ejrk4bbnk3l44klbk5lbl435nl3nkl</Text>
           </View>
         </View>
