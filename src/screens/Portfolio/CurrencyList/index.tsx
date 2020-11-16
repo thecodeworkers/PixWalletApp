@@ -5,14 +5,11 @@ import { ReducerProps, GeneralProps } from './types';
 import { connect } from 'react-redux';
 import styles from './styles';
 
-const CurrencyList: FC<GeneralProps> = ({ theming: { theme }, navigation, currency }) => {
+const CurrencyList: FC<GeneralProps> = ({ theming: { theme }, navigation, currency, route }) => {
 
+  const params = route?.params?.name;
   const { background, defaultActiveIcon, veryLightGrey } = theme;
   const [selectedTab, setSelectedTab] = useState(0);
-
-  const selectTab = (selected: number) => {
-    setSelectedTab(selected);
-  };
 
   const fiatFunction = () => setSelectedTab(1);
   const cryptoFunction = () => setSelectedTab(0);
@@ -33,7 +30,7 @@ const CurrencyList: FC<GeneralProps> = ({ theming: { theme }, navigation, curren
       </View>
 
       <View style={styles.cardsParent}>
-        <ListCurrency gradient={false}/>
+        <ListCurrency gradient={false} route={params}/>
       </View>
 
     </View>

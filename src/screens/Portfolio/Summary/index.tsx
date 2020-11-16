@@ -9,6 +9,59 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 import { SlideAreaChart } from 'react-native-slide-charts';
 import { GeneralProps } from './types';
 
+const currency = {
+  currencies: [
+    {
+       "active":true,
+       "color":"#45B649",
+       "gradients":["#45B649", "#45B649", "#DCE35B"],
+      //  "icon":<UsdCard/>,
+       "id":"5f8e3d112c3795c5ce88991b",
+      //  "line":<UsdLine/>,
+       "name":"Dollar",
+       "price":1,
+       "symbol":"USD",
+       "type":"FIAT"
+    },
+    {
+       "active":true,
+       "color":"#F7931A",
+       "gradients":["#FF8008", "#FF8008", "#FFC837"],
+      //  "icon":<BtcCard/>,
+       "id":"5f8e3d8b2c3795c5ce88991c",
+      //  "line":<UsdLine/>,
+       "name":"Bitcoin",
+       "price":1,
+       "symbol":"BTC",
+       "type":"CRYPTO"
+    },
+    {
+       "active":true,
+       "color":"#444457",
+       "gradients": ["#304352", "#304352", "#AEAEE6"],
+      //  "icon":<EthCard/>,
+       "id":"5f8e3dc12c3795c5ce88991d",
+      //  "line":<EthLine />,
+       "name":"Ethereum",
+       "price":1,
+       "symbol":"ETH",
+       "type":"CRYPTO"
+    },
+    {
+       "active":true,
+       "color":"#008DE4",
+       "gradients":["#03629B", "#03629B", "#008DE4"],
+      //  "icon":<DashCard/>,
+       "id":"5f8e3dfd2c3795c5ce88991e",
+      //  "line":<DashLine/>,
+       "name":"Dash",
+       "price":1,
+       "symbol":"DASH",
+       "type":"CRYPTO"
+    }
+ ]
+};
+
 const filters = [
   { text: '1D' },
   { text: '1S' },
@@ -18,14 +71,23 @@ const filters = [
 ];
 
 const data = [
-  { text: 'hello1', x: 0, y: 0, },
+  { text: 'hello1', x: 0, y: 16, },
   { text: 'hello2', x: 1, y: 3, },
   { text: 'hello3', x: 2, y: 20, },
   { text: 'hello4', x: 3, y: 31, },
   { text: 'hello5', x: 4, y: 42, },
 ];
 
-const Summary: FC<GeneralProps> = ({ theming: { theme }, currency }) => {
+const yValues = [
+  '100',
+  '80',
+  '60',
+  '40',
+  '20',
+  '0'
+];
+
+const Summary: FC<GeneralProps> = ({ theming: { theme } }) => {
 
   const { currencies } = currency;
   const screenWidth = Dimensions.get("window").width;
@@ -36,7 +98,7 @@ const Summary: FC<GeneralProps> = ({ theming: { theme }, currency }) => {
   }
 
   return (
-    <ScrollView style={{backgroundColor: theme.background}}>
+    <ScrollView style={{ backgroundColor: theme.background }}>
       <View style={[styles.main, { backgroundColor: theme.background }]}>
         <View style={styles.summaryContent}>
           <View>
@@ -44,41 +106,43 @@ const Summary: FC<GeneralProps> = ({ theming: { theme }, currency }) => {
           </View>
 
           <View style={styles.userContainer}>
-            <Text style={[styles.userText, {color: theme.screenText}]}>Arianna Perez</Text>
-            <View style={{ width: 30, height: 30 }}>
-              <PixLogo />
+            <Text style={[styles.userText, { color: theme.screenText }]}>Arianna Perez</Text>
+            <View style={{ width: 28, height: 28 }}>
+              <PixLogo color='#2699FB' />
             </View>
           </View>
 
           <View style={styles.balanceContainer}>
-            <Text style={[styles.balance, {color: theme.screenText}]}>$ 3,245.04</Text>
+            <Text style={[styles.balance, { color: theme.screenText }]}>$ 3,245.04</Text>
           </View>
 
           <View style={styles.chartContent}>
-            <View style={{ position: 'relative', height: 93, width: '100%', justifyContent: 'center', alignItems: 'center' }}>
+            <View style={styles.chartItem}>
               <View style={[styles.chartCards, { backgroundColor: theme.background }]}>
 
                 {
-                currencies.length ?
-                  currencies.map((res: any, index: number) => {
-                    return (
-                      <TouchableOpacity style={{ justifyContent: 'center', alignItems: 'center', zIndex: 999 }} onPress={() => console.log('enter')} key={index}>
-                        <LinearGradient
-                          start={{ x: 0, y: 3 }}
-                          end={{ x: 1, y: 0 }}
-                          locations={[0, 0.8, 0]}
-                          colors={res.gradients.reverse()}
-                          style={styles.cardGradient}
-                          useAngle={true}
-                        />
-                        <Text style={{color: theme.screenText}}>{res.symbol}</Text>
-                        <Text style={[styles.percent, { color: theme.veryLightGrey }]}>0,00%</Text>
-                      </TouchableOpacity>
-                    )
-                  }) :
-                  <View style={styles.message}>
-                    <Text style={{color: theme.screenText}}> No hay monedas disponibles </Text>
-                  </View>
+                  currencies.length ?
+                    currencies.map((res: any, index: number) => {
+                      return (
+                        <View key={index}>
+                          <TouchableOpacity style={{ justifyContent: 'center', alignItems: 'center', zIndex: 999 }} onPress={() => console.log('enter')} key={index}>
+                            <LinearGradient
+                              start={{ x: 0, y: 3 }}
+                              end={{ x: 1, y: 0 }}
+                              locations={[0, 0.8, 0]}
+                              colors={res.gradients.reverse()}
+                              style={styles.cardGradient}
+                              useAngle={true}
+                            />
+                            <Text style={{ color: theme.screenText }}>{res.symbol}</Text>
+                            <Text style={[styles.percent, { color: theme.veryLightGrey }]}>0,00%</Text>
+                          </TouchableOpacity>
+                        </View>
+                      )
+                    }) :
+                    <View style={styles.message}>
+                      <Text style={{ color: theme.screenText }}> No hay monedas disponibles </Text>
+                    </View>
                 }
               </View>
               <SummaryChart />
@@ -86,38 +150,48 @@ const Summary: FC<GeneralProps> = ({ theming: { theme }, currency }) => {
           </View>
 
         </View>
-        <View>
+        <View style={styles.yRange}>
+
+          <View style={styles.chartParent}>
+            {
+              yValues.map((value: any, index: number) => {
+                return <Text key={index} style={styles.axisText}>{value}</Text>
+              })
+            }
+          </View>
+
           <SlideAreaChart
             data={data}
             chartLineColor='#35A7D6'
             chartLineWidth={4}
             height={200}
             width={screenWidth}
-            hideMarkers={false}
             throttleAndroid={true}
             displayCursor={true}
             yAxisProps={{
-              verticalLineWidth: 0
+              verticalLineWidth: 0,
+              horizontalLineWidth: 0,
+              axisLabel: true,
+              hideMarkers: false,
             }}
 
-            // xAxisProps={{
-            //   horizontalLineWidth: 0
-            // }}
+            xAxisProps={{
+              horizontalLineWidth: 1
+            }}
 
-            style={{ backgroundColor: theme.background }}
+            style={{ backgroundColor: 'rgba(0,0,0,0)', zIndex:2 }}
             cursorProps={{
               cursorBorderColor: 'white',
               cursorColor: '#35A7D6',
               cursorMarkerWidth: 20,
               cursorWidth: 0,
-              displayCursor: true,
-
+              displayCursor: true
             }}
 
             toolTipProps={{
-              displayTriangle: false,
+              displayTriangle: true,
               lockTriangleCenter: true,
-              style: { elevation: 0 },
+              style: { elevation: 0, zIndex: 999, bottom: 0, marginBottom: 0 },
               toolTipTextRenderers: [
                 ({ selectedBarNumber }: any) => ({
                   text: data[selectedBarNumber].text,
@@ -144,13 +218,13 @@ const Summary: FC<GeneralProps> = ({ theming: { theme }, currency }) => {
 
         <View style={[styles.bigCard, { backgroundColor: theme.defaultCard }]}>
           <View style={styles.row}>
-            <Text style={[styles.textBold, {color: theme.screenText}]}>Change </Text>
-            <Text style={{color: theme.veryLightGrey }}>0,00%</Text>
+            <Text style={[styles.textBold, { color: theme.screenText }]}>Change </Text>
+            <Text style={{ color: theme.veryLightGrey }}>0,00%</Text>
           </View>
 
           <View style={[styles.row, { marginTop: '5%' }]}>
-            <Text style={[styles.textBold, {color: theme.screenText}]}>Portafolio age </Text>
-            <Text style={{color: theme.veryLightGrey }}>0,00%</Text>
+            <Text style={[styles.textBold, { color: theme.screenText }]}>Portafolio age </Text>
+            <Text style={{ color: theme.veryLightGrey }}>0,00%</Text>
           </View>
         </View>
       </View>
@@ -158,7 +232,7 @@ const Summary: FC<GeneralProps> = ({ theming: { theme }, currency }) => {
   )
 };
 
-const mapStateToProps = ({ theming, currency }: GeneralProps): GeneralProps => ({ theming, currency})
+const mapStateToProps = ({ theming, currency }: GeneralProps): GeneralProps => ({ theming, currency })
 
 const mapDispatchToProps = (dispatch: any) => {
   const actions = {

@@ -7,5 +7,6 @@
 
  export type GeneralProps = {
    navigation: any,
-   currency: any
+   currency: any,
+   route: any
  } & DefaultProps;
