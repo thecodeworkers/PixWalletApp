@@ -5,8 +5,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   card: {
- marginBottom:10,
-    width: '80%',
+    width: '84%',
     alignSelf: 'center',
     borderRadius: 5,
     shadowColor: "#000",
@@ -17,44 +16,51 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.23,
     shadowRadius: 2.62,
     elevation: 4,
+    marginVertical: 30,
   },
   cardBody: {
     width: '85%',
     alignSelf: 'center',
-    marginVertical:20,
-    flexDirection:'row',
+    flexDirection: 'column',
+    marginVertical: 30,
   },
-  textLeftContainer:{
-    width:'50%'
+  textContainer: {
+    flexDirection: 'row',
+    marginVertical: 20,
+    justifyContent: 'space-between',
+    width: '100%'
   },
-  textLeft:{
-    fontWeight:'bold',
-    marginVertical:10,
-    fontSize:14,
+  textRight: {
+    textAlign: 'right',
+    fontSize: 14,
   },
-  textRightContainer:{
-    width:'50%',
-    alignItems:'flex-end',
+  textLeft: {
+    fontWeight: 'bold',
+    textAlign: 'left',
+    fontSize: 14,
   },
-  textRight:{
-    marginVertical:10,
-    fontSize:14,
+  commisionContainer: {
+    width: '85%',
+    flexDirection: 'row',
   },
-  commisionContainer:{
-    borderTopWidth:1,
-    width:'100%',
+  commisionTextContainer: {
+    width: '100%',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginVertical: 10,
   },
-  commisionTextContainer:{
-    width:'85%',
-    alignSelf:'center',
-    flexDirection:'row',
-    justifyContent:'space-between'
+  commisionBox: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignContent: 'center',
+    alignItems: 'center'
+  },
+  icon: {
+    paddingTop: 10,
+    paddingBottom: 10
+  },
 
-  },
-  icon:{
-    paddingTop:10,
-    paddingBottom:10
-  }
+
 });
 
 export default styles;
