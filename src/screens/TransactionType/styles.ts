@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignSelf: 'center',
     paddingTop: 10,
-    paddingBottom: 10
+
   },
   cardHeaderIconContainer: {
     flex: 0.20,
@@ -33,8 +33,8 @@ const styles = StyleSheet.create({
   },
   cardHeaderText: {
     fontSize: 16,
-    paddingTop: 10,
-    paddingBottom: 10,
+    paddingTop: 15,
+    paddingBottom: 8,
     fontWeight: 'bold'
   },
   cardBody: {
@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
   cardFooterText: {
     fontSize: 14,
     paddingTop: 10,
-    paddingBottom: 10
+    paddingBottom: 18
   },
   cardFooterBoldText: {
     fontSize: 14,
