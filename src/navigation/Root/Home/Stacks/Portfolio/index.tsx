@@ -42,7 +42,7 @@ const transactionTypeScreen = {
   transactionType: {
     component: TransactionType,
     options: {
-      title: ''
+      title: 'withdraw'
     }
   }
 }
@@ -72,19 +72,19 @@ const withdrawFiatScreen = {
   withdrawFiatMain: {
     component: WithdrawFiatMain,
     options: {
-      title: ''
+      title: 'withdraw'
     }
   },
   withdrawFiatSummary: {
     component: WithdrawFiatSummary,
     options: {
-      title: ''
+      title: 'withdraw'
     }
   },
   withdrawFiatComplete: {
     component: WithdrawFiatComplete,
     options: {
-      title: ''
+      title: 'withdraw'
     }
   },
 }
@@ -98,7 +98,7 @@ const depositScreen = {
   },
 }
 
- const receiveScreen = {
+const receiveScreen = {
   receive: {
     component: Receive,
     options: {

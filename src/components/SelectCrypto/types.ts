@@ -1,6 +1,7 @@
-import { Theming } from  '../../types';
+import { Theming } from '../../types';
 
 export type InputProps = {
-  symbol:any,
-  color:any
-} & Theming;
+  symbol: any,
+  color: any
+} & Theming
+
