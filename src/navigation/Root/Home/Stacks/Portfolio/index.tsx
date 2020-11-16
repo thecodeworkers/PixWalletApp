@@ -51,19 +51,19 @@ const withdrawCryptoScreen = {
   withdrawCryptoMain: {
     component: WithdrawCryptoMain,
     options: {
-      title: ''
+      title: 'withdraw'
     }
   },
   withdrawCryptoSummary: {
     component: WithdrawCryptoSummary,
     options: {
-      title: ''
+      title: 'withdraw'
     }
   },
   withdrawCryptoComplete: {
     component: WithdrawCryptoComplete,
     options: {
-      title: ''
+      title: 'withdraw'
     }
   },
 }
