@@ -11,7 +11,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import LinearGradient from 'react-native-linear-gradient';
 import { GeneralProps, ReducersProps } from './types';
-import navigation from 'src/navigation';
+import { useNavigation } from '@react-navigation/native';
 
 const icons = [
   { icon: <UsdCard />, line: <UsdLine /> },
@@ -73,7 +73,9 @@ const currency = {
  ]
 };
 
-const ListCurrency: FC<GeneralProps> = ({ theming: { theme }, action, gradient = false}) => {
+const ListCurrency: FC<GeneralProps> = ({ theming: { theme }, action, gradient = false, route }) => {
+
+  const navigation = useNavigation();
 
   const scaleAnim = useRef(new Animated.Value(1)).current;
   const scaleOut = useRef(new Animated.Value(1)).current;
@@ -152,8 +154,19 @@ const ListCurrency: FC<GeneralProps> = ({ theming: { theme }, action, gradient =
     ]).start(() => animation());
   };
 
-  const redirect = () => {
-    console.log('enteeer');
+  const redirect = (data: any) => {
+    if(route == 'receive' && data.type == 'FIAT' || route == 'deposit' && data.type == 'FIAT') navigation.navigate('transactionType');
+    if(route == 'receive' && data.type == 'CRYPTO') navigation.navigate('withdrawCryptoMain');
+    if(route == 'deposit' && data.type == 'CRYPTO') navigation.navigate('receive');
+
+    const currency = {
+      symbol: data.symbol,
+      type: data.type,
+      color: data.color,
+      transactionType: route
+    };
+
+    action.selectCurrency(currency);
   };
 
   return (
@@ -164,7 +177,7 @@ const ListCurrency: FC<GeneralProps> = ({ theming: { theme }, action, gradient =
             return (
               <Animated.View style={{ transform: [{ scale: index == selectedCard ? animationType : 1 }] }} key={index}>
                 <TouchableOpacity
-                  onPress={gradient ? () => cardSelected(res, index) : () => redirect()}
+                  onPress={gradient ? () => cardSelected(res, index) : () => redirect(res)}
                   key={index}
                   activeOpacity={1}>
                   <View style={[styles.cardGradient, { backgroundColor: theme.defaultCard }]}>
@@ -224,7 +237,8 @@ const mapStateToProps = ({ theming, currency }: ReducersProps): ReducersProps =>
 
 const mapDispatchToProps = (dispatch: any) => {
   const actions = {
-    getCurrencies
+    getCurrencies,
+    selectCurrency
   };
 
   return {
