@@ -22,7 +22,6 @@ const styles = StyleSheet.create({
   cardContainer:{
     width: '100%',
     alignSelf:'center',
-    marginVertical:20,
   },
   card: {
     borderRadius:10,
