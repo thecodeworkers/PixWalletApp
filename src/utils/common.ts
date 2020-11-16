@@ -1,4 +1,4 @@
-import { Animated, Easing} from 'react-native';
+import { Animated, Easing } from 'react-native';
 
 export const actionObject = (type: string, payload: any = null) => {
   return { type, payload }
