@@ -3,7 +3,7 @@ import { generalShadow } from '../../../../assets/styles'
 
 const margin = {
   marginHorizontal: '8%',
-  marginVertical: 20
+  marginVertical: 10
 }
 const styles = StyleSheet.create({
   container: {

@@ -10,7 +10,7 @@ import { PixLogo } from '../../../../assets/image/svg'
 const WithdrawFiatSummary: FC<WithdrawFiatProps> = ({ theming: { theme }, selectedCurrency }) => {
 
   const currency = selectedCurrency.currency
-  const [extraHeight, setExtraHeight] = useState(150);
+  const [extraHeight, setExtraHeight] = useState(200);
 
   return (
     <ScrollView style={[styles.container, { backgroundColor: theme.background }]}

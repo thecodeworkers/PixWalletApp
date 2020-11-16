@@ -10,7 +10,7 @@ import { PixLogo } from '../../../../assets/image/svg';
 const WithdrawFiatComplete: FC<WithdrawFiatProps> = ({ theming: { theme }, selectedCurrency }) => {
 
   const currency = selectedCurrency.currency
-  const [extraHeight, setExtraHeight] = useState(150);
+  const [extraHeight, setExtraHeight] = useState(300);
 
   return (
     <ScrollView style={[styles.container, { backgroundColor: theme.background }]}
@@ -40,7 +40,7 @@ const WithdrawFiatComplete: FC<WithdrawFiatProps> = ({ theming: { theme }, selec
         </View>
       </View>
 
-      <View style={{height: extraHeight, justifyContent: 'flex-end', marginHorizontal:'8%', backgroundColor: 'red'}}>
+      <View style={{height: extraHeight, justifyContent: 'flex-end', marginHorizontal:'8%', backgroundColor:'red'}}>
         <GradientButton theme={theme} text={i18n.t('continue')} route={'portfolio'} />
       </View>
 
