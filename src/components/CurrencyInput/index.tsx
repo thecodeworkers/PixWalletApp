@@ -31,7 +31,7 @@ const CurrencyInput: FC<InputProps> = ({ theme, symbol, color }) => {
       <TouchableOpacity style={[styles.maxButton, { borderColor: theme.inputBorder, backgroundColor: theme.inputBackground }]}>
         <View style={[styles.boxSymbol, { borderColor: theme.inputBorder }]}>
           <View style={{ width: 40, height: 30 }}>
-            {selectedSymbol(currentSymbol)[1]}
+            {selectedSymbol(currentSymbol)}
           </View>
           <View style={{ width: '50%' }}>
             <Text style={[styles.text, { color: theme.pinkSwan }]}>Max</Text>
