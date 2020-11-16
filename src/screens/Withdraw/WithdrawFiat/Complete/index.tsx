@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 import { View, Text, ScrollView } from 'react-native';
 import { connect } from 'react-redux';
 import { WithdrawFiatProps } from '../types';
@@ -10,9 +10,11 @@ import { PixLogo } from '../../../../assets/image/svg';
 const WithdrawFiatComplete: FC<WithdrawFiatProps> = ({ theming: { theme }, selectedCurrency }) => {
 
   const currency = selectedCurrency.currency
+  const [extraHeight, setExtraHeight] = useState(150);
 
   return (
-    <ScrollView style={[styles.container, { backgroundColor: theme.background }]}>
+    <ScrollView style={[styles.container, { backgroundColor: theme.background }]}
+    onLayout={dimensions =>  { if(dimensions.nativeEvent.layout.height < 550) setExtraHeight(100) }}>
 
       <View style={styles.logoContainer}>
         <View style={{ width: 100, alignSelf: 'center' }}>
@@ -38,7 +40,7 @@ const WithdrawFiatComplete: FC<WithdrawFiatProps> = ({ theming: { theme }, selec
         </View>
       </View>
 
-      <View style={styles.buttonContainer}>
+      <View style={{height: extraHeight, justifyContent: 'flex-end', marginHorizontal:'8%', backgroundColor: 'red'}}>
         <GradientButton theme={theme} text={i18n.t('continue')} route={'portfolio'} />
       </View>
 
