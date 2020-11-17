@@ -155,7 +155,7 @@ const Summary: FC<GeneralProps> = ({ theming: { theme } }) => {
           <View style={styles.chartParent}>
             {
               yValues.map((value: any, index: number) => {
-                return <Text key={index} style={styles.axisText}>{value}</Text>
+                return <Text key={index} style={[styles.axisText, { color: theme.screenText}]}>{value}</Text>
               })
             }
           </View>

@@ -9,7 +9,6 @@ import { animationProps } from '../../utils/common';
 import styles from './styles'
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import LinearGradient from 'react-native-linear-gradient';
 import { GeneralProps, ReducersProps } from './types';
 import { useNavigation } from '@react-navigation/native';
 
@@ -155,8 +154,10 @@ const ListCurrency: FC<GeneralProps> = ({ theming: { theme }, action, gradient =
   };
 
   const redirect = (data: any) => {
-    if(route == 'receive' && data.type == 'FIAT' || route == 'deposit' && data.type == 'FIAT') navigation.navigate('transactionType');
-    if(route == 'receive' && data.type == 'CRYPTO') navigation.navigate('withdrawCryptoMain');
+
+    console.log(route);
+    if(route == 'withdraw' && data.type == 'FIAT' || route == 'deposit' && data.type == 'FIAT') navigation.navigate('transactionType');
+    if(route == 'withdraw' && data.type == 'CRYPTO') navigation.navigate('withdrawCryptoMain');
     if(route == 'deposit' && data.type == 'CRYPTO') navigation.navigate('receive');
 
     action.selectCurrency(buildObject(data));
@@ -164,7 +165,7 @@ const ListCurrency: FC<GeneralProps> = ({ theming: { theme }, action, gradient =
 
   const activityNavigate = (data: any) => {
     action.selectCurrency(buildObject(data));
-    navigation.navigate('currencyActivity');
+    navigation.navigate('currencyActivity', {name: data.name});
   };
 
   const buildObject = (data: any) => {

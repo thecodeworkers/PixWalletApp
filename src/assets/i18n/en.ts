@@ -52,7 +52,13 @@ const en = {
 
   //General
   next: 'Next',
-  continue: 'Continue'
+  continue: 'Continue',
+
+  // CURRENCY ACTIVITY
+  Bitcoin: 'Bitcoin',
+  Ethereum: 'Ethereum',
+  Dash: 'Dash',
+  Dollar: 'Dollar'
 }
 
 export default en;

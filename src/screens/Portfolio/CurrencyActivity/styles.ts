@@ -84,7 +84,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     width: '100%',
     alignItems: 'center',
-    marginTop: '7%'
+    marginTop: '5%'
   },
 
   grayText: {
@@ -99,6 +99,40 @@ const styles = StyleSheet.create({
 
   rightText: {
     fontSize: 13
+  },
+
+  xLabels: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignSelf: 'center',
+    width: '80%',
+    marginTop: '4%'
+  },
+
+  labelText: {
+    fontSize: 11,
+    fontWeight: 'bold'
+  },
+
+  yRange: {
+    position: 'relative',
+    height: 200,
+    width: '100%',
+    marginTop: '5%'
+  },
+
+  axisText: {
+    fontWeight: 'bold',
+    fontSize: 11,
+    textAlign: 'right'
+  },
+
+  chartParent: {
+    position: 'absolute',
+    zIndex: 1, left: '5%',
+    height: '100%',
+    justifyContent: 'space-between',
+    top: '5%'
   }
 
 });
