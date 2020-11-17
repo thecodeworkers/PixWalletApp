@@ -41,9 +41,7 @@ const defaultScreen = {
 const transactionTypeScreen = {
   transactionType: {
     component: TransactionType,
-    options: {
-      title: 'withdraw'
-    }
+    options: ({ route }: any) => ({ title: route?.params?.name })
   }
 }
 
