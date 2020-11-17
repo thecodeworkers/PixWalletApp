@@ -159,6 +159,16 @@ const ListCurrency: FC<GeneralProps> = ({ theming: { theme }, action, gradient =
     if(route == 'receive' && data.type == 'CRYPTO') navigation.navigate('withdrawCryptoMain');
     if(route == 'deposit' && data.type == 'CRYPTO') navigation.navigate('receive');
 
+    action.selectCurrency(buildObject(data));
+  };
+
+  const activityNavigate = (data: any) => {
+    action.selectCurrency(buildObject(data));
+    navigation.navigate('currencyActivity');
+  };
+
+  const buildObject = (data: any) => {
+
     const currency = {
       symbol: data.symbol,
       type: data.type,
@@ -166,7 +176,7 @@ const ListCurrency: FC<GeneralProps> = ({ theming: { theme }, action, gradient =
       transactionType: route
     };
 
-    action.selectCurrency(currency);
+    return currency;
   };
 
   return (
@@ -184,7 +194,7 @@ const ListCurrency: FC<GeneralProps> = ({ theming: { theme }, action, gradient =
 
                     <View style={styles.cardLefSide}>
                       <View style={styles.cardLeftContent}>
-                        <TouchableOpacity style={{ width: 50, height: 50 }} onPress={gradient ? () => cardSelected(res, index) : () => { null }} activeOpacity={1}>
+                        <TouchableOpacity style={{ width: 50, height: 50 }} onPress={() => activityNavigate(res)} activeOpacity={1}>
                           {res.icon}
                         </TouchableOpacity>
                         <View style={{ flexDirection: 'column', marginLeft: '7%' }}>
@@ -249,6 +259,7 @@ const mapDispatchToProps = (dispatch: any) => {
 export default connect(mapStateToProps, mapDispatchToProps)(ListCurrency);
 
   // const translateAnimation = () => {
+    // currencyActivity
   //   Animated.timing(
   //     transX,
   //     {

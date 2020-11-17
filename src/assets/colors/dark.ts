@@ -27,7 +27,8 @@ const dark: any = {
   inputBackground: '#313131',
   silverGradient: ['#313131', '#313131'],
   iconCard: '#313131',
-  iconCardBorder: '#707070'
+  iconCardBorder: '#707070',
+  lineGray: '#636363'
 }
 
 export default dark;

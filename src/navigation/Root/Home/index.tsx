@@ -64,8 +64,6 @@ const HomeNavigator: FC<Theming> = ({ theme }) => {
         }}
       />
     </Tab.Navigator>
-
-
   );
 }
 

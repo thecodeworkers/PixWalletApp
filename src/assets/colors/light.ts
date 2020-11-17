@@ -27,7 +27,8 @@ const light: any = {
   inputBackground: '#FFFFFF',
   silverGradient: ['#FFFFFF', '#F5F5F5'],
   iconCard: '#FCFCFC',
-  iconCardBorder: '#DEDEDE'
+  iconCardBorder: '#DEDEDE',
+  lineGray: '#E6E6E6'
 }
 
 export default light;

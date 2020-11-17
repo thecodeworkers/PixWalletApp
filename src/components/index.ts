@@ -11,3 +11,4 @@ export { default as CurrencyInput } from './CurrencyInput';
 export { default as GradientButton } from './GradientButton';
 export { default as SearchInput } from './SearchInput';
 export { default as SwipeUp } from './SwipeUp';
+export { default as ActivityCard } from './ActivityCard';
