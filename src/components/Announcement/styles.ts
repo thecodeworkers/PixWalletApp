@@ -1,30 +1,25 @@
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
-  main:{
+  main: {
     flexDirection: 'row',
     borderRadius: 6,
-    width:'70%',
     alignSelf: 'center',
     justifyContent:'center',
     alignItems:'center',
     padding:10,
-    height:70
+    height:60
   },
   infoContainer:{
-    flex:0.25, 
+    flex:0.25,
     justifyContent:"center",
      alignItems:'center',
-    
-    
   },
   infoIcon:{
-    width:24 , height:24,
+    width:20 , height:20,
   },
   infoText:{
-    fontSize: 12, 
-    paddingTop:2.5,
-    paddingBottom:2.5,
+    fontSize: 12,
   }
 
 });
