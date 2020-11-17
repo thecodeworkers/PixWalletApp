@@ -58,7 +58,9 @@ const en = {
   Bitcoin: 'Bitcoin',
   Ethereum: 'Ethereum',
   Dash: 'Dash',
-  Dollar: 'Dollar'
+  Dollar: 'Dollar',
+  your_transactions: 'Your transactions'
+
 }
 
 export default en;

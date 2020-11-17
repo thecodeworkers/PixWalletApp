@@ -110,7 +110,7 @@ const styles = StyleSheet.create({
   },
 
   labelText: {
-    fontSize: 11,
+    fontSize: 10,
     fontWeight: 'bold'
   },
 

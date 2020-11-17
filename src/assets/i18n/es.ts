@@ -58,7 +58,8 @@ const es = {
   Bitcoin: 'Bitcoin',
   Ethereum: 'Ethereum',
   Dash: 'Dash',
-  Dollar: 'Dólar'
+  Dollar: 'Dólar',
+  your_transactions: 'Tus transacciones'
 
 }
 

@@ -46,12 +46,18 @@ const CurrencyActivity: FC<GeneralProps> = ({ theming: { theme }, navigation, se
 
   const [filter, setFilter] = useState(4);
   const screenWidth = Dimensions.get("window").width;
-
   const { currency } = selectedCurrency;
 
   const selectFilter = (index: any) => {
     index != filter ? setFilter(index) : null;
   };
+
+  const redirection = (type: string) => {
+    if(type == 'withdraw' && currency.type == 'FIAT' || type == 'deposit' && currency.type == 'FIAT') navigation.navigate('transactionType');
+    if(type == 'withdraw' && currency.type == 'CRYPTO') navigation.navigate('withdrawCryptoMain');
+    if(type == 'deposit' && currency.type == 'CRYPTO') navigation.navigate('receive');
+  };
+
   return (
     <ScrollView>
       <View style={[styles.container, { backgroundColor: theme.background }]}>
@@ -69,18 +75,18 @@ const CurrencyActivity: FC<GeneralProps> = ({ theming: { theme }, navigation, se
         </View>
 
         <View style={styles.buttonsParent}>
-          <TouchableOpacity style={[styles.buttons, { backgroundColor: theme.defaultCard }]} activeOpacity={1}>
+          <TouchableOpacity style={[styles.buttons, { backgroundColor: theme.defaultCard }]} activeOpacity={1} onPress={ () => redirection('deposit') }>
             <View style={styles.iconButton}>
               <DiagonalDown color={currency?.color} />
             </View>
-            <Text style={{ color: theme.screenText }}>Deposito</Text>
+            <Text style={{ color: theme.screenText }}>{i18n.t('deposit')}</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity style={[styles.buttons, { backgroundColor: theme.defaultCard }]} activeOpacity={1}>
+          <TouchableOpacity style={[styles.buttons, { backgroundColor: theme.defaultCard }]} activeOpacity={1} onPress={ () => redirection('withdraw') }>
             <View style={styles.iconButton}>
               <DiagonalUp color={currency?.color} />
             </View>
-            <Text style={{ color: theme.screenText }}>Retiro</Text>
+            <Text style={{ color: theme.screenText }}>{i18n.t('withdraw')}</Text>
           </TouchableOpacity>
         </View>
 
@@ -165,7 +171,7 @@ const CurrencyActivity: FC<GeneralProps> = ({ theming: { theme }, navigation, se
         </View>
 
         <View style={styles.cardActivity}>
-          <Text style={[styles.transactions, { color: theme.screenText }]}>Tus transacciones</Text>
+        <Text style={[styles.transactions, { color: theme.screenText }]}>{i18n.t('your_transactions')}</Text>
           <View style={[styles.line, { backgroundColor: theme.lineGray }]}></View>
         </View>
 
