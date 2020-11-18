@@ -14,10 +14,10 @@ const styles = StyleSheet.create({
   },
 
   boldText: {
-    textAlign: 'center',
+    // textAlign: 'center',
     fontSize: 22,
     fontWeight: 'bold',
-    marginRight: 10
+    marginRight: '5%'
   },
 
   balancesParent: {

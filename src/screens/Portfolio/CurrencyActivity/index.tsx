@@ -42,10 +42,12 @@ const yValues = [
   '0'
 ];
 
+const screenWidth = Dimensions.get('window').width;
+
 const CurrencyActivity: FC<GeneralProps> = ({ theming: { theme }, navigation, selectedCurrency }) => {
 
   const [filter, setFilter] = useState(4);
-  const screenWidth = Dimensions.get("window").width;
+
   const { currency } = selectedCurrency;
 
   const selectFilter = (index: any) => {
@@ -53,9 +55,9 @@ const CurrencyActivity: FC<GeneralProps> = ({ theming: { theme }, navigation, se
   };
 
   const redirection = (type: string) => {
-    if(type == 'withdraw' && currency.type == 'FIAT' || type == 'deposit' && currency.type == 'FIAT') navigation.navigate('transactionType');
-    if(type == 'withdraw' && currency.type == 'CRYPTO') navigation.navigate('withdrawCryptoMain');
-    if(type == 'deposit' && currency.type == 'CRYPTO') navigation.navigate('receive');
+    if (type == 'withdraw' && currency.type == 'FIAT' || type == 'deposit' && currency.type == 'FIAT') navigation.navigate('transactionType');
+    if (type == 'withdraw' && currency.type == 'CRYPTO') navigation.navigate('withdrawCryptoMain');
+    if (type == 'deposit' && currency.type == 'CRYPTO') navigation.navigate('receive');
   };
 
   return (
@@ -67,22 +69,30 @@ const CurrencyActivity: FC<GeneralProps> = ({ theming: { theme }, navigation, se
 
         <View style={styles.balancesParent}>
           <View style={{ flexDirection: 'row', alignItems: 'flex-end', justifyContent: 'center' }}>
-            <Text style={[styles.boldText, { color: theme.screenText }]}>6.2542</Text>
-            <Text style={{ color: theme.screenText }}>{currency?.symbol}</Text>
+            <View>
+              <Text style={[styles.boldText, { color: theme.screenText }]}>6.2542</Text>
+            </View>
+
+            <View>
+              <Text style={{ color: theme.screenText, marginBottom: '10%' }}>{currency?.symbol}</Text>
+            </View>
           </View>
 
-          <Text style={[styles.balanceUsd, { color: theme.veryLightGrey }]}>$ 3,245.04</Text>
+          {
+            currency?.symbol != 'USD' && <Text style={[styles.balanceUsd, { color: theme.veryLightGrey }]}>$ 3,245.04</Text>
+          }
+
         </View>
 
         <View style={styles.buttonsParent}>
-          <TouchableOpacity style={[styles.buttons, { backgroundColor: theme.defaultCard }]} activeOpacity={1} onPress={ () => redirection('deposit') }>
+          <TouchableOpacity style={[styles.buttons, { backgroundColor: theme.defaultCard }]} activeOpacity={1} onPress={() => redirection('deposit')}>
             <View style={styles.iconButton}>
               <DiagonalDown color={currency?.color} />
             </View>
             <Text style={{ color: theme.screenText }}>{i18n.t('deposit')}</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity style={[styles.buttons, { backgroundColor: theme.defaultCard }]} activeOpacity={1} onPress={ () => redirection('withdraw') }>
+          <TouchableOpacity style={[styles.buttons, { backgroundColor: theme.defaultCard }]} activeOpacity={1} onPress={() => redirection('withdraw')}>
             <View style={styles.iconButton}>
               <DiagonalUp color={currency?.color} />
             </View>
@@ -110,7 +120,7 @@ const CurrencyActivity: FC<GeneralProps> = ({ theming: { theme }, navigation, se
           <View style={styles.chartParent}>
             {
               yValues.map((value: any, index: number) => {
-                return <Text key={index} style={[styles.axisText, { color: theme.screenText}]}>{value}</Text>
+                return <Text key={index} style={[styles.axisText, { color: theme.screenText }]}>{value}</Text>
               })
             }
           </View>
@@ -171,7 +181,7 @@ const CurrencyActivity: FC<GeneralProps> = ({ theming: { theme }, navigation, se
         </View>
 
         <View style={styles.cardActivity}>
-        <Text style={[styles.transactions, { color: theme.screenText }]}>{i18n.t('your_transactions')}</Text>
+          <Text style={[styles.transactions, { color: theme.screenText }]}>{i18n.t('your_transactions')}</Text>
           <View style={[styles.line, { backgroundColor: theme.lineGray }]}></View>
         </View>
 
