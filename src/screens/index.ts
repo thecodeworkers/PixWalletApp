@@ -3,6 +3,7 @@ export { default as Onboarding } from './Onboarding';
 export { default as Receive } from './Receive';
 export { default as Deposit } from './Deposit';
 export { default as TransactionType } from './TransactionType';
+export { default as Currency } from './Currency';
 export * from './Activity';
 export * from './Portfolio';
 export * from './Account';

@@ -9,7 +9,7 @@ import FaIcons from 'react-native-vector-icons/FontAwesome5';
 import Icons from 'react-native-vector-icons/Ionicons';
 import LinearGradient from 'react-native-linear-gradient';
 
-const WithdrawCryptoMain: FC<WithdrawCryptoProps> = ({ theming: { theme }, selectedCurrency }) => {
+const WithdrawCryptoMain: FC<WithdrawCryptoProps> = ({ theming: { theme }, selectedCurrency, navigation }) => {
 
   const currency = selectedCurrency.currency
 
@@ -21,11 +21,11 @@ const WithdrawCryptoMain: FC<WithdrawCryptoProps> = ({ theming: { theme }, selec
       </View>
 
       <View style={styles.selectCurrencyContainer}>
-        <SelectCrypto theme={theme} color={currency.color} symbol={currency.symbol} />
+        <SelectCrypto theme={theme} color={currency.color} symbol={currency.symbol} navigation={navigation}/>
       </View>
 
       <View style={styles.inputContainer}>
-        <CurrencyInput color={currency.color} theme={theme} symbol={currency.symbol} />
+        <CurrencyInput color={currency.color} theme={theme} symbol={currency.symbol}  />
       </View>
 
       <View style={styles.cardContainer}>
