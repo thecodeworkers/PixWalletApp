@@ -5,6 +5,7 @@ import styles from './styles';
 import { connect } from 'react-redux';
 import  ListItem  from './components/ListItem';
 import { UsdCard, BtcCard, EthCard, DashCard } from '../../assets/image/svg';
+import navigation from 'src/navigation';
 
 const DATA = [
     {
@@ -57,13 +58,13 @@ const DATA = [
     }
  ];
 
-const Currency: FC<DefaultProps> = ({theming: { theme }})  => {
+const Currency: FC<DefaultProps> = ({theming: { theme }, navigation}: any)  => {
   return (
     <View style={[styles.container, { backgroundColor: theme.background }]}>
       <FlatList
         style={{ marginTop: '5%' }}
         data={DATA}
-        renderItem={props => <ListItem theme={theme} {...props} onPress={(index: any) => console.log(index)} />}
+        renderItem={props => <ListItem theme={theme} {...props} onPress={() => navigation.goBack()} />}
         keyExtractor={(item: any) => item.id}
       />
     </View>
