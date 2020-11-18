@@ -60,6 +60,10 @@ const Main: FC<GeneralProps> = ({ theming: { theme }, action, navigation }) => {
             <TouchableOpacity onPress={() => navigation.navigate('bankAccount')}>
               <Text style={{ color: theme.screenText }}>Bank Account</Text>
             </TouchableOpacity>
+
+            <TouchableOpacity onPress={() => navigation.navigate('currency')}>
+              <Text style={{ color: theme.screenText }}>Currency</Text>
+            </TouchableOpacity>
           </View>
         </View>
 

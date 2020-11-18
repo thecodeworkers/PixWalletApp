@@ -19,7 +19,8 @@ import {
   InternalTransactionMain,
   InternalTransactionSummary,
   CurrencyList,
-  CurrencyActivity
+  CurrencyActivity,
+  Currency
 } from '../../../../../screens';
 
 const Stack = createStackNavigator();
@@ -158,6 +159,15 @@ const CurrencyActivityScreen = {
   }
 }
 
+const CurrencyScreen = {
+  currency: {
+    component: Currency,
+    options: {
+      title: 'currencies'
+    }
+  }
+}
+
 export default () => (
   <Stack.Navigator
     initialRouteName="main"
@@ -176,7 +186,8 @@ export default () => (
         ...internalTransactionScreen,
         ...accountScreen,
         ...currencyListScreen,
-        ...CurrencyActivityScreen
+        ...CurrencyActivityScreen,
+        ...CurrencyScreen
       }).map(([name, { component, options }]: Array<any>, index) => (
         <Stack.Screen
           key={index}
