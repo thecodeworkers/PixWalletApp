@@ -1,9 +1,9 @@
 import React, { FC, memo, useState } from 'react';
 import { View } from 'react-native';
 import { ActivityButtonFilterProps } from '../types';
+import { ActivityFilterProps } from './types';
 import FilterButton from '../FilterButton';
 import styles from './styles';
-import { ActivityFilterProps } from './types';
 
 const buttons = [
   {
@@ -46,7 +46,22 @@ const ActivityFilter: FC<ActivityFilterProps> = ({ theme, filterResult }) => {
           }
 
           return (
-            <FilterButton key={index} theme={theme} {...buttonProps} onPress={() => changeTab(index)}/>
+            <>
+              {
+                index == selected ? (
+                  <View style={{
+                    width: 5,
+                    height: 5,
+                    backgroundColor: theme.tabsTitle,
+                    position: 'absolute',
+                    bottom: '75%',
+                    left: '9%',
+                    borderRadius: 10
+                  }} />
+                ) : null
+              }
+              <FilterButton key={index} theme={theme} {...buttonProps} onPress={() => changeTab(index)}/>
+            </>
           )
         })
       }
