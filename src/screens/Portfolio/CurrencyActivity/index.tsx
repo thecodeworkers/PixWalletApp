@@ -42,10 +42,12 @@ const yValues = [
   '0'
 ];
 
+const screenWidth = Dimensions.get('window').width;
+
 const CurrencyActivity: FC<GeneralProps> = ({ theming: { theme }, navigation, selectedCurrency }) => {
 
   const [filter, setFilter] = useState(4);
-  const screenWidth = Dimensions.get("window").width;
+
   const { currency } = selectedCurrency;
 
   const selectFilter = (index: any) => {

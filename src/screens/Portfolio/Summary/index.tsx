@@ -87,10 +87,11 @@ const yValues = [
   '0'
 ];
 
+const screenWidth = Dimensions.get('window').width;
+
 const Summary: FC<GeneralProps> = ({ theming: { theme } }) => {
 
   const { currencies } = currency;
-  const screenWidth = Dimensions.get("window").width;
   const [filter, setFilter] = useState(0);
 
   const selectFilter = (index: any) => {
