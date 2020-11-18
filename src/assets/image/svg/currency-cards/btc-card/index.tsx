@@ -3,34 +3,18 @@ import { SvgXml } from 'react-native-svg';
 
 const BtcCard = () => {
   const figure = `
-  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="63" height="63" viewBox="0 0 63 63">
+  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="44" height="44" viewBox="0 0 44 44">
   <defs>
-    <linearGradient id="linear-gradient" x1="0.049" y1="0.938" x2="1.03" y2="-0.055" gradientUnits="objectBoundingBox">
-      <stop offset="0" stop-color="#ffc837"/>
-      <stop offset="1" stop-color="#ff8008"/>
-    </linearGradient>
-    <filter id="Path_340" x="0" y="0" width="63" height="63" filterUnits="userSpaceOnUse">
-      <feOffset dy="3" input="SourceAlpha"/>
-      <feGaussianBlur stdDeviation="3" result="blur"/>
-      <feFlood flood-color="#efde40" flood-opacity="0.4"/>
-      <feComposite operator="in" in2="blur"/>
-      <feComposite in="SourceGraphic"/>
-    </filter>
-    <linearGradient id="linear-gradient-2" x1="0.123" y1="0.874" x2="0.914" y2="0.123" gradientUnits="objectBoundingBox">
+    <linearGradient id="linear-gradient" x1="0.866" y1="0.125" x2="0.053" y2="0.906" gradientUnits="objectBoundingBox">
       <stop offset="0" stop-color="#ffc837"/>
       <stop offset="1" stop-color="#ff8008"/>
     </linearGradient>
   </defs>
-  <g id="Group_926" data-name="Group 926" transform="translate(-38 -474.114)">
-    <g transform="matrix(1, 0, 0, 1, 38, 474.11)" filter="url(#Path_340)">
-      <path id="Path_340-2" data-name="Path 340" d="M5,0H40a5,5,0,0,1,5,5V40a5,5,0,0,1-5,5H5a5,5,0,0,1-5-5V5A5,5,0,0,1,5,0Z" transform="translate(9 6)" fill="url(#linear-gradient)"/>
-    </g>
-    <path id="Path_359" data-name="Path 359" d="M4.889,0H39.111A4.889,4.889,0,0,1,44,4.889V39.111A4.889,4.889,0,0,1,39.111,44H4.889A4.889,4.889,0,0,1,0,39.111V4.889A4.889,4.889,0,0,1,4.889,0Z" transform="translate(48 480.114)" fill="url(#linear-gradient-2)"/>
-    <path id="symbol" d="M144.175,99.678c.41-2.739-1.676-4.211-4.527-5.193l.925-3.71-2.258-.563-.9,3.612c-.594-.148-1.2-.288-1.809-.426l.907-3.636-2.257-.563-.926,3.709c-.491-.112-.974-.223-1.442-.339l0-.012-3.114-.778-.6,2.412s1.676.384,1.64.408a1.2,1.2,0,0,1,1.052,1.313l-1.054,4.226a1.869,1.869,0,0,1,.235.075l-.239-.059-1.477,5.921a.822.822,0,0,1-1.035.536c.023.033-1.641-.41-1.641-.41l-1.121,2.585,2.939.733c.547.137,1.083.28,1.61.416l-.935,3.752,2.256.563.926-3.713c.616.167,1.214.322,1.8.467l-.922,3.7,2.258.563.935-3.745c3.851.729,6.747.435,7.965-3.048.982-2.8-.049-4.422-2.075-5.477a3.6,3.6,0,0,0,2.884-3.316Zm-5.16,7.235c-.7,2.8-5.42,1.288-6.95.908l1.24-4.971C134.835,103.233,139.744,103.989,139.015,106.914Zm.7-7.276c-.637,2.551-4.567,1.255-5.842.937L135,96.066C136.271,96.384,140.376,96.977,139.713,99.638Z" transform="translate(-65.643 399.333)" fill="#fff"/>
+  <g id="Grupo_940" data-name="Grupo 940" transform="translate(-134 -512.114)">
+    <path id="Trazado_359" data-name="Trazado 359" d="M4.889,0H39.111A4.889,4.889,0,0,1,44,4.889V39.111A4.889,4.889,0,0,1,39.111,44H4.889A4.889,4.889,0,0,1,0,39.111V4.889A4.889,4.889,0,0,1,4.889,0Z" transform="translate(134 512.114)" fill="url(#linear-gradient)"/>
+    <path id="symbol" d="M144.175,99.678c.41-2.739-1.676-4.211-4.527-5.193l.925-3.71-2.258-.563-.9,3.612c-.594-.148-1.2-.288-1.809-.426l.907-3.636-2.257-.563-.926,3.709c-.491-.112-.974-.223-1.442-.339l0-.012-3.114-.778-.6,2.412s1.676.384,1.64.408a1.2,1.2,0,0,1,1.052,1.313l-1.054,4.226a1.869,1.869,0,0,1,.235.075l-.239-.059-1.477,5.921a.822.822,0,0,1-1.035.536c.023.033-1.641-.41-1.641-.41l-1.121,2.585,2.939.733c.547.137,1.083.28,1.61.416l-.935,3.752,2.256.563.926-3.713c.616.167,1.214.322,1.8.467l-.922,3.7,2.258.563.935-3.745c3.851.729,6.747.435,7.965-3.048.982-2.8-.049-4.422-2.075-5.477a3.6,3.6,0,0,0,2.884-3.316Zm-5.16,7.235c-.7,2.8-5.42,1.288-6.95.908l1.24-4.971C134.835,103.233,139.744,103.989,139.015,106.914Zm.7-7.276c-.637,2.551-4.567,1.255-5.842.937L135,96.066C136.271,96.384,140.376,96.977,139.713,99.638Z" transform="translate(21.357 432.333)" fill="#fff"/>
   </g>
 </svg>
-
-
 `;
   return (
     <SvgXml xml={figure} width="100%" height="100%"></SvgXml>

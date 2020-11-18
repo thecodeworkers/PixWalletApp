@@ -59,7 +59,10 @@ const en = {
   Ethereum: 'Ethereum',
   Dash: 'Dash',
   Dollar: 'Dollar',
-  your_transactions: 'Your transactions'
+  your_transactions: 'Your transactions',
+
+  //CURRENCIES
+  currencies: 'Currencies'
 
 }
 

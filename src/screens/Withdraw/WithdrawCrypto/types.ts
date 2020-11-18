@@ -1,5 +1,6 @@
 import { DefaultProps } from '../../../types';
 
 export type WithdrawCryptoProps = {
-  selectedCurrency:any
+  selectedCurrency:any,
+  navigation?: any
 } & DefaultProps;
