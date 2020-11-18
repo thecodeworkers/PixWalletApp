@@ -1,4 +1,7 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Dimensions } from 'react-native';
+
+const { height: viewportHeight } = Dimensions.get('window');
+
 
 const styles = StyleSheet.create({
   container: {
@@ -24,7 +27,29 @@ const styles = StyleSheet.create({
     flex: 0.6,
     justifyContent: 'flex-end',
     alignItems: 'center'
-  }
+  },
+  leftCircle: {
+    width: 20,
+    height: 20,
+    borderRadius: 10,
+    borderColor: '#FFFFFF',
+    borderWidth: 7,
+    position: 'absolute',
+    left: '20%',
+    bottom: viewportHeight < 810 ? '45%' : '46%',
+    zIndex: 999
+  },
+  rightCircle: {
+    width: 20,
+    height: 20,
+    borderRadius: 10,
+    borderWidth: 5,
+    position: 'absolute',
+    right: '20%',
+    bottom: viewportHeight < 810 ? '45%' : '46%',
+    zIndex: 999,
+    backgroundColor: '#FFFFFF'
+   }
 });
 
 export default styles;
