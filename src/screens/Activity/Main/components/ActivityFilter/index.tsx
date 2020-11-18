@@ -49,7 +49,7 @@ const ActivityFilter: FC<ActivityFilterProps> = ({ theme, filterResult }) => {
             <>
               {
                 index == selected ? (
-                  <View style={{
+                  <View key={`${index}point`} style={{
                     width: 5,
                     height: 5,
                     backgroundColor: theme.tabsTitle,

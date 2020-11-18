@@ -35,15 +35,15 @@ const ActionButtons: FC<Theming> = ({ theme }) => {
     <View style={styles.actionButtons}>
       {
         buttons.map(({ ButtonIcon, route }, index: number) => (
-          <TouchableOpacity activeOpacity={1} onPress={() => redirect(route)}>
-            <View key={index} style={Platform.OS == 'ios' ? { ...generalShadow() } : {}}>
+          <TouchableOpacity key={index} activeOpacity={1} onPress={() => redirect(route)}>
+            <View style={Platform.OS == 'ios' ? { ...generalShadow() } : {}}>
               <LinearGradient
                 start={{ x: 0, y: 0 }}
                 end={{ x: 1, y: 0 }}
                 colors={theme.cardGradient}
                 style={styles.linearGradient}
               >
-                <ButtonIcon color={theme.defaultActiveIcon} size={32} />
+                {/* <ButtonIcon color={theme.defaultActiveIcon} size={32} /> */}
               </LinearGradient>
             </View>
           </TouchableOpacity>

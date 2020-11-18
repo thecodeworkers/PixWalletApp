@@ -61,7 +61,7 @@ const Main: FC<DefaultProps> = ({ theming: { theme } }) => {
         </View>
       </View>
       <View style={{ height: extraHeight, justifyContent: 'flex-end' }}>
-        <SwipeUp color="#F7931A" route="summary"/>
+        <SwipeUp color="#F7931A" route="summary" theme={theme} />
       </View>
     </ScrollView>
   );

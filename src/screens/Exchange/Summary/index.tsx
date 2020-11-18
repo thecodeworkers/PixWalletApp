@@ -47,7 +47,7 @@ const Summary: FC<DefaultProps> = ({ theming: { theme } }) => {
         </View>
         {
           true ? (
-            <View style={{ flexDirection: 'row', marginBottom: '6%' }}>
+            <View style={{ flexDirection: 'row', marginBottom: '6%', marginHorizontal: '8%' }}>
               <GradientButton theme={theme} text="Continue" route="portfolio" />
             </View>
           ) : null

@@ -10,6 +10,8 @@ const styles = StyleSheet.create({
     height: 45,
     backgroundColor: 'gray',
     borderRadius: 5,
+    justifyContent: 'center',
+    alignItems: 'center',
     ...generalShadow()
   },
   swipeText: {
