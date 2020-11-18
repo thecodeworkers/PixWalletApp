@@ -6,8 +6,6 @@ const initialState = {
 }
 
 export default (state: any = initialState, { type, payload }: DispatchProps) => {
-  console.log(payload);
-  
   switch(type) {
     case SHOW_COMPONENT:
     return { modal: payload };

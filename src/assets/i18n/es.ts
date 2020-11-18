@@ -52,7 +52,14 @@ const es = {
 
   //General
   next: 'Siguiente',
-  continue: 'Continuar'
+  continue: 'Continuar',
+
+  // CURRENCY ACTIVITY
+  Bitcoin: 'Bitcoin',
+  Ethereum: 'Ethereum',
+  Dash: 'Dash',
+  Dollar: 'Dólar',
+  your_transactions: 'Tus transacciones'
 
 }
 
