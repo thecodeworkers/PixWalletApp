@@ -13,15 +13,14 @@ const styles = StyleSheet.create({
     marginHorizontal: '8%'
   },
   currencyCard: {
-    width: 85,
-    height: 85,
-    flex: 0.25,
-    // backgroundColor: 'green'
+    width: 70,
+    height: 70,
+    flex: 0.25
   },
   gradientLine: {
     height: 10,
     flex: 0.5,
-    marginBottom: '2%'
+    // marginBottom: '1%'
   },
   processContainer: {
     flex: 0.6,
@@ -36,7 +35,7 @@ const styles = StyleSheet.create({
     borderWidth: 7,
     position: 'absolute',
     left: '20%',
-    bottom: viewportHeight < 810 ? '45%' : '46%',
+    bottom: viewportHeight < 810 ? '42%' : '43.6%',
     zIndex: 999
   },
   rightCircle: {
@@ -46,7 +45,7 @@ const styles = StyleSheet.create({
     borderWidth: 5,
     position: 'absolute',
     right: '20%',
-    bottom: viewportHeight < 810 ? '45%' : '46%',
+    bottom: viewportHeight < 810 ? '42%' : '43.6%',
     zIndex: 999,
     backgroundColor: '#FFFFFF'
    }
