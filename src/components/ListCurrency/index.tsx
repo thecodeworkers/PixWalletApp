@@ -1,6 +1,6 @@
 import React, { FC, useState, useEffect, useRef } from 'react';
 import { View, Text, Modal, TouchableHighlight, TouchableOpacity, Animated } from 'react-native';
-import { CardsRedirect } from '../../screens/Portfolio/Main/components/';
+import CardsRedirect from '../../screens/Portfolio/Main/components/cards-redirect';
 import { UsdCard, BtcCard, EthCard, DashCard, UsdLine, BtcLine, EthLine, DashLine } from '../../assets/image/svg';
 import { getCurrencies, selectCurrency } from '../../store/actions';
 import { DefaultProps } from '../../types';

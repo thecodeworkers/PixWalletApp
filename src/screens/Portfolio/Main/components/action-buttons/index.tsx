@@ -1,8 +1,8 @@
 import React, { FC, memo } from 'react';
 import { View, TouchableOpacity, Platform } from 'react-native';
+import { DepositIcon, WithdrawIcon, ExchangeIcon } from '../../../../../components';
 import { useNavigation } from '@react-navigation/native';
 import { generalShadow } from '../../../../../assets/styles';
-import { DepositIcon, WithdrawIcon, ExchangeIcon } from '../../../../../components';
 import { Theming } from '../../../../../types';
 import LinearGradient from 'react-native-linear-gradient';
 import styles from './style';
@@ -34,7 +34,7 @@ const ActionButtons: FC<Theming> = ({ theme }) => {
   return (
     <View style={styles.actionButtons}>
       {
-        buttons.map(({ ButtonIcon, route }, index: number) => (
+        buttons.map(({ route, ButtonIcon }, index: number) => (
           <TouchableOpacity key={index} activeOpacity={1} onPress={() => redirect(route)}>
             <View style={Platform.OS == 'ios' ? { ...generalShadow() } : {}}>
               <LinearGradient
@@ -43,7 +43,7 @@ const ActionButtons: FC<Theming> = ({ theme }) => {
                 colors={theme.cardGradient}
                 style={styles.linearGradient}
               >
-                {/* <ButtonIcon color={theme.defaultActiveIcon} size={32} /> */}
+                <ButtonIcon color={theme.defaultActiveIcon} size={32} />
               </LinearGradient>
             </View>
           </TouchableOpacity>
