@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   nameFont: {
-    fontSize: 13,
+    fontSize: 14,
     marginBottom: 2
   },
   addressFont: {
