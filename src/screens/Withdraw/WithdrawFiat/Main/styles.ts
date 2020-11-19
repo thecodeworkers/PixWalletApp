@@ -145,9 +145,7 @@ const styles = StyleSheet.create({
     ...margin
   },
   announcemetenContainer: {
-   marginHorizontal:'8%',
-    width: '65%',
-    alignSelf: 'center'
+    marginHorizontal:'16%',
   },
   buttonContainer: {
     justifyContent: "center",

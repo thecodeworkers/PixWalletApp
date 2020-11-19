@@ -55,7 +55,8 @@ const CurrencyActivity: FC<GeneralProps> = ({ theming: { theme }, navigation, se
   };
 
   const redirection = (type: string) => {
-    if (type == 'withdraw' && currency.type == 'FIAT' || type == 'deposit' && currency.type == 'FIAT') navigation.navigate('transactionType');
+    if (type == 'withdraw' && currency.type == 'FIAT') navigation.navigate('transactionType', {name: 'withdraw'});
+    if (type == 'deposit' && currency.type == 'FIAT') navigation.navigate('transactionType', {name: 'deposit'});
     if (type == 'withdraw' && currency.type == 'CRYPTO') navigation.navigate('withdrawCryptoMain');
     if (type == 'deposit' && currency.type == 'CRYPTO') navigation.navigate('receive');
   };
