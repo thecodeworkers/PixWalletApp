@@ -98,7 +98,7 @@ const ReceiveScreen: FC<ReceiveProps> = ({ theming: { theme }, selectedCurrency 
           </TouchableOpacity>
 
         </View>
-        <View style={{ marginTop: 10 }}>
+        <View style={styles.announcementContainer}>
           <Announcement theme={theme} icon={<InfoIcon />} text={'info_receive'} />
         </View>
 

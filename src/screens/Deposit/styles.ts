@@ -59,6 +59,16 @@ const styles = StyleSheet.create({
     paddingTop: 10,
     paddingBottom: 10
   },
+  announcementContainer:{
+    marginTop: 6,
+    marginBottom: 6,
+    marginHorizontal:'16%'
+  },
+  lastAnnouncement:{
+    marginTop: 6,
+    marginBottom: 20,
+    marginHorizontal:'16%'
+  }
 
 
 });

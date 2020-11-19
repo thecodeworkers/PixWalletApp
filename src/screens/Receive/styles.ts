@@ -74,6 +74,10 @@ const styles = StyleSheet.create({
   },
   textContainer: {
     ...margin
+  },
+  announcementContainer:{
+    marginTop: 10,
+    marginHorizontal:'16%'
   }
 
 });
