@@ -7,7 +7,7 @@ const BtcSymbol = () => {
   </svg>
    `
  		return (
-				<SvgXml xml={logo} width={'80%'} height={'80%'} />
+				<SvgXml xml={logo} width={'100%'} height={'100%'} />
 		);
 }
 
