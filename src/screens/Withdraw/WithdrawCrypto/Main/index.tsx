@@ -8,6 +8,7 @@ import { DiamondCurrencies, GradientButton, CurrencyInput, SelectCrypto } from '
 import FaIcons from 'react-native-vector-icons/FontAwesome5';
 import Icons from 'react-native-vector-icons/Ionicons';
 import LinearGradient from 'react-native-linear-gradient';
+import { generalShadow } from '../../../../assets/styles';
 
 const WithdrawCryptoMain: FC<WithdrawCryptoProps> = ({ theming: { theme }, selectedCurrency, navigation }) => {
 
@@ -43,7 +44,7 @@ const WithdrawCryptoMain: FC<WithdrawCryptoProps> = ({ theming: { theme }, selec
 
       <View style={styles.listCotainer}>
 
-        <TouchableOpacity style={styles.selectContainer} activeOpacity={1}>
+        <TouchableOpacity style={styles.selectContainer} activeOpacity={1} onPress={() => navigation.navigate('whitelist')}>
           <LinearGradient
             start={{ x: 0, y: 0 }}
             end={{ x: 1, y: 0 }}

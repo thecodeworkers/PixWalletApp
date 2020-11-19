@@ -32,6 +32,19 @@ const ActivityFilter: FC<ActivityFilterProps> = ({ theme, filterResult }) => {
 
   return (
     <View style={styles.container}>
+      <View style={{
+        width: 5,
+        height: 5,
+        backgroundColor: theme.tabsTitle,
+        position: 'absolute',
+        bottom: '75%',
+        left: selected == 0 ? '9%' :
+              selected == 1 ? '34%' :
+              selected == 2 ? '60%' :
+              selected == 3 ? '86.5%' :
+              '9%',
+        borderRadius: 10
+      }} />
       {
         buttons.map((button, index) => {
           let buttonProps: ActivityButtonFilterProps = { ...button };
@@ -46,22 +59,7 @@ const ActivityFilter: FC<ActivityFilterProps> = ({ theme, filterResult }) => {
           }
 
           return (
-            <>
-              {
-                index == selected ? (
-                  <View key={`${index}point`} style={{
-                    width: 5,
-                    height: 5,
-                    backgroundColor: theme.tabsTitle,
-                    position: 'absolute',
-                    bottom: '75%',
-                    left: '9%',
-                    borderRadius: 10
-                  }} />
-                ) : null
-              }
-              <FilterButton key={index} theme={theme} {...buttonProps} onPress={() => changeTab(index)}/>
-            </>
+            <FilterButton key={index} theme={theme} {...buttonProps} onPress={() => changeTab(index)}/>
           )
         })
       }
