@@ -9,7 +9,7 @@ const styles: any = {
     marginHorizontal: '5%'
   },
   firstSection: {
-    flex: 0.2,
+    flex: 0.16,
     justifyContent: 'center'
   },
   iconContainer: {
@@ -17,13 +17,18 @@ const styles: any = {
     height: 50
   },
   secondSection: {
-    flex: 0.5,
+    flex: 0.4,
     justifyContent: 'center'
   },
   thirdSection: {
-    flex: 0.3,
+    flex: 0.25,
     justifyContent: 'center',
     alignItems: 'flex-end'
+  },
+  iconSection: {
+    flex: 0.16,
+    // justifyContent: 'center',
+    alignItems: 'center'
   },
   normalFont: (fontSize: number, color: string) => ({
     fontSize,

@@ -54,7 +54,7 @@ const WithdrawFiatSummary: FC<WithdrawFiatProps> = ({ theming: { theme }, select
       </View>
 
       <View style={ { height: extraHeight, justifyContent: 'flex-end' }}>
-        <SwipeUp color={currency.color} route={'withdrawFiatComplete'} />
+        <SwipeUp color={currency.color} route={'withdrawFiatComplete'} theme={theme} />
       </View>
     </ScrollView>
   );

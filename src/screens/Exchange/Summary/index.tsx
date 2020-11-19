@@ -18,7 +18,9 @@ const Summary: FC<DefaultProps> = ({ theming: { theme } }) => {
           <View style={styles.currencyCard}>
             <BtcCard/>
           </View>
+          <View style={[styles.leftCircle, { backgroundColor: '#F7931A' }]} />
           <LinearGradient style={styles.gradientLine} colors={['#F7931A', '#304352']} start={{ x: 0, y: 0 }} end={{ x: 1.4, y: 0 }} />
+          <View style={[styles.rightCircle, { borderColor: '#62698D', }]} />
           <View style={styles.currencyCard}>
             <EthCard/>
           </View>
@@ -47,7 +49,7 @@ const Summary: FC<DefaultProps> = ({ theming: { theme } }) => {
         </View>
         {
           true ? (
-            <View style={{ flexDirection: 'row', marginBottom: '6%' }}>
+            <View style={{ flexDirection: 'row', marginBottom: '6%', marginHorizontal: '8%' }}>
               <GradientButton theme={theme} text="Continue" route="portfolio" />
             </View>
           ) : null

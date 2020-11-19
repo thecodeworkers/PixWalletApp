@@ -19,10 +19,9 @@ const styles = StyleSheet.create({
     ...generalShadow()
   },
   currencyCardIconContainer: {
-    marginTop: 7,
-    width: 72,
-    height: 72,
-    marginHorizontal: '2%'
+    width: 50,
+    height: 50,
+    marginHorizontal: '3%',
   },
   currencyCardText: {
     fontSize: 13
