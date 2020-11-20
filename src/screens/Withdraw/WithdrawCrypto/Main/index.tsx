@@ -1,14 +1,13 @@
 import React, { FC } from 'react';
 import { View, Text, TouchableOpacity, TextInput, ScrollView } from 'react-native';
-import { connect } from 'react-redux';
-import { WithdrawCryptoProps } from '../types';
-import styles from './styles'
-import { i18n } from '../../../../utils'
 import { DiamondCurrencies, GradientButton, CurrencyInput, SelectCrypto } from '../../../../components'
+import { WithdrawCryptoProps } from '../types';
+import { connect } from 'react-redux';
+import { i18n } from '../../../../utils'
+import LinearGradient from 'react-native-linear-gradient';
 import FaIcons from 'react-native-vector-icons/FontAwesome5';
 import Icons from 'react-native-vector-icons/Ionicons';
-import LinearGradient from 'react-native-linear-gradient';
-import { generalShadow } from '../../../../assets/styles';
+import styles from './styles'
 
 const WithdrawCryptoMain: FC<WithdrawCryptoProps> = ({ theming: { theme }, selectedCurrency, navigation }) => {
 
@@ -42,7 +41,7 @@ const WithdrawCryptoMain: FC<WithdrawCryptoProps> = ({ theming: { theme }, selec
         </View>
       </View>
 
-      <View style={styles.listCotainer}>
+      <View style={styles.listContainer}>
 
         <TouchableOpacity style={styles.selectContainer} activeOpacity={1} onPress={() => navigation.navigate('whitelist')}>
           <LinearGradient
@@ -51,11 +50,11 @@ const WithdrawCryptoMain: FC<WithdrawCryptoProps> = ({ theming: { theme }, selec
             colors={theme.cardGradient}
             style={styles.selectButton}
           >
-            <Icons name="list" color={theme.screenText} size={32} />
+            <Icons name="list" color={theme.screenText} size={28} />
           </LinearGradient>
         </TouchableOpacity>
 
-        <TouchableOpacity style={[styles.clipBoardContainer, { borderColor: theme.summerSky }]}>
+        <TouchableOpacity style={[styles.clipBoardContainer, { borderColor: theme.inputPasteBorder }]}>
           <TextInput
             style={styles.clipBoardInput}
             placeholder={'Tap to paste address'}

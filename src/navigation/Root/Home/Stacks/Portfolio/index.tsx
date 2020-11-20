@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { FC } from 'react';
+import { View } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { HeaderNavigation } from '../../../../../components';
+import { Theming } from '../../../../../types';
 import {
   PortfolioMain,
   PortfolioSummary,
@@ -166,34 +168,38 @@ const CurrencyScreen = {
   }
 }
 
-export default () => (
-  <Stack.Navigator
-    initialRouteName="main"
-    screenOptions={{
-      header: props => <HeaderNavigation {...props} />
-    }}
-  >
-    {
-      Object.entries({
-        ...defaultScreen,
-        ...receiveScreen,
-        ...transactionTypeScreen,
-        ...depositScreen,
-        ...withdrawCryptoScreen,
-        ...withdrawFiatScreen,
-        ...internalTransactionScreen,
-        ...accountScreen,
-        ...currencyListScreen,
-        ...CurrencyActivityScreen,
-        ...CurrencyScreen
-      }).map(([name, { component, options }]: Array<any>, index) => (
-        <Stack.Screen
-          key={index}
-          name={name}
-          component={component}
-          options={options}
-        />
-      ))
-    }
-  </Stack.Navigator>
+const PortfolioStack: FC<Theming> = ({ theme }) => (
+  <View style={{ flex: 1, backgroundColor: theme.background }}>
+    <Stack.Navigator
+      initialRouteName="main"
+      screenOptions={{
+        header: props => <HeaderNavigation {...props} />
+      }}
+    >
+      {
+        Object.entries({
+          ...defaultScreen,
+          ...receiveScreen,
+          ...transactionTypeScreen,
+          ...depositScreen,
+          ...withdrawCryptoScreen,
+          ...withdrawFiatScreen,
+          ...internalTransactionScreen,
+          ...accountScreen,
+          ...currencyListScreen,
+          ...CurrencyActivityScreen,
+          ...CurrencyScreen
+        }).map(([name, { component, options }]: Array<any>, index) => (
+          <Stack.Screen
+            key={index}
+            name={name}
+            component={component}
+            options={options}
+          />
+        ))
+      }
+    </Stack.Navigator>
+  </View>
 );
+
+export default PortfolioStack;

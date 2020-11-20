@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center'
   },
-  listCotainer: {
+  listContainer: {
     justifyContent: 'space-between',
     flexDirection: 'row',
     alignSelf: 'center',

@@ -53,7 +53,7 @@ const Deposit: FC<DefaultProps> = ({ theming: { theme } }) => {
               <View style={styles.commisionTextContainer}>
                 <View style={styles.commisionBox}>
                   <Text style={[styles.textLeft, { color: theme.screenText }]}>{i18n.t('commission')}  </Text>
-                  <Icon name="help-circle" size={24} color={theme.defaultActiveIcon} ></Icon>
+                  <Icon name="help-circle" size={24} color={theme.summerSky} ></Icon>
                 </View>
                 <View style={styles.commisionBox}>
                   <Text style={[styles.textRight, { color: theme.veryLightGrey }]}>10$</Text>

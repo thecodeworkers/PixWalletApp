@@ -86,7 +86,7 @@ const ReceiveScreen: FC<ReceiveProps> = ({ theming: { theme }, selectedCurrency 
               : <Text style={[styles.copyText, { color: theme.screenText }]} >{i18n.t('tap_copy')}</Text>
           }
 
-          <TouchableOpacity style={[styles.clipBoardContainer, { borderColor: theme.summerSky }]} onPress={copyClipboard}>
+          <TouchableOpacity style={[styles.clipBoardContainer, { borderColor: theme.inputPasteBorder }]} onPress={copyClipboard}>
             <TextInput
               style={styles.clipBoardInput}
               placeholder={wallet}

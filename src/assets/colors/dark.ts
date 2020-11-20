@@ -7,6 +7,7 @@ const dark: any = {
   selectedCard: '#35A7D6',
   screenTitle: '#FCFCFC',
   screenText: '#F5F5F5',
+  defaultIcon: '#F5F5F5',
   defaultActiveIcon: '#E5E5E5',
   defaultInactiveIcon: '#313131',
   statusBar: 'light-content',
@@ -17,17 +18,21 @@ const dark: any = {
   whirspersInactive: '#313131',
   principalSeparator: '#E5E5E5',
   tabsTitle: '#E5E5E5',
-  tabsTitleClear: '#313131',
+  tabsTitleClear: '#C9C9C9',
   separatorGray: '#FFFFFF',
   currencyTab: '#5E5E5E',
-  shareButton: '#21212A',
+  shareButton: '#313131',
   inputBorder: '#636363',
+  inputPasteBorder: '#636363',
   twoFactBackground: '#1B1B1B',
   twoFactBorder: '#636363',
   inputBackground: '#313131',
   silverGradient: ['#313131', '#313131'],
   iconCard: '#313131',
   iconCardBorder: '#707070',
-  lineGray: '#636363'
+  lineGray: '#636363',
+  currencyTypeTabsBackground: '#5E5E5E',
+  currencyTypeTabsBackgroundTitle: '#C9C9C9',
+  currencyTypeTabsTitle: '#FFFFFF'
 }
 export default dark;

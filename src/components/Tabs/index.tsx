@@ -5,22 +5,22 @@ import styles from './styles';
 
 const Tabs: FC<TabsProps> = ({ theme, selectedTab = 0, crypto, fiat }) => {
 
-  const { background, defaultActiveIcon, veryLightGrey, whirspersInactive } = theme;
+  const { currencyTypeTabsBackgroundTitle, currencyTypeTabsBackground, currencyTypeTabsTitle, whirspersInactive } = theme;
 
   return (
     <View style={styles.tabParent}>
       <TouchableOpacity
-        style={[styles.childTab, selectedTab === 0 ? { backgroundColor: defaultActiveIcon } : { backgroundColor: whirspersInactive }]}
+        style={[styles.childTab, selectedTab === 0 ? { backgroundColor: currencyTypeTabsBackground } : { backgroundColor: whirspersInactive }]}
         onPress={crypto}
       >
-        <Text style={selectedTab === 0 ? { color: background } : { color: veryLightGrey }}>Crypto</Text>
+        <Text style={selectedTab === 0 ? { color: currencyTypeTabsBackgroundTitle } : { color: currencyTypeTabsTitle }}>Crypto</Text>
       </TouchableOpacity>
 
       <TouchableOpacity
-        style={[styles.childTab, selectedTab === 1 ? { backgroundColor: defaultActiveIcon } : { backgroundColor: whirspersInactive }]}
+        style={[styles.childTab, selectedTab === 1 ? { backgroundColor: currencyTypeTabsBackground } : { backgroundColor: whirspersInactive }]}
         onPress={fiat}
       >
-        <Text style={selectedTab === 1 ? { color: background } : { color: veryLightGrey }}>Fiat</Text>
+        <Text style={selectedTab === 1 ? { color: currencyTypeTabsBackgroundTitle } : { color: currencyTypeTabsTitle }}>Fiat</Text>
       </TouchableOpacity>
     </View>
   )

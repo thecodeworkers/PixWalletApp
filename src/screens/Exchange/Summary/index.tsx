@@ -33,7 +33,7 @@ const Summary: FC<DefaultProps> = ({ theming: { theme } }) => {
               <Text style={{ color: '#F7931A', fontSize: 19 }}>023.00 BTC</Text>
             </View>
             <View>
-              <Icon name="arrow-swap" size={20}/>
+              <Icon name="arrow-swap" size={20} color={theme.defaultIcon} />
             </View>
             <View style={{ alignItems: 'flex-end' }}>
               <Text style={{ color: '#21212A', fontSize: 12 }}>Receiving</Text>
