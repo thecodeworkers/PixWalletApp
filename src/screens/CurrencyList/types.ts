@@ -1,4 +1,4 @@
- import { DefaultProps } from '../../../types';
+ import { DefaultProps } from '../../types';
 
  export type ReducerProps = {
   currency: any

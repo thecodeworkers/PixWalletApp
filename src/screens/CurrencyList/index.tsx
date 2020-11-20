@@ -1,14 +1,13 @@
-import React, { FC, useState, useEffect } from 'react';
-import { StyleSheet, View, Text, StatusBar, TextInput, TouchableOpacity, ScrollView } from 'react-native';
-import { Separator, Tabs, ListCurrency, SearchInput } from '../../../components';
+import React, { FC, useState } from 'react';
+import { View, ScrollView } from 'react-native';
+import { Separator, Tabs, ListCurrency, SearchInput } from '../../components';
 import { ReducerProps, GeneralProps } from './types';
 import { connect } from 'react-redux';
 import styles from './styles';
 
-const CurrencyList: FC<GeneralProps> = ({ theming: { theme }, navigation, currency, route }) => {
-
+const CurrencyList: FC<GeneralProps> = ({ theming: { theme }, route }) => {
   const params = route?.params?.name;
-  const { background, defaultActiveIcon, veryLightGrey } = theme;
+  const { defaultActiveIcon } = theme;
   const [selectedTab, setSelectedTab] = useState(0);
 
   const fiatFunction = () => setSelectedTab(1);
@@ -31,7 +30,7 @@ const CurrencyList: FC<GeneralProps> = ({ theming: { theme }, navigation, curren
 
       <ScrollView style={{width: '100%'}}>
         <View style={styles.cardsParent}>
-            <ListCurrency gradient={false} route={params}/>
+          <ListCurrency gradient={false} route={params}/>
         </View>
       </ScrollView>
 

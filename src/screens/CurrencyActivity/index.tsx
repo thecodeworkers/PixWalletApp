@@ -1,16 +1,15 @@
 import React, { FC, useState } from 'react';
-import { StyleSheet, View, Text, StatusBar, TouchableOpacity, Dimensions } from 'react-native';
+import { View, Text, TouchableOpacity, Dimensions } from 'react-native';
 import { SlideAreaChart } from 'react-native-slide-charts';
-import { BtcSquare, DiagonalUp, DiagonalDown, Time } from '../../../assets/image/svg';
-import { Separator, ActivityCard } from '../../../components'
+import { DiagonalUp, DiagonalDown, Time } from '../../assets/image/svg';
+import { Separator, ActivityCard } from '../../components'
 import { connect } from 'react-redux';
-import styles from './styles';
-import { DefaultProps } from '../../../types';
-import { i18n } from '../../../utils';
 import { ScrollView } from 'react-native-gesture-handler';
 import { GeneralProps } from './types';
 import { bindActionCreators } from 'redux';
-import { selectCurrency } from '../../../store/actions';
+import { selectCurrency } from '../../store/actions';
+import { i18n } from '../../utils';
+import styles from './styles';
 
 const filters = [
   { text: '1D' },

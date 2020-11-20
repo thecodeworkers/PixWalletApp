@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { generalShadow } from '../../../assets/styles/shadow';
+import { generalShadow } from '../../assets/styles/shadow';
 
 const styles = StyleSheet.create({
   container: {

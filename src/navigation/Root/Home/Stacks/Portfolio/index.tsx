@@ -9,8 +9,8 @@ import {
   BankAccount,
   Whitelist,
   AccountCreate,
-  Receive,
-  Deposit,
+  DepositCrypto,
+  DepositFiat,
   WithdrawCryptoMain,
   WithdrawCryptoComplete,
   WithdrawCryptoSummary,
@@ -46,6 +46,24 @@ const transactionTypeScreen = {
   transactionType: {
     component: TransactionType,
     options: ({ route }: any) => ({ title: route?.params?.name })
+  }
+}
+
+const depositCryptoScreen = {
+  receive: {
+    component: DepositCrypto,
+    options: {
+      title: 'receive'
+    }
+  }
+}
+
+const depositFiatScreen = {
+  deposit: {
+    component: DepositFiat,
+    options: {
+      title: 'deposit'
+    }
   }
 }
 
@@ -89,24 +107,6 @@ const withdrawFiatScreen = {
       title: 'withdraw'
     }
   },
-}
-
-const depositScreen = {
-  deposit: {
-    component: Deposit,
-    options: {
-      title: 'deposit'
-    }
-  },
-}
-
-const receiveScreen = {
-  receive: {
-    component: Receive,
-    options: {
-      title: 'receive'
-    }
-  }
 }
 
 const internalTransactionScreen = {
@@ -155,7 +155,7 @@ const currencyListScreen = {
 const CurrencyActivityScreen = {
   currencyActivity: {
     component: CurrencyActivity,
-    options: ({route}: any) => ({ title: route?.params?.name })
+    options: ({ route }: any) => ({ title: route?.params?.name })
   }
 }
 
@@ -179,9 +179,9 @@ const PortfolioStack: FC<Theming> = ({ theme }) => (
       {
         Object.entries({
           ...defaultScreen,
-          ...receiveScreen,
           ...transactionTypeScreen,
-          ...depositScreen,
+          ...depositCryptoScreen,
+          ...depositFiatScreen,
           ...withdrawCryptoScreen,
           ...withdrawFiatScreen,
           ...internalTransactionScreen,

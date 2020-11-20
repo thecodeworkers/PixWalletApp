@@ -1,14 +1,14 @@
 import React, { FC, useState } from 'react';
 import { View, Text, Share, TouchableOpacity, TextInput, ScrollView } from 'react-native';
 import { connect } from 'react-redux';
-import { Announcement, DiamondCurrencies } from '../../components'
-import { i18n } from '../../utils';
+import { Announcement, DiamondCurrencies } from '../../../components'
+import { i18n } from '../../../utils';
 import styles from './styles'
 import QRCode from 'react-native-qrcode-svg';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 import FaIcons from 'react-native-vector-icons/FontAwesome5';
 import Clipboard from '@react-native-community/clipboard';
-import { InfoIcon } from '../../assets/image/svg/icons';
+import { InfoIcon } from '../../../assets/image/svg/icons';
 import { ReceiveProps } from './types'
 
 
@@ -65,7 +65,7 @@ const ReceiveScreen: FC<ReceiveProps> = ({ theming: { theme }, selectedCurrency 
             size={170}
             backgroundColor={theme.background}
             color={theme.screenText}
-            logo={require('../../assets/image/pix.png')}
+            logo={require('../../../assets/image/pix.png')}
             logoSize={30}
             logoBorderRadius={4}
           />

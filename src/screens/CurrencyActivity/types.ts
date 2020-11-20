@@ -1,4 +1,4 @@
-import { DefaultProps } from '../../../types';
+import { DefaultProps } from '../../types';
 
 export type GeneralProps = {
   selectedCurrency: any,
