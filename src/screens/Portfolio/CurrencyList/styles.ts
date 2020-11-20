@@ -15,8 +15,9 @@ const styles = StyleSheet.create({
 
   cardsParent: {
     marginTop: '7%',
-    width: '90%'
-  }
+    width: '90%',
+    alignSelf: 'center'
+  },
 
 });
 
