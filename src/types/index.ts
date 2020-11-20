@@ -8,7 +8,7 @@ export type DefaultProps = {
 }
 
 export type NavigationProps = {
-  navigation?: any
+  navigation: any
 }
 
 export type Theming = {

@@ -10,7 +10,7 @@ import { BankIcon, ClockIcon } from '../../../../assets/image/svg/icons';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import LinearGradient from 'react-native-linear-gradient';
 
-const WithdrawFiatMain: FC<WithdrawFiatProps> = ({ theming: { theme }, selectedCurrency }) => {
+const WithdrawFiatMain: FC<WithdrawFiatProps> = ({ theming: { theme }, selectedCurrency, navigation }) => {
 
   const currency = selectedCurrency.currency
 
@@ -35,7 +35,7 @@ const WithdrawFiatMain: FC<WithdrawFiatProps> = ({ theming: { theme }, selectedC
       </View>
 
       <View style={styles.addressContainer}>
-        <TouchableOpacity style={[styles.container, { backgroundColor: theme.defaultCard }]}>
+        <TouchableOpacity style={[styles.container, { backgroundColor: theme.defaultCard }]} onPress={() => navigation.navigate('bankAccount')}>
           <View style={styles.iconSection}>
             <View style={[{ backgroundColor: theme.iconCard, borderColor: theme.iconCardBorder }, styles.iconContainer]}>
               <View style={styles.iconArea}>

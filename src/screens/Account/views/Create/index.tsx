@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { View } from 'react-native';
+import { View, ScrollView } from 'react-native';
 import { DefaultProps } from '../../../../types';
 import { DynamicForm } from '../../../../components';
 import { connect } from 'react-redux';
@@ -49,14 +49,13 @@ const elements: Array<any> = [
 ];
 
 const Create: FC<any> = ({ theming: { theme } }) => (
-  <View style={[styles.container, { backgroundColor: theme.background }]}>
-    <View style={{ flex: 0.2 }}>
-
+  <ScrollView style={[styles.container, { backgroundColor: theme.background }]}>
+    <View style={styles.subContainer}>
+      <View style={styles.formContainer}>
+        <DynamicForm elements={elements} theme={theme} />
+      </View>
     </View>
-    <View style={styles.formContainer}>
-      <DynamicForm elements={elements} theme={theme} />
-    </View>
-  </View>
+  </ScrollView>
 );
 
 const mapStateToProps = ({ theming }: DefaultProps): DefaultProps => ({ theming });

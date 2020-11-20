@@ -2,12 +2,15 @@ import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flex: 1
+  },
+  subContainer: {
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    marginTop: '20%',
+    marginBottom: '5%'
   },
   formContainer: {
-    flex: 0.8,
     width: '75%',
     alignItems: 'center'
   }

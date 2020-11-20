@@ -61,36 +61,42 @@ const DATA = [
 
 const Whitelist: FC<any> = ({ theming: { theme } }) => {
   const [address, setAddress] = useState('');
+  const [height, setHeight] = useState(0);
 
   useEffect(() => {
-    return () => setAddress('');
+    return () => {
+      setAddress('');
+      setHeight(0);
+    }
   }, []);
 
   return (
-    <View style={[styles.container, { backgroundColor: theme.background }]}>
-      <View style={styles.topContainer}>
-        {
-          address ? (
-            <View style={styles.addressContainer}>
-              <Text style={{ color: theme.screenText }}>Sent to</Text>
-              <Text style={styles.addressSelected}>1qwteydhfa132gswrdgsfqtt...</Text>
-            </View>
-          ) : null
-        }
-        <View style={styles.buttonContainer}>
-          <CreateAccountButton theme={theme}/>
+    <View onLayout={dimensions => { if(!height) setHeight(dimensions.nativeEvent.layout.height) }} style={[styles.container, { backgroundColor: theme.background }]}>
+      <View style={{ height }}>
+        <View style={styles.topContainer}>
+          {
+            address ? (
+              <View style={styles.addressContainer}>
+                <Text style={{ color: theme.screenText }}>Sent to</Text>
+                <Text style={styles.addressSelected}>1qwteydhfa132gswrdgsfqtt...</Text>
+              </View>
+            ) : null
+          }
+          <View style={styles.buttonContainer}>
+            <CreateAccountButton theme={theme}/>
+          </View>
+          <View style={[{ flex: address ? 0.4 : 0.5 }, styles.searchContainer]}>
+            <SearchInput theme={theme} />
+          </View>
         </View>
-        <View style={[{ flex: address ? 0.4 : 0.5 }, styles.searchContainer]}>
-          <SearchInput theme={theme} />
+        <View style={styles.listContainer}>
+          <FlatList
+            style={{ marginTop: '10%' }}
+            data={DATA}
+            renderItem={props => <ListItem theme={theme} {...props} onPress={index  => setAddress(DATA[index].address)} />}
+            keyExtractor={(item: any) => item.id}
+          />
         </View>
-      </View>
-      <View style={styles.listContainer}>
-        <FlatList
-          style={{ marginTop: '10%' }}
-          data={DATA}
-          renderItem={props => <ListItem theme={theme} {...props} onPress={index  => setAddress(DATA[index].address)} />}
-          keyExtractor={(item: any) => item.id}
-        />
       </View>
     </View>
   );

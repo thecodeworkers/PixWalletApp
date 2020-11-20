@@ -2,6 +2,7 @@ import React, { FC } from 'react';
 import { View, FlatList } from 'react-native';
 import { CreateAccountButton, ListItem } from '../../components';
 import { DefaultProps } from '../../../../types';
+import { BankAccountProps } from './types';
 import { connect } from 'react-redux';
 import styles from './styles';
 
@@ -53,13 +54,13 @@ const DATA = [
   }
 ];
 
-const BankAccount: FC<any> = ({ theming: { theme } }) => {
+const BankAccount: FC<BankAccountProps> = ({ theming: { theme }, navigation }) => {
   return (
     <View style={[styles.container, { backgroundColor: theme.background }]}>
       <FlatList
         style={{ marginTop: '5%' }}
         data={DATA}
-        renderItem={props => <ListItem theme={theme} {...props} showTopLine={false} onPress={index  => console.log(index)} />}
+        renderItem={props => <ListItem theme={theme} {...props} showTopLine={false} onPress={()  => navigation.goBack()} />}
         keyExtractor={(item: any) => item.id}
         ListFooterComponent={() => (
           <CreateAccountButton theme={theme}/>

@@ -2,6 +2,7 @@ import React, { FC } from 'react';
 import { Text, TouchableOpacity } from 'react-native';
 import { Formik, FormikValues } from 'formik';
 import { DynamicFormProps } from './types';
+import { useNavigation } from '@react-navigation/native';
 import FormItem from './components';
 
 const validate = (values: FormikValues) => {
@@ -21,6 +22,7 @@ const validate = (values: FormikValues) => {
 
 
 const DynamicForm: FC<DynamicFormProps> = ({ elements, theme }) => {
+  const navigation = useNavigation();
   const initialValues: any = {};
 
   elements.forEach(({ name, value }) => {
@@ -30,7 +32,7 @@ const DynamicForm: FC<DynamicFormProps> = ({ elements, theme }) => {
   return (
     <Formik
     initialValues={initialValues}
-    onSubmit={values => console.log(values)}
+    onSubmit={() => navigation.goBack()}
     validate={validate}
     >
       {({ handleChange, handleBlur, handleSubmit, values, isValid, errors, touched }: any) => {
@@ -56,7 +58,7 @@ const DynamicForm: FC<DynamicFormProps> = ({ elements, theme }) => {
                 )
               })
             }
-            <TouchableOpacity onPress={handleSubmit} disabled={!isValid}>
+            <TouchableOpacity onPress={handleSubmit}>
               <Text style={{ color: theme.summerSky, fontWeight: 'bold' }}>Done</Text>
             </TouchableOpacity>
           </>
