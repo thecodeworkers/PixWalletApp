@@ -9,6 +9,8 @@ import { DefaultProps } from '../../../types';
 import { i18n } from '../../../utils';
 import { ScrollView } from 'react-native-gesture-handler';
 import { GeneralProps } from './types';
+import { bindActionCreators } from 'redux';
+import { selectCurrency } from '../../../store/actions';
 
 const filters = [
   { text: '1D' },
@@ -44,7 +46,7 @@ const yValues = [
 
 const screenWidth = Dimensions.get('window').width;
 
-const CurrencyActivity: FC<GeneralProps> = ({ theming: { theme }, navigation, selectedCurrency }) => {
+const CurrencyActivity: FC<GeneralProps> = ({ theming: { theme }, navigation, selectedCurrency, action}) => {
 
   const [filter, setFilter] = useState(4);
 
@@ -55,10 +57,18 @@ const CurrencyActivity: FC<GeneralProps> = ({ theming: { theme }, navigation, se
   };
 
   const redirection = (type: string) => {
-    if (type == 'withdraw' && currency.type == 'FIAT') navigation.navigate('transactionType', {name: 'withdraw'});
-    if (type == 'deposit' && currency.type == 'FIAT') navigation.navigate('transactionType', {name: 'deposit'});
+    if (type == 'withdraw' && currency.type == 'FIAT' || type == 'deposit' && currency.type == 'FIAT') navigation.navigate('transactionType', {name: type});
     if (type == 'withdraw' && currency.type == 'CRYPTO') navigation.navigate('withdrawCryptoMain');
     if (type == 'deposit' && currency.type == 'CRYPTO') navigation.navigate('receive');
+
+    const data = {
+      symbol: currency.symbol,
+      type: currency.type,
+      color: currency.color,
+      transactionType: type
+    };
+
+    action.selectCurrency(data);
   };
 
   return (
@@ -239,6 +249,16 @@ const CurrencyActivity: FC<GeneralProps> = ({ theming: { theme }, navigation, se
   );
 }
 
-const mapStateToProps = ({ theming, selectedCurrency }: GeneralProps): GeneralProps => ({ theming, selectedCurrency })
+const mapStateToProps = ({ theming, selectedCurrency }: GeneralProps): GeneralProps => ({ theming, selectedCurrency });
 
-export default connect(mapStateToProps)(CurrencyActivity);
+const mapDispatchToProps = (dispatch: any) => {
+  const actions = {
+    selectCurrency
+  };
+
+  return {
+    action: bindActionCreators(actions, dispatch),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(CurrencyActivity);
