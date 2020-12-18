@@ -1,4 +1,4 @@
-package com.pixwalletapp;
+package com.thecodeworkers.pixwalletapp;
 
 import android.os.Bundle;
 import com.facebook.react.ReactActivity;

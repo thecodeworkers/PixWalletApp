@@ -1,4 +1,4 @@
-package com.pixwalletapp;
+package com.thecodeworkers.pixwalletapp;
 
 import android.content.Intent;
 import android.os.Bundle;
